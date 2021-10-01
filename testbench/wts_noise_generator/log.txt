@@ -1,0 +1,10 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 06:21:45 on Sep 25,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_noise_generator
+# do run.do
+# ** Note: $finish    : tb.sv(82)
+#    Time: 1347842160 ps  Iteration: 1  Instance: /tb
+# End time: 06:21:46 on Sep 25,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
