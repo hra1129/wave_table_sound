@@ -20,22 +20,42 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_ram (
+module wts_channel_volume (
+	input			nreset,					//	negative logic
 	input			clk,
-	input			sram_we,
-	input	[8:0]	sram_a,
-	input	[7:0]	sram_d,
-	output	[7:0]	sram_q
+	input	[8:0]	envelope,
+	input	[7:0]	sram_q,					//	signed
+	output	[7:0]	channel,				//	signed
+	input	[3:0]	reg_volume
 );
-	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [383:0];		//	8bit 384word
+	reg		[7:0]	ff_wave;				//	signed
+	reg		[8:0]	ff_envelope;
+	wire	[16:0]	w_wave_mul;				//	signed
+	wire	[7:0]	w_wave_round;			//	signed
+	reg		[7:0]	ff_channel_wave;		//	signed
+	wire	[12:0]	w_channel_mul;
+	wire	[7:0]	w_channel_round;
+	reg		[7:0]	ff_channel;				//	signed
 
-	always @( posedge clk ) begin
-		if( sram_we ) begin
-			ram_array[ sram_a ] <= sram_d;
+	assign w_wave_mul		= $signed( ff_wave ) * $signed( { 1'b0, ff_envelope[7:0] } );
+	assign w_wave_round		= (w_wave_mul[15] && (w_wave_mul[7:0] != 8'd0)) ? ( w_wave_mul[15:8] + 8'd1 ) ? w_wave_mul[15:8];
+	assign w_channel_mul	= $signed( ff_channel_wave ) * $signed( 1'b0, reg_volume );
+	assign w_channel_round	= (w_channel_mul[11] && (w_channel_mul[3:0] != 4'd0)) ? ( w_channel_mul[11:4] + 8'd1 ) : w_channel_mul[11:4];
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave			<= 8'd0;
+			ff_envelope		<= 9'd0;
+			ff_channel_wave	<= 8'd0;
+			ff_channel		<= 8'd0;
 		end
 		else begin
-			ff_sram_q	<= ram_array[ sram_a ];
+			ff_wave			<= sram_q;
+			ff_envelope		<= envelope;
+			ff_channel_wave	<= ff_envelope[8] ? ff_wave : w_wave_round;
+			ff_channel		<= w_round;
 		end
 	end
+
+	assign channel			= ff_channel;
 endmodule
