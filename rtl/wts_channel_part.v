@@ -20,53 +20,60 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_noise_generator (
+module wts_channel_part (
 	input			nreset,					//	negative logic
 	input			clk,
 	input			active,					//	3.579MHz timing pulse
-	input			enable,
-	output			noise,
-	input	[4:0]	reg_frequency_count
+	input			key_on,					//	pulse
+	input			key_release,			//	pulse
+	input			key_off,				//	pulse
+	output	[8:0]	envelope,
+	output	[6:0]	sram_a,
+	input			reg_noise_enable,
+	input	[15:0]	reg_ar,
+	input	[15:0]	reg_dr,
+	input	[15:0]	reg_sr,
+	input	[15:0]	reg_rr,
+	input	[7:0]	reg_sl,
+	input	[1:0]	reg_wave_length,
+	input	[11:0]	reg_frequency_count
 );
-	reg		[4:0]	ff_counter;
-	reg		[17:0]	ff_noise;
-	wire	[4:0]	w_count_base;
-	wire	[4:0]	w_count_next;
-	wire			w_count_end;
-	wire			w_noise_0;
+	wire			w_noise;
+	wire	[8:0]	w_envelope;
 
-	// frequency counter ------------------------------------------------------
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_counter <= 5'd0;
-		end
-		else if( active ) begin
-			ff_counter <= w_count_next;
-		end
-		else begin
-			//	hold
-		end
-	end
+	wts_noise_generator u_noise_generator (
+		.nreset					( nreset				),
+		.clk					( clk					),
+		.active					( active				),
+		.enable					( reg_noise_enable		),
+		.noise					( w_noise				),
+		.reg_frequency_count	( reg_frequency_count	)
+	);
 
-	assign w_count_base	= w_count_end ? reg_frequency_count : ff_counter;
-	assign w_count_next	= w_count_base - 5'd1;
-	assign w_count_end	= ( ff_counter == 5'd0 ) ? 1'b1 : 1'b0;
+	wts_adsr_envelope_generator u_adsr_envelope_generator (
+		.nreset					( nreset				),
+		.clk					( clk					),
+		.active					( active				),
+		.key_on					( key_on				),
+		.key_release			( key_release			),
+		.key_off				( key_off				),
+		.envelope				( w_envelope			),
+		.reg_ar					( reg_ar				),
+		.reg_dr					( reg_dr				),
+		.reg_sr					( reg_sr				),
+		.reg_rr					( reg_rr				),
+		.reg_sl					( reg_sl				)
+	);
 
-	// random signal generator ------------------------------------------------
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_noise <= { 18 { 1'b1 } };
-		end
-		else if( active && w_count_end ) begin
-			ff_noise <= { ff_noise[16:0], w_noise_0 };
-		end
-		else begin
-			//	hold
-		end
-	end
+	wts_tone_generator u_tone_generator (
+		.nreset					( nreset				),
+		.clk					( clk					),
+		.active					( active				),
+		.address_reset			( address_reset			),
+		.wave_address			( sram_a				),
+		.reg_wave_length		( reg_wave_length		),
+		.reg_frequency_count	( reg_frequency_count	)
+	);
 
-	assign w_noise_0	= (ff_noise == 18'd0) ? 1'b1 : (ff_noise[14] ^ ff_noise[17]);
-
-	// output assignment ------------------------------------------------------
-	assign noise		= ~enable | ff_noise[17];
+	assign envelope		= w_noise ? w_envelope : 9'd0;
 endmodule
