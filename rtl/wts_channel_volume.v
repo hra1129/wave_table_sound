@@ -38,8 +38,8 @@ module wts_channel_volume (
 	reg		[7:0]	ff_channel;				//	signed
 
 	assign w_wave_mul		= $signed( ff_wave ) * $signed( { 1'b0, ff_envelope[7:0] } );
-	assign w_wave_round		= (w_wave_mul[15] && (w_wave_mul[7:0] != 8'd0)) ? ( w_wave_mul[15:8] + 8'd1 ) ? w_wave_mul[15:8];
-	assign w_channel_mul	= $signed( ff_channel_wave ) * $signed( 1'b0, reg_volume );
+	assign w_wave_round		= (w_wave_mul[15] && (w_wave_mul[7:0] != 8'd0)) ? ( w_wave_mul[15:8] + 8'd1 ) : w_wave_mul[15:8];
+	assign w_channel_mul	= $signed( ff_channel_wave ) * $signed( { 1'b0, reg_volume } );
 	assign w_channel_round	= (w_channel_mul[11] && (w_channel_mul[3:0] != 4'd0)) ? ( w_channel_mul[11:4] + 8'd1 ) : w_channel_mul[11:4];
 
 	always @( negedge nreset or posedge clk ) begin
@@ -53,7 +53,7 @@ module wts_channel_volume (
 			ff_wave			<= sram_q;
 			ff_envelope		<= envelope;
 			ff_channel_wave	<= ff_envelope[8] ? ff_wave : w_wave_round;
-			ff_channel		<= w_round;
+			ff_channel		<= w_channel_round;
 		end
 	end
 

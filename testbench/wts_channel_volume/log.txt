@@ -1,0 +1,17 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 22:38:59 on Oct 02,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_channel_volume
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Data can be written.
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(70)
+#    Time: 6960720 ps  Iteration: 1  Instance: /tb
+# End time: 22:38:59 on Oct 02,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
