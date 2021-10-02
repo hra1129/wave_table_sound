@@ -176,6 +176,8 @@ module wts_channel_mixer (
 	wire	[7:0]	w_channel1;
 	wire	[7:0]	w_left_channel1;
 	wire	[7:0]	w_right_channel1;
+	wire	[8:0]	w_left_channel;
+	wire	[8:0]	w_right_channel;
 	reg		[11:0]	ff_left_integ;
 	reg		[11:0]	ff_right_integ;
 	reg		[11:0]	ff_left_out;
@@ -294,7 +296,7 @@ module wts_channel_mixer (
 		.key_off				( ch_f0_key_off				),
 		.envelope				( w_envelope_f0				),
 		.sram_a					( w_sram_a_f0				),
-		.reg_noise_enable		( reg_noise_enable_f	0	),
+		.reg_noise_enable		( reg_noise_enable_f0		),
 		.reg_ar					( reg_ar_f0					),
 		.reg_dr					( reg_dr_f0					),
 		.reg_sr					( reg_sr_f0					),
@@ -531,12 +533,12 @@ module wts_channel_mixer (
 			ff_right_integ		<= 12'd0;
 		end
 		else if( ff_active[5] ) begin
-			ff_left_integ		<= { 3 { w_left_channel[8]  }, w_left_channel  };
-			ff_right_integ		<= { 3 { w_right_channel[8] }, w_right_channel };
+			ff_left_integ		<= { { 3 { w_left_channel[8]  } }, w_left_channel  };
+			ff_right_integ		<= { { 3 { w_right_channel[8] } }, w_right_channel };
 		end
 		else begin
-			ff_left_integ		<= ff_left_integ  + { 3 { w_left_channel[8]  }, w_left_channel  };
-			ff_right_integ		<= ff_right_integ + { 3 { w_right_channel[8] }, w_right_channel };
+			ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel[8]  } }, w_left_channel  };
+			ff_right_integ		<= ff_right_integ + { { 3 { w_right_channel[8] } }, w_right_channel };
 		end
 	end
 

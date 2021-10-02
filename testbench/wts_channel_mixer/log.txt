@@ -1,0 +1,107 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 23:00:12 on Oct 02,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_channel_mixer
+# Loading work.wts_channel_part
+# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator
+# Loading work.wts_tone_generator
+# Loading work.wts_ram
+# Loading work.wts_channel_volume
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(195): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_a0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(195): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_a0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_a0/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(214): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_b0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(214): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_b0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_b0/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(233): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_c0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(233): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_c0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_c0/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(252): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_d0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(252): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_d0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_d0/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(271): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_e0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(271): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_e0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_e0/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(290): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_f0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(290): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_f0 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_f0/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(309): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_a1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(309): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_a1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_a1/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(328): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_b1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(328): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_b1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_b1/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(347): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_c1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(347): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_c1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_c1/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(366): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_d1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(366): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_d1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_d1/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(385): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_e1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(385): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_e1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_e1/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(404): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_part.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_f1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(404): [PCDPC] - Port size (7) does not match connection size (1) for port 'sram_a'. The port definition is at: ../../rtl/wts_channel_part.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_f1 File: ../../rtl/wts_channel_part.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_part.v(44): [PCDPC] - Port size (5) does not match connection size (12) for port 'reg_frequency_count'. The port definition is at: ../../rtl/wts_noise_generator.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ch_f1/u_noise_generator File: ../../rtl/wts_noise_generator.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(468): [PCDPC] - Port size (8) does not match connection size (1) for port 'sram_d'. The port definition is at: ../../rtl/wts_ram.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ram00 File: ../../rtl/wts_ram.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(476): [PCDPC] - Port size (8) does not match connection size (1) for port 'sram_d'. The port definition is at: ../../rtl/wts_ram.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ram01 File: ../../rtl/wts_ram.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(484): [PCDPC] - Port size (8) does not match connection size (1) for port 'sram_d'. The port definition is at: ../../rtl/wts_ram.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ram10 File: ../../rtl/wts_ram.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(492): [PCDPC] - Port size (8) does not match connection size (1) for port 'sram_d'. The port definition is at: ../../rtl/wts_ram.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_ram11 File: ../../rtl/wts_ram.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(503): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_volume.v(26).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_channel_volume0 File: ../../rtl/wts_channel_volume.v
+# ** Warning: (vsim-3015) ../../rtl/wts_channel_mixer.v(512): [PCDPC] - Port size (9) does not match connection size (1) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_volume.v(26).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_channel_volume1 File: ../../rtl/wts_channel_volume.v
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Data can be written.
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(318)
+#    Time: 6960720 ps  Iteration: 1  Instance: /tb
+# End time: 23:00:12 on Oct 02,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 42
