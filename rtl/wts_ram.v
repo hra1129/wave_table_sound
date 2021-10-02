@@ -38,4 +38,6 @@ module wts_ram (
 			ff_sram_q	<= ram_array[ sram_a ];
 		end
 	end
+
+	assign sram_q	= ff_sram_q;
 endmodule
