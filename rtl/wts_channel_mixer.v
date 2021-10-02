@@ -25,30 +25,138 @@ module wts_channel_mixer (
 	input			clk,
 	output	[11:0]	left_out,
 	output	[11:0]	right_out,
+
 	input	[3:0]	reg_volume_a0,
-	input	[3:0]	reg_volume_b0,
-	input	[3:0]	reg_volume_c0,
-	input	[3:0]	reg_volume_d0,
-	input	[3:0]	reg_volume_e0,
-	input	[3:0]	reg_volume_f0,
-	input	[3:0]	reg_volume_a1,
-	input	[3:0]	reg_volume_b1,
-	input	[3:0]	reg_volume_c1,
-	input	[3:0]	reg_volume_d1,
-	input	[3:0]	reg_volume_e1,
-	input	[3:0]	reg_volume_f1,
 	input	[1:0]	reg_enable_a0,
+	input			reg_noise_enable_a0,
+	input	[15:0]	reg_ar_a0,
+	input	[15:0]	reg_dr_a0,
+	input	[15:0]	reg_sr_a0,
+	input	[15:0]	reg_rr_a0,
+	input	[7:0]	reg_sl_a0,
+	input	[1:0]	reg_wave_length_a0,
+	input	[11:0]	reg_frequency_count_a0,
+
+	input	[3:0]	reg_volume_b0,
 	input	[1:0]	reg_enable_b0,
+	input			reg_noise_enable_b0,
+	input	[15:0]	reg_ar_b0,
+	input	[15:0]	reg_dr_b0,
+	input	[15:0]	reg_sr_b0,
+	input	[15:0]	reg_rr_b0,
+	input	[7:0]	reg_sl_b0,
+	input	[1:0]	reg_wave_length_b0,
+	input	[11:0]	reg_frequency_count_b0,
+
+	input	[3:0]	reg_volume_c0,
 	input	[1:0]	reg_enable_c0,
+	input			reg_noise_enable_c0,
+	input	[15:0]	reg_ar_c0,
+	input	[15:0]	reg_dr_c0,
+	input	[15:0]	reg_sr_c0,
+	input	[15:0]	reg_rr_c0,
+	input	[7:0]	reg_sl_c0,
+	input	[1:0]	reg_wave_length_c0,
+	input	[11:0]	reg_frequency_count_c0,
+
+	input	[3:0]	reg_volume_d0,
 	input	[1:0]	reg_enable_d0,
+	input			reg_noise_enable_d0,
+	input	[15:0]	reg_ar_d0,
+	input	[15:0]	reg_dr_d0,
+	input	[15:0]	reg_sr_d0,
+	input	[15:0]	reg_rr_d0,
+	input	[7:0]	reg_sl_d0,
+	input	[1:0]	reg_wave_length_d0,
+	input	[11:0]	reg_frequency_count_d0,
+
+	input	[3:0]	reg_volume_e0,
 	input	[1:0]	reg_enable_e0,
+	input			reg_noise_enable_e0,
+	input	[15:0]	reg_ar_e0,
+	input	[15:0]	reg_dr_e0,
+	input	[15:0]	reg_sr_e0,
+	input	[15:0]	reg_rr_e0,
+	input	[7:0]	reg_sl_e0,
+	input	[1:0]	reg_wave_length_e0,
+	input	[11:0]	reg_frequency_count_e0,
+
+	input	[3:0]	reg_volume_f0,
 	input	[1:0]	reg_enable_f0,
+	input			reg_noise_enable_f0,
+	input	[15:0]	reg_ar_f0,
+	input	[15:0]	reg_dr_f0,
+	input	[15:0]	reg_sr_f0,
+	input	[15:0]	reg_rr_f0,
+	input	[7:0]	reg_sl_f0,
+	input	[1:0]	reg_wave_length_f0,
+	input	[11:0]	reg_frequency_count_f0,
+
+	input	[3:0]	reg_volume_a1,
 	input	[1:0]	reg_enable_a1,
+	input			reg_noise_enable_a1,
+	input	[15:0]	reg_ar_a1,
+	input	[15:0]	reg_dr_a1,
+	input	[15:0]	reg_sr_a1,
+	input	[15:0]	reg_rr_a1,
+	input	[7:0]	reg_sl_a1,
+	input	[1:0]	reg_wave_length_a1,
+	input	[11:0]	reg_frequency_count_a1,
+
+	input	[3:0]	reg_volume_b1,
 	input	[1:0]	reg_enable_b1,
+	input			reg_noise_enable_b1,
+	input	[15:0]	reg_ar_b1,
+	input	[15:0]	reg_dr_b1,
+	input	[15:0]	reg_sr_b1,
+	input	[15:0]	reg_rr_b1,
+	input	[7:0]	reg_sl_b1,
+	input	[1:0]	reg_wave_length_b1,
+	input	[11:0]	reg_frequency_count_b1,
+
+	input	[3:0]	reg_volume_c1,
 	input	[1:0]	reg_enable_c1,
+	input			reg_noise_enable_c1,
+	input	[15:0]	reg_ar_c1,
+	input	[15:0]	reg_dr_c1,
+	input	[15:0]	reg_sr_c1,
+	input	[15:0]	reg_rr_c1,
+	input	[7:0]	reg_sl_c1,
+	input	[1:0]	reg_wave_length_c1,
+	input	[11:0]	reg_frequency_count_c1,
+
+	input	[3:0]	reg_volume_d1,
 	input	[1:0]	reg_enable_d1,
+	input			reg_noise_enable_d1,
+	input	[15:0]	reg_ar_d1,
+	input	[15:0]	reg_dr_d1,
+	input	[15:0]	reg_sr_d1,
+	input	[15:0]	reg_rr_d1,
+	input	[7:0]	reg_sl_d1,
+	input	[1:0]	reg_wave_length_d1,
+	input	[11:0]	reg_frequency_count_d1,
+
+	input	[3:0]	reg_volume_e1,
 	input	[1:0]	reg_enable_e1,
+	input			reg_noise_enable_e1,
+	input	[15:0]	reg_ar_e1,
+	input	[15:0]	reg_dr_e1,
+	input	[15:0]	reg_sr_e1,
+	input	[15:0]	reg_rr_e1,
+	input	[7:0]	reg_sl_e1,
+	input	[1:0]	reg_wave_length_e1,
+	input	[11:0]	reg_frequency_count_e1,
+
+	input	[3:0]	reg_volume_f1,
 	input	[1:0]	reg_enable_f1,
+	input			reg_noise_enable_f1,
+	input	[15:0]	reg_ar_f1,
+	input	[15:0]	reg_dr_f1,
+	input	[15:0]	reg_sr_f1,
+	input	[15:0]	reg_rr_f1,
+	input	[7:0]	reg_sl_f1,
+	input	[1:0]	reg_wave_length_f1,
+	input	[11:0]	reg_frequency_count_f1
 );
 	reg		[5:0]	ff_active;
 	wire	[3:0]	w_volume0;
@@ -62,6 +170,12 @@ module wts_channel_mixer (
 	wire	[7:0]	w_sram_q1;
 	wire	[7:0]	w_sram_q10;
 	wire	[7:0]	w_sram_q11;
+	wire	[7:0]	w_channel0;
+	wire	[7:0]	w_left_channel0;
+	wire	[7:0]	w_right_channel0;
+	wire	[7:0]	w_channel1;
+	wire	[7:0]	w_left_channel1;
+	wire	[7:0]	w_right_channel1;
 	reg		[11:0]	ff_left_integ;
 	reg		[11:0]	ff_right_integ;
 	reg		[11:0]	ff_left_out;
@@ -75,6 +189,234 @@ module wts_channel_mixer (
 			ff_active <= { ff_active[4:0], ff_active[5] };
 		end
 	end
+
+	wts_channel_part u_ch_a0 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_a0_key_on				),
+		.key_release			( ch_a0_key_release			),
+		.key_off				( ch_a0_key_off				),
+		.envelope				( w_envelope_a0				),
+		.sram_a					( w_sram_a_a0				),
+		.reg_noise_enable		( reg_noise_enable_a0		),
+		.reg_ar					( reg_ar_a0					),
+		.reg_dr					( reg_dr_a0					),
+		.reg_sr					( reg_sr_a0					),
+		.reg_rr					( reg_rr_a0					),
+		.reg_sl					( reg_sl_a0					),
+		.reg_wave_length		( reg_wave_length_a0		),
+		.reg_frequency_count	( reg_frequency_count_a0	)
+	);
+
+	wts_channel_part u_ch_b0 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_b0_key_on				),
+		.key_release			( ch_b0_key_release			),
+		.key_off				( ch_b0_key_off				),
+		.envelope				( w_envelope_b0				),
+		.sram_a					( w_sram_a_b0				),
+		.reg_noise_enable		( reg_noise_enable_b0		),
+		.reg_ar					( reg_ar_b0					),
+		.reg_dr					( reg_dr_b0					),
+		.reg_sr					( reg_sr_b0					),
+		.reg_rr					( reg_rr_b0					),
+		.reg_sl					( reg_sl_b0					),
+		.reg_wave_length		( reg_wave_length_b0		),
+		.reg_frequency_count	( reg_frequency_count_b0	)
+	);
+
+	wts_channel_part u_ch_c0 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_c0_key_on				),
+		.key_release			( ch_c0_key_release			),
+		.key_off				( ch_c0_key_off				),
+		.envelope				( w_envelope_c0				),
+		.sram_a					( w_sram_a_c0				),
+		.reg_noise_enable		( reg_noise_enable_c0		),
+		.reg_ar					( reg_ar_c0					),
+		.reg_dr					( reg_dr_c0					),
+		.reg_sr					( reg_sr_c0					),
+		.reg_rr					( reg_rr_c0					),
+		.reg_sl					( reg_sl_c0					),
+		.reg_wave_length		( reg_wave_length_c0		),
+		.reg_frequency_count	( reg_frequency_count_c0	)
+	);
+
+	wts_channel_part u_ch_d0 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_d0_key_on				),
+		.key_release			( ch_d0_key_release			),
+		.key_off				( ch_d0_key_off				),
+		.envelope				( w_envelope_d0				),
+		.sram_a					( w_sram_a_d0				),
+		.reg_noise_enable		( reg_noise_enable_d0		),
+		.reg_ar					( reg_ar_d0					),
+		.reg_dr					( reg_dr_d0					),
+		.reg_sr					( reg_sr_d0					),
+		.reg_rr					( reg_rr_d0					),
+		.reg_sl					( reg_sl_d0					),
+		.reg_wave_length		( reg_wave_length_d0		),
+		.reg_frequency_count	( reg_frequency_count_d0	)
+	);
+
+	wts_channel_part u_ch_e0 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_e0_key_on				),
+		.key_release			( ch_e0_key_release			),
+		.key_off				( ch_e0_key_off				),
+		.envelope				( w_envelope_e0				),
+		.sram_a					( w_sram_a_e0				),
+		.reg_noise_enable		( reg_noise_enable_e0		),
+		.reg_ar					( reg_ar_e0					),
+		.reg_dr					( reg_dr_e0					),
+		.reg_sr					( reg_sr_e0					),
+		.reg_rr					( reg_rr_e0					),
+		.reg_sl					( reg_sl_e0					),
+		.reg_wave_length		( reg_wave_length_e0		),
+		.reg_frequency_count	( reg_frequency_count_e0	)
+	);
+
+	wts_channel_part u_ch_f0 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_f0_key_on				),
+		.key_release			( ch_f0_key_release			),
+		.key_off				( ch_f0_key_off				),
+		.envelope				( w_envelope_f0				),
+		.sram_a					( w_sram_a_f0				),
+		.reg_noise_enable		( reg_noise_enable_f	0	),
+		.reg_ar					( reg_ar_f0					),
+		.reg_dr					( reg_dr_f0					),
+		.reg_sr					( reg_sr_f0					),
+		.reg_rr					( reg_rr_f0					),
+		.reg_sl					( reg_sl_f0					),
+		.reg_wave_length		( reg_wave_length_f0		),
+		.reg_frequency_count	( reg_frequency_count_f0	)
+	);
+
+	wts_channel_part u_ch_a1 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_a1_key_on				),
+		.key_release			( ch_a1_key_release			),
+		.key_off				( ch_a1_key_off				),
+		.envelope				( w_envelope_a1				),
+		.sram_a					( w_sram_a_a1				),
+		.reg_noise_enable		( reg_noise_enable_a1		),
+		.reg_ar					( reg_ar_a1					),
+		.reg_dr					( reg_dr_a1					),
+		.reg_sr					( reg_sr_a1					),
+		.reg_rr					( reg_rr_a1					),
+		.reg_sl					( reg_sl_a1					),
+		.reg_wave_length		( reg_wave_length_a1		),
+		.reg_frequency_count	( reg_frequency_count_a1	)
+	);
+
+	wts_channel_part u_ch_b1 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_b1_key_on				),
+		.key_release			( ch_b1_key_release			),
+		.key_off				( ch_b1_key_off				),
+		.envelope				( w_envelope_b1				),
+		.sram_a					( w_sram_a_b1				),
+		.reg_noise_enable		( reg_noise_enable_b1		),
+		.reg_ar					( reg_ar_b1					),
+		.reg_dr					( reg_dr_b1					),
+		.reg_sr					( reg_sr_b1					),
+		.reg_rr					( reg_rr_b1					),
+		.reg_sl					( reg_sl_b1					),
+		.reg_wave_length		( reg_wave_length_b1		),
+		.reg_frequency_count	( reg_frequency_count_b1	)
+	);
+
+	wts_channel_part u_ch_c1 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_c1_key_on				),
+		.key_release			( ch_c1_key_release			),
+		.key_off				( ch_c1_key_off				),
+		.envelope				( w_envelope_c1				),
+		.sram_a					( w_sram_a_c1				),
+		.reg_noise_enable		( reg_noise_enable_c1		),
+		.reg_ar					( reg_ar_c1					),
+		.reg_dr					( reg_dr_c1					),
+		.reg_sr					( reg_sr_c1					),
+		.reg_rr					( reg_rr_c1					),
+		.reg_sl					( reg_sl_c1					),
+		.reg_wave_length		( reg_wave_length_c1		),
+		.reg_frequency_count	( reg_frequency_count_c1	)
+	);
+
+	wts_channel_part u_ch_d1 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_d1_key_on				),
+		.key_release			( ch_d1_key_release			),
+		.key_off				( ch_d1_key_off				),
+		.envelope				( w_envelope_d1				),
+		.sram_a					( w_sram_a_d1				),
+		.reg_noise_enable		( reg_noise_enable_d1		),
+		.reg_ar					( reg_ar_d1					),
+		.reg_dr					( reg_dr_d1					),
+		.reg_sr					( reg_sr_d1					),
+		.reg_rr					( reg_rr_d1					),
+		.reg_sl					( reg_sl_d1					),
+		.reg_wave_length		( reg_wave_length_d1		),
+		.reg_frequency_count	( reg_frequency_count_d1	)
+	);
+
+	wts_channel_part u_ch_e1 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_e1_key_on				),
+		.key_release			( ch_e1_key_release			),
+		.key_off				( ch_e1_key_off				),
+		.envelope				( w_envelope_e1				),
+		.sram_a					( w_sram_a_e1				),
+		.reg_noise_enable		( reg_noise_enable_e1		),
+		.reg_ar					( reg_ar_e1					),
+		.reg_dr					( reg_dr_e1					),
+		.reg_sr					( reg_sr_e1					),
+		.reg_rr					( reg_rr_e1					),
+		.reg_sl					( reg_sl_e1					),
+		.reg_wave_length		( reg_wave_length_e1		),
+		.reg_frequency_count	( reg_frequency_count_e1	)
+	);
+
+	wts_channel_part u_ch_f1 (
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( ff_active[0]				),
+		.key_on					( ch_f1_key_on				),
+		.key_release			( ch_f1_key_release			),
+		.key_off				( ch_f1_key_off				),
+		.envelope				( w_envelope_f1				),
+		.sram_a					( w_sram_a_f1				),
+		.reg_noise_enable		( reg_noise_enable_f1		),
+		.reg_ar					( reg_ar_f1					),
+		.reg_dr					( reg_dr_f1					),
+		.reg_sr					( reg_sr_f1					),
+		.reg_rr					( reg_rr_f1					),
+		.reg_sl					( reg_sl_f1					),
+		.reg_wave_length		( reg_wave_length_f1		),
+		.reg_frequency_count	( reg_frequency_count_f1	)
+	);
 
 	function [3:0] func_volume_sel(
 		input	[5:0]	phase,
@@ -173,6 +515,12 @@ module wts_channel_mixer (
 		.channel		( w_channel1		),
 		.reg_volume		( w_volume1			)
 	);
+
+	assign w_left_channel0		= w_enable0[1] ? w_channel0 : 8'd0;
+	assign w_right_channel0		= w_enable0[0] ? w_channel0 : 8'd0;
+
+	assign w_left_channel1		= w_enable1[1] ? w_channel1 : 8'd0;
+	assign w_right_channel1		= w_enable1[0] ? w_channel1 : 8'd0;
 
 	assign w_left_channel		= { w_left_channel0[7] , w_left_channel0  } + { w_left_channel1[7] , w_left_channel1  };
 	assign w_right_channel		= { w_right_channel0[7], w_right_channel0 } + { w_right_channel1[7], w_right_channel1 };
