@@ -1,2 +1,0 @@
-# OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_ram/vsim.wlf
-add wave -position end vsim:/tb/u_ram/*

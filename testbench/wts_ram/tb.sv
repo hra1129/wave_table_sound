@@ -103,8 +103,8 @@ module tb;
 			sram_a		<= i;
 			sram_d		<= $random;
 			@( posedge clk );
-			success_condition_is( sram_q == i, "The data read out is as expected." );
 			@( posedge clk );
+			success_condition_is( sram_q == ((i + 100) & 255), "The data read out is as expected." );
 		end
 
 		repeat( 50 ) @( posedge clk );
