@@ -36,43 +36,44 @@ module wts_channel_part (
 	input	[15:0]	reg_rr,
 	input	[7:0]	reg_sl,
 	input	[1:0]	reg_wave_length,
-	input	[11:0]	reg_frequency_count
+	input	[11:0]	reg_frequency_count,
+	input	[4:0]	reg_noise_frequency_count
 );
 	wire			w_noise;
 	wire	[8:0]	w_envelope;
 
 	wts_noise_generator u_noise_generator (
-		.nreset					( nreset				),
-		.clk					( clk					),
-		.active					( active				),
-		.enable					( reg_noise_enable		),
-		.noise					( w_noise				),
-		.reg_frequency_count	( reg_frequency_count	)
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( active					),
+		.enable					( reg_noise_enable			),
+		.noise					( w_noise					),
+		.reg_frequency_count	( reg_noise_frequency_count	)
 	);
 
 	wts_adsr_envelope_generator u_adsr_envelope_generator (
-		.nreset					( nreset				),
-		.clk					( clk					),
-		.active					( active				),
-		.key_on					( key_on				),
-		.key_release			( key_release			),
-		.key_off				( key_off				),
-		.envelope				( w_envelope			),
-		.reg_ar					( reg_ar				),
-		.reg_dr					( reg_dr				),
-		.reg_sr					( reg_sr				),
-		.reg_rr					( reg_rr				),
-		.reg_sl					( reg_sl				)
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( active					),
+		.key_on					( key_on					),
+		.key_release			( key_release				),
+		.key_off				( key_off					),
+		.envelope				( w_envelope				),
+		.reg_ar					( reg_ar					),
+		.reg_dr					( reg_dr					),
+		.reg_sr					( reg_sr					),
+		.reg_rr					( reg_rr					),
+		.reg_sl					( reg_sl					)
 	);
 
 	wts_tone_generator u_tone_generator (
-		.nreset					( nreset				),
-		.clk					( clk					),
-		.active					( active				),
-		.address_reset			( address_reset			),
-		.wave_address			( sram_a				),
-		.reg_wave_length		( reg_wave_length		),
-		.reg_frequency_count	( reg_frequency_count	)
+		.nreset					( nreset					),
+		.clk					( clk						),
+		.active					( active					),
+		.address_reset			( address_reset				),
+		.wave_address			( sram_a					),
+		.reg_wave_length		( reg_wave_length			),
+		.reg_frequency_count	( reg_frequency_count		)
 	);
 
 	assign envelope		= w_noise ? w_envelope : 9'd0;
