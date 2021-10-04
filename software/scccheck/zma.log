@@ -16,7 +16,7 @@ Programmed by t.hara
 000001: 00 c0
 
 [	DW END_ADDRESS + ( END_ADDRESS_ON_PAGE1 - START_ADDRESS_ON_PAGE1 )]
-000003: ed c0
+000003: 0a c1
 
 [	DW START_ADDRESS]
 000005: 00 c0
@@ -43,7 +43,7 @@ Programmed by t.hara
 00c00b: 11 00 40
 
 [	LD BC , END_ADDRESS_ON_PAGE1 - START_ADDRESS_ON_PAGE1] Z80:11cyc, R800:3cyc
-00c00e: 01 cd 00
+00c00e: 01 ea 00
 
 [	LDIR] Z80:23cyc(BC!=0), 18cyc(BC=0), R800:?cyc(BC!=0), 7cyc(BC=0)
 00c011: ed b0
@@ -115,7 +115,7 @@ Programmed by t.hara
 004010: e5
 
 [	LD HL , COMMAND_TABLE] Z80:11cyc, R800:3cyc
-004011: 21 b7 40
+004011: 21 d4 40
 
 [SEARCH_LOOP :]
 	label address: 0x004014
@@ -235,7 +235,7 @@ Programmed by t.hara
 00403d: b0
 
 [	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
-00403e: 32 b4 40
+00403e: 32 cf 40
 
 [	PUSH HL] Z80:12cyc, R800:6cyc
 004041: e5
@@ -249,161 +249,191 @@ Programmed by t.hara
 [	CALL ENASLT] Z80:18cyc, R800:5cyc
 004044: cd 24 00
 
+[	LD A , [ SCC_REG_A ]] Z80:14cyc, R800:6cyc
+004047: 3a fe 7f
+
+[	LD [ BACKUP_SCC_REG_A ] , A] Z80:14cyc, R800:6cyc
+00404a: 32 d0 40
+
 [	LD A , [ SCC_REG_B ]] Z80:14cyc, R800:6cyc
-004047: 3a fe bf
+00404d: 3a fe bf
 
 [	LD [ BACKUP_SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
-00404a: 32 b5 40
-
-[	XOR A , A] Z80:5cyc, R800:1cyc
-00404d: af
-
-[	LD [ SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
-00404e: 32 fe bf
+004050: 32 d1 40
 
 [	LD A , [ SCC_BANK2 ]] Z80:14cyc, R800:6cyc
-004051: 3a 00 90
+004053: 3a 00 90
 
 [	LD [ BACKUP_SCC_BANK2 ] , A] Z80:14cyc, R800:6cyc
-004054: 32 b6 40
+004056: 32 d2 40
+
+[	LD A , [ SCC_BANK3 ]] Z80:14cyc, R800:6cyc
+004059: 3a 00 b0
+
+[	LD [ BACKUP_SCC_BANK3 ] , A] Z80:14cyc, R800:6cyc
+00405c: 32 d3 40
 
 [	LD A , SCC_BANK2_WAVE_BANK] Z80:8cyc, R800:2cyc
-004057: 3e 3f
+00405f: 3e 3f
 
 [	LD [ SCC_BANK2 ] , A] Z80:14cyc, R800:6cyc
-004059: 32 00 90
+004061: 32 00 90
 
-[	LD HL , 0X98A0] Z80:11cyc, R800:3cyc
-00405c: 21 a0 98
-
-[	CALL CHECK_ACCESS] Z80:18cyc, R800:5cyc
-00405f: cd a9 40
-
-[	JP Z , IS_NOT_SCC] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-004062: ca 9d 40
-
-[	LD HL , 0X9800] Z80:11cyc, R800:3cyc
-004065: 21 00 98
-
-[	CALL CHECK_ACCESS] Z80:18cyc, R800:5cyc
-004068: cd a9 40
-
-[	JP NZ , IS_NOT_SCC] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-00406b: c2 9d 40
-
-[	LD A , SCC_REG_B_NEW_MODE] Z80:8cyc, R800:2cyc
-00406e: 3e 20
-
-[	LD [ SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
-004070: 32 fe bf
-
-[	LD A , 0X80] Z80:8cyc, R800:2cyc
-004073: 3e 80
+[	LD A , SCC_BANK3_SCCI_BANK] Z80:8cyc, R800:2cyc
+004064: 3e 80
 
 [	LD [ SCC_BANK3 ] , A] Z80:14cyc, R800:6cyc
-004075: 32 00 b0
+004066: 32 00 b0
 
-[	RET] Z80:11cyc, R800:5cyc
-004078: c9
+[	XOR A , A] Z80:5cyc, R800:1cyc
+004069: af
 
-[CHECK_NEXT_SLOT :]
-	label address: 0x004079
+[	LD [ SCC_REG_A ] , A] Z80:14cyc, R800:6cyc
+00406a: 32 fe 7f
 
-[	LD A , [ CURRENT_SLOT ]] Z80:14cyc, R800:6cyc
-004079: 3a b4 40
+[	LD HL , 0X98A0] Z80:11cyc, R800:3cyc
+00406d: 21 a0 98
 
-[	OR A , A] Z80:5cyc, R800:1cyc
-00407c: b7
+[	CALL CHECK_ACCESS] Z80:18cyc, R800:5cyc
+004070: cd c4 40
 
-[	JP P , SLOT_IS_NOT_EXPANDED] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-00407d: f2 8d 40
+[	JP Z , IS_NOT_SCC] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
+004073: ca 8e 40
 
-[	ADD A , 0X04] Z80:8cyc, R800:2cyc
-004080: c6 04
+[	LD HL , 0X9800] Z80:11cyc, R800:3cyc
+004076: 21 00 98
 
-[	BIT 4 , A] Z80:10cyc, R800:2cyc
-004082: cb 67
+[	CALL CHECK_ACCESS] Z80:18cyc, R800:5cyc
+004079: cd c4 40
 
-[	JP NZ , NEXT_BASIC_SLOT] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-004084: c2 8d 40
+[	JP NZ , IS_NOT_SCC] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
+00407c: c2 8e 40
 
-[	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
-004087: 32 b4 40
-
-[	JP CHECK_SLOT] Z80:11cyc, R800:5cyc
-00408a: c3 42 40
-
-[SLOT_IS_NOT_EXPANDED :]
-	label address: 0x00408d
-
-[NEXT_BASIC_SLOT :]
-	label address: 0x00408d
-
-[	POP HL] Z80:11cyc, R800:5cyc
-00408d: e1
-
-[	LD A , 0XFF] Z80:8cyc, R800:2cyc
-00408e: 3e ff
-
-[	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
-004090: 32 b4 40
-
-[	LD A , L] Z80:5cyc, R800:2cyc
-004093: 7d
-
-[	CP A , 0XC4] Z80:8cyc, R800:2cyc
-004094: fe c4
-
-[	RET Z] Z80:12cyc(branch), 6cyc(through), R800:5cyc(branch), 1cyc(through)
-004096: c8
-
-[	INC HL] Z80:7cyc, R800:1cyc
-004097: 23
-
-[	AND A , 0X03] Z80:8cyc, R800:2cyc
-004098: e6 03
-
-[	JP BASE_SLOT_LOOP] Z80:11cyc, R800:5cyc
-00409a: c3 39 40
-
-[IS_NOT_SCC :]
-	label address: 0x00409d
-
-[	LD A , [ BACKUP_SCC_BANK2 ]] Z80:14cyc, R800:6cyc
-00409d: 3a b6 40
-
-[	LD [ SCC_BANK2 ] , A] Z80:14cyc, R800:6cyc
-0040a0: 32 00 90
-
-[	LD A , [ BACKUP_SCC_REG_B ]] Z80:14cyc, R800:6cyc
-0040a3: 3a b5 40
+[	LD A , SCC_REG_B_NEW_MODE] Z80:8cyc, R800:2cyc
+00407f: 3e 20
 
 [	LD [ SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
-0040a6: 32 fe bf
+004081: 32 fe bf
 
-[CHECK_ACCESS :]
-	label address: 0x0040a9
+[	LD A , [ RAMAD2 ]] Z80:14cyc, R800:6cyc
+004084: 3a 43 f3
 
-[	LD A , [ HL ]] Z80:8cyc, R800:4cyc
-0040a9: 7e
+[	LD H , 0X80] Z80:8cyc, R800:2cyc
+004087: 26 80
 
-[	CPL] Z80:5cyc, R800:1cyc
-0040aa: 2f
+[	CALL ENASLT] Z80:18cyc, R800:5cyc
+004089: cd 24 00
 
-[	LD [ HL ] , A] Z80:8cyc, R800:4cyc
-0040ab: 77
-
-[	CP A , [ HL ]] Z80:8cyc, R800:4cyc
-0040ac: be
-
-[	CPL] Z80:5cyc, R800:1cyc
-0040ad: 2f
-
-[	LD [ HL ] , A] Z80:8cyc, R800:4cyc
-0040ae: 77
+[	POP HL] Z80:11cyc, R800:5cyc
+00408c: e1
 
 [	RET] Z80:11cyc, R800:5cyc
-0040af: c9
+00408d: c9
+
+[IS_NOT_SCC :]
+	label address: 0x00408e
+
+[	LD A , [ BACKUP_SCC_BANK2 ]] Z80:14cyc, R800:6cyc
+00408e: 3a d2 40
+
+[	LD [ SCC_BANK2 ] , A] Z80:14cyc, R800:6cyc
+004091: 32 00 90
+
+[	LD A , [ BACKUP_SCC_REG_B ]] Z80:14cyc, R800:6cyc
+004094: 3a d1 40
+
+[	LD [ SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
+004097: 32 fe bf
+
+[	LD A , [ BACKUP_SCC_REG_A ]] Z80:14cyc, R800:6cyc
+00409a: 3a d0 40
+
+[	LD [ SCC_REG_A ] , A] Z80:14cyc, R800:6cyc
+00409d: 32 fe 7f
+
+[CHECK_NEXT_SLOT :]
+	label address: 0x0040a0
+
+[	LD A , [ CURRENT_SLOT ]] Z80:14cyc, R800:6cyc
+0040a0: 3a cf 40
+
+[	OR A , A] Z80:5cyc, R800:1cyc
+0040a3: b7
+
+[	JP P , SLOT_IS_NOT_EXPANDED] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
+0040a4: f2 b4 40
+
+[	ADD A , 0X04] Z80:8cyc, R800:2cyc
+0040a7: c6 04
+
+[	BIT 4 , A] Z80:10cyc, R800:2cyc
+0040a9: cb 67
+
+[	JP NZ , NEXT_BASIC_SLOT] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
+0040ab: c2 b4 40
+
+[	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
+0040ae: 32 cf 40
+
+[	JP CHECK_SLOT] Z80:11cyc, R800:5cyc
+0040b1: c3 42 40
+
+[SLOT_IS_NOT_EXPANDED :]
+	label address: 0x0040b4
+
+[NEXT_BASIC_SLOT :]
+	label address: 0x0040b4
+
+[	POP HL] Z80:11cyc, R800:5cyc
+0040b4: e1
+
+[	LD A , 0XFF] Z80:8cyc, R800:2cyc
+0040b5: 3e ff
+
+[	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
+0040b7: 32 cf 40
+
+[	LD A , L] Z80:5cyc, R800:2cyc
+0040ba: 7d
+
+[	CP A , 0XC4] Z80:8cyc, R800:2cyc
+0040bb: fe c4
+
+[	RET Z] Z80:12cyc(branch), 6cyc(through), R800:5cyc(branch), 1cyc(through)
+0040bd: c8
+
+[	INC HL] Z80:7cyc, R800:1cyc
+0040be: 23
+
+[	AND A , 0X03] Z80:8cyc, R800:2cyc
+0040bf: e6 03
+
+[	JP BASE_SLOT_LOOP] Z80:11cyc, R800:5cyc
+0040c1: c3 39 40
+
+[CHECK_ACCESS :]
+	label address: 0x0040c4
+
+[	LD A , [ HL ]] Z80:8cyc, R800:4cyc
+0040c4: 7e
+
+[	CPL] Z80:5cyc, R800:1cyc
+0040c5: 2f
+
+[	LD [ HL ] , A] Z80:8cyc, R800:4cyc
+0040c6: 77
+
+[	CP A , [ HL ]] Z80:8cyc, R800:4cyc
+0040c7: be
+
+[	CPL] Z80:5cyc, R800:1cyc
+0040c8: 2f
+
+[	LD [ HL ] , A] Z80:8cyc, R800:4cyc
+0040c9: 77
+
+[	RET] Z80:11cyc, R800:5cyc
+0040ca: c9
 
 [	ENDSCOPE]
 	Scope path: 
@@ -412,13 +442,13 @@ Programmed by t.hara
 	Scope path: SCC_POKE:
 
 [SCC_POKE ::]
-	global label address: 0x0040b0
+	global label address: 0x0040cb
 
 [	POP HL] Z80:11cyc, R800:5cyc
-0040b0: e1
+0040cb: e1
 
 [	RET] Z80:11cyc, R800:5cyc
-0040b1: c9
+0040cc: c9
 
 [	ENDSCOPE]
 	Scope path: 
@@ -427,74 +457,88 @@ Programmed by t.hara
 	Scope path: SCC_PEEK:
 
 [SCC_PEEK ::]
-	global label address: 0x0040b2
+	global label address: 0x0040cd
 
 [	POP HL] Z80:11cyc, R800:5cyc
-0040b2: e1
+0040cd: e1
 
 [	RET] Z80:11cyc, R800:5cyc
-0040b3: c9
+0040ce: c9
 
 [	ENDSCOPE]
 	Scope path: 
 
 [DECECT_SCC_SLOT ::]
-	global label address: 0x0040b4
+	global label address: 0x0040cf
 
 [CURRENT_SLOT ::]
-	global label address: 0x0040b4
+	global label address: 0x0040cf
 
 [	DB 0]
-0040b4: 00
+0040cf: 00
+
+[BACKUP_SCC_REG_A ::]
+	global label address: 0x0040d0
+
+[	DB 0]
+0040d0: 00
 
 [BACKUP_SCC_REG_B ::]
-	global label address: 0x0040b5
+	global label address: 0x0040d1
 
 [	DB 0]
-0040b5: 00
+0040d1: 00
 
 [BACKUP_SCC_BANK2 :]
-	label address: 0x0040b6
+	label address: 0x0040d2
 
 [	DB 0]
-0040b6: 00
+0040d2: 00
+
+[BACKUP_SCC_BANK3 :]
+	label address: 0x0040d3
+
+[	DB 0]
+0040d3: 00
 
 Define macro {COMMAND_ITEM MACRO ADDRESS , NAME}
 
 [COMMAND_TABLE ::]
-	global label address: 0x0040b7
+	global label address: 0x0040d4
 
 ((COMMAND_ITEM SCC_POKE , "SCCPOKE"))
 	Scope path: @MACRO0:
 [	DW SCC_POKE]
-0040b7: b0 40
+0040d4: cb 40
 
 [	DS "SCCPOKE"]
-0040b9: 53 43 43 50 4f 4b 45
+0040d6: 53 43 43 50 4f 4b 45
 
 [	DB 0]
-0040c0: 00
+0040dd: 00
 
 ((COMMAND_ITEM SCC_PEEK , "SCCPEEK"))
 	Scope path: @MACRO1:
 [	DW SCC_PEEK]
-0040c1: b2 40
+0040de: cd 40
 
 [	DS "SCCPEEK"]
-0040c3: 53 43 43 50 45 45 4b
+0040e0: 53 43 43 50 45 45 4b
 
 [	DB 0]
-0040ca: 00
+0040e7: 00
 
 [	DW 0]
-0040cb: 00 00
+0040e8: 00 00
 
 [END_ADDRESS_ON_PAGE1 :]
-	label address: 0x0040cd
+	label address: 0x0040ea
 
 << label >>
-BACKUP_SCC_BANK2 16566 ( 0x40b6 )
-BACKUP_SCC_REG_B 16565 ( 0x40b5 )
+BACKUP_SCC_BANK2 16594 ( 0x40d2 )
+BACKUP_SCC_BANK3 16595 ( 0x40d3 )
+BACKUP_SCC_REG_A 16592 ( 0x40d0 )
+BACKUP_SCC_REG_B 16593 ( 0x40d1 )
 BEEP 192 ( 0xc0 )
 BIGFIL 363 ( 0x16b )
 BREAKV 62245 ( 0xf325 )
@@ -526,12 +570,12 @@ COMMAND_SEARCH:EXIT_STRCMP_LOOP 16435 ( 0x4033 )
 COMMAND_SEARCH:SEARCH_LOOP 16404 ( 0x4014 )
 COMMAND_SEARCH:SKIP_REMAIN_CHAR 16428 ( 0x402c )
 COMMAND_SEARCH:STRCMP_LOOP 16417 ( 0x4021 )
-COMMAND_TABLE 16567 ( 0x40b7 )
+COMMAND_TABLE 16596 ( 0x40d4 )
 CSRX 62429 ( 0xf3dd )
 CSRY 62428 ( 0xf3dc )
-CURRENT_SLOT 16564 ( 0x40b4 )
+CURRENT_SLOT 16591 ( 0x40cf )
 DCOMPR 32 ( 0x20 )
-DECECT_SCC_SLOT 16564 ( 0x40b4 )
+DECECT_SCC_SLOT 16591 ( 0x40cf )
 DEVICE 64921 ( 0xfd99 )
 DISKVE 62243 ( 0xf323 )
 DISSCR 65 ( 0x41 )
@@ -539,7 +583,7 @@ DSPFNK 207 ( 0xcf )
 ENASCR 68 ( 0x44 )
 ENASLT 36 ( 0x24 )
 END_ADDRESS 49184 ( 0xc020 )
-END_ADDRESS_ON_PAGE1 16589 ( 0x40cd )
+END_ADDRESS_ON_PAGE1 16618 ( 0x40ea )
 EOL 360 ( 0x168 )
 ERAFNK 204 ( 0xcc )
 EXBRSA 64248 ( 0xfaf8 )
@@ -567,12 +611,12 @@ INIMLT 117 ( 0x75 )
 INIT 16437 ( 0x4035 )
 INIT32 111 ( 0x6f )
 INIT:BASE_SLOT_LOOP 16441 ( 0x4039 )
-INIT:CHECK_ACCESS 16553 ( 0x40a9 )
-INIT:CHECK_NEXT_SLOT 16505 ( 0x4079 )
+INIT:CHECK_ACCESS 16580 ( 0x40c4 )
+INIT:CHECK_NEXT_SLOT 16544 ( 0x40a0 )
 INIT:CHECK_SLOT 16450 ( 0x4042 )
-INIT:IS_NOT_SCC 16541 ( 0x409d )
-INIT:NEXT_BASIC_SLOT 16525 ( 0x408d )
-INIT:SLOT_IS_NOT_EXPANDED 16525 ( 0x408d )
+INIT:IS_NOT_SCC 16526 ( 0x408e )
+INIT:NEXT_BASIC_SLOT 16564 ( 0x40b4 )
+INIT:SLOT_IS_NOT_EXPANDED 16564 ( 0x40b4 )
 INITIO 59 ( 0x3b )
 INITXT 108 ( 0x6c )
 INLIN 177 ( 0xb1 )
@@ -623,8 +667,9 @@ RSLREG 312 ( 0x138 )
 SCC_BANK2 36864 ( 0x9000 )
 SCC_BANK2_WAVE_BANK 63 ( 0x3f )
 SCC_BANK3 45056 ( 0xb000 )
-SCC_PEEK 16562 ( 0x40b2 )
-SCC_POKE 16560 ( 0x40b0 )
+SCC_BANK3_SCCI_BANK 128 ( 0x80 )
+SCC_PEEK 16589 ( 0x40cd )
+SCC_POKE 16587 ( 0x40cb )
 SCC_REG_A 32766 ( 0x7ffe )
 SCC_REG_B 49150 ( 0xbffe )
 SCC_REG_B_NEW_MODE 32 ( 0x20 )

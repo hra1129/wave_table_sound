@@ -30,6 +30,7 @@ scc_reg_b					:= 0xBFFE
 scc_reg_b_ram_write_en		:= 0b0001_0000
 scc_reg_b_new_mode			:= 0b0010_0000
 scc_bank2_wave_bank			:= 0x3F
+scc_bank3_scci_bank			:= 0x80
 
 			org		0
 			db		0xFE
@@ -70,7 +71,6 @@ rom_header::
 			dw		0x0000					; RESERVE
 
 call_interpreter::
-
 			scope	command_search
 command_search::
 			push	hl
@@ -125,19 +125,28 @@ base_slot_loop:
 check_slot:
 			; page2 (8000h-BFFFh) を 着目スロットに切り替える
 			ld		h, 0x80
-			call	enaslt
-			; scc_reg_b (の可能性のあるアドレス) の内容を保存してから
-			; 互換モードに設定する値を書き込む
+			call	enaslt				; DI
+			; 書き替える領域をバックアップ (無関係なRAMだった場合に戻せるようにする)
+			ld		a, [scc_reg_a]
+			ld		[backup_scc_reg_a], a
 			ld		a, [scc_reg_b]
 			ld		[backup_scc_reg_b], a
-			xor		a, a
-			ld		[scc_reg_b], a
-			; scc_bank2 (の可能性のあるアドレス) の内容を保存してから
-			; レジスタ出現バンクに設定する値を書き込む
 			ld		a, [scc_bank2]
 			ld		[backup_scc_bank2], a
+			ld		a, [scc_bank3]
+			ld		[backup_scc_bank3], a
+			; scc_bank2 (の可能性のあるアドレス) の内容を保存してから
+			; レジスタ出現バンクに設定する値を書き込む
 			ld		a, scc_bank2_wave_bank
 			ld		[scc_bank2], a
+			; scc_bank3 (の可能性のあるアドレス) の内容を保存してから
+			; レジスタ出現バンクに設定する値を書き込む
+			ld		a, scc_bank3_scci_bank
+			ld		[scc_bank3], a
+			; scc_reg_a (の可能性のあるアドレス) の内容を保存してから
+			; 互換モードに設定する値を書き込む
+			xor		a, a
+			ld		[scc_reg_a], a
 			; 98A0h は SCC+ なら Ch.E の波形(ReadOnly), SCC なら無効。ここが書けないことを確認する
 			ld		hl, 0x98A0
 			call	check_access
@@ -150,9 +159,21 @@ check_slot:
 			; 固有モードに設定する値を書き込む
 			ld		a, scc_reg_b_new_mode
 			ld		[scc_reg_b], a
-			ld		a, 0x80
-			ld		[scc_bank3], a
+			; スロットを元に戻す
+			ld		a, [ramad2]
+			ld		h, 0x80
+			call	enaslt				; DI
+			pop		hl
 			ret
+
+is_not_scc:
+			; レジスタのつもりで書き替えた内容を書き戻す
+			ld		a, [backup_scc_bank2]
+			ld		[scc_bank2], a
+			ld		a, [backup_scc_reg_b]
+			ld		[scc_reg_b], a
+			ld		a, [backup_scc_reg_a]
+			ld		[scc_reg_a], a
 
 check_next_slot:
 			ld		a, [current_slot]
@@ -178,13 +199,6 @@ next_basic_slot:
 			inc		hl
 			and		a, 0x03
 			jp		base_slot_loop
-
-is_not_scc:
-			; レジスタのつもりで書き替えた内容を書き戻す
-			ld		a, [backup_scc_bank2]
-			ld		[scc_bank2], a
-			ld		a, [backup_scc_reg_b]
-			ld		[scc_reg_b], a
 
 check_access:
 			ld		a, [hl]
@@ -227,9 +241,13 @@ scc_peek::
 decect_scc_slot::
 current_slot::
 			db		0
+backup_scc_reg_a::
+			db		0
 backup_scc_reg_b::
 			db		0
 backup_scc_bank2:
+			db		0
+backup_scc_bank3:
 			db		0
 
 ;------------------------------------------------------------------------------
