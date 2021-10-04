@@ -221,6 +221,84 @@ check_access:
 scc_poke::
 			pop		hl
 
+			; check '('
+			dec			hl
+			ld			ix, calbas_chrgtr
+			call		calbas
+			cp			a, '('
+			jp			nz, syntax_error
+			inc			hl
+
+			ld			ix, calbas_frmqnt
+			call		calbas
+			ex			de, hl
+			ld			c, [hl]
+			inc			hl
+			ld			b, [hl]
+			ld			[data_address], bc
+			ex			de, hl
+
+			; check ','
+			dec			hl
+			ld			ix, calbas_chrgtr
+			call		calbas
+			cp			a, ','
+			jp			nz, syntax_error
+			inc			hl
+
+			ld			b, 32
+			ld			de, data_work
+loop:
+			push		bc
+			push		de
+			ld			ix, calbas_getbyt
+			call		calbas
+			pop			de
+			ld			[de], a
+			inc			de
+
+			; check ')' or ','
+			dec			hl
+			push		de
+			ld			ix, calbas_chrgtr
+			call		calbas
+			pop			de
+			pop			bc
+			inc			hl
+			cp			a, ')'
+			jp			z, exit_loop
+			cp			a, ','
+			jp			nz, syntax_error
+			djnz		loop
+			jp			syntax_error
+
+exit_loop:
+			push		hl
+			ld			a, b
+			dec			b
+			xor			a, 31
+			inc			a
+			ld			c, a
+			ld			b, 0
+			push		bc
+
+			ld			a, [detect_scc_slot]
+			ld			h, 0x80
+			call		enaslt
+
+			ld			hl, [data_address]
+			ld			a, h
+			or			a, 0x80
+			ld			h, a
+			ld			de, data_work
+			pop			bc
+			ldir
+
+			ld			a, [ramad2]
+			ld			h, 0x80
+			call		enaslt
+			pop			hl
+			ei
 			ret
 			endscope
 
@@ -234,11 +312,107 @@ scc_poke::
 scc_peek::
 			pop		hl
 
+			; check '('
+			dec			hl
+			ld			ix, calbas_chrgtr
+			call		calbas
+			cp			a, '('
+			jp			nz, syntax_error
+			inc			hl
+
+			; address
+			ld			ix, calbas_frmqnt
+			call		calbas
+			ex			de, hl
+			ld			c, [hl]
+			inc			hl
+			ld			b, [hl]
+			ld			[data_address], bc
+			ex			de, hl
+
+			; ÉfÅ[É^Çì«Çﬁ
+			push		hl
+			ld			a, [detect_scc_slot]
+			ld			h, 0x80
+			call		enaslt
+
+			ld			hl, [data_address]
+			ld			a, [hl]
+			ld			[data_work], a
+
+			ld			a, [ramad2]
+			ld			h, 0x80
+			call		enaslt
+			ei
+			pop			hl
+
+			; check ','
+			dec			hl
+			ld			ix, calbas_chrgtr
+			call		calbas
+			cp			a, ','
+			jp			nz, syntax_error
+			inc			hl
+
+			xor			a, a
+			ld			[subflg], a
+			ld			ix, calbas_ptrget
+			call		calbas
+			dec			de
+			dec			de
+			dec			de
+			ld			a, [de]
+			cp			a, 2
+			jp			nz, type_mismatch_error
+			inc			de
+			inc			de
+			inc			de
+
+			ld			a, [data_work]
+			ld			[de], a
+			inc			de
+			xor			a, a
+			ld			[de], a
+
+			; check ')'
+			dec			hl
+			ld			ix, calbas_chrgtr
+			call		calbas
+			cp			a, ')'
+			jp			nz, syntax_error
+			inc			hl
+
 			ret
 			endscope
 
+; ==============================================================================
+;	Syntax error
+; ==============================================================================
+			scope		syntax_error
+syntax_error::
+			ld			e, 2
+			ld			ix, calbas_errhand
+			jp			calbas
+			endscope
+
+; ==============================================================================
+;	type mismatch
+; ==============================================================================
+			scope		type_mismatch_error
+type_mismatch_error::
+			ld			e, 13
+			ld			ix, calbas_errhand
+			jp			calbas
+			endscope
+
 ;------------------------------------------------------------------------------
-decect_scc_slot::
+data_address::
+			dw			0
+data_work::
+			space		32
+
+;------------------------------------------------------------------------------
+detect_scc_slot::
 current_slot::
 			db		0
 backup_scc_reg_a::

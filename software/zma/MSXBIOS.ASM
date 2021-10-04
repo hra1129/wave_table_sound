@@ -211,6 +211,11 @@ rdprim		:=			0xF380		; 5bytes, 基本スロットからの読み込み
 wrprim		:=			0xF385		; 7bytes, 基本スロットへの書き込み
 clprim		:=			0xF38C		; 14bytes, 基本スロットコール
 
+usrtab		:=			0xF39A		; 20bytes, USR関数の開始番地
+linl40		:=			0xF3AE		; 1byte, SCREEN0 の1行の幅
+linl32		:=			0xF3AF		; 1byte, SCREEN1 の1行の幅
+linlen		:=			0xF3B0		; 1byte, 現在の1行の幅
+
 cliksw		:=			0xF3DB		; 1byte, キークリックスイッチ (0=OFF, others=ON)
 csry		:=			0xF3DC		; 1byte, カーソルのY座標
 csrx		:=			0xF3DD		; 1byte, カーソルのX座標
@@ -226,11 +231,30 @@ rg6sav		:=			0xF3E5		; 1byte, VDP R#6 に書き込んだ値
 rg7sav		:=			0xF3E6		; 1byte, VDP R#7 に書き込んだ値
 statfl		:=			0xF3E7		; 1byte, VDP S#0 から読み込んだ値
 
+forclr		:=			0xF3E9		; 1byte, 前景色
+bakclr		:=			0xF3EA		; 1byte, 背景色
+bdrclr		:=			0xF3EB		; 1byte, 周辺色
+
+curlin		:=			0xF41C		; 2byte, BASICが実行中の行番号
+
+valtyp		:=			0xF663		; 1byte, 2: 2byte整数, 3: 文字列, 4: 単精度実数, 8: 倍精度実数
+subflg		:=			0xF6A5		; 1byte, PTRGETで取得する変数の先頭アドレスの種類 0: 単純変数, 0以外:配列変数の先頭
+dac			:=			0xF7F6		; 2byte
+
 fnkstr		:=			0xF87F		; 16byte * 10, ファンクションキーに対応する文字列
 
-exbrsa		:=			0xFaF8		; 1byte, SUB-ROM のスロット番号
+exbrsa		:=			0xFAF8		; 1byte, SUB-ROM のスロット番号
 
 hokvld		:=			0xFB20
+
+oldkey		:=			0xFBDA		; 11bytes, キーマトリクスの状態(旧)
+newkey		:=			0xFBE5		; 11bytes, キーマトリクスの状態(新)
+keybuf		:=			0xFBF0		; 40bytes, キーバッファ
+linwrk		:=			0xFC18		; 40bytes, スクリーンハンドラが使う一時保管場所
+patwrk		:=			0xFC40		; 8bytes, パターンコンバータが使う一時保管場所
+bottom		:=			0xFC48		; 2bytes, 実装したRAMの先頭番地。MSX2では通常 8000h
+himem		:=			0xFC4A		; 2bytes, 利用可能なメモリの上位番地。CLEAR文の<メモリ上限>により設定される
+trptbl		:=			0xFC4C		; 78bytes, 割り込み処理で使うトラップテーブル。一つのテーブルは 3bytes で 1バイト目が ON/OFF/STOPの状態。残りが分岐先テキストアドレス
 
 scrmod		:=			0xFCAF		; 1byte, 現在のスクリーンモード番号
 oldscr		:=			0xFCB0		; 1byte, スクリーンモード保存エリア
@@ -243,8 +267,21 @@ procnm		:=			0xFD89		; 16bytes, 拡張ステートメント, 拡張デバイスの名前が入る, AS
 device		:=			0xFD99		; 1byte, カートリッジ用の装置識別
 
 h_timi		:=			0xFD9F		; 5bytes, 垂直同期割り込み発生時のフック
+h_cmd		:=			0xFE0D		; 5bytes, MSX-BASIC CMD命令フック
 
 extbio		:=			0xFFCA
 
 rg8sav		:=			0xFFE7
 rg9sav		:=			0xFFE8
+
+; BASIC Routines
+calbas_errhand	:=		0x406F		; Error handler
+calbas_readyr	:=		0x409B		; Start basic
+calbas_crunch	:=		0x42B2		; Convert the Basic instruction by an intermediate code
+calbas_newstt	:=		0x4601		; Execute a text
+calbas_chrgtr	:=		0x4666		; Extract one character from text
+calbas_frmevl	:=		0x4C64		; Evaluate an expression in text
+calbas_getbyt	:=		0x521C		; Evaluate an expression in 1-byte integer type.
+calbas_frmqnt	:=		0x542F		; Evaluate an expression in 2-byte integer type.
+calbas_ptrget	:=		0x5EA4		; Obtain the address for the storage of a variable
+calbas_frestr	:=		0x67D0		; Free temporary string descriptor
