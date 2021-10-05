@@ -51,6 +51,32 @@ start_address::
 
 			call	init
 
+			; get current slot#
+			di
+			in		a, [0xA8]			; primary slot
+			and		a, 0x0C				; 0000PP00
+			rlca
+			rlca
+			ld		e, a				; 00PP0000
+
+			ld		hl, 0xFCC5
+			rrca
+			rrca
+			rrca
+			rrca
+			add		a, l				; 000000PP + 0xC5
+			ld		l, a
+			ld		a, [hl]				; extended slot
+			and		a, 0x0C				; 0000EE00
+			or		a, e
+			ld		e, a
+			ld		d, 0
+
+			ld		hl, 0xFCC9 + 1
+			add		hl, de
+			ld		a, 1 << 5			; statement extension flag
+			ld		[hl], a
+
 			ld		a, [exptbl]
 			ld		h, 0x40
 			call	enaslt
@@ -231,12 +257,7 @@ scc_poke::
 
 			ld			ix, calbas_frmqnt
 			call		calbas
-			ex			de, hl
-			ld			c, [hl]
-			inc			hl
-			ld			b, [hl]
-			ld			[data_address], bc
-			ex			de, hl
+			ld			[data_address], de
 
 			; check ','
 			dec			hl
@@ -275,7 +296,7 @@ loop:
 exit_loop:
 			push		hl
 			ld			a, b
-			dec			b
+			dec			a
 			xor			a, 31
 			inc			a
 			ld			c, a
