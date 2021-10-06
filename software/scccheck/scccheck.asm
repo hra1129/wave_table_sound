@@ -255,6 +255,7 @@ scc_poke::
 			jp			nz, syntax_error
 			inc			hl
 
+			; address
 			ld			ix, calbas_frmqnt
 			call		calbas
 			ld			[data_address], de
@@ -307,11 +308,11 @@ exit_loop:
 			ld			h, 0x80
 			call		enaslt
 
-			ld			hl, [data_address]
-			ld			a, h
+			ld			de, [data_address]
+			ld			a, d
 			or			a, 0x80
-			ld			h, a
-			ld			de, data_work
+			ld			d, a
+			ld			hl, data_work
 			pop			bc
 			ldir
 
@@ -344,12 +345,7 @@ scc_peek::
 			; address
 			ld			ix, calbas_frmqnt
 			call		calbas
-			ex			de, hl
-			ld			c, [hl]
-			inc			hl
-			ld			b, [hl]
-			ld			[data_address], bc
-			ex			de, hl
+			ld			[data_address], de
 
 			; ƒf[ƒ^‚ğ“Ç‚Ş
 			push		hl

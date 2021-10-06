@@ -16,7 +16,7 @@ Programmed by t.hara
 000001: 00 c0
 
 [	DW END_ADDRESS + ( END_ADDRESS_ON_PAGE1 - START_ADDRESS_ON_PAGE1 )]
-000003: 4b c2
+000003: 47 c2
 
 [	DW START_ADDRESS]
 000005: 00 c0
@@ -43,7 +43,7 @@ Programmed by t.hara
 00c00b: 11 00 40
 
 [	LD BC , END_ADDRESS_ON_PAGE1 - START_ADDRESS_ON_PAGE1] Z80:11cyc, R800:3cyc
-00c00e: 01 0c 02
+00c00e: 01 08 02
 
 [	LDIR] Z80:23cyc(BC!=0), 18cyc(BC=0), R800:?cyc(BC!=0), 7cyc(BC=0)
 00c011: ed b0
@@ -181,7 +181,7 @@ Programmed by t.hara
 004010: e5
 
 [	LD HL , COMMAND_TABLE] Z80:11cyc, R800:3cyc
-004011: 21 f6 41
+004011: 21 f2 41
 
 [SEARCH_LOOP :]
 	label address: 0x004014
@@ -301,7 +301,7 @@ Programmed by t.hara
 00403d: b0
 
 [	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
-00403e: 32 f1 41
+00403e: 32 ed 41
 
 [	PUSH HL] Z80:12cyc, R800:6cyc
 004041: e5
@@ -319,25 +319,25 @@ Programmed by t.hara
 004047: 3a fe 7f
 
 [	LD [ BACKUP_SCC_REG_A ] , A] Z80:14cyc, R800:6cyc
-00404a: 32 f2 41
+00404a: 32 ee 41
 
 [	LD A , [ SCC_REG_B ]] Z80:14cyc, R800:6cyc
 00404d: 3a fe bf
 
 [	LD [ BACKUP_SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
-004050: 32 f3 41
+004050: 32 ef 41
 
 [	LD A , [ SCC_BANK2 ]] Z80:14cyc, R800:6cyc
 004053: 3a 00 90
 
 [	LD [ BACKUP_SCC_BANK2 ] , A] Z80:14cyc, R800:6cyc
-004056: 32 f4 41
+004056: 32 f0 41
 
 [	LD A , [ SCC_BANK3 ]] Z80:14cyc, R800:6cyc
 004059: 3a 00 b0
 
 [	LD [ BACKUP_SCC_BANK3 ] , A] Z80:14cyc, R800:6cyc
-00405c: 32 f5 41
+00405c: 32 f1 41
 
 [	LD A , SCC_BANK2_WAVE_BANK] Z80:8cyc, R800:2cyc
 00405f: 3e 3f
@@ -400,19 +400,19 @@ Programmed by t.hara
 	label address: 0x00408e
 
 [	LD A , [ BACKUP_SCC_BANK2 ]] Z80:14cyc, R800:6cyc
-00408e: 3a f4 41
+00408e: 3a f0 41
 
 [	LD [ SCC_BANK2 ] , A] Z80:14cyc, R800:6cyc
 004091: 32 00 90
 
 [	LD A , [ BACKUP_SCC_REG_B ]] Z80:14cyc, R800:6cyc
-004094: 3a f3 41
+004094: 3a ef 41
 
 [	LD [ SCC_REG_B ] , A] Z80:14cyc, R800:6cyc
 004097: 32 fe bf
 
 [	LD A , [ BACKUP_SCC_REG_A ]] Z80:14cyc, R800:6cyc
-00409a: 3a f2 41
+00409a: 3a ee 41
 
 [	LD [ SCC_REG_A ] , A] Z80:14cyc, R800:6cyc
 00409d: 32 fe 7f
@@ -421,7 +421,7 @@ Programmed by t.hara
 	label address: 0x0040a0
 
 [	LD A , [ CURRENT_SLOT ]] Z80:14cyc, R800:6cyc
-0040a0: 3a f1 41
+0040a0: 3a ed 41
 
 [	OR A , A] Z80:5cyc, R800:1cyc
 0040a3: b7
@@ -439,7 +439,7 @@ Programmed by t.hara
 0040ab: c2 b4 40
 
 [	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
-0040ae: 32 f1 41
+0040ae: 32 ed 41
 
 [	JP CHECK_SLOT] Z80:11cyc, R800:5cyc
 0040b1: c3 42 40
@@ -457,7 +457,7 @@ Programmed by t.hara
 0040b5: 3e ff
 
 [	LD [ CURRENT_SLOT ] , A] Z80:14cyc, R800:6cyc
-0040b7: 32 f1 41
+0040b7: 32 ed 41
 
 [	LD A , L] Z80:5cyc, R800:2cyc
 0040ba: 7d
@@ -526,7 +526,7 @@ Programmed by t.hara
 0040d4: fe 28
 
 [	JP NZ , SYNTAX_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-0040d6: c2 bd 41
+0040d6: c2 b9 41
 
 [	INC HL] Z80:7cyc, R800:1cyc
 0040d9: 23
@@ -538,7 +538,7 @@ Programmed by t.hara
 0040de: cd 59 01
 
 [	LD [ DATA_ADDRESS ] , DE] Z80:22cyc, R800:8cyc
-0040e1: ed 53 cf 41
+0040e1: ed 53 cb 41
 
 [	DEC HL] Z80:7cyc, R800:1cyc
 0040e5: 2b
@@ -553,7 +553,7 @@ Programmed by t.hara
 0040ed: fe 2c
 
 [	JP NZ , SYNTAX_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-0040ef: c2 bd 41
+0040ef: c2 b9 41
 
 [	INC HL] Z80:7cyc, R800:1cyc
 0040f2: 23
@@ -562,7 +562,7 @@ Programmed by t.hara
 0040f3: 06 20
 
 [	LD DE , DATA_WORK] Z80:11cyc, R800:3cyc
-0040f5: 11 d1 41
+0040f5: 11 cd 41
 
 [LOOP :]
 	label address: 0x0040f8
@@ -619,13 +619,13 @@ Programmed by t.hara
 004115: fe 2c
 
 [	JP NZ , SYNTAX_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-004117: c2 bd 41
+004117: c2 b9 41
 
 [	DJNZ LOOP] Z80:14cyc(cond=true), 9cyc(cond=false), R800:3cyc(cond=true), 2cyc(cond=false)
 00411a: 10 dc
 
 [	JP SYNTAX_ERROR] Z80:11cyc, R800:5cyc
-00411c: c3 bd 41
+00411c: c3 b9 41
 
 [EXIT_LOOP :]
 	label address: 0x00411f
@@ -655,7 +655,7 @@ Programmed by t.hara
 004128: c5
 
 [	LD A , [ DETECT_SCC_SLOT ]] Z80:14cyc, R800:6cyc
-004129: 3a f1 41
+004129: 3a ed 41
 
 [	LD H , 0X80] Z80:8cyc, R800:2cyc
 00412c: 26 80
@@ -663,44 +663,44 @@ Programmed by t.hara
 [	CALL ENASLT] Z80:18cyc, R800:5cyc
 00412e: cd 24 00
 
-[	LD HL , [ DATA_ADDRESS ]] Z80:17cyc, R800:7cyc
-004131: 2a cf 41
+[	LD DE , [ DATA_ADDRESS ]] Z80:22cyc, R800:8cyc
+004131: ed 5b cb 41
 
-[	LD A , H] Z80:5cyc, R800:2cyc
-004134: 7c
+[	LD A , D] Z80:5cyc, R800:2cyc
+004135: 7a
 
 [	OR A , 0X80] Z80:8cyc, R800:2cyc
-004135: f6 80
+004136: f6 80
 
-[	LD H , A] Z80:5cyc, R800:2cyc
-004137: 67
+[	LD D , A] Z80:5cyc, R800:2cyc
+004138: 57
 
-[	LD DE , DATA_WORK] Z80:11cyc, R800:3cyc
-004138: 11 d1 41
+[	LD HL , DATA_WORK] Z80:11cyc, R800:3cyc
+004139: 21 cd 41
 
 [	POP BC] Z80:11cyc, R800:5cyc
-00413b: c1
+00413c: c1
 
 [	LDIR] Z80:23cyc(BC!=0), 18cyc(BC=0), R800:?cyc(BC!=0), 7cyc(BC=0)
-00413c: ed b0
+00413d: ed b0
 
 [	LD A , [ RAMAD2 ]] Z80:14cyc, R800:6cyc
-00413e: 3a 43 f3
+00413f: 3a 43 f3
 
 [	LD H , 0X80] Z80:8cyc, R800:2cyc
-004141: 26 80
+004142: 26 80
 
 [	CALL ENASLT] Z80:18cyc, R800:5cyc
-004143: cd 24 00
+004144: cd 24 00
 
 [	POP HL] Z80:11cyc, R800:5cyc
-004146: e1
+004147: e1
 
 [	EI] Z80:5cyc, R800:1cyc
-004147: fb
+004148: fb
 
 [	RET] Z80:11cyc, R800:5cyc
-004148: c9
+004149: c9
 
 [	ENDSCOPE]
 	Scope path: 
@@ -709,181 +709,166 @@ Programmed by t.hara
 	Scope path: SCC_PEEK:
 
 [SCC_PEEK ::]
-	global label address: 0x004149
+	global label address: 0x00414a
 
 [	POP HL] Z80:11cyc, R800:5cyc
-004149: e1
+00414a: e1
 
 [	DEC HL] Z80:7cyc, R800:1cyc
-00414a: 2b
+00414b: 2b
 
 [	LD IX , CALBAS_CHRGTR] Z80:16cyc, R800:4cyc
-00414b: dd 21 66 46
+00414c: dd 21 66 46
 
 [	CALL CALBAS] Z80:18cyc, R800:5cyc
-00414f: cd 59 01
+004150: cd 59 01
 
 [	CP A , 40] Z80:8cyc, R800:2cyc
-004152: fe 28
+004153: fe 28
 
 [	JP NZ , SYNTAX_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-004154: c2 bd 41
+004155: c2 b9 41
 
 [	INC HL] Z80:7cyc, R800:1cyc
-004157: 23
+004158: 23
 
 [	LD IX , CALBAS_FRMQNT] Z80:16cyc, R800:4cyc
-004158: dd 21 2f 54
+004159: dd 21 2f 54
 
 [	CALL CALBAS] Z80:18cyc, R800:5cyc
-00415c: cd 59 01
+00415d: cd 59 01
 
-[	EX DE , HL] Z80:5cyc, R800:1cyc
-00415f: eb
-
-[	LD C , [ HL ]] Z80:8cyc, R800:4cyc
-004160: 4e
-
-[	INC HL] Z80:7cyc, R800:1cyc
-004161: 23
-
-[	LD B , [ HL ]] Z80:8cyc, R800:4cyc
-004162: 46
-
-[	LD [ DATA_ADDRESS ] , BC] Z80:22cyc, R800:8cyc
-004163: ed 43 cf 41
-
-[	EX DE , HL] Z80:5cyc, R800:1cyc
-004167: eb
+[	LD [ DATA_ADDRESS ] , DE] Z80:22cyc, R800:8cyc
+004160: ed 53 cb 41
 
 [	PUSH HL] Z80:12cyc, R800:6cyc
-004168: e5
+004164: e5
 
 [	LD A , [ DETECT_SCC_SLOT ]] Z80:14cyc, R800:6cyc
-004169: 3a f1 41
+004165: 3a ed 41
 
 [	LD H , 0X80] Z80:8cyc, R800:2cyc
-00416c: 26 80
+004168: 26 80
 
 [	CALL ENASLT] Z80:18cyc, R800:5cyc
-00416e: cd 24 00
+00416a: cd 24 00
 
 [	LD HL , [ DATA_ADDRESS ]] Z80:17cyc, R800:7cyc
-004171: 2a cf 41
+00416d: 2a cb 41
 
 [	LD A , [ HL ]] Z80:8cyc, R800:4cyc
-004174: 7e
+004170: 7e
 
 [	LD [ DATA_WORK ] , A] Z80:14cyc, R800:6cyc
-004175: 32 d1 41
+004171: 32 cd 41
 
 [	LD A , [ RAMAD2 ]] Z80:14cyc, R800:6cyc
-004178: 3a 43 f3
+004174: 3a 43 f3
 
 [	LD H , 0X80] Z80:8cyc, R800:2cyc
-00417b: 26 80
+004177: 26 80
 
 [	CALL ENASLT] Z80:18cyc, R800:5cyc
-00417d: cd 24 00
+004179: cd 24 00
 
 [	EI] Z80:5cyc, R800:1cyc
-004180: fb
+00417c: fb
 
 [	POP HL] Z80:11cyc, R800:5cyc
-004181: e1
+00417d: e1
 
 [	DEC HL] Z80:7cyc, R800:1cyc
-004182: 2b
+00417e: 2b
 
 [	LD IX , CALBAS_CHRGTR] Z80:16cyc, R800:4cyc
-004183: dd 21 66 46
+00417f: dd 21 66 46
 
 [	CALL CALBAS] Z80:18cyc, R800:5cyc
-004187: cd 59 01
+004183: cd 59 01
 
 [	CP A , 44] Z80:8cyc, R800:2cyc
-00418a: fe 2c
+004186: fe 2c
 
 [	JP NZ , SYNTAX_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-00418c: c2 bd 41
+004188: c2 b9 41
 
 [	INC HL] Z80:7cyc, R800:1cyc
-00418f: 23
+00418b: 23
 
 [	XOR A , A] Z80:5cyc, R800:1cyc
-004190: af
+00418c: af
 
 [	LD [ SUBFLG ] , A] Z80:14cyc, R800:6cyc
-004191: 32 a5 f6
+00418d: 32 a5 f6
 
 [	LD IX , CALBAS_PTRGET] Z80:16cyc, R800:4cyc
-004194: dd 21 a4 5e
+004190: dd 21 a4 5e
 
 [	CALL CALBAS] Z80:18cyc, R800:5cyc
-004198: cd 59 01
+004194: cd 59 01
 
 [	DEC DE] Z80:7cyc, R800:1cyc
-00419b: 1b
+004197: 1b
 
 [	DEC DE] Z80:7cyc, R800:1cyc
-00419c: 1b
+004198: 1b
 
 [	DEC DE] Z80:7cyc, R800:1cyc
-00419d: 1b
+004199: 1b
 
 [	LD A , [ DE ]] Z80:8cyc, R800:4cyc
-00419e: 1a
+00419a: 1a
 
 [	CP A , 2] Z80:8cyc, R800:2cyc
-00419f: fe 02
+00419b: fe 02
 
 [	JP NZ , TYPE_MISMATCH_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-0041a1: c2 c6 41
+00419d: c2 c2 41
 
 [	INC DE] Z80:7cyc, R800:1cyc
-0041a4: 13
+0041a0: 13
 
 [	INC DE] Z80:7cyc, R800:1cyc
-0041a5: 13
+0041a1: 13
 
 [	INC DE] Z80:7cyc, R800:1cyc
-0041a6: 13
+0041a2: 13
 
 [	LD A , [ DATA_WORK ]] Z80:14cyc, R800:6cyc
-0041a7: 3a d1 41
+0041a3: 3a cd 41
 
 [	LD [ DE ] , A] Z80:8cyc, R800:4cyc
-0041aa: 12
+0041a6: 12
 
 [	INC DE] Z80:7cyc, R800:1cyc
-0041ab: 13
+0041a7: 13
 
 [	XOR A , A] Z80:5cyc, R800:1cyc
-0041ac: af
+0041a8: af
 
 [	LD [ DE ] , A] Z80:8cyc, R800:4cyc
-0041ad: 12
+0041a9: 12
 
 [	DEC HL] Z80:7cyc, R800:1cyc
-0041ae: 2b
+0041aa: 2b
 
 [	LD IX , CALBAS_CHRGTR] Z80:16cyc, R800:4cyc
-0041af: dd 21 66 46
+0041ab: dd 21 66 46
 
 [	CALL CALBAS] Z80:18cyc, R800:5cyc
-0041b3: cd 59 01
+0041af: cd 59 01
 
 [	CP A , 41] Z80:8cyc, R800:2cyc
-0041b6: fe 29
+0041b2: fe 29
 
 [	JP NZ , SYNTAX_ERROR] Z80:11cyc, R800:5cyc(cond=true), 3cyc(cond=false)
-0041b8: c2 bd 41
+0041b4: c2 b9 41
 
 [	INC HL] Z80:7cyc, R800:1cyc
-0041bb: 23
+0041b7: 23
 
 [	RET] Z80:11cyc, R800:5cyc
-0041bc: c9
+0041b8: c9
 
 [	ENDSCOPE]
 	Scope path: 
@@ -892,16 +877,16 @@ Programmed by t.hara
 	Scope path: SYNTAX_ERROR:
 
 [SYNTAX_ERROR ::]
-	global label address: 0x0041bd
+	global label address: 0x0041b9
 
 [	LD E , 2] Z80:8cyc, R800:2cyc
-0041bd: 1e 02
+0041b9: 1e 02
 
 [	LD IX , CALBAS_ERRHAND] Z80:16cyc, R800:4cyc
-0041bf: dd 21 6f 40
+0041bb: dd 21 6f 40
 
 [	JP CALBAS] Z80:11cyc, R800:5cyc
-0041c3: c3 59 01
+0041bf: c3 59 01
 
 [	ENDSCOPE]
 	Scope path: 
@@ -910,104 +895,104 @@ Programmed by t.hara
 	Scope path: TYPE_MISMATCH_ERROR:
 
 [TYPE_MISMATCH_ERROR ::]
-	global label address: 0x0041c6
+	global label address: 0x0041c2
 
 [	LD E , 13] Z80:8cyc, R800:2cyc
-0041c6: 1e 0d
+0041c2: 1e 0d
 
 [	LD IX , CALBAS_ERRHAND] Z80:16cyc, R800:4cyc
-0041c8: dd 21 6f 40
+0041c4: dd 21 6f 40
 
 [	JP CALBAS] Z80:11cyc, R800:5cyc
-0041cc: c3 59 01
+0041c8: c3 59 01
 
 [	ENDSCOPE]
 	Scope path: 
 
 [DATA_ADDRESS ::]
-	global label address: 0x0041cf
+	global label address: 0x0041cb
 
 [	DW 0]
-0041cf: 00 00
+0041cb: 00 00
 
 [DATA_WORK ::]
-	global label address: 0x0041d1
+	global label address: 0x0041cd
 
 [SPACE 32]
 	Allocate space: 32byte(s)
 		Fill value: 0
 
 [DETECT_SCC_SLOT ::]
-	global label address: 0x0041f1
+	global label address: 0x0041ed
 
 [CURRENT_SLOT ::]
-	global label address: 0x0041f1
+	global label address: 0x0041ed
+
+[	DB 0]
+0041ed: 00
+
+[BACKUP_SCC_REG_A ::]
+	global label address: 0x0041ee
+
+[	DB 0]
+0041ee: 00
+
+[BACKUP_SCC_REG_B ::]
+	global label address: 0x0041ef
+
+[	DB 0]
+0041ef: 00
+
+[BACKUP_SCC_BANK2 :]
+	label address: 0x0041f0
+
+[	DB 0]
+0041f0: 00
+
+[BACKUP_SCC_BANK3 :]
+	label address: 0x0041f1
 
 [	DB 0]
 0041f1: 00
 
-[BACKUP_SCC_REG_A ::]
-	global label address: 0x0041f2
-
-[	DB 0]
-0041f2: 00
-
-[BACKUP_SCC_REG_B ::]
-	global label address: 0x0041f3
-
-[	DB 0]
-0041f3: 00
-
-[BACKUP_SCC_BANK2 :]
-	label address: 0x0041f4
-
-[	DB 0]
-0041f4: 00
-
-[BACKUP_SCC_BANK3 :]
-	label address: 0x0041f5
-
-[	DB 0]
-0041f5: 00
-
 Define macro {COMMAND_ITEM MACRO ADDRESS , NAME}
 
 [COMMAND_TABLE ::]
-	global label address: 0x0041f6
+	global label address: 0x0041f2
 
 ((COMMAND_ITEM SCC_POKE , "SCCPOKE"))
 	Scope path: @MACRO0:
 [	DW SCC_POKE]
-0041f6: cb 40
+0041f2: cb 40
 
 [	DS "SCCPOKE"]
-0041f8: 53 43 43 50 4f 4b 45
+0041f4: 53 43 43 50 4f 4b 45
 
 [	DB 0]
-0041ff: 00
+0041fb: 00
 
 ((COMMAND_ITEM SCC_PEEK , "SCCPEEK"))
 	Scope path: @MACRO1:
 [	DW SCC_PEEK]
-004200: 49 41
+0041fc: 4a 41
 
 [	DS "SCCPEEK"]
-004202: 53 43 43 50 45 45 4b
+0041fe: 53 43 43 50 45 45 4b
 
 [	DB 0]
-004209: 00
+004205: 00
 
 [	DW 0]
-00420a: 00 00
+004206: 00 00
 
 [END_ADDRESS_ON_PAGE1 :]
-	label address: 0x00420c
+	label address: 0x004208
 
 << label >>
-BACKUP_SCC_BANK2 16884 ( 0x41f4 )
-BACKUP_SCC_BANK3 16885 ( 0x41f5 )
-BACKUP_SCC_REG_A 16882 ( 0x41f2 )
-BACKUP_SCC_REG_B 16883 ( 0x41f3 )
+BACKUP_SCC_BANK2 16880 ( 0x41f0 )
+BACKUP_SCC_BANK3 16881 ( 0x41f1 )
+BACKUP_SCC_REG_A 16878 ( 0x41ee )
+BACKUP_SCC_REG_B 16879 ( 0x41ef )
 BAKCLR 62442 ( 0xf3ea )
 BDRCLR 62443 ( 0xf3eb )
 BEEP 192 ( 0xc0 )
@@ -1052,16 +1037,16 @@ COMMAND_SEARCH:EXIT_STRCMP_LOOP 16435 ( 0x4033 )
 COMMAND_SEARCH:SEARCH_LOOP 16404 ( 0x4014 )
 COMMAND_SEARCH:SKIP_REMAIN_CHAR 16428 ( 0x402c )
 COMMAND_SEARCH:STRCMP_LOOP 16417 ( 0x4021 )
-COMMAND_TABLE 16886 ( 0x41f6 )
+COMMAND_TABLE 16882 ( 0x41f2 )
 CSRX 62429 ( 0xf3dd )
 CSRY 62428 ( 0xf3dc )
 CURLIN 62492 ( 0xf41c )
-CURRENT_SLOT 16881 ( 0x41f1 )
+CURRENT_SLOT 16877 ( 0x41ed )
 DAC 63478 ( 0xf7f6 )
-DATA_ADDRESS 16847 ( 0x41cf )
-DATA_WORK 16849 ( 0x41d1 )
+DATA_ADDRESS 16843 ( 0x41cb )
+DATA_WORK 16845 ( 0x41cd )
 DCOMPR 32 ( 0x20 )
-DETECT_SCC_SLOT 16881 ( 0x41f1 )
+DETECT_SCC_SLOT 16877 ( 0x41ed )
 DEVICE 64921 ( 0xfd99 )
 DISKVE 62243 ( 0xf323 )
 DISSCR 65 ( 0x41 )
@@ -1069,7 +1054,7 @@ DSPFNK 207 ( 0xcf )
 ENASCR 68 ( 0x44 )
 ENASLT 36 ( 0x24 )
 END_ADDRESS 49215 ( 0xc03f )
-END_ADDRESS_ON_PAGE1 16908 ( 0x420c )
+END_ADDRESS_ON_PAGE1 16904 ( 0x4208 )
 EOL 360 ( 0x168 )
 ERAFNK 204 ( 0xcc )
 EXBRSA 64248 ( 0xfaf8 )
@@ -1165,7 +1150,7 @@ SCC_BANK2 36864 ( 0x9000 )
 SCC_BANK2_WAVE_BANK 63 ( 0x3f )
 SCC_BANK3 45056 ( 0xb000 )
 SCC_BANK3_SCCI_BANK 128 ( 0x80 )
-SCC_PEEK 16713 ( 0x4149 )
+SCC_PEEK 16714 ( 0x414a )
 SCC_POKE 16587 ( 0x40cb )
 SCC_POKE:EXIT_LOOP 16671 ( 0x411f )
 SCC_POKE:LOOP 16632 ( 0x40f8 )
@@ -1228,7 +1213,7 @@ SUB_WRTCLK 505 ( 0x1f9 )
 SUB_WRTVDP 301 ( 0x12d )
 SUB_WRTVRM 265 ( 0x109 )
 SYNCHR 8 ( 0x8 )
-SYNTAX_ERROR 16829 ( 0x41bd )
+SYNTAX_ERROR 16825 ( 0x41b9 )
 TAPIN 228 ( 0xe4 )
 TAPIOF 231 ( 0xe7 )
 TAPION 225 ( 0xe1 )
@@ -1237,7 +1222,7 @@ TAPOON 234 ( 0xea )
 TAPOUT 237 ( 0xed )
 TOTEXT 210 ( 0xd2 )
 TRPTBL 64588 ( 0xfc4c )
-TYPE_MISMATCH_ERROR 16838 ( 0x41c6 )
+TYPE_MISMATCH_ERROR 16834 ( 0x41c2 )
 USRTAB 62362 ( 0xf39a )
 VALTYP 63075 ( 0xf663 )
 WRPRIM 62341 ( 0xf385 )
