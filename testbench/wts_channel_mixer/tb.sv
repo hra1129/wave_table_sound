@@ -207,7 +207,7 @@ module tb;
 	reg		[11:0]	reg_frequency_count_f1;
 	reg		[4:0]	reg_noise_frequency_f1;
 
-	int				i;
+	int				i, j;
 	int				pattern_no = 0;
 	int				error_count = 0;
 
@@ -444,6 +444,28 @@ module tb;
 	endtask
 
 	// -------------------------------------------------------------
+	task write_sram(
+		input	[3:0]	_sram_id,
+		input	[6:0]	_sram_a,
+		input	[7:0]	_sram_d
+	);
+		sram_id	<= _sram_id;
+		sram_a	<= _sram_a;
+		sram_d	<= _sram_d;
+		sram_oe	<= 1'b0;
+		sram_we	<= 1'b1;
+		@( posedge clk );
+
+		sram_id	<= 0;
+		sram_a	<= 0;
+		sram_d	<= 0;
+		sram_oe	<= 1'b0;
+		sram_we	<= 1'b0;
+		@( posedge clk );
+		@( posedge clk );
+	endtask
+
+	// -------------------------------------------------------------
 	//	test scenario
 	// -------------------------------------------------------------
 	initial begin
@@ -655,7 +677,13 @@ module tb;
 		repeat( 50 ) @( posedge clk );
 
 		// -------------------------------------------------------------
-		set_test_pattern_no( 1, "Data can be written." );
+		set_test_pattern_no( 1, "Initialize wave memory." );
+
+		for( i = 0; i < 12; i++ ) begin
+			for( j = 0; j < 128; j++ ) begin
+				write_sram( i, j, 0 );
+			end
+		end
 
 		repeat( 50 ) @( posedge clk );
 

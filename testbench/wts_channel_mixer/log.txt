@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 23:14:54 on Oct 04,2021
+# Start time: 06:18:08 on Oct 07,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_channel_mixer
@@ -11,13 +11,13 @@
 # Loading work.wts_channel_volume
 # do run.do
 # ------------------------------------------------------------
-# [             4632720]   1: Data can be written.
+# [             4632720]   1: Initialize wave memory.
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $                                   $
 # $        Success of all!!           $
 # $                                   $
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(443)
-#    Time: 6960720 ps  Iteration: 1  Instance: /tb
-# End time: 23:14:54 on Oct 04,2021, Elapsed time: 0:00:00
+#    Time: 221509200 ps  Iteration: 1  Instance: /tb
+# End time: 06:18:08 on Oct 07,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

@@ -287,6 +287,7 @@ module wts_channel_mixer (
 	reg				ff_sram_we;
 	reg		[7:0]	ff_sram_q;
 	reg				ff_sram_q_en;
+	reg				ff_sram_id_d;
 	wire			w_sram_done;
 
 	// ------------------------------------------------------------------------
@@ -324,6 +325,18 @@ module wts_channel_mixer (
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
+			ff_sram_id <= 4'b0;
+		end
+		else if( sram_oe | sram_we ) begin
+			ff_sram_id <= sram_id;
+		end
+		else begin
+			//	hold
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
 			ff_sram_q_en <= 1'b0;
 		end
 		else if( w_sram_done ) begin
@@ -336,10 +349,36 @@ module wts_channel_mixer (
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_sram_id <= 4'd0;
+			ff_sram_q <= 8'd0;
+			ff_sram_id_d <= 1'b0;
+		end
+		else if( w_sram_done && ff_sram_we ) begin
+			ff_sram_q <= ff_sram_oe;
+			ff_sram_id_d <= ff_sram_id[3];
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_sram_q <= 8'd0;
 		end
 		else if( sram_oe || sram_we ) begin
-			ff_sram_id <= sram_id;
+			if( !ff_sram_id_d ) begin
+				if( ff_active[1] || ff_active[3] || ff_active[5] ) begin
+					ff_sram_q <= w_sram_q00;
+				end
+				else begin
+					ff_sram_q <= w_sram_q01;
+				end
+			end
+			else begin
+				if( ff_active[1] || ff_active[3] || ff_active[5] ) begin
+					ff_sram_q <= w_sram_q10;
+				end
+				else begin
+					ff_sram_q <= w_sram_q11;
+				end
+			end
 		end
 		else begin
 			//	hold
@@ -371,7 +410,7 @@ module wts_channel_mixer (
 	// ------------------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_active <= 6'd0;
+			ff_active <= 6'b000001;
 		end
 		else begin
 			ff_active <= { ff_active[4:0], ff_active[5] };
@@ -401,7 +440,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_b0 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[1]				),
 		.key_on						( ch_b0_key_on				),
 		.key_release				( ch_b0_key_release			),
 		.key_off					( ch_b0_key_off				),
@@ -421,7 +460,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_c0 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[2]				),
 		.key_on						( ch_c0_key_on				),
 		.key_release				( ch_c0_key_release			),
 		.key_off					( ch_c0_key_off				),
@@ -441,7 +480,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_d0 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[3]				),
 		.key_on						( ch_d0_key_on				),
 		.key_release				( ch_d0_key_release			),
 		.key_off					( ch_d0_key_off				),
@@ -461,7 +500,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_e0 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[4]				),
 		.key_on						( ch_e0_key_on				),
 		.key_release				( ch_e0_key_release			),
 		.key_off					( ch_e0_key_off				),
@@ -481,7 +520,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_f0 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[5]				),
 		.key_on						( ch_f0_key_on				),
 		.key_release				( ch_f0_key_release			),
 		.key_off					( ch_f0_key_off				),
@@ -521,7 +560,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_b1 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[1]				),
 		.key_on						( ch_b1_key_on				),
 		.key_release				( ch_b1_key_release			),
 		.key_off					( ch_b1_key_off				),
@@ -541,7 +580,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_c1 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[2]				),
 		.key_on						( ch_c1_key_on				),
 		.key_release				( ch_c1_key_release			),
 		.key_off					( ch_c1_key_off				),
@@ -561,7 +600,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_d1 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[3]				),
 		.key_on						( ch_d1_key_on				),
 		.key_release				( ch_d1_key_release			),
 		.key_off					( ch_d1_key_off				),
@@ -581,7 +620,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_e1 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[4]				),
 		.key_on						( ch_e1_key_on				),
 		.key_release				( ch_e1_key_release			),
 		.key_off					( ch_e1_key_off				),
@@ -601,7 +640,7 @@ module wts_channel_mixer (
 	wts_channel_part u_ch_f1 (
 		.nreset						( nreset					),
 		.clk						( clk						),
-		.active						( ff_active[0]				),
+		.active						( ff_active[5]				),
 		.key_on						( ch_f1_key_on				),
 		.key_release				( ch_f1_key_release			),
 		.key_off					( ch_f1_key_off				),
@@ -685,12 +724,17 @@ module wts_channel_mixer (
 	assign w_envelope0	= func_envelope_sel( ff_active, w_envelope_a0, w_envelope_b0, w_envelope_c0, w_envelope_d0, w_envelope_e0, w_envelope_f0 );
 	assign w_envelope1	= func_envelope_sel( ff_active, w_envelope_a1, w_envelope_b1, w_envelope_c1, w_envelope_d1, w_envelope_e1, w_envelope_f1 );
 
-	assign w_sram_a00 = ff_active[1] ? w_sram_a_a0 :
-	                    ff_active[3] ? w_sram_a_c0 :
-	                    ff_active[5] ? w_sram_a_e0 : { ff_sram_id[2:1], ff_sram_a };
-	assign w_sram_a01 = ff_active[0] ? w_sram_a_b0 :
-	                    ff_active[2] ? w_sram_a_d0 :
-	                    ff_active[4] ? w_sram_a_f0 : { ff_sram_id[2:1], ff_sram_a };
+	assign w_sram_a0	= ff_active[1] ? w_sram_a_a0 :
+						  ff_active[3] ? w_sram_a_c0 :
+						  ff_active[5] ? w_sram_a_e0 : { ff_sram_id[2:1], ff_sram_a };
+	assign w_sram_a1	= ff_active[0] ? w_sram_a_b0 :
+						  ff_active[2] ? w_sram_a_d0 :
+						  ff_active[4] ? w_sram_a_f0 : { ff_sram_id[2:1], ff_sram_a };
+
+	assign w_sram_we00	= ~ff_sram_id[3] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
+	assign w_sram_we01	= ~ff_sram_id[3] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
+	assign w_sram_we10	=  ff_sram_id[3] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
+	assign w_sram_we11	=  ff_sram_id[3] & (ff_active[0] | ff_active[3] | ff_active[4]) & ff_sram_we;
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
