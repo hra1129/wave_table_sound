@@ -731,10 +731,10 @@ module wts_channel_mixer (
 						  ff_active[2] ? w_sram_a_d0 :
 						  ff_active[4] ? w_sram_a_f0 : { ff_sram_id[2:1], ff_sram_a };
 
-	assign w_sram_we00	= ~ff_sram_id[3] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
-	assign w_sram_we01	= ~ff_sram_id[3] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
-	assign w_sram_we10	=  ff_sram_id[3] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
-	assign w_sram_we11	=  ff_sram_id[3] & (ff_active[0] | ff_active[3] | ff_active[4]) & ff_sram_we;
+	assign w_sram_we00	= ~ff_sram_id[3] & ~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
+	assign w_sram_we01	= ~ff_sram_id[3] &  ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
+	assign w_sram_we10	=  ff_sram_id[3] & ~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
+	assign w_sram_we11	=  ff_sram_id[3] &  ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
 
 	wts_ram u_ram00 (
 		.clk			( clk				),

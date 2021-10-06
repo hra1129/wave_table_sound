@@ -679,9 +679,15 @@ module tb;
 		// -------------------------------------------------------------
 		set_test_pattern_no( 1, "Initialize wave memory." );
 
-		for( i = 0; i < 12; i++ ) begin
+		for( i = 0; i < 6; i++ ) begin
 			for( j = 0; j < 128; j++ ) begin
 				write_sram( i, j, 0 );
+			end
+		end
+
+		for( i = 0; i < 6; i++ ) begin
+			for( j = 0; j < 128; j++ ) begin
+				write_sram( i + 8, j, 0 );
 			end
 		end
 
