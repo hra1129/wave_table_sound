@@ -527,6 +527,7 @@ module tb;
 		sram_d = 0;
 		sram_oe = 0;
 		sram_we = 0;
+
 		reg_volume_a0 = 0;
 		reg_enable_a0 = 0;
 		reg_noise_enable_a0 = 0;
@@ -681,17 +682,42 @@ module tb;
 
 		for( i = 0; i < 6; i++ ) begin
 			for( j = 0; j < 128; j++ ) begin
-				write_sram( i, j, 0 );
+				write_sram( i, j, j * 2 - 128 );
 			end
 		end
 
 		for( i = 0; i < 6; i++ ) begin
 			for( j = 0; j < 128; j++ ) begin
-				write_sram( i + 8, j, 0 );
+				write_sram( i + 8, j, j * 2 - 128 );
 			end
 		end
 
 		repeat( 50 ) @( posedge clk );
+
+		// -------------------------------------------------------------
+		set_test_pattern_no( 2, "Sound Ch.A." );
+
+		reg_volume_a0 = 15;
+		reg_enable_a0 = 1;
+		reg_noise_enable_a0 = 0;
+		reg_ar_a0 = 10;
+		reg_dr_a0 = 20;
+		reg_sr_a0 = 5000;
+		reg_rr_a0 = 1000;
+		reg_sl_a0 = 220;
+		reg_wave_length_a0 = 2;
+		reg_frequency_count_a0 = 123;
+		reg_noise_frequency_a0 = 0;
+
+		ch_a0_key_on = 1;
+		ch_a0_key_release = 0;
+		ch_a0_key_off = 0;
+		repeat( 6 ) @( posedge clk );
+
+		ch_a0_key_on = 0;
+		ch_a0_key_release = 0;
+		ch_a0_key_off = 0;
+		repeat( 5000 ) @( posedge clk );
 
 		end_of_test();
 	end

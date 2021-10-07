@@ -1,2 +1,3 @@
 # OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_channel_mixer/vsim.wlf
 add wave -position end vsim:/tb/u_channel_mixer/*
+add wave -position end vsim:/tb/u_channel_mixer/u_ch_a0/*

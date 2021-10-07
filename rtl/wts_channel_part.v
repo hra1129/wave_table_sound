@@ -24,6 +24,7 @@ module wts_channel_part (
 	input			nreset,					//	negative logic
 	input			clk,
 	input			active,					//	3.579MHz timing pulse
+	input			address_reset,
 	input			key_on,					//	pulse
 	input			key_release,			//	pulse
 	input			key_off,				//	pulse
