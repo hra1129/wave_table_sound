@@ -285,7 +285,6 @@ module wts_channel_mixer (
 	reg		[7:0]	ff_sram_d;
 	reg				ff_sram_oe;
 	reg				ff_sram_we;
-	reg		[7:0]	ff_sram_q;
 	reg				ff_sram_q_en;
 	reg				ff_sram_id_d;
 	wire			w_sram_done;
@@ -349,39 +348,10 @@ module wts_channel_mixer (
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_sram_q <= 8'd0;
 			ff_sram_id_d <= 1'b0;
 		end
 		else if( w_sram_done && ff_sram_we ) begin
-			ff_sram_q <= ff_sram_oe;
 			ff_sram_id_d <= ff_sram_id[3];
-		end
-	end
-
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_sram_q <= 8'd0;
-		end
-		else if( sram_oe || sram_we ) begin
-			if( !ff_sram_id_d ) begin
-				if( ff_active[1] || ff_active[3] || ff_active[5] ) begin
-					ff_sram_q <= w_sram_q00;
-				end
-				else begin
-					ff_sram_q <= w_sram_q01;
-				end
-			end
-			else begin
-				if( ff_active[1] || ff_active[3] || ff_active[5] ) begin
-					ff_sram_q <= w_sram_q10;
-				end
-				else begin
-					ff_sram_q <= w_sram_q11;
-				end
-			end
-		end
-		else begin
-			//	hold
 		end
 	end
 
@@ -709,7 +679,7 @@ module wts_channel_mixer (
 		endcase
 	endfunction
 
-	function [1:0] func_envelope_sel(
+	function [8:0] func_envelope_sel(
 		input	[5:0]	phase,
 		input	[8:0]	envelope_a,
 		input	[8:0]	envelope_b,
@@ -729,19 +699,19 @@ module wts_channel_mixer (
 		endcase
 	endfunction
 
-	assign w_volume0	= func_volume_sel( ff_active, reg_volume_a0, reg_volume_b0, reg_volume_c0, reg_volume_d0, reg_volume_e0, reg_volume_f0 );
-	assign w_volume1	= func_volume_sel( ff_active, reg_volume_a1, reg_volume_b1, reg_volume_c1, reg_volume_d1, reg_volume_e1, reg_volume_f1 );
-	assign w_enable0	= func_enable_sel( ff_active, reg_enable_a0, reg_enable_b0, reg_enable_c0, reg_enable_d0, reg_enable_e0, reg_enable_f0 );
-	assign w_enable1	= func_enable_sel( ff_active, reg_enable_a1, reg_enable_b1, reg_enable_c1, reg_enable_d1, reg_enable_e1, reg_enable_f1 );
+	assign w_volume0	= func_volume_sel( ff_active, reg_volume_e0, reg_volume_f0, reg_volume_a0, reg_volume_b0, reg_volume_c0, reg_volume_d0 );
+	assign w_volume1	= func_volume_sel( ff_active, reg_volume_e1, reg_volume_f1, reg_volume_a1, reg_volume_b1, reg_volume_c1, reg_volume_d1 );
+	assign w_enable0	= func_enable_sel( ff_active, reg_enable_d0, reg_enable_e0, reg_enable_f0, reg_enable_a0, reg_enable_b0, reg_enable_c0 );
+	assign w_enable1	= func_enable_sel( ff_active, reg_enable_d1, reg_enable_e1, reg_enable_f1, reg_enable_a1, reg_enable_b1, reg_enable_c1 );
 	assign w_envelope0	= func_envelope_sel( ff_active, w_envelope_a0, w_envelope_b0, w_envelope_c0, w_envelope_d0, w_envelope_e0, w_envelope_f0 );
 	assign w_envelope1	= func_envelope_sel( ff_active, w_envelope_a1, w_envelope_b1, w_envelope_c1, w_envelope_d1, w_envelope_e1, w_envelope_f1 );
 
-	assign w_sram_a0	= ff_active[1] ? w_sram_a_a0 :
-						  ff_active[3] ? w_sram_a_c0 :
-						  ff_active[5] ? w_sram_a_e0 : { ff_sram_id[2:1], ff_sram_a };
-	assign w_sram_a1	= ff_active[0] ? w_sram_a_b0 :
-						  ff_active[2] ? w_sram_a_d0 :
-						  ff_active[4] ? w_sram_a_f0 : { ff_sram_id[2:1], ff_sram_a };
+	assign w_sram_a0	= ff_active[5] ? { 2'b00, w_sram_a_a0 } :
+						  ff_active[1] ? { 2'b01, w_sram_a_c0 } :
+						  ff_active[3] ? { 2'b10, w_sram_a_e0 } : { ff_sram_id[2:1], ff_sram_a };
+	assign w_sram_a1	= ff_active[4] ? { 2'b00, w_sram_a_b0 } :
+						  ff_active[0] ? { 2'b01, w_sram_a_d0 } :
+						  ff_active[2] ? { 2'b10, w_sram_a_f0 } : { ff_sram_id[2:1], ff_sram_a };
 
 	assign w_sram_we00	= ~ff_sram_id[3] & ~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
 	assign w_sram_we01	= ~ff_sram_id[3] &  ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
@@ -780,8 +750,8 @@ module wts_channel_mixer (
 		.sram_q			( w_sram_q11		)
 	);
 
-	assign w_sram_q0	= ( ff_active[5] || ff_active[3] || ff_active[1] ) ? w_sram_q00 : w_sram_q01;
-	assign w_sram_q1	= ( ff_active[5] || ff_active[3] || ff_active[1] ) ? w_sram_q10 : w_sram_q11;
+	assign w_sram_q0	= ( ff_active[4] || ff_active[2] || ff_active[0] ) ? w_sram_q00 : w_sram_q01;
+	assign w_sram_q1	= ( ff_active[4] || ff_active[2] || ff_active[0] ) ? w_sram_q10 : w_sram_q11;
 
 	wts_channel_volume u_channel_volume0 (
 		.nreset			( nreset			),

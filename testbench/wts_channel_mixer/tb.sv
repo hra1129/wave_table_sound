@@ -682,14 +682,22 @@ module tb;
 
 		for( i = 0; i < 6; i++ ) begin
 			for( j = 0; j < 128; j++ ) begin
-				write_sram( i, j, j * 2 - 128 );
+				if( j < 64 ) begin
+					write_sram( i, j, -128 );
+				end
+				else begin
+					write_sram( i, j, 127 );
+				end
 			end
 		end
 
 		for( i = 0; i < 6; i++ ) begin
-			for( j = 0; j < 128; j++ ) begin
-				write_sram( i + 8, j, j * 2 - 128 );
-			end
+				if( j < 64 ) begin
+					write_sram( i + 8, j, -128 );
+				end
+				else begin
+					write_sram( i + 8, j, 127 );
+				end
 		end
 
 		repeat( 50 ) @( posedge clk );
@@ -698,15 +706,15 @@ module tb;
 		set_test_pattern_no( 2, "Sound Ch.A." );
 
 		reg_volume_a0 = 15;
-		reg_enable_a0 = 1;
+		reg_enable_a0 = 3;
 		reg_noise_enable_a0 = 0;
-		reg_ar_a0 = 10;
+		reg_ar_a0 = 2;
 		reg_dr_a0 = 20;
 		reg_sr_a0 = 5000;
-		reg_rr_a0 = 1000;
+		reg_rr_a0 = 100;
 		reg_sl_a0 = 220;
-		reg_wave_length_a0 = 2;
-		reg_frequency_count_a0 = 123;
+		reg_wave_length_a0 = 3;
+		reg_frequency_count_a0 = 12;
 		reg_noise_frequency_a0 = 0;
 
 		ch_a0_key_on = 1;
@@ -717,7 +725,49 @@ module tb;
 		ch_a0_key_on = 0;
 		ch_a0_key_release = 0;
 		ch_a0_key_off = 0;
-		repeat( 5000 ) @( posedge clk );
+		repeat( 8000 ) @( posedge clk );
+
+		ch_a0_key_on = 0;
+		ch_a0_key_release = 1;
+		ch_a0_key_off = 0;
+		repeat( 6 ) @( posedge clk );
+
+		ch_a0_key_on = 0;
+		ch_a0_key_release = 0;
+		ch_a0_key_off = 0;
+		repeat( 30000 ) @( posedge clk );
+
+		reg_volume_b0 = 15;
+		reg_enable_b0 = 3;
+		reg_noise_enable_b0 = 0;
+		reg_ar_b0 = 1;
+		reg_dr_b0 = 10;
+		reg_sr_b0 = 500;
+		reg_rr_b0 = 50;
+		reg_sl_b0 = 120;
+		reg_wave_length_b0 = 3;
+		reg_frequency_count_b0 = 80;
+		reg_noise_frequency_b0 = 0;
+
+		ch_b0_key_on = 1;
+		ch_b0_key_release = 0;
+		ch_b0_key_off = 0;
+		repeat( 6 ) @( posedge clk );
+
+		ch_b0_key_on = 0;
+		ch_b0_key_release = 0;
+		ch_b0_key_off = 0;
+		repeat( 8000 ) @( posedge clk );
+
+		ch_b0_key_on = 0;
+		ch_b0_key_release = 1;
+		ch_b0_key_off = 0;
+		repeat( 6 ) @( posedge clk );
+
+		ch_b0_key_on = 0;
+		ch_b0_key_release = 0;
+		ch_b0_key_off = 0;
+		repeat( 30000 ) @( posedge clk );
 
 		end_of_test();
 	end
