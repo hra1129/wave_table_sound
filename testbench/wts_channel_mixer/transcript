@@ -1,3 +1,0 @@
-# OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_channel_mixer/vsim.wlf
-do C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_channel_mixer/wave.do
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_channel_mixer/wave.do

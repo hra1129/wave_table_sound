@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 05:58:48 on Oct 09,2021
+# Start time: 07:18:58 on Oct 09,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_channel_mixer
@@ -21,5 +21,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(443)
 #    Time: 3654750480 ps  Iteration: 1  Instance: /tb
-# End time: 05:58:52 on Oct 09,2021, Elapsed time: 0:00:04
+# End time: 07:19:03 on Oct 09,2021, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 0
