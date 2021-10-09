@@ -1,0 +1,9 @@
+root = true
+
+[*.{v,sv,c,h,svh,vhd,asm}]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = false
+indent_size = 4
+indent_style = tab
+trim_trailing_whitespace = false
