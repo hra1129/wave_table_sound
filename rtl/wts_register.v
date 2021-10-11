@@ -259,9 +259,9 @@ module wts_register (
 	assign w_dec_bank3		= (address[14:13] == 2'b01) ? 1'b1 : 1'b0;
 
 	// BFFE-BFFFh Mode Register -----------------------------------------------
-	assign w_scc_en			= (reg_bank2 == 8'h3F) ? (w_dec_bank2 & !reg_scci_enable) : 1'b0;
-	assign w_scci_en		= reg_bank3[7] & w_dec_bank3 & reg_scci_enable;
-	assign w_wts_en			= reg_bank3[7] & w_dec_bank3 & reg_scci_enable & reg_wts_enable;
+	assign w_scc_en			= ( (reg_bank2 == 8'h3F) && (address[12:8] == 5'b11000) ) ? (w_dec_bank2 & !reg_scci_enable) : 1'b0;
+	assign w_scci_en		= reg_bank3[7] & w_dec_bank3 &  address[12] & reg_scci_enable;
+	assign w_wts_en			= reg_bank3[7] & w_dec_bank3 & ~address[12] & reg_scci_enable & reg_wts_enable;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -332,7 +332,7 @@ module wts_register (
 			sram_oe	<= rdreq;
 			sram_we	<= 1'b0;
 		end
-		else if( w_scci_en && (address[12:8] == 5'b1_1000) && (!address[7] || address[7:5] == 3'b100) ) begin
+		else if( w_scci_en && (address[11:8] == 4'b1000) && (!address[7] || address[7:5] == 3'b100) ) begin
 			//	B800-B87Fh : {101} 1 1000 0XXX XXXX
 			//	B880-B89Fh : {101} 1 1000 100X XXXX
 			sram_id	<= { 1'b0,  address[7:5] };
@@ -340,7 +340,7 @@ module wts_register (
 			sram_oe	<= rdreq;
 			sram_we	<= wrreq;
 		end
-		else if( w_wts_en && (address[12:11] == 2'b00) && (!address[10] || !address[10:9] == 2'b10) ) begin
+		else if( w_wts_en && (address[11] == 1'b0) && (!address[10] || !address[10:9] == 2'b10) ) begin
 			//	A000-A2FFh : {101} 0 00XX XXXX XXXX Ch.A0-F0
 			//	A300-A3FFh : {101} 0 0011 XXXX XXXX Ch.A1-B1
 			//	A400-A5FFh : {101} 0 010X XXXX XXXX Ch.C1-F1
@@ -360,6 +360,308 @@ module wts_register (
 			sram_a	<= address[6:0];
 			sram_oe	<= rdreq;
 			sram_we	<= wrreq;
+		end
+	end
+
+	// Control registers ------------------------------------------------------
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ch_a0_key_on				<= 1'b0;
+			ch_a0_key_release			<= 1'b0;
+			ch_a0_key_off				<= 1'b0;
+
+			ch_b0_key_on				<= 1'b0;
+			ch_b0_key_release			<= 1'b0;
+			ch_b0_key_off				<= 1'b0;
+
+			ch_c0_key_on				<= 1'b0;
+			ch_c0_key_release			<= 1'b0;
+			ch_c0_key_off				<= 1'b0;
+
+			ch_d0_key_on				<= 1'b0;
+			ch_d0_key_release			<= 1'b0;
+			ch_d0_key_off				<= 1'b0;
+
+			ch_e0_key_on				<= 1'b0;
+			ch_e0_key_release			<= 1'b0;
+			ch_e0_key_off				<= 1'b0;
+
+			ch_f0_key_on				<= 1'b0;
+			ch_f0_key_release			<= 1'b0;
+			ch_f0_key_off				<= 1'b0;
+
+			ch_a1_key_on				<= 1'b0;
+			ch_a1_key_release			<= 1'b0;
+			ch_a1_key_off				<= 1'b0;
+
+			ch_b1_key_on				<= 1'b0;
+			ch_b1_key_release			<= 1'b0;
+			ch_b1_key_off				<= 1'b0;
+
+			ch_c1_key_on				<= 1'b0;
+			ch_c1_key_release			<= 1'b0;
+			ch_c1_key_off				<= 1'b0;
+
+			ch_d1_key_on				<= 1'b0;
+			ch_d1_key_release			<= 1'b0;
+			ch_d1_key_off				<= 1'b0;
+
+			ch_e1_key_on				<= 1'b0;
+			ch_e1_key_release			<= 1'b0;
+			ch_e1_key_off				<= 1'b0;
+
+			ch_f1_key_on				<= 1'b0;
+			ch_f1_key_release			<= 1'b0;
+			ch_f1_key_off				<= 1'b0;
+
+			reg_volume_a0				<= 'd0;
+			reg_enable_a0				<= 'd0;
+			reg_noise_enable_a0			<= 'd0;
+			reg_ar_a0					<= 'd0;
+			reg_dr_a0					<= 'd0;
+			reg_sr_a0					<= 'd0;
+			reg_rr_a0					<= 'd0;
+			reg_sl_a0					<= 'd0;
+			reg_wave_length_a0			<= 'd0;
+			reg_frequency_count_a0		<= 'd0;
+			reg_noise_frequency_a0		<= 'd0;
+
+			reg_volume_b0				<= 'd0;
+			reg_enable_b0				<= 'd0;
+			reg_noise_enable_b0			<= 'd0;
+			reg_ar_b0					<= 'd0;
+			reg_dr_b0					<= 'd0;
+			reg_sr_b0					<= 'd0;
+			reg_rr_b0					<= 'd0;
+			reg_sl_b0					<= 'd0;
+			reg_wave_length_b0			<= 'd0;
+			reg_frequency_count_b0		<= 'd0;
+			reg_noise_frequency_b0		<= 'd0;
+
+			reg_volume_c0				<= 'd0;
+			reg_enable_c0				<= 'd0;
+			reg_noise_enable_c0			<= 'd0;
+			reg_ar_c0					<= 'd0;
+			reg_dr_c0					<= 'd0;
+			reg_sr_c0					<= 'd0;
+			reg_rr_c0					<= 'd0;
+			reg_sl_c0					<= 'd0;
+			reg_wave_length_c0			<= 'd0;
+			reg_frequency_count_c0		<= 'd0;
+			reg_noise_frequency_c0		<= 'd0;
+
+			reg_volume_d0				<= 'd0;
+			reg_enable_d0				<= 'd0;
+			reg_noise_enable_d0			<= 'd0;
+			reg_ar_d0					<= 'd0;
+			reg_dr_d0					<= 'd0;
+			reg_sr_d0					<= 'd0;
+			reg_rr_d0					<= 'd0;
+			reg_sl_d0					<= 'd0;
+			reg_wave_length_d0			<= 'd0;
+			reg_frequency_count_d0		<= 'd0;
+			reg_noise_frequency_d0		<= 'd0;
+
+			reg_volume_e0				<= 'd0;
+			reg_enable_e0				<= 'd0;
+			reg_noise_enable_e0			<= 'd0;
+			reg_ar_e0					<= 'd0;
+			reg_dr_e0					<= 'd0;
+			reg_sr_e0					<= 'd0;
+			reg_rr_e0					<= 'd0;
+			reg_sl_e0					<= 'd0;
+			reg_wave_length_e0			<= 'd0;
+			reg_frequency_count_e0		<= 'd0;
+			reg_noise_frequency_e0		<= 'd0;
+
+			reg_volume_f0				<= 'd0;
+			reg_enable_f0				<= 'd0;
+			reg_noise_enable_f0			<= 'd0;
+			reg_ar_f0					<= 'd0;
+			reg_dr_f0					<= 'd0;
+			reg_sr_f0					<= 'd0;
+			reg_rr_f0					<= 'd0;
+			reg_sl_f0					<= 'd0;
+			reg_wave_length_f0			<= 'd0;
+			reg_frequency_count_f0		<= 'd0;
+			reg_noise_frequency_f0		<= 'd0;
+
+			reg_volume_a1				<= 'd0;
+			reg_enable_a1				<= 'd0;
+			reg_noise_enable_a1			<= 'd0;
+			reg_ar_a1					<= 'd0;
+			reg_dr_a1					<= 'd0;
+			reg_sr_a1					<= 'd0;
+			reg_rr_a1					<= 'd0;
+			reg_sl_a1					<= 'd0;
+			reg_wave_length_a1			<= 'd0;
+			reg_frequency_count_a1		<= 'd0;
+			reg_noise_frequency_a1		<= 'd0;
+
+			reg_volume_b1				<= 'd0;
+			reg_enable_b1				<= 'd0;
+			reg_noise_enable_b1			<= 'd0;
+			reg_ar_b1					<= 'd0;
+			reg_dr_b1					<= 'd0;
+			reg_sr_b1					<= 'd0;
+			reg_rr_b1					<= 'd0;
+			reg_sl_b1					<= 'd0;
+			reg_wave_length_b1			<= 'd0;
+			reg_frequency_count_b1		<= 'd0;
+			reg_noise_frequency_b1		<= 'd0;
+
+			reg_volume_c1				<= 'd0;
+			reg_enable_c1				<= 'd0;
+			reg_noise_enable_c1			<= 'd0;
+			reg_ar_c1					<= 'd0;
+			reg_dr_c1					<= 'd0;
+			reg_sr_c1					<= 'd0;
+			reg_rr_c1					<= 'd0;
+			reg_sl_c1					<= 'd0;
+			reg_wave_length_c1			<= 'd0;
+			reg_frequency_count_c1		<= 'd0;
+			reg_noise_frequency_c1		<= 'd0;
+
+			reg_volume_d1				<= 'd0;
+			reg_enable_d1				<= 'd0;
+			reg_noise_enable_d1			<= 'd0;
+			reg_ar_d1					<= 'd0;
+			reg_dr_d1					<= 'd0;
+			reg_sr_d1					<= 'd0;
+			reg_rr_d1					<= 'd0;
+			reg_sl_d1					<= 'd0;
+			reg_wave_length_d1			<= 'd0;
+			reg_frequency_count_d1		<= 'd0;
+			reg_noise_frequency_d1		<= 'd0;
+
+			reg_volume_e1				<= 'd0;
+			reg_enable_e1				<= 'd0;
+			reg_noise_enable_e1			<= 'd0;
+			reg_ar_e1					<= 'd0;
+			reg_dr_e1					<= 'd0;
+			reg_sr_e1					<= 'd0;
+			reg_rr_e1					<= 'd0;
+			reg_sl_e1					<= 'd0;
+			reg_wave_length_e1			<= 'd0;
+			reg_frequency_count_e1		<= 'd0;
+			reg_noise_frequency_e1		<= 'd0;
+
+			reg_volume_f1				<= 'd0;
+			reg_enable_f1				<= 'd0;
+			reg_noise_enable_f1			<= 'd0;
+			reg_ar_f1					<= 'd0;
+			reg_dr_f1					<= 'd0;
+			reg_sr_f1					<= 'd0;
+			reg_rr_f1					<= 'd0;
+			reg_sl_f1					<= 'd0;
+			reg_wave_length_f1			<= 'd0;
+			reg_frequency_count_f1		<= 'd0;
+			reg_noise_frequency_f1		<= 'd0;
+		end
+		else if( w_scc_en ) begin
+			case( address[7:0] )
+			8'h80:		reg_frequency_count_a0[ 7:0]	<= wrdata;
+			8'h81:		reg_frequency_count_a0[11:8]	<= wrdata;
+			8'h82:		reg_frequency_count_b0[ 7:0]	<= wrdata;
+			8'h83:		reg_frequency_count_b0[11:8]	<= wrdata;
+			8'h84:		reg_frequency_count_c0[ 7:0]	<= wrdata;
+			8'h85:		reg_frequency_count_c0[11:8]	<= wrdata;
+			8'h86:		reg_frequency_count_d0[ 7:0]	<= wrdata;
+			8'h87:		reg_frequency_count_d0[11:8]	<= wrdata;
+			8'h88:		reg_frequency_count_e0[ 7:0]	<= wrdata;
+			8'h89:		reg_frequency_count_e0[11:8]	<= wrdata;
+			8'h8A:		reg_volume_a0					<= wrdata[3:0];
+			8'h8B:		reg_volume_b0					<= wrdata[3:0];
+			8'h8C:		reg_volume_c0					<= wrdata[3:0];
+			8'h8D:		reg_volume_d0					<= wrdata[3:0];
+			8'h8E:		reg_volume_e0					<= wrdata[3:0];
+			8'h8F:
+				begin
+					reg_enable_a0	<= { wrdata[0], wrdata[0] };
+					reg_enable_b0	<= { wrdata[1], wrdata[1] };
+					reg_enable_c0	<= { wrdata[2], wrdata[2] };
+					reg_enable_d0	<= { wrdata[3], wrdata[3] };
+					reg_enable_e0	<= { wrdata[4], wrdata[4] };
+				end
+			endcase
+		end
+		else if( w_scci_en ) begin
+			case( address[7:0] )
+			8'hA0:		reg_frequency_count_a0[ 7:0]	<= wrdata;
+			8'hA1:		reg_frequency_count_a0[11:8]	<= wrdata;
+			8'hA2:		reg_frequency_count_b0[ 7:0]	<= wrdata;
+			8'hA3:		reg_frequency_count_b0[11:8]	<= wrdata;
+			8'hA4:		reg_frequency_count_c0[ 7:0]	<= wrdata;
+			8'hA5:		reg_frequency_count_c0[11:8]	<= wrdata;
+			8'hA6:		reg_frequency_count_d0[ 7:0]	<= wrdata;
+			8'hA7:		reg_frequency_count_d0[11:8]	<= wrdata;
+			8'hA8:		reg_frequency_count_e0[ 7:0]	<= wrdata;
+			8'hA9:		reg_frequency_count_e0[11:8]	<= wrdata;
+			8'hAA:		reg_volume_a0					<= wrdata[3:0];
+			8'hAB:		reg_volume_b0					<= wrdata[3:0];
+			8'hAC:		reg_volume_c0					<= wrdata[3:0];
+			8'hAD:		reg_volume_d0					<= wrdata[3:0];
+			8'hAE:		reg_volume_e0					<= wrdata[3:0];
+			8'hAF:
+				begin
+					reg_enable_a0	<= { wrdata[0], wrdata[0] };
+					reg_enable_b0	<= { wrdata[1], wrdata[1] };
+					reg_enable_c0	<= { wrdata[2], wrdata[2] };
+					reg_enable_d0	<= { wrdata[3], wrdata[3] };
+					reg_enable_e0	<= { wrdata[4], wrdata[4] };
+				end
+			endcase
+		end
+		else if( w_wts_en ) begin
+		end
+		else begin
+			ch_a0_key_on				<= 1'b0;
+			ch_a0_key_release			<= 1'b0;
+			ch_a0_key_off				<= 1'b0;
+
+			ch_b0_key_on				<= 1'b0;
+			ch_b0_key_release			<= 1'b0;
+			ch_b0_key_off				<= 1'b0;
+
+			ch_c0_key_on				<= 1'b0;
+			ch_c0_key_release			<= 1'b0;
+			ch_c0_key_off				<= 1'b0;
+
+			ch_d0_key_on				<= 1'b0;
+			ch_d0_key_release			<= 1'b0;
+			ch_d0_key_off				<= 1'b0;
+
+			ch_e0_key_on				<= 1'b0;
+			ch_e0_key_release			<= 1'b0;
+			ch_e0_key_off				<= 1'b0;
+
+			ch_f0_key_on				<= 1'b0;
+			ch_f0_key_release			<= 1'b0;
+			ch_f0_key_off				<= 1'b0;
+
+			ch_a1_key_on				<= 1'b0;
+			ch_a1_key_release			<= 1'b0;
+			ch_a1_key_off				<= 1'b0;
+
+			ch_b1_key_on				<= 1'b0;
+			ch_b1_key_release			<= 1'b0;
+			ch_b1_key_off				<= 1'b0;
+
+			ch_c1_key_on				<= 1'b0;
+			ch_c1_key_release			<= 1'b0;
+			ch_c1_key_off				<= 1'b0;
+
+			ch_d1_key_on				<= 1'b0;
+			ch_d1_key_release			<= 1'b0;
+			ch_d1_key_off				<= 1'b0;
+
+			ch_e1_key_on				<= 1'b0;
+			ch_e1_key_release			<= 1'b0;
+			ch_e1_key_off				<= 1'b0;
+
+			ch_f1_key_on				<= 1'b0;
+			ch_f1_key_release			<= 1'b0;
+			ch_f1_key_off				<= 1'b0;
 		end
 	end
 
