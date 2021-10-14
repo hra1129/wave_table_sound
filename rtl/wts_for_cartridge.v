@@ -74,6 +74,7 @@ module wts_for_cartridge (
 		.clk				( clk				),
 		.wrreq				( w_wrreq			),
 		.rdreq				( w_rdreq			),
+		.a					( slot_a			),
 		.dir				( w_dir				),
 		.d					( d					),
 		.q					( w_q				),
