@@ -55,8 +55,8 @@ module wts_for_cartridge (
 
 	assign d				= (!slot_nsltsl && w_dir) ? w_q : 8'dz;
 
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
+	always @( negedge slot_nreset or posedge clk ) begin
+		if( !slot_nreset ) begin
 			ff_nrd <= 1'b1;
 			ff_nwr <= 1'b1;
 		end
@@ -66,8 +66,8 @@ module wts_for_cartridge (
 		end
 	end
 
-	assign w_wrreq	= ~slot_nrd & ff_nrd & ~slot_sltsl;
-	assign w_rdreq	= ~slot_nwr & ff_nwr & ~slot_sltsl;
+	assign w_wrreq	= ~slot_nwr & ff_nwr & ~slot_nsltsl;
+	assign w_rdreq	= ~slot_nrd & ff_nrd & ~slot_nsltsl;
 
 	wts_core u_wts_core (
 		.nreset				( slot_nreset		),
@@ -76,7 +76,7 @@ module wts_for_cartridge (
 		.rdreq				( w_rdreq			),
 		.a					( slot_a			),
 		.dir				( w_dir				),
-		.d					( d					),
+		.d					( slot_d			),
 		.q					( w_q				),
 		.nint				( w_nint			),
 		.mem_ncs			( mem_ncs			),

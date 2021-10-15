@@ -1,0 +1,27 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 07:44:15 on Oct 16,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_for_cartridge
+# Loading work.wts_core
+# Loading work.wts_channel_mixer
+# Loading work.wts_channel_part
+# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator
+# Loading work.wts_tone_generator
+# Loading work.wts_ram
+# Loading work.wts_channel_volume
+# Loading work.wts_timer
+# Loading work.wts_register
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Data write test.
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(91)
+#    Time: 7519440 ps  Iteration: 1  Instance: /tb
+# End time: 07:44:15 on Oct 16,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

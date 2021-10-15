@@ -225,7 +225,10 @@ module wts_channel_mixer (
 	input	[7:0]	reg_sl_f1,
 	input	[1:0]	reg_wave_length_f1,
 	input	[11:0]	reg_frequency_count_f1,
-	input	[4:0]	reg_noise_frequency_f1
+	input	[4:0]	reg_noise_frequency_f1,
+
+	input	[3:0]	reg_timer1_sel,
+	input	[3:0]	reg_timer2_sel
 );
 
 	reg		[5:0]	ff_active;
@@ -333,17 +336,18 @@ module wts_channel_mixer (
 		4'd10:		func_trigger_sel = half_timing_e1;
 		4'd11:		func_trigger_sel = half_timing_f1;
 		default:	func_trigger_sel = 1'b0;
+		endcase
 	endfunction
 
 	// ------------------------------------------------------------------------
 	//	TIMER1
 	// ------------------------------------------------------------------------
-	assign timer1_trigger	= func_trigger_sel( reg_timer1_sel, half_timing_a0, half_timing_b0, half_timing_c0, half_timing_d0, half_timing_e0, half_timing_f0, half_timing_a1, half_timing_b1, half_timing_c1, half_timing_d1, half_timing_e1, half_timing_f1 );
+	assign timer1_trigger	= func_trigger_sel( reg_timer1_sel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
 
 	// ------------------------------------------------------------------------
 	//	TIMER2
 	// ------------------------------------------------------------------------
-	assign timer2_trigger	= func_trigger_sel( reg_timer2_sel, half_timing_a0, half_timing_b0, half_timing_c0, half_timing_d0, half_timing_e0, half_timing_f0, half_timing_a1, half_timing_b1, half_timing_c1, half_timing_d1, half_timing_e1, half_timing_f1 );
+	assign timer2_trigger	= func_trigger_sel( reg_timer2_sel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
 
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE

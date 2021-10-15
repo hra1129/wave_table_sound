@@ -823,7 +823,7 @@ module wts_register (
 				end
 			8'h2B:
 				begin
-					reg_enable_b1						<= wrdata[1:0];
+					ff_reg_enable_b1					<= wrdata[1:0];
 					ff_reg_clone_frequency_b1			<= wrdata[3];
 					ff_reg_clone_adsr_b1				<= wrdata[4];
 					ff_reg_clone_noise_b1				<= wrdata[5];
@@ -832,7 +832,7 @@ module wts_register (
 				end
 			8'h2C:
 				begin
-					reg_enable_c1						<= wrdata[1:0];
+					ff_reg_enable_c1					<= wrdata[1:0];
 					ff_reg_clone_frequency_c1			<= wrdata[3];
 					ff_reg_clone_adsr_c1				<= wrdata[4];
 					ff_reg_clone_noise_c1				<= wrdata[5];
@@ -841,7 +841,7 @@ module wts_register (
 				end
 			8'h2D:
 				begin
-					reg_enable_d1						<= wrdata[1:0];
+					ff_reg_enable_d1					<= wrdata[1:0];
 					ff_reg_clone_frequency_d1			<= wrdata[3];
 					ff_reg_clone_adsr_d1				<= wrdata[4];
 					ff_reg_clone_noise_d1				<= wrdata[5];
@@ -850,7 +850,7 @@ module wts_register (
 				end
 			8'h2E:
 				begin
-					reg_enable_e1						<= wrdata[1:0];
+					ff_reg_enable_e1					<= wrdata[1:0];
 					ff_reg_clone_frequency_e1			<= wrdata[3];
 					ff_reg_clone_adsr_e1				<= wrdata[4];
 					ff_reg_clone_noise_e1				<= wrdata[5];
@@ -859,7 +859,7 @@ module wts_register (
 				end
 			8'h2F:
 				begin
-					reg_enable_f1						<= wrdata[1:0];
+					ff_reg_enable_f1					<= wrdata[1:0];
 					ff_reg_clone_frequency_f1			<= wrdata[3];
 					ff_reg_clone_adsr_f1				<= wrdata[4];
 					ff_reg_clone_noise_f1				<= wrdata[5];
@@ -955,8 +955,8 @@ module wts_register (
 					ch_d0_key_off						<= wrdata[2];
 				end
 
-			8'h70:		reg_er_e0[7:0]					<= wrdata;
-			8'h71:		reg_er_e0[15:8]					<= wrdata;
+			8'h70:		reg_ar_e0[7:0]					<= wrdata;
+			8'h71:		reg_ar_e0[15:8]					<= wrdata;
 			8'h72:		reg_dr_e0[7:0]					<= wrdata;
 			8'h73:		reg_dr_e0[15:8]					<= wrdata;
 			8'h74:		reg_sr_e0[7:0]					<= wrdata;
@@ -977,8 +977,8 @@ module wts_register (
 					ch_e0_key_off						<= wrdata[2];
 				end
 
-			8'h80:		reg_fr_f0[7:0]					<= wrdata;
-			8'h81:		reg_fr_f0[15:8]					<= wrdata;
+			8'h80:		reg_ar_f0[7:0]					<= wrdata;
+			8'h81:		reg_ar_f0[15:8]					<= wrdata;
 			8'h82:		reg_dr_f0[7:0]					<= wrdata;
 			8'h83:		reg_dr_f0[15:8]					<= wrdata;
 			8'h84:		reg_sr_f0[7:0]					<= wrdata;
@@ -999,7 +999,7 @@ module wts_register (
 					ch_f0_key_off						<= wrdata[2];
 				end
 
-			8'h90:		ff_reg_ar_a17:0]				<= wrdata;
+			8'h90:		ff_reg_ar_a1[7:0]				<= wrdata;
 			8'h91:		ff_reg_ar_a1[15:8]				<= wrdata;
 			8'h92:		ff_reg_dr_a1[7:0]				<= wrdata;
 			8'h93:		ff_reg_dr_a1[15:8]				<= wrdata;

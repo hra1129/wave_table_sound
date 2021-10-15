@@ -1,0 +1,148 @@
+module tb;
+	localparam		CLK_BASE	= 1000000000/21477;
+
+	reg				clk;			//	21.47727MHz
+	reg				slot_nreset;	//	negative logic
+	wire			slot_nint;		//	negative logic; open collector
+	reg		[15:0]	slot_a;
+	wire	[7:0]	slot_d;
+	reg		[7:0]	ff_slot_d;
+	reg				ff_slot_d_dir;
+	reg				slot_nsltsl;	//	negative logic
+	reg				slot_nmerq;		//	negative logic
+	reg				slot_nrd;		//	negative logic
+	reg				slot_nwr;		//	negative logic
+	reg				sw_mono;
+	wire			mem_ncs;		//	negative logic
+	wire	[7:0]	mem_a;			//	external memory address [20:13] Up to 2MB (8KB x 256banks)
+	wire	[11:0]	left_out;		//	digital sound output (12 bits)
+	wire	[11:0]	right_out;		//	digital sound output (12 bits)
+
+	int				pattern_no = 0;
+	int				error_count = 0;
+	int				last_wave_address;
+
+	// -------------------------------------------------------------
+	//	clock generator
+	// -------------------------------------------------------------
+	always #(CLK_BASE/2) begin
+		clk	<= ~clk;
+	end
+
+	// -------------------------------------------------------------
+	//	DUT
+	// -------------------------------------------------------------
+	wts_for_cartridge u_wts_for_cartridge (
+		.clk			( clk				),
+		.slot_nreset	( slot_nreset		),
+		.slot_nint		( slot_nint			),
+		.slot_a			( slot_a			),
+		.slot_d			( slot_d			),
+		.slot_nsltsl	( slot_nsltsl		),
+		.slot_nmerq		( slot_nmerq		),
+		.slot_nrd		( slot_nrd			),
+		.slot_nwr		( slot_nwr			),
+		.sw_mono		( sw_mono			),
+		.mem_ncs		( mem_ncs			),
+		.mem_a			( mem_a				),
+		.left_out		( left_out			),
+		.right_out		( right_out			)
+	);
+
+	assign slot_d	= ff_slot_d_dir ? ff_slot_d : 8'dz;
+
+	// -------------------------------------------------------------
+	task set_test_pattern_no(
+		input int		_pattern_no,
+		input string	s_pattern_description
+	);
+		pattern_no		= _pattern_no;
+		$display( "------------------------------------------------------------" );
+		$display( "[%t] %3d: %s", $realtime, pattern_no, s_pattern_description );
+	endtask
+
+	// -------------------------------------------------------------
+	task success_condition_is(
+		input int		condition,
+		input string	s_error_message
+	);
+		if( !condition ) begin
+			$display( "[%t] %s", $realtime, s_error_message );
+			error_count++;
+		end
+	endtask
+
+	// -------------------------------------------------------------
+	task end_of_test();
+		if( error_count ) begin
+			$display( "#####################################" );
+			$display( "#                                   #" );
+			$display( "   Found %d error(s)", error_count );
+			$display( "#                                   #" );
+			$display( "#####################################" );
+		end
+		else begin
+			$display( "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" );
+			$display( "$                                   $" );
+			$display( "$        Success of all!!           $" );
+			$display( "$                                   $" );
+			$display( "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" );
+		end
+		$finish;
+	endtask
+
+	// -------------------------------------------------------------
+	task write_reg(
+		input	[15:0]	address,
+		input	[7:0]	data
+	);
+		slot_a		<= address;
+		@( negedge clk );
+
+		slot_nmerq		<= 1'b0;	#145ns
+		slot_nsltsl		<= 1'b0;	#10ns
+		ff_slot_d_dir	<= 1'b1;
+		ff_slot_d		<= data;	#55ns
+		slot_nwr		<= 1'b0;	#140ns
+		@( negedge clk );
+
+		slot_nwr		<= 1'b1;	#120ns
+		slot_nmerq		<= 1'b1;	#25ns
+		slot_nsltsl		<= 1'b1;	#10ns
+
+		slot_a			<= 'dx;
+		ff_slot_d_dir	<= 1'b0;
+		@( posedge clk );
+	endtask
+
+	// -------------------------------------------------------------
+	//	test scenario
+	// -------------------------------------------------------------
+	initial begin
+
+		//	initialization
+		clk				= 0;
+		slot_nreset		= 0;
+		slot_a			= 'dx;
+		ff_slot_d_dir	= 1'b0;
+		ff_slot_d		= 8'd0;
+		slot_nsltsl		= 1;
+		slot_nmerq		= 1;
+		slot_nrd		= 1;
+		slot_nwr		= 1;
+		sw_mono			= 0;
+		repeat( 50 ) @( negedge clk );
+
+		slot_nreset		= 1;
+		repeat( 50 ) @( posedge clk );
+
+		// -------------------------------------------------------------
+		set_test_pattern_no( 1, "Data write test." );
+
+		write_reg( 'h9000, 63 );
+
+		repeat( 50 ) @( posedge clk );
+
+		end_of_test();
+	end
+endmodule

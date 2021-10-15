@@ -6,6 +6,7 @@ module tb;
 	wire			active;					//	3.579MHz timing pulse
 	reg				address_reset;
 	wire	[6:0]	wave_address;
+	wire			half_timing;
 	reg		[1:0]	reg_wave_length;
 	reg		[11:0]	reg_frequency_count;
 	reg		[2:0]	ff_div;
@@ -40,6 +41,7 @@ module tb;
 		.active					( active				),
 		.address_reset			( address_reset			),
 		.wave_address			( wave_address			),
+		.half_timing			( half_timing			),
 		.reg_wave_length		( reg_wave_length		),
 		.reg_frequency_count	( reg_frequency_count	)
 	);
