@@ -291,6 +291,60 @@ module wts_channel_mixer (
 	reg				ff_sram_id_d;
 	wire			w_sram_done;
 
+	wire			w_half_timing_a0;
+	wire			w_half_timing_b0;
+	wire			w_half_timing_c0;
+	wire			w_half_timing_d0;
+	wire			w_half_timing_e0;
+	wire			w_half_timing_f0;
+	wire			w_half_timing_a1;
+	wire			w_half_timing_b1;
+	wire			w_half_timing_c1;
+	wire			w_half_timing_d1;
+	wire			w_half_timing_e1;
+	wire			w_half_timing_f1;
+
+	function func_trigger_sel (
+		input	[3:0]	reg_timer_sel,
+		input			half_timing_a0,
+		input			half_timing_b0,
+		input			half_timing_c0,
+		input			half_timing_d0,
+		input			half_timing_e0,
+		input			half_timing_f0,
+		input			half_timing_a1,
+		input			half_timing_b1,
+		input			half_timing_c1,
+		input			half_timing_d1,
+		input			half_timing_e1,
+		input			half_timing_f1
+	);
+		case( reg_timer_sel )
+		4'd0:		func_trigger_sel = half_timing_a0;
+		4'd1:		func_trigger_sel = half_timing_b0;
+		4'd2:		func_trigger_sel = half_timing_c0;
+		4'd3:		func_trigger_sel = half_timing_d0;
+		4'd4:		func_trigger_sel = half_timing_e0;
+		4'd5:		func_trigger_sel = half_timing_f0;
+		4'd6:		func_trigger_sel = half_timing_a1;
+		4'd7:		func_trigger_sel = half_timing_b1;
+		4'd8:		func_trigger_sel = half_timing_c1;
+		4'd9:		func_trigger_sel = half_timing_d1;
+		4'd10:		func_trigger_sel = half_timing_e1;
+		4'd11:		func_trigger_sel = half_timing_f1;
+		default:	func_trigger_sel = 1'b0;
+	endfunction
+
+	// ------------------------------------------------------------------------
+	//	TIMER1
+	// ------------------------------------------------------------------------
+	assign timer1_trigger	= func_trigger_sel( reg_timer1_sel, half_timing_a0, half_timing_b0, half_timing_c0, half_timing_d0, half_timing_e0, half_timing_f0, half_timing_a1, half_timing_b1, half_timing_c1, half_timing_d1, half_timing_e1, half_timing_f1 );
+
+	// ------------------------------------------------------------------------
+	//	TIMER2
+	// ------------------------------------------------------------------------
+	assign timer2_trigger	= func_trigger_sel( reg_timer2_sel, half_timing_a0, half_timing_b0, half_timing_c0, half_timing_d0, half_timing_e0, half_timing_f0, half_timing_a1, half_timing_b1, half_timing_c1, half_timing_d1, half_timing_e1, half_timing_f1 );
+
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE
 	// ------------------------------------------------------------------------
@@ -399,6 +453,7 @@ module wts_channel_mixer (
 		.key_off					( ch_a0_key_off				),
 		.envelope					( w_envelope_a0				),
 		.sram_a						( w_sram_a_a0				),
+		.half_timing				( w_half_timing_a0			),
 		.reg_noise_enable			( reg_noise_enable_a0		),
 		.reg_ar						( reg_ar_a0					),
 		.reg_dr						( reg_dr_a0					),
@@ -420,6 +475,7 @@ module wts_channel_mixer (
 		.key_off					( ch_b0_key_off				),
 		.envelope					( w_envelope_b0				),
 		.sram_a						( w_sram_a_b0				),
+		.half_timing				( w_half_timing_b0			),
 		.reg_noise_enable			( reg_noise_enable_b0		),
 		.reg_ar						( reg_ar_b0					),
 		.reg_dr						( reg_dr_b0					),
@@ -441,6 +497,7 @@ module wts_channel_mixer (
 		.key_off					( ch_c0_key_off				),
 		.envelope					( w_envelope_c0				),
 		.sram_a						( w_sram_a_c0				),
+		.half_timing				( w_half_timing_c0			),
 		.reg_noise_enable			( reg_noise_enable_c0		),
 		.reg_ar						( reg_ar_c0					),
 		.reg_dr						( reg_dr_c0					),
@@ -462,6 +519,7 @@ module wts_channel_mixer (
 		.key_off					( ch_d0_key_off				),
 		.envelope					( w_envelope_d0				),
 		.sram_a						( w_sram_a_d0				),
+		.half_timing				( w_half_timing_d0			),
 		.reg_noise_enable			( reg_noise_enable_d0		),
 		.reg_ar						( reg_ar_d0					),
 		.reg_dr						( reg_dr_d0					),
@@ -483,6 +541,7 @@ module wts_channel_mixer (
 		.key_off					( ch_e0_key_off				),
 		.envelope					( w_envelope_e0				),
 		.sram_a						( w_sram_a_e0				),
+		.half_timing				( w_half_timing_e0			),
 		.reg_noise_enable			( reg_noise_enable_e0		),
 		.reg_ar						( reg_ar_e0					),
 		.reg_dr						( reg_dr_e0					),
@@ -504,6 +563,7 @@ module wts_channel_mixer (
 		.key_off					( ch_f0_key_off				),
 		.envelope					( w_envelope_f0				),
 		.sram_a						( w_sram_a_f0				),
+		.half_timing				( w_half_timing_f0			),
 		.reg_noise_enable			( reg_noise_enable_f0		),
 		.reg_ar						( reg_ar_f0					),
 		.reg_dr						( reg_dr_f0					),
@@ -525,6 +585,7 @@ module wts_channel_mixer (
 		.key_off					( ch_a1_key_off				),
 		.envelope					( w_envelope_a1				),
 		.sram_a						( w_sram_a_a1				),
+		.half_timing				( w_half_timing_a1			),
 		.reg_noise_enable			( reg_noise_enable_a1		),
 		.reg_ar						( reg_ar_a1					),
 		.reg_dr						( reg_dr_a1					),
@@ -546,6 +607,7 @@ module wts_channel_mixer (
 		.key_off					( ch_b1_key_off				),
 		.envelope					( w_envelope_b1				),
 		.sram_a						( w_sram_a_b1				),
+		.half_timing				( w_half_timing_b1			),
 		.reg_noise_enable			( reg_noise_enable_b1		),
 		.reg_ar						( reg_ar_b1					),
 		.reg_dr						( reg_dr_b1					),
@@ -567,6 +629,7 @@ module wts_channel_mixer (
 		.key_off					( ch_c1_key_off				),
 		.envelope					( w_envelope_c1				),
 		.sram_a						( w_sram_a_c1				),
+		.half_timing				( w_half_timing_c1			),
 		.reg_noise_enable			( reg_noise_enable_c1		),
 		.reg_ar						( reg_ar_c1					),
 		.reg_dr						( reg_dr_c1					),
@@ -588,6 +651,7 @@ module wts_channel_mixer (
 		.key_off					( ch_d1_key_off				),
 		.envelope					( w_envelope_d1				),
 		.sram_a						( w_sram_a_d1				),
+		.half_timing				( w_half_timing_d1			),
 		.reg_noise_enable			( reg_noise_enable_d1		),
 		.reg_ar						( reg_ar_d1					),
 		.reg_dr						( reg_dr_d1					),
@@ -609,6 +673,7 @@ module wts_channel_mixer (
 		.key_off					( ch_e1_key_off				),
 		.envelope					( w_envelope_e1				),
 		.sram_a						( w_sram_a_e1				),
+		.half_timing				( w_half_timing_e1			),
 		.reg_noise_enable			( reg_noise_enable_e1		),
 		.reg_ar						( reg_ar_e1					),
 		.reg_dr						( reg_dr_e1					),
@@ -630,6 +695,7 @@ module wts_channel_mixer (
 		.key_off					( ch_f1_key_off				),
 		.envelope					( w_envelope_f1				),
 		.sram_a						( w_sram_a_f1				),
+		.half_timing				( w_half_timing_f1			),
 		.reg_noise_enable			( reg_noise_enable_f1		),
 		.reg_ar						( reg_ar_f1					),
 		.reg_dr						( reg_dr_f1					),

@@ -30,6 +30,7 @@ module wts_channel_part (
 	input			key_off,				//	pulse
 	output	[8:0]	envelope,
 	output	[6:0]	sram_a,
+	output			half_timing,
 	input			reg_noise_enable,
 	input	[15:0]	reg_ar,
 	input	[15:0]	reg_dr,
@@ -73,6 +74,7 @@ module wts_channel_part (
 		.active					( active					),
 		.address_reset			( address_reset				),
 		.wave_address			( sram_a					),
+		.half_timing			( half_timing				),
 		.reg_wave_length		( reg_wave_length			),
 		.reg_frequency_count	( reg_frequency_count		)
 	);

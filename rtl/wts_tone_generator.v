@@ -26,6 +26,7 @@ module wts_tone_generator (
 	input			active,					//	3.579MHz timing pulse
 	input			address_reset,
 	output	[6:0]	wave_address,
+	output			half_timing,
 	input	[1:0]	reg_wave_length,
 	input	[11:0]	reg_frequency_count
 );
@@ -79,5 +80,7 @@ module wts_tone_generator (
 
 	// output assignment ------------------------------------------------------
 	assign wave_address				= { w_address_mask, ff_wave_address[4:0] };
-
+	assign half_timing				= ( (reg_wave_length == 2'b00) && ff_wave_address[3:0] == 4'd0 ) ? w_frequency_counter_end :
+									  ( (reg_wave_length == 2'b01) && ff_wave_address[4:0] == 5'd0 ) ? w_frequency_counter_end :
+									  (                               ff_wave_address[5:0] == 5'd0 ) ? w_frequency_counter_end : 1'b0;
 endmodule
