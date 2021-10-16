@@ -46,6 +46,7 @@ module wts_for_cartridge (
 	reg				ff_nwr;
 	wire			w_wrreq;
 	wire			w_rdreq;
+	wire			w_mem_ncs;
 
 	assign w_mono_out		= { 1'b0, w_left_out } + { 1'b0, w_right_out };
 	assign left_out			= sw_mono ? w_mono_out[12:1] : w_left_out;
@@ -53,7 +54,8 @@ module wts_for_cartridge (
 
 	assign slot_nint		= (w_nint == 1'b0) ? 1'b0 : 1'bz;
 
-	assign d				= (!slot_nsltsl && w_dir) ? w_q : 8'dz;
+	assign w_dir			= ~slot_nrd;
+	assign slot_d			= (!slot_nsltsl && w_dir) ? w_q : 8'dz;
 
 	always @( negedge slot_nreset or posedge clk ) begin
 		if( !slot_nreset ) begin
@@ -66,8 +68,9 @@ module wts_for_cartridge (
 		end
 	end
 
-	assign w_wrreq	= ~slot_nwr & ff_nwr & ~slot_nsltsl;
-	assign w_rdreq	= ~slot_nrd & ff_nrd & ~slot_nsltsl;
+	assign w_wrreq			= ~slot_nwr & ff_nwr & ~slot_nsltsl;
+	assign w_rdreq			= ~slot_nrd & ff_nrd & ~slot_nsltsl;
+	assign mem_ncs			= w_mem_ncs | slot_nsltsl;
 
 	wts_core u_wts_core (
 		.nreset				( slot_nreset		),
@@ -75,11 +78,10 @@ module wts_for_cartridge (
 		.wrreq				( w_wrreq			),
 		.rdreq				( w_rdreq			),
 		.a					( slot_a			),
-		.dir				( w_dir				),
 		.d					( slot_d			),
 		.q					( w_q				),
 		.nint				( w_nint			),
-		.mem_ncs			( mem_ncs			),
+		.mem_ncs			( w_mem_ncs			),
 		.mem_a				( mem_a				),
 		.left_out			( w_left_out		),
 		.right_out			( w_right_out		)

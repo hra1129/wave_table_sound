@@ -18,9 +18,14 @@ module tb;
 	wire	[11:0]	left_out;		//	digital sound output (12 bits)
 	wire	[11:0]	right_out;		//	digital sound output (12 bits)
 
+	reg				ff_mem_ncs;
+	reg		[20:0]	ff_mem_a;
+
 	int				pattern_no = 0;
 	int				error_count = 0;
 	int				last_wave_address;
+	int				i;
+	reg		[7:0]	ff_i;
 
 	// -------------------------------------------------------------
 	//	clock generator
@@ -109,6 +114,10 @@ module tb;
 		slot_nwr		<= 1'b1;	#120ns
 		slot_nmerq		<= 1'b1;	#25ns
 		slot_nsltsl		<= 1'b1;	#10ns
+		@( negedge clk );
+
+		ff_mem_ncs		<= mem_ncs;
+		ff_mem_a		<= { mem_a, slot_a[12:0] };
 
 		slot_a			<= 'dx;
 		ff_slot_d_dir	<= 1'b0;
@@ -137,9 +146,28 @@ module tb;
 		repeat( 50 ) @( posedge clk );
 
 		// -------------------------------------------------------------
-		set_test_pattern_no( 1, "Data write test." );
+		set_test_pattern_no( 1, "Bank0 Read and Write Test" );
 
-		write_reg( 'h9000, 63 );
+		write_reg( 'h4000, 100 );
+		success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		success_condition_is( ff_mem_a == { 8'd0, 13'd0 }, "Access target address is 0x00, 0x0000." );
+
+		write_reg( 'h4001, 100 );
+		success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		success_condition_is( ff_mem_a == { 8'd0, 13'd1 }, "Access target address is 0x00, 0x0000." );
+
+		for( i = 0; i < 256; i++ ) begin
+			ff_i = i;
+			write_reg( 'h5000, ff_i );
+
+			write_reg( 'h4000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h4001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+		end
 
 		repeat( 50 ) @( posedge clk );
 

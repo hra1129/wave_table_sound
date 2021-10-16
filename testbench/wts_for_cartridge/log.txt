@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 07:44:15 on Oct 16,2021
+# Start time: 22:26:55 on Oct 16,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_for_cartridge
@@ -15,13 +15,13 @@
 # Loading work.wts_register
 # do run.do
 # ------------------------------------------------------------
-# [             4632720]   1: Data write test.
+# [             4632720]   1: Bank0 Read and Write Test
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $                                   $
 # $        Success of all!!           $
 # $                                   $
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-# ** Note: $finish    : tb.sv(91)
-#    Time: 7519440 ps  Iteration: 1  Instance: /tb
-# End time: 07:44:15 on Oct 16,2021, Elapsed time: 0:00:00
+# ** Note: $finish    : tb.sv(96)
+#    Time: 473026320 ps  Iteration: 1  Instance: /tb
+# End time: 22:26:56 on Oct 16,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

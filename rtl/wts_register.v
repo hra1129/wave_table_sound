@@ -29,6 +29,7 @@ module wts_register (
 	input		[7:0]	wrdata,
 	output		[7:0]	rddata,
 
+	output reg			ext_memory_nactive,
 	output		[20:13]	ext_memory_address,
 
 	output reg	[3:0]	sram_id,				//	[2:0]: A...F, [3]: 0 or 1   ex.) A0 = 0000, B1 = 1001, C1 = 1010
@@ -383,6 +384,85 @@ module wts_register (
 	assign w_dec_bank1		= (address[14:13] == 2'b11) ? 1'b1 : 1'b0;
 	assign w_dec_bank2		= (address[14:13] == 2'b00) ? 1'b1 : 1'b0;
 	assign w_dec_bank3		= (address[14:13] == 2'b01) ? 1'b1 : 1'b0;
+
+	// External Memory Access -------------------------------------------------
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ext_memory_nactive <= 1'b1;
+		end
+		else if( wrreq && w_dec_bank3 && (address[12:1] == 12'b1_1111_1111_111) ) begin
+			ext_memory_nactive <= 1'b1;
+		end
+		else if( address[11] == 1'b0 ) begin
+			//	bank register
+			if( rdreq ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank0 && reg_ram_mode0 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank1 && reg_ram_mode1 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank2 && reg_ram_mode2 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank3 && reg_ram_mode3 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else begin
+				ext_memory_nactive <= 1'b1;
+			end
+		end
+		else if( w_scc_en ) begin
+			if( address[7] == 1'b0 ) begin
+				ext_memory_nactive <= 1'b1;
+			end
+			else if( rdreq ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else begin
+				ext_memory_nactive <= 1'b1;
+			end
+		end
+		else if( w_scci_en ) begin
+			if( address[7] == 1'b0 ) begin
+				ext_memory_nactive <= 1'b1;
+			end
+			else if( address[7:5] == 3'b100 ) begin
+				ext_memory_nactive <= 1'b1;
+			end
+			else if( rdreq ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else begin
+				ext_memory_nactive <= 1'b1;
+			end
+		end
+		else if( w_wts_en ) begin
+			ext_memory_nactive <= 1'b1;
+		end
+		else begin
+			if( rdreq ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank0 && reg_ram_mode0 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank1 && reg_ram_mode1 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank2 && reg_ram_mode2 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank3 && reg_ram_mode3 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else begin
+				ext_memory_nactive <= 1'b1;
+			end
+		end
+	end
 
 	// BFFE-BFFFh Mode Register -----------------------------------------------
 	assign w_scc_en			= ( (reg_bank2 == 8'h3F) && (address[12:8] == 5'b11000) ) ? (w_dec_bank2 & !reg_scci_enable) : 1'b0;

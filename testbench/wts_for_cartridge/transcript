@@ -1,4 +1,2 @@
 # OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_for_cartridge/vsim.wlf
-add wave -position end vsim:/tb/u_wts_for_cartridge/*
-add wave -position end vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/*
-add wave -position end vsim:/tb/u_wts_for_cartridge/*
+do C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_for_cartridge/wave.do
