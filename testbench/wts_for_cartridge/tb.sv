@@ -154,14 +154,12 @@ module tb;
 			slot_nsltsl		<= 1'b0;
 			slot_nrd		<= 1'b0;
 			ff_slot_d_dir	<= 1'b1;
-		#55ns
-			ff_slot_d		<= data;
 		@( negedge clk4m );
 		@( negedge clk4m );
 
 		ff_mem_ncs			<= mem_ncs;
 		ff_mem_a			<= { mem_a, slot_a[12:0] };
-		read_data			<= slot_d;
+		data				<= slot_d;
 
 		#145ns
 			slot_nrd		<= 1'b1;
