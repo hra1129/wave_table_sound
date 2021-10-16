@@ -1,6 +1,8 @@
 module tb;
 	localparam		CLK_BASE	= 1000000000/21477;
+	localparam		CLK4M_BASE	= CLK_BASE * 6;
 
+	reg				clk4m;			//	3.579MHz
 	reg				clk;			//	21.47727MHz
 	reg				slot_nreset;	//	negative logic
 	wire			slot_nint;		//	negative logic; open collector
@@ -20,6 +22,7 @@ module tb;
 
 	reg				ff_mem_ncs;
 	reg		[20:0]	ff_mem_a;
+	reg		[7:0]	read_data;
 
 	int				pattern_no = 0;
 	int				error_count = 0;
@@ -31,7 +34,11 @@ module tb;
 	//	clock generator
 	// -------------------------------------------------------------
 	always #(CLK_BASE/2) begin
-		clk	<= ~clk;
+		clk <= ~clk;
+	end
+
+	always #(CLK4M_BASE/2) begin
+		clk4m <= ~clk4m;
 	end
 
 	// -------------------------------------------------------------
@@ -102,26 +109,70 @@ module tb;
 		input	[7:0]	data
 	);
 		slot_a		<= address;
-		@( negedge clk );
+		@( negedge clk4m );
 
-		slot_nmerq		<= 1'b0;	#145ns
-		slot_nsltsl		<= 1'b0;	#10ns
-		ff_slot_d_dir	<= 1'b1;
-		ff_slot_d		<= data;	#55ns
-		slot_nwr		<= 1'b0;	#140ns
-		@( negedge clk );
+		#145ns
+			slot_nmerq		<= 1'b0;
+		#10ns
+			slot_nsltsl		<= 1'b0;
+			ff_slot_d_dir	<= 1'b1;
+		#55ns
+			ff_slot_d		<= data;
+		@( negedge clk4m );
 
-		slot_nwr		<= 1'b1;	#120ns
-		slot_nmerq		<= 1'b1;	#25ns
-		slot_nsltsl		<= 1'b1;	#10ns
-		@( negedge clk );
+		#140ns
+			slot_nwr		<= 1'b0;
+		@( negedge clk4m );
 
-		ff_mem_ncs		<= mem_ncs;
-		ff_mem_a		<= { mem_a, slot_a[12:0] };
+		ff_mem_ncs			<= mem_ncs;
+		ff_mem_a			<= { mem_a, slot_a[12:0] };
 
-		slot_a			<= 'dx;
-		ff_slot_d_dir	<= 1'b0;
-		@( posedge clk );
+		#120ns
+			slot_nwr		<= 1'b1;
+		#25ns
+			slot_nmerq		<= 1'b1;
+		#10ns
+			slot_nsltsl		<= 1'b1;
+		@( negedge clk4m );
+
+		slot_a				<= 'dx;
+		ff_slot_d_dir		<= 1'b0;
+		@( posedge clk4m );
+	endtask
+
+	// -------------------------------------------------------------
+	task read_reg(
+		input	[15:0]	address,
+		output	[7:0]	data
+	);
+		slot_a		<= address;
+		@( negedge clk4m );
+
+		#145ns
+			slot_nmerq		<= 1'b0;
+		#10ns
+			slot_nsltsl		<= 1'b0;
+			slot_nrd		<= 1'b0;
+			ff_slot_d_dir	<= 1'b1;
+		#55ns
+			ff_slot_d		<= data;
+		@( negedge clk4m );
+		@( negedge clk4m );
+
+		ff_mem_ncs			<= mem_ncs;
+		ff_mem_a			<= { mem_a, slot_a[12:0] };
+		read_data			<= slot_d;
+
+		#145ns
+			slot_nrd		<= 1'b1;
+			slot_nmerq		<= 1'b1;
+		#10ns
+			slot_nsltsl		<= 1'b1;
+		@( negedge clk4m );
+
+		slot_a				<= 'dx;
+		ff_slot_d_dir		<= 1'b0;
+		@( posedge clk4m );
 	endtask
 
 	// -------------------------------------------------------------
@@ -131,6 +182,7 @@ module tb;
 
 		//	initialization
 		clk				= 0;
+		clk4m			= 0;
 		slot_nreset		= 0;
 		slot_a			= 'dx;
 		ff_slot_d_dir	= 1'b0;
@@ -156,7 +208,7 @@ module tb;
 		success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
 		success_condition_is( ff_mem_a == { 8'd0, 13'd1 }, "Access target address is 0x00, 0x0000." );
 
-		for( i = 0; i < 256; i++ ) begin
+		for( i = 0; i < 256; i+=3 ) begin
 			ff_i = i;
 			write_reg( 'h5000, ff_i );
 
@@ -167,6 +219,52 @@ module tb;
 			write_reg( 'h4001, 100 );
 			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
 			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h4000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data == 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h4001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data == 8'dz, "Read data is Hi-Z." );
+		end
+
+		repeat( 50 ) @( posedge clk );
+
+		// -------------------------------------------------------------
+		set_test_pattern_no( 1, "Bank1 Read and Write Test" );
+
+		write_reg( 'h6000, 100 );
+		success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		success_condition_is( ff_mem_a == { 8'd1, 13'd0 }, "Access target address is 0x01, 0x0000." );
+
+		write_reg( 'h6001, 100 );
+		success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		success_condition_is( ff_mem_a == { 8'd1, 13'd1 }, "Access target address is 0x01, 0x0000." );
+
+		for( i = 0; i < 256; i+=3 ) begin
+			ff_i = i;
+			write_reg( 'h7000, ff_i );
+
+			write_reg( 'h6000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h6001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h6000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data == 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h6001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data == 8'dz, "Read data is Hi-Z." );
 		end
 
 		repeat( 50 ) @( posedge clk );
