@@ -21,11 +21,13 @@ add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_right_out
 add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_nint
 add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_q
 add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_dir
-add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/ff_nrd
-add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/ff_nwr
 add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_wrreq
 add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_rdreq
 add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/w_mem_ncs
+add wave -noupdate /tb/u_wts_for_cartridge/ff_nrd1
+add wave -noupdate /tb/u_wts_for_cartridge/ff_nrd2
+add wave -noupdate /tb/u_wts_for_cartridge/ff_nwr1
+add wave -noupdate /tb/u_wts_for_cartridge/ff_nwr2
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {4749222 ps} 0} {{Cursor 2} {4894222 ps} 0}
 quietly wave cursor active 2
@@ -43,4 +45,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {4343722 ps} {6376513 ps}
+WaveRestoreZoom {9555784 ps} {13320496 ps}

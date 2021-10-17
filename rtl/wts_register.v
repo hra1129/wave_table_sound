@@ -25,6 +25,8 @@ module wts_register (
 	input				clk,
 	input				wrreq,
 	input				rdreq,
+	input				wr_active,
+	input				rd_active,
 	input		[15:0]	address,
 	input		[7:0]	wrdata,
 	output		[7:0]	rddata,
@@ -410,8 +412,11 @@ module wts_register (
 			else if( w_dec_bank3 && reg_ram_mode3 ) begin
 				ext_memory_nactive <= 1'b0;
 			end
-			else begin
+			else if( ~wr_active && ~rd_active ) begin
 				ext_memory_nactive <= 1'b1;
+			end
+			else begin
+				//	hold
 			end
 		end
 		else if( w_scc_en ) begin
@@ -458,8 +463,11 @@ module wts_register (
 			else if( w_dec_bank3 && reg_ram_mode3 ) begin
 				ext_memory_nactive <= 1'b0;
 			end
-			else begin
+			else if( ~wr_active && ~rd_active ) begin
 				ext_memory_nactive <= 1'b1;
+			end
+			else begin
+				//	hold
 			end
 		end
 	end

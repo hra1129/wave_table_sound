@@ -42,8 +42,10 @@ module wts_for_cartridge (
 	wire			w_nint;
 	wire	[7:0]	w_q;
 	wire			w_dir;
-	reg				ff_nrd;
-	reg				ff_nwr;
+	reg				ff_nrd1;
+	reg				ff_nwr1;
+	reg				ff_nrd2;
+	reg				ff_nwr2;
 	wire			w_wrreq;
 	wire			w_rdreq;
 	wire			w_mem_ncs;
@@ -59,17 +61,21 @@ module wts_for_cartridge (
 
 	always @( negedge slot_nreset or posedge clk ) begin
 		if( !slot_nreset ) begin
-			ff_nrd <= 1'b1;
-			ff_nwr <= 1'b1;
+			ff_nrd1 <= 1'b1;
+			ff_nwr1 <= 1'b1;
+			ff_nrd2 <= 1'b1;
+			ff_nwr2 <= 1'b1;
 		end
 		else begin
-			ff_nrd <= slot_nrd;
-			ff_nwr <= slot_nwr;
+			ff_nrd1 <= slot_nrd;
+			ff_nwr1 <= slot_nwr;
+			ff_nrd2 <= ff_nrd1;
+			ff_nwr2 <= ff_nwr1;
 		end
 	end
 
-	assign w_wrreq			= ~slot_nwr & ff_nwr & ~slot_nsltsl;
-	assign w_rdreq			= ~slot_nrd & ff_nrd & ~slot_nsltsl;
+	assign w_wrreq			= ~ff_nwr1 & ff_nwr2 & ~slot_nsltsl;
+	assign w_rdreq			= ~ff_nrd1 & ff_nrd2 & ~slot_nsltsl;
 	assign mem_ncs			= w_mem_ncs | slot_nsltsl;
 
 	wts_core u_wts_core (
@@ -77,6 +83,8 @@ module wts_for_cartridge (
 		.clk				( clk				),
 		.wrreq				( w_wrreq			),
 		.rdreq				( w_rdreq			),
+		.wr_active			( ff_wr2			),
+		.rd_active			( ff_rd2			),
 		.a					( slot_a			),
 		.d					( slot_d			),
 		.q					( w_q				),
