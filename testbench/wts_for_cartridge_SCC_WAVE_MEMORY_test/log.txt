@@ -1,0 +1,154 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 06:44:41 on Oct 19,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_for_cartridge
+# Loading work.wts_core
+# Loading work.wts_channel_mixer
+# Loading work.wts_channel_part
+# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator
+# Loading work.wts_tone_generator
+# Loading work.wts_ram
+# Loading work.wts_channel_volume
+# Loading work.wts_timer
+# Loading work.wts_register
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Write Test
+# [           150997323] Read data is   1.
+# [           152114787] Read data is   2.
+# [           153232251] Read data is   3.
+# [           154349715] Read data is   4.
+# [           155467179] Read data is   5.
+# [           156584643] Read data is   6.
+# [           157702107] Read data is   7.
+# [           158819571] Read data is   8.
+# [           159937035] Read data is   9.
+# [           161054499] Read data is  10.
+# [           162171963] Read data is  11.
+# [           163289427] Read data is  12.
+# [           164406891] Read data is  13.
+# [           165524355] Read data is  14.
+# [           166641819] Read data is  15.
+# [           167759283] Read data is  16.
+# [           168876747] Read data is  17.
+# [           169994211] Read data is  18.
+# [           171111675] Read data is  19.
+# [           172229139] Read data is  20.
+# [           173346603] Read data is  21.
+# [           174464067] Read data is  22.
+# [           175581531] Read data is  23.
+# [           176698995] Read data is  24.
+# [           177816459] Read data is  25.
+# [           178933923] Read data is  26.
+# [           180051387] Read data is  27.
+# [           181168851] Read data is  28.
+# [           182286315] Read data is  29.
+# [           183403779] Read data is  30.
+# [           184521243] Read data is  31.
+# [           185638707] Read data is  32.
+# [           186756171] Read data is  33.
+# [           187873635] Read data is  34.
+# [           188991099] Read data is  35.
+# [           190108563] Read data is  36.
+# [           191226027] Read data is  37.
+# [           192343491] Read data is  38.
+# [           193460955] Read data is  39.
+# [           194578419] Read data is  40.
+# [           195695883] Read data is  41.
+# [           196813347] Read data is  42.
+# [           197930811] Read data is  43.
+# [           199048275] Read data is  44.
+# [           200165739] Read data is  45.
+# [           201283203] Read data is  46.
+# [           202400667] Read data is  47.
+# [           203518131] Read data is  48.
+# [           204635595] Read data is  49.
+# [           205753059] Read data is  50.
+# [           206870523] Read data is  51.
+# [           207987987] Read data is  52.
+# [           209105451] Read data is  53.
+# [           210222915] Read data is  54.
+# [           211340379] Read data is  55.
+# [           212457843] Read data is  56.
+# [           213575307] Read data is  57.
+# [           214692771] Read data is  58.
+# [           215810235] Read data is  59.
+# [           216927699] Read data is  60.
+# [           218045163] Read data is  61.
+# [           219162627] Read data is  62.
+# [           220280091] Read data is  63.
+# [           221397555] Read data is  64.
+# [           222515019] Read data is  65.
+# [           223632483] Read data is  66.
+# [           224749947] Read data is  67.
+# [           225867411] Read data is  68.
+# [           226984875] Read data is  69.
+# [           228102339] Read data is  70.
+# [           229219803] Read data is  71.
+# [           230337267] Read data is  72.
+# [           231454731] Read data is  73.
+# [           232572195] Read data is  74.
+# [           233689659] Read data is  75.
+# [           234807123] Read data is  76.
+# [           235924587] Read data is  77.
+# [           237042051] Read data is  78.
+# [           238159515] Read data is  79.
+# [           239276979] Read data is  80.
+# [           240394443] Read data is  81.
+# [           241511907] Read data is  82.
+# [           242629371] Read data is  83.
+# [           243746835] Read data is  84.
+# [           244864299] Read data is  85.
+# [           245981763] Read data is  86.
+# [           247099227] Read data is  87.
+# [           248216691] Read data is  88.
+# [           249334155] Read data is  89.
+# [           250451619] Read data is  90.
+# [           251569083] Read data is  91.
+# [           252686547] Read data is  92.
+# [           253804011] Read data is  93.
+# [           254921475] Read data is  94.
+# [           256038939] Read data is  95.
+# [           257156403] Read data is  96.
+# [           258273867] Read data is  97.
+# [           259391331] Read data is  98.
+# [           260508795] Read data is  99.
+# [           261626259] Read data is 100.
+# [           262743723] Read data is 101.
+# [           263861187] Read data is 102.
+# [           264978651] Read data is 103.
+# [           266096115] Read data is 104.
+# [           267213579] Read data is 105.
+# [           268331043] Read data is 106.
+# [           269448507] Read data is 107.
+# [           270565971] Read data is 108.
+# [           271683435] Read data is 109.
+# [           272800899] Read data is 110.
+# [           273918363] Read data is 111.
+# [           275035827] Read data is 112.
+# [           276153291] Read data is 113.
+# [           277270755] Read data is 114.
+# [           278388219] Read data is 115.
+# [           279505683] Read data is 116.
+# [           280623147] Read data is 117.
+# [           281740611] Read data is 118.
+# [           282858075] Read data is 119.
+# [           283975539] Read data is 120.
+# [           285093003] Read data is 121.
+# [           286210467] Read data is 122.
+# [           287327931] Read data is 123.
+# [           288445395] Read data is 124.
+# [           289562859] Read data is 125.
+# [           290680323] Read data is 126.
+# [           291797787] Read data is 127.
+#####################################
+#                                   #
+#    Found         127 error(s)
+#                                   #
+#####################################
+# ** Note: $finish    : tb.sv(103)
+#    Time: 294096240 ps  Iteration: 1  Instance: /tb
+# End time: 06:44:42 on Oct 19,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

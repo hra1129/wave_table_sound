@@ -57,7 +57,7 @@ module wts_for_cartridge (
 	assign slot_nint		= (w_nint == 1'b0) ? 1'b0 : 1'bz;
 
 	assign w_dir			= ~slot_nrd;
-	assign slot_d			= (!slot_nsltsl && w_dir) ? w_q : 8'dz;
+	assign slot_d			= (!slot_nsltsl && w_dir && w_mem_ncs) ? w_q : 8'dz;
 
 	always @( negedge slot_nreset or posedge clk ) begin
 		if( !slot_nreset ) begin

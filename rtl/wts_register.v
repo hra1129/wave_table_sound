@@ -234,6 +234,8 @@ module wts_register (
 	output		[11:0]	reg_frequency_count_f1,
 	output		[4:0]	reg_noise_frequency_f1
 );
+	reg		[7:0]	ff_sram_q;
+
 	reg		[7:0]	reg_bank0;
 	reg		[7:0]	reg_bank1;
 	reg		[7:0]	reg_bank2;
@@ -395,30 +397,6 @@ module wts_register (
 		else if( ~rd_active && w_dec_bank3 && (address[12:1] == 12'b1_1111_1111_111) ) begin
 			ext_memory_nactive <= 1'b1;
 		end
-		else if( address[11] == 1'b0 ) begin
-			//	bank register
-			if( rdreq ) begin
-				ext_memory_nactive <= 1'b0;
-			end
-			else if( w_dec_bank0 && reg_ram_mode0 ) begin
-				ext_memory_nactive <= 1'b0;
-			end
-			else if( w_dec_bank1 && reg_ram_mode1 ) begin
-				ext_memory_nactive <= 1'b0;
-			end
-			else if( w_dec_bank2 && reg_ram_mode2 ) begin
-				ext_memory_nactive <= 1'b0;
-			end
-			else if( w_dec_bank3 && reg_ram_mode3 ) begin
-				ext_memory_nactive <= 1'b0;
-			end
-			else if( ~wr_active && ~rd_active ) begin
-				ext_memory_nactive <= 1'b1;
-			end
-			else begin
-				//	hold
-			end
-		end
 		else if( w_scc_en ) begin
 			if( address[7] == 1'b0 ) begin
 				ext_memory_nactive <= 1'b1;
@@ -446,6 +424,30 @@ module wts_register (
 		end
 		else if( w_wts_en ) begin
 			ext_memory_nactive <= 1'b1;
+		end
+		else if( address[11] == 1'b0 ) begin
+			//	bank register
+			if( rdreq ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank0 && reg_ram_mode0 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank1 && reg_ram_mode1 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank2 && reg_ram_mode2 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( w_dec_bank3 && reg_ram_mode3 ) begin
+				ext_memory_nactive <= 1'b0;
+			end
+			else if( ~wr_active && ~rd_active ) begin
+				ext_memory_nactive <= 1'b1;
+			end
+			else begin
+				//	hold
+			end
 		end
 		else begin
 			if( rdreq ) begin
@@ -1371,4 +1373,18 @@ module wts_register (
 	assign ext_memory_address	= w_dec_bank0 ? reg_bank0 :
 	                         	  w_dec_bank1 ? reg_bank1 :
 	                         	  w_dec_bank2 ? reg_bank2 : reg_bank3;
+
+	// Read registers ---------------------------------------------------------
+	always @( posedge clk ) begin
+		if( sram_q_en ) begin
+			ff_sram_q <= sram_q;
+		end
+		else begin
+			//	hold
+		end
+	end
+
+	assign rddata				= ( w_wts_en && (address[7:0] == 8'hF1) ) ? 8'd0 :	//	Timer1 status
+								  ( w_wts_en && (address[7:0] == 8'hF3) ) ? 8'd0 :	//	Timer2 status
+								  ff_sram_q;
 endmodule
