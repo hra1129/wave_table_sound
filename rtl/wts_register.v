@@ -392,7 +392,7 @@ module wts_register (
 		if( !nreset ) begin
 			ext_memory_nactive <= 1'b1;
 		end
-		else if( wrreq && w_dec_bank3 && (address[12:1] == 12'b1_1111_1111_111) ) begin
+		else if( ~rd_active && w_dec_bank3 && (address[12:1] == 12'b1_1111_1111_111) ) begin
 			ext_memory_nactive <= 1'b1;
 		end
 		else if( address[11] == 1'b0 ) begin
@@ -504,7 +504,7 @@ module wts_register (
 			reg_bank2		<= 8'd2;
 			reg_bank3		<= 8'd3;
 		end
-		else if( wrreq && address[12] ) begin
+		else if( wrreq && address[12] && ~address[11] ) begin
 			if(      w_dec_bank0 && !reg_ram_mode0 ) begin
 				reg_bank0		<= wrdata;
 			end

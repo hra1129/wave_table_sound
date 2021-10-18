@@ -1,0 +1,41 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 21:58:34 on Oct 18,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_for_cartridge
+# Loading work.wts_core
+# Loading work.wts_channel_mixer
+# Loading work.wts_channel_part
+# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator
+# Loading work.wts_tone_generator
+# Loading work.wts_ram
+# Loading work.wts_channel_volume
+# Loading work.wts_timer
+# Loading work.wts_register
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Bank0 Read and Write Test
+# ------------------------------------------------------------
+# [           489648240]   2: Bank1 Read and Write Test
+# ------------------------------------------------------------
+# [           974617200]   3: Bank2 Read and Write Test
+# ------------------------------------------------------------
+# [          1459632720]   4: Bank3 Read and Write Test
+# ------------------------------------------------------------
+# [          1704352080]   5: Bank0 Read and Write Test (RAM mode)
+# ------------------------------------------------------------
+# [          2379285840]   6: Bank1 Read and Write Test (RAM mode)
+# ------------------------------------------------------------
+# [          3054219600]   7: Bank2 Read and Write Test (RAM mode)
+# ------------------------------------------------------------
+# [          3729199920]   8: Bank3 Read and Write Test (RAM mode)
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(103)
+#    Time: 4067784240 ps  Iteration: 1  Instance: /tb
+# End time: 21:58:38 on Oct 18,2021, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 0
