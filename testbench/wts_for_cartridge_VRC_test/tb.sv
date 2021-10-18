@@ -374,7 +374,82 @@ module tb;
 			ff_i = i;
 			write_reg( 'h5000, ff_i );
 
-			write_reg( 'hBFFF, 'h10 );
+			write_reg( 'hBFFF, 'h01 );		//	Bank0 is RAM
+
+			write_reg( 'h4000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h4001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h4000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h4001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h5000, ff_i );
+
+			write_reg( 'hBFFF, 'h02 );		//	Bank1 is RAM
+
+			write_reg( 'h4000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h4001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h4000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h4001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h5000, ff_i );
+
+			write_reg( 'hBFFF, 'h04 );		//	Bank2 is RAM
+
+			write_reg( 'h4000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h4001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h4000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h4001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h5000, ff_i );
+
+			write_reg( 'hBFFF, 'h10 );		//	Bank0...3 is RAM
 
 			write_reg( 'h4000, 100 );
 			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
@@ -406,7 +481,83 @@ module tb;
 			ff_i = i;
 			write_reg( 'h7000, ff_i );
 
-			write_reg( 'hBFFF, 'h10 );
+			write_reg( 'hBFFF, 'h01 );		//	Bank0 is RAM
+
+			write_reg( 'h6000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h6001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h6000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h6001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h7000, ff_i );
+
+			write_reg( 'hBFFF, 'h02 );		//	Bank1 is RAM
+
+			write_reg( 'h6000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h6001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h6000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h6001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h7000, ff_i );
+
+			write_reg( 'hBFFF, 'h04 );		//	Bank2 is RAM
+
+			write_reg( 'h6000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h6001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h6000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h6001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h7000, ff_i );
+
+			write_reg( 'hBFFF, 'h10 );		//	Bank0...3 is RAM
 
 			write_reg( 'h6000, 100 );
 			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
@@ -438,7 +589,82 @@ module tb;
 			ff_i = i;
 			write_reg( 'h9000, ff_i );
 
-			write_reg( 'hBFFF, 'h10 );
+			write_reg( 'hBFFF, 'h01 );		//	Bank0 is RAM
+
+			write_reg( 'h8000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h8001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h8000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h8001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h9000, ff_i );
+
+			write_reg( 'hBFFF, 'h02 );		//	Bank1 is RAM
+
+			write_reg( 'h8000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h8001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h8000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h8001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h9000, ff_i );
+
+			write_reg( 'hBFFF, 'h04 );		//	Bank2 is RAM
+
+			write_reg( 'h8000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'h8001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'h8000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'h8001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'h9000, ff_i );
+
+			write_reg( 'hBFFF, 'h10 );		//	Bank0...3 is RAM
 
 			write_reg( 'h8000, 100 );
 			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
@@ -497,7 +723,82 @@ module tb;
 			ff_i = i;
 			write_reg( 'hB000, ff_i );
 
-			write_reg( 'hBFFF, 'h10 );
+			write_reg( 'hBFFF, 'h01 );	//	Bank0 is RAM
+
+			write_reg( 'hA000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'hA001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'hA000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'hA001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'hB000, ff_i );
+
+			write_reg( 'hBFFF, 'h02 );	//	Bank1 is RAM
+
+			write_reg( 'hA000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'hA001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'hA000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'hA001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'hB000, ff_i );
+
+			write_reg( 'hBFFF, 'h04 );	//	Bank2 is RAM
+
+			write_reg( 'hA000, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+
+			write_reg( 'hA001, 100 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+
+			read_reg( 'hA000, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd0 }, $sformatf( "Access target address is 0x%02X, 0x0000.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			read_reg( 'hA001, read_data );
+			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );
+			success_condition_is( ff_mem_a == { ff_i, 13'd1 }, $sformatf( "Access target address is 0x%02X, 0x0001.", ff_i ) );
+			success_condition_is( read_data === 8'dz, "Read data is Hi-Z." );
+
+			write_reg( 'hBFFF, 'h00 );
+
+			ff_i = i;
+			write_reg( 'hB000, ff_i );
+
+			write_reg( 'hBFFF, 'h10 );	//	Bank0...3 is RAM
 
 			write_reg( 'hA000, 100 );
 			success_condition_is( ff_mem_ncs == 1'b0, "Activate the external memory access." );

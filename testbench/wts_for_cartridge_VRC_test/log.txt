@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 21:58:34 on Oct 18,2021
+# Start time: 22:43:44 on Oct 18,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_for_cartridge
@@ -25,17 +25,17 @@
 # ------------------------------------------------------------
 # [          1704352080]   5: Bank0 Read and Write Test (RAM mode)
 # ------------------------------------------------------------
-# [          2379285840]   6: Bank1 Read and Write Test (RAM mode)
+# [          4397429040]   6: Bank1 Read and Write Test (RAM mode)
 # ------------------------------------------------------------
-# [          3054219600]   7: Bank2 Read and Write Test (RAM mode)
+# [          7090506000]   7: Bank2 Read and Write Test (RAM mode)
 # ------------------------------------------------------------
-# [          3729199920]   8: Bank3 Read and Write Test (RAM mode)
+# [          8281743600]   8: Bank3 Read and Write Test (RAM mode)
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $                                   $
 # $        Success of all!!           $
 # $                                   $
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(103)
-#    Time: 4067784240 ps  Iteration: 1  Instance: /tb
-# End time: 21:58:38 on Oct 18,2021, Elapsed time: 0:00:04
+#    Time: 9629376240 ps  Iteration: 1  Instance: /tb
+# End time: 22:43:53 on Oct 18,2021, Elapsed time: 0:00:09
 # Errors: 0, Warnings: 0
