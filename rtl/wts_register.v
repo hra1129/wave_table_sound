@@ -476,8 +476,8 @@ module wts_register (
 
 	// BFFE-BFFFh Mode Register -----------------------------------------------
 	assign w_scc_en			= ( (reg_bank2 == 8'h3F) && (address[12:8] == 5'b11000) ) ? (w_dec_bank2 & !reg_scci_enable) : 1'b0;
-	assign w_scci_en		= reg_bank3[7] & w_dec_bank3 &  address[12] & reg_scci_enable;
-	assign w_wts_en			= reg_bank3[7] & w_dec_bank3 & ~address[12] & reg_wts_enable;
+	assign w_scci_en		= reg_bank3[7] & w_dec_bank3 &  address[12] & address[11] & reg_scci_enable;
+	assign w_wts_en			= reg_bank3[7] & w_dec_bank3 & ~address[12] & address[11] & reg_wts_enable;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -540,6 +540,7 @@ module wts_register (
 			sram_a	<= { 2'b00, address[4:0] };
 			sram_oe	<= rdreq;
 			sram_we	<= wrreq;
+			sram_d	<= wrdata;
 		end
 		else if( w_scc_en && (address[12:5] == 8'b1_1000_101) ) begin
 			//	98A0-98BFh : {100} 1 1000 101X XXXX ReadOnly
@@ -547,35 +548,38 @@ module wts_register (
 			sram_a	<= { 2'b00, address[4:0] };
 			sram_oe	<= rdreq;
 			sram_we	<= 1'b0;
+			sram_d	<= wrdata;
 		end
-		else if( w_scci_en && (address[11:8] == 4'b1000) && (!address[7] || address[7:5] == 3'b100) ) begin
+		else if( w_scci_en && (address[10:8] == 3'b000) && (!address[7] || address[7:5] == 3'b100) ) begin
 			//	B800-B87Fh : {101} 1 1000 0XXX XXXX
 			//	B880-B89Fh : {101} 1 1000 100X XXXX
 			sram_id	<= { 1'b0,  address[7:5] };
 			sram_a	<= { 2'b00, address[4:0] };
 			sram_oe	<= rdreq;
 			sram_we	<= wrreq;
+			sram_d	<= wrdata;
 		end
-		else if( w_wts_en && (address[11] == 1'b0) && (!address[10] || !address[10:9] == 2'b10) ) begin
-			//	A000-A2FFh : {101} 0 00XX XXXX XXXX Ch.A0-F0
-			//	A300-A3FFh : {101} 0 0011 XXXX XXXX Ch.A1-B1
-			//	A400-A5FFh : {101} 0 010X XXXX XXXX Ch.C1-F1
+		else if( w_wts_en && (!address[10] || !address[10:9] == 2'b10) ) begin
+			//	A800-AAFFh : {101} 0 00XX XXXX XXXX Ch.A0-F0
+			//	AB00-ABFFh : {101} 0 0011 XXXX XXXX Ch.A1-B1
+			//	AC00-ADFFh : {101} 0 010X XXXX XXXX Ch.C1-F1
 			
 			if( address[9:8] == 2'b11 ) begin
-				//	A300-A3FFh : {101} 0 0011 XXXX XXXX Ch.A1-B1 --> 8, 9
+				//	AB00-ABFFh : {101} 0 1011 XXXX XXXX Ch.A1-B1 --> 8, 9
 				sram_id	<= { 3'b100,  address[7] };
 			end
 			else if( address[10] == 1'b0 ) begin
-				//	A000-A2FFh : {101} 0 00XX XXXX XXXX Ch.A0-F0 --> 0...5
+				//	A800-AAFFh : {101} 0 10XX XXXX XXXX Ch.A0-F0 --> 0...5
 				sram_id	<= { 1'b0,  address[9:7] };
 			end
 			else begin
-				//	A400-A5FFh : {101} 0 010X XXXX XXXX Ch.C1-F1 --> 10,11,12,13
+				//	AC00-ADFFh : {101} 0 110X XXXX XXXX Ch.C1-F1 --> 10,11,12,13
 				sram_id	<= { 1'b1,  address[8], ~address[8], address[7] };
 			end
 			sram_a	<= address[6:0];
 			sram_oe	<= rdreq;
 			sram_we	<= wrreq;
+			sram_d	<= wrdata;
 		end
 	end
 

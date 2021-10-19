@@ -28,21 +28,17 @@ add wave -noupdate /tb/u_wts_for_cartridge/ff_nrd1
 add wave -noupdate /tb/u_wts_for_cartridge/ff_nrd2
 add wave -noupdate /tb/u_wts_for_cartridge/ff_nwr1
 add wave -noupdate /tb/u_wts_for_cartridge/ff_nwr2
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/reg_ram_mode0
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/reg_ram_mode1
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/reg_ram_mode2
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/reg_ram_mode3
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_dec_bank0
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_dec_bank1
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_dec_bank2
-add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_dec_bank3
 add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/wrreq
 add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/rdreq
 add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/wr_active
 add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/rd_active
 add wave -noupdate /tb/read_data
+add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_scc_en
+add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_scci_en
+add wave -noupdate /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/w_wts_en
+add wave -noupdate -radix hexadecimal /tb/u_wts_for_cartridge/u_wts_core/u_wts_register/reg_bank3
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {4749222 ps} 0} {{Cursor 2} {4894222 ps} 0}
+WaveRestoreCursors {{Cursor 1} {4749222 ps} 0} {{Cursor 2} {351629671 ps} 0}
 quietly wave cursor active 2
 configure wave -namecolwidth 384
 configure wave -valuecolwidth 40
@@ -58,4 +54,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {7673428 ps} {14569447 ps}
+WaveRestoreZoom {292367571 ps} {311679049 ps}

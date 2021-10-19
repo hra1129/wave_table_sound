@@ -196,7 +196,7 @@ module tb;
 		repeat( 50 ) @( posedge clk );
 
 		// -------------------------------------------------------------
-		set_test_pattern_no( 1, "Write Test" );
+		set_test_pattern_no( 1, "Write Test by SCC registers." );
 
 		write_reg( 'h9000, 63 );
 
@@ -210,6 +210,46 @@ module tb;
 			read_reg( 'h9800 + i, read_data );
 			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
 			success_condition_is( read_data === ff_i, $sformatf( "Read data is %d.", ff_i ) );
+		end
+
+		repeat( 50 ) @( posedge clk );
+
+		// -------------------------------------------------------------
+		set_test_pattern_no( 1, "Write Test by SCC-I registers." );
+
+		write_reg( 'hB000, 128 );
+		write_reg( 'hBFFF, 8'b00100000 );
+
+		for( i = 0; i < (32 * 5); i++ ) begin
+			write_reg( 'hB800 + i, i + 2 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		end
+
+		for( i = 0; i < (32 * 5); i++ ) begin
+			ff_i <= i + 2;
+			read_reg( 'hB800 + i, read_data );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( read_data === ff_i, $sformatf( "Read data is %d.", ff_i ) );
+		end
+
+		repeat( 50 ) @( posedge clk );
+
+		// -------------------------------------------------------------
+		set_test_pattern_no( 1, "Write Test by WTS registers." );
+
+		write_reg( 'hB000, 128 );
+		write_reg( 'hBFFF, 8'b01000000 );
+
+		for( i = 0; i < (128 * 12); i++ ) begin
+			write_reg( 'hA800 + i, i + 2 );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		end
+
+		for( i = 0; i < (128 * 12); i++ ) begin
+			ff_i <= i + 2;
+			read_reg( 'hA800 + i, read_data );
+			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			success_condition_is( read_data === ff_i, $sformatf( "Read data is %d: %d.", ff_i, read_data ) );
 		end
 
 		repeat( 50 ) @( posedge clk );

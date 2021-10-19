@@ -1,2 +1,12 @@
 # OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_for_cartridge_SCC_WAVE_MEMORY_test/vsim.wlf
 do C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_for_cartridge_SCC_WAVE_MEMORY_test/wave.do
+add wave -position end  vsim:/tb/read_data
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_id
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_a
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_d
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_oe
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_we
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_q
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/sram_q_en
+add wave -position end  vsim:/tb/u_wts_for_cartridge/u_wts_core/sram_a
+add wave -position 1  vsim:/tb/u_wts_for_cartridge/u_wts_core/u_wts_register/address
