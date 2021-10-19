@@ -559,10 +559,10 @@ module wts_register (
 			sram_we	<= wrreq;
 			sram_d	<= wrdata;
 		end
-		else if( w_wts_en && (!address[10] || !address[10:9] == 2'b10) ) begin
-			//	A800-AAFFh : {101} 0 00XX XXXX XXXX Ch.A0-F0
-			//	AB00-ABFFh : {101} 0 0011 XXXX XXXX Ch.A1-B1
-			//	AC00-ADFFh : {101} 0 010X XXXX XXXX Ch.C1-F1
+		else if( w_wts_en && (!address[10] || !address[9]) ) begin
+			//	A800-AAFFh : {101} 0 10XX XXXX XXXX Ch.A0-F0	SRAM_ID: 0...5
+			//	AB00-ABFFh : {101} 0 1011 XXXX XXXX Ch.A1-B1	SRAM_ID: 8,9
+			//	AC00-ADFFh : {101} 0 110X XXXX XXXX Ch.C1-F1	SRAM_ID: 10,11,12,13
 			
 			if( address[9:8] == 2'b11 ) begin
 				//	AB00-ABFFh : {101} 0 1011 XXXX XXXX Ch.A1-B1 --> 8, 9
@@ -1388,7 +1388,7 @@ module wts_register (
 		end
 	end
 
-	assign rddata				= ( w_wts_en && (address[7:0] == 8'hF1) ) ? 8'd0 :	//	Timer1 status
-								  ( w_wts_en && (address[7:0] == 8'hF3) ) ? 8'd0 :	//	Timer2 status
+	assign rddata				= ( w_wts_en && (address[10:0] == 11'hEF1) ) ? 8'd0 :	//	Timer1 status
+								  ( w_wts_en && (address[10:0] == 11'hEF3) ) ? 8'd0 :	//	Timer2 status
 								  ff_sram_q;
 endmodule
