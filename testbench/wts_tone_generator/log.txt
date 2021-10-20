@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 07:14:32 on Oct 16,2021
+# Start time: 06:54:36 on Oct 21,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_tone_generator
@@ -17,5 +17,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(86)
 #    Time: 41973840 ps  Iteration: 1  Instance: /tb
-# End time: 07:14:33 on Oct 16,2021, Elapsed time: 0:00:01
+# End time: 06:54:36 on Oct 21,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

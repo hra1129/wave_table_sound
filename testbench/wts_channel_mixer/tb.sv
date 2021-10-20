@@ -207,6 +207,13 @@ module tb;
 	reg		[11:0]	reg_frequency_count_f1;
 	reg		[4:0]	reg_noise_frequency_f1;
 
+	reg		[3:0]	reg_timer1_channel;
+	wire			timer1_trigger;
+	wire	[6:0]	timer1_address;
+	reg		[3:0]	reg_timer2_channel;
+	wire			timer2_trigger;
+	wire	[6:0]	timer2_address;
+
 	int				i, j;
 	int				pattern_no = 0;
 	int				error_count = 0;
@@ -400,7 +407,13 @@ module tb;
 		.reg_sl_f1					( reg_sl_f1					),
 		.reg_wave_length_f1			( reg_wave_length_f1		),
 		.reg_frequency_count_f1		( reg_frequency_count_f1	),
-		.reg_noise_frequency_f1		( reg_noise_frequency_f1	)
+		.reg_noise_frequency_f1		( reg_noise_frequency_f1	),
+		.reg_timer1_channel			( reg_timer1_channel		),
+		.timer1_trigger				( timer1_trigger			),
+		.timer1_address				( timer1_address			),
+		.reg_timer2_channel			( reg_timer2_channel		),
+		.timer2_trigger				( timer2_trigger			),
+		.timer2_address				( timer2_address			)
 	);
 
 	// -------------------------------------------------------------
@@ -671,6 +684,8 @@ module tb;
 		reg_wave_length_f1 = 0;
 		reg_frequency_count_f1 = 0;
 		reg_noise_frequency_f1 = 0;
+		reg_timer1_channel = 0;
+		reg_timer2_channel = 0;
 
 		repeat( 50 ) @( negedge clk );
 

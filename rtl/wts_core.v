@@ -236,8 +236,21 @@ module wts_core (
 	wire	[11:0]	reg_frequency_count_f1;
 	wire	[4:0]	reg_noise_frequency_f1;
 
-	wire	[3:0]	reg_timer1_sel;
-	wire	[3:0]	reg_timer2_sel;
+	wire			w_timer1_trigger;
+	wire	[6:0]	w_timer1_address;
+	wire			reg_timer1_enable;
+	wire			reg_timer1_oneshot;
+	wire	[3:0]	reg_timer1_channel;
+	wire			reg_timer1_clear;
+	wire	[7:0]	w_timer1_status;
+
+	wire			w_timer2_trigger;
+	wire	[6:0]	w_timer2_address;
+	wire			reg_timer2_enable;
+	wire			reg_timer2_oneshot;
+	wire	[3:0]	reg_timer2_channel;
+	wire			reg_timer2_clear;
+	wire	[7:0]	w_timer2_status;
 
 	wts_channel_mixer u_wts_channel_mixer (
 		.nreset					( nreset					),
@@ -419,21 +432,27 @@ module wts_core (
 		.reg_wave_length_f1		( reg_wave_length_f1		),
 		.reg_frequency_count_f1	( reg_frequency_count_f1	),
 		.reg_noise_frequency_f1	( reg_noise_frequency_f1	),
-		.reg_timer1_sel			( reg_timer1_sel			),
-		.reg_timer2_sel			( reg_timer2_sel			)
+		.reg_timer1_channel		( reg_timer1_channel		),
+		.timer1_trigger			( w_timer1_trigger			),
+		.timer1_address			( w_timer1_address			),
+		.reg_timer2_channel		( reg_timer2_channel		),
+		.timer2_trigger			( w_timer2_trigger			),
+		.timer2_address			( w_timer2_address			)
 	);
 
 	wts_timer u_wts_timer (
 		.nreset					( nreset					),
 		.clk					( clk						),
-		.timer1_trigger			( timer1_trigger			),
-		.timer2_trigger			( timer2_trigger			),
+		.timer1_trigger			( w_timer1_trigger			),
+		.timer1_address			( w_timer1_address			),
 		.reg_timer1_enable		( reg_timer1_enable			),
 		.reg_timer1_clear		( reg_timer1_clear			),
-		.interrupt1				( interrupt1				),
+		.timer1_status			( w_timer1_status			),
+		.timer2_trigger			( w_timer2_trigger			),
+		.timer2_address			( w_timer2_address			),
 		.reg_timer2_enable		( reg_timer2_enable			),
 		.reg_timer2_clear		( reg_timer2_clear			),
-		.interrupt2				( interrupt2				),
+		.timer2_status			( w_timer2_status			),
 		.nint					( nint						)
 	);
 
@@ -623,6 +642,14 @@ module wts_core (
 		.reg_sl_f1				( reg_sl_f1					),
 		.reg_wave_length_f1		( reg_wave_length_f1		),
 		.reg_frequency_count_f1	( reg_frequency_count_f1	),
-		.reg_noise_frequency_f1	( reg_noise_frequency_f1	)
+		.reg_noise_frequency_f1	( reg_noise_frequency_f1	),
+		.reg_timer1_enable		( reg_timer1_enable			),
+		.reg_timer1_channel		( reg_timer1_channel		),
+		.reg_timer1_clear		( reg_timer1_clear			),
+		.timer1_status			( w_timer1_status			),
+		.reg_timer2_enable		( reg_timer2_enable			),
+		.reg_timer2_channel		( reg_timer2_channel		),
+		.reg_timer2_clear		( reg_timer2_clear			),
+		.timer2_status			( w_timer2_status			)
 	);
 endmodule

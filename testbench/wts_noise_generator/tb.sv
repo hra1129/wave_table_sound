@@ -6,7 +6,7 @@ module tb;
 	reg				active;					//	3.579MHz timing pulse
 	reg				enable;
 	wire			noise;
-	reg		[4:0]	reg_fr;
+	reg		[4:0]	reg_frequency_count;
 	int				i;
 	reg		[2:0]	ff_div;
 
@@ -37,7 +37,7 @@ module tb;
 		.active			( active			),
 		.enable			( enable			),
 		.noise			( noise				),
-		.reg_fr			( reg_fr			)
+		.reg_frequency_count			( reg_frequency_count			)
 	);
 
 	// -------------------------------------------------------------
@@ -49,7 +49,7 @@ module tb;
 		clk					= 0;
 		ff_div				= 0;
 		nreset				= 0;
-		reg_fr				= 0;
+		reg_frequency_count				= 0;
 		enable				= 0;
 		repeat( 50 ) @( negedge clk );
 
@@ -59,21 +59,21 @@ module tb;
 		//	enable
 		for( i = 0; i < 32; i++ ) begin
 			enable <= 1;
-			reg_fr <= i;
+			reg_frequency_count <= i;
 			repeat( 50 * 6 ) @( negedge clk );
 		end
 
 		//	disable
 		for( i = 0; i < 32; i++ ) begin
 			enable <= 0;
-			reg_fr <= i;
+			reg_frequency_count <= i;
 			repeat( 50 * 6 ) @( negedge clk );
 		end
 
 		//	enable
 		for( i = 0; i < 32; i++ ) begin
 			enable <= 1;
-			reg_fr <= i;
+			reg_frequency_count <= i;
 			repeat( 50 * 6 ) @( negedge clk );
 		end
 

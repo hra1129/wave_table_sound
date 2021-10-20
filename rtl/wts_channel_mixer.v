@@ -227,8 +227,12 @@ module wts_channel_mixer (
 	input	[11:0]	reg_frequency_count_f1,
 	input	[4:0]	reg_noise_frequency_f1,
 
-	input	[3:0]	reg_timer1_sel,
-	input	[3:0]	reg_timer2_sel
+	input	[3:0]	reg_timer1_channel,
+	output			timer1_trigger,
+	output	[6:0]	timer1_address,
+	input	[3:0]	reg_timer2_channel,
+	output			timer2_trigger,
+	output	[6:0]	timer2_address
 );
 
 	reg		[5:0]	ff_active;
@@ -339,15 +343,49 @@ module wts_channel_mixer (
 		endcase
 	endfunction
 
+	function func_address_sel (
+		input	[3:0]	reg_timer_sel,
+		input	[6:0]	half_address_a0,
+		input	[6:0]	half_address_b0,
+		input	[6:0]	half_address_c0,
+		input	[6:0]	half_address_d0,
+		input	[6:0]	half_address_e0,
+		input	[6:0]	half_address_f0,
+		input	[6:0]	half_address_a1,
+		input	[6:0]	half_address_b1,
+		input	[6:0]	half_address_c1,
+		input	[6:0]	half_address_d1,
+		input	[6:0]	half_address_e1,
+		input	[6:0]	half_address_f1
+	);
+		case( reg_timer_sel )
+		4'd0:		func_address_sel = half_address_a0;
+		4'd1:		func_address_sel = half_address_b0;
+		4'd2:		func_address_sel = half_address_c0;
+		4'd3:		func_address_sel = half_address_d0;
+		4'd4:		func_address_sel = half_address_e0;
+		4'd5:		func_address_sel = half_address_f0;
+		4'd6:		func_address_sel = half_address_a1;
+		4'd7:		func_address_sel = half_address_b1;
+		4'd8:		func_address_sel = half_address_c1;
+		4'd9:		func_address_sel = half_address_d1;
+		4'd10:		func_address_sel = half_address_e1;
+		4'd11:		func_address_sel = half_address_f1;
+		default:	func_address_sel = 1'b0;
+		endcase
+	endfunction
+
 	// ------------------------------------------------------------------------
 	//	TIMER1
 	// ------------------------------------------------------------------------
-	assign timer1_trigger	= func_trigger_sel( reg_timer1_sel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
+	assign timer1_trigger	= func_trigger_sel( reg_timer1_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
+	assign timer1_address	= func_address_sel( reg_timer1_channel, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_f0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1, w_sram_a_f1 );
 
 	// ------------------------------------------------------------------------
 	//	TIMER2
 	// ------------------------------------------------------------------------
-	assign timer2_trigger	= func_trigger_sel( reg_timer2_sel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
+	assign timer2_trigger	= func_trigger_sel( reg_timer2_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
+	assign timer2_address	= func_address_sel( reg_timer2_channel, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_f0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1, w_sram_a_f1 );
 
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE

@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 22:24:47 on Oct 02,2021
+# Start time: 06:54:31 on Oct 21,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_ram
@@ -15,5 +15,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(68)
 #    Time: 60644400 ps  Iteration: 1  Instance: /tb
-# End time: 22:24:48 on Oct 02,2021, Elapsed time: 0:00:01
+# End time: 06:54:31 on Oct 21,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

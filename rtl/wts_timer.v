@@ -24,27 +24,34 @@ module wts_timer (
 	input			nreset,
 	input			clk,
 	input			timer1_trigger,
-	input			timer2_trigger,
+	input	[6:0]	timer1_address,
 	input			reg_timer1_enable,
 	input			reg_timer1_clear,
-	output			interrupt1,
+	output	[7:0]	timer1_status,
+	input			timer2_trigger,
+	input	[6:0]	timer2_address,
 	input			reg_timer2_enable,
 	input			reg_timer2_clear,
-	output			interrupt2,
+	output	[7:0]	timer2_status,
 	output			nint
 );
-	reg				ff_interrupt1;
-	reg				ff_interrupt2;
+	reg				ff_nint1;
+	reg				ff_nint2;
+	reg		[6:0]	ff_timer1_address;
+	reg		[6:0]	ff_timer2_address;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_interrupt1 <= 1'b0;
+			ff_nint1 <= 1'b1;
+			ff_timer1_address <= 7'd0;
 		end
 		else if( reg_timer1_clear ) begin
-			ff_interrupt1 <= 1'b0;
+			ff_nint1 <= 1'b1;
+			ff_timer1_address <= 7'd0;
 		end
 		else if( reg_timer1_enable && timer1_trigger ) begin
-			ff_interrupt1 <= 1'b1;
+			ff_nint1 <= 1'b0;
+			ff_timer1_address <= timer1_address;
 		end
 		else begin
 			//	hold
@@ -53,20 +60,23 @@ module wts_timer (
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_interrupt2 <= 1'b0;
+			ff_nint2 <= 1'b1;
+			ff_timer2_address <= 7'd0;
 		end
 		else if( reg_timer1_clear ) begin
-			ff_interrupt2 <= 1'b0;
+			ff_nint2 <= 1'b1;
+			ff_timer2_address <= 7'd0;
 		end
 		else if( reg_timer2_enable && timer2_trigger ) begin
-			ff_interrupt2 <= 1'b1;
+			ff_nint2 <= 1'b0;
+			ff_timer2_address <= timer2_address;
 		end
 		else begin
 			//	hold
 		end
 	end
 
-	assign interrupt1	= ff_interrupt1;
-	assign interrupt2	= ff_interrupt2;
-	assign nint			= ~(ff_interrupt1 | ff_interrupt2);
+	assign timer1_status	= { ff_nint1, ff_timer1_address };
+	assign timer2_status	= { ff_nint2, ff_timer2_address };
+	assign nint				= ff_nint1 & ff_nint2;
 endmodule
