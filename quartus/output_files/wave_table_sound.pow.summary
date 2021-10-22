@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Sat Oct 23 06:58:56 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : wave_table_sound
+Top-level Entity Name : wts_for_cartridge
+Family : MAX 10
+Device : 10M04SAE144C8G
+Power Models : Final
+Total Thermal Power Dissipation : 139.07 mW
+Core Dynamic Thermal Power Dissipation : 20.45 mW
+Core Static Thermal Power Dissipation : 110.67 mW
+I/O Thermal Power Dissipation : 7.94 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

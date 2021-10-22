@@ -1,0 +1,261 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "slot_nint",
+					"strict" : false
+				},
+				{
+					"name" : "mem_ncs",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[4]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[5]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[6]",
+					"strict" : false
+				},
+				{
+					"name" : "mem_a[7]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "left_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "right_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[0]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[1]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[2]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[3]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[4]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[5]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[6]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_d[7]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_nsltsl",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[13]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[14]",
+					"strict" : false
+				},
+				{
+					"name" : "sw_mono",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[8]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[9]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[10]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[11]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[12]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[5]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[6]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[7]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[4]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[1]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[2]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[3]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "slot_nreset",
+					"strict" : false
+				},
+				{
+					"name" : "slot_nrd",
+					"strict" : false
+				},
+				{
+					"name" : "slot_nwr",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

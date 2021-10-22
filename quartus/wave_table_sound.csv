@@ -1,0 +1,87 @@
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+
+# Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# File: C:\Users\hra\Documents\github\wave_table_sound\quartus\wave_table_sound.csv
+# Generated on: Sat Oct 23 06:42:55 2021
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
+clk,Input,PIN_27,2,B2_N0,,,,,,
+left_out[11],Output,PIN_38,3,B3_N0,,,,,,
+left_out[10],Output,PIN_39,3,B3_N0,,,,,,
+left_out[9],Output,PIN_41,3,B3_N0,,,,,,
+left_out[8],Output,PIN_43,3,B3_N0,,,,,,
+left_out[7],Output,PIN_44,3,B3_N0,,,,,,
+left_out[6],Output,PIN_45,3,B3_N0,,,,,,
+left_out[5],Output,PIN_46,3,B3_N0,,,,,,
+left_out[4],Output,PIN_47,3,B3_N0,,,,,,
+left_out[3],Output,PIN_48,3,B3_N0,,,,,,
+left_out[2],Output,PIN_50,3,B3_N0,,,,,,
+left_out[1],Output,PIN_52,3,B3_N0,,,,,,
+left_out[0],Output,PIN_54,3,B3_N0,,,,,,
+mem_a[7],Output,PIN_14,1A,B1_N0,,,,,,
+mem_a[6],Output,PIN_13,1A,B1_N0,,,,,,
+mem_a[5],Output,PIN_12,1A,B1_N0,,,,,,
+mem_a[4],Output,PIN_11,1A,B1_N0,,,,,,
+mem_a[3],Output,PIN_10,1A,B1_N0,,,,,,
+mem_a[2],Output,PIN_8,1A,B1_N0,,,,,,
+mem_a[1],Output,PIN_7,1A,B1_N0,,,,,,
+mem_a[0],Output,PIN_6,1A,B1_N0,,,,,,
+mem_ncs,Output,PIN_21,1B,B1_N0,,,,,,
+right_out[11],Output,PIN_74,5,B5_N0,,,,,,
+right_out[10],Output,PIN_75,5,B5_N0,,,,,,
+right_out[9],Output,PIN_76,5,B5_N0,,,,,,
+right_out[8],Output,PIN_77,5,B5_N0,,,,,,
+right_out[7],Output,PIN_78,5,B5_N0,,,,,,
+right_out[6],Output,PIN_79,5,B5_N0,,,,,,
+right_out[5],Output,PIN_80,5,B5_N0,,,,,,
+right_out[4],Output,PIN_81,5,B5_N0,,,,,,
+right_out[3],Output,PIN_84,5,B5_N0,,,,,,
+right_out[2],Output,PIN_85,5,B5_N0,,,,,,
+right_out[1],Output,PIN_86,5,B5_N0,,,,,,
+right_out[0],Output,PIN_87,5,B5_N0,,,,,,
+slot_a[15],Input,PIN_92,6,B6_N0,,,,,,
+slot_a[14],Input,PIN_93,6,B6_N0,,,,,,
+slot_a[13],Input,PIN_96,6,B6_N0,,,,,,
+slot_a[12],Input,PIN_98,6,B6_N0,,,,,,
+slot_a[11],Input,PIN_99,6,B6_N0,,,,,,
+slot_a[10],Input,PIN_100,6,B6_N0,,,,,,
+slot_a[9],Input,PIN_101,6,B6_N0,,,,,,
+slot_a[8],Input,PIN_102,6,B6_N0,,,,,,
+slot_a[7],Input,PIN_105,6,B6_N0,,,,,,
+slot_a[6],Input,PIN_106,6,B6_N0,,,,,,
+slot_a[5],Input,PIN_110,7,B7_N0,,,,,,
+slot_a[4],Input,PIN_111,7,B7_N0,,,,,,
+slot_a[3],Input,PIN_113,7,B7_N0,,,,,,
+slot_a[2],Input,PIN_114,7,B7_N0,,,,,,
+slot_a[1],Input,PIN_118,7,B7_N0,,,,,,
+slot_a[0],Input,PIN_119,7,B7_N0,,,,,,
+slot_d[7],Bidir,PIN_120,8,B8_N0,,,,,,
+slot_d[6],Bidir,PIN_121,8,B8_N0,,,,,,
+slot_d[5],Bidir,PIN_123,8,B8_N0,,,,,,
+slot_d[4],Bidir,PIN_124,8,B8_N0,,,,,,
+slot_d[3],Bidir,PIN_126,8,B8_N0,,,,,,
+slot_d[2],Bidir,PIN_127,8,B8_N0,,,,,,
+slot_d[1],Bidir,PIN_130,8,B8_N0,,,,,,
+slot_d[0],Bidir,PIN_131,8,B8_N0,,,,,,
+slot_nint,Output,PIN_132,8,B8_N0,,,,,,
+slot_nmerq,Input,PIN_134,8,B8_N0,,,,,,
+slot_nrd,Input,PIN_135,8,B8_N0,,,,,,
+slot_nreset,Input,PIN_136,8,B8_N0,,,,,,
+slot_nsltsl,Input,PIN_138,8,B8_N0,,,,,,
+slot_nwr,Input,PIN_140,8,B8_N0,,,,,,
+sw_mono,Input,PIN_141,8,B8_N0,,,,,,

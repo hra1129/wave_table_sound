@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------------- #
 #
-# Copyright (C) 2019  Intel Corporation. All rights reserved.
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
 # Your use of Intel Corporation's design tools, logic functions 
 # and other software and tools, and any partner logic 
 # functions, and any output files from any of the foregoing 
@@ -18,8 +18,8 @@
 # -------------------------------------------------------------------------- #
 #
 # Quartus Prime
-# Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
-# Date created = 21:37:11  September 18, 2021
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 05:58:19  October 23, 2021
 #
 # -------------------------------------------------------------------------- #
 #
@@ -37,26 +37,106 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "MAX V"
-set_global_assignment -name DEVICE 5M40ZE64C4
-set_global_assignment -name TOP_LEVEL_ENTITY wave_table_sound
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.1
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:37:11  SEPTEMBER 18, 2021"
-set_global_assignment -name LAST_QUARTUS_VERSION "18.1.1 Lite Edition"
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M04SAE144C8G
+set_global_assignment -name TOP_LEVEL_ENTITY wts_for_cartridge
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "05:58:19  OCTOBER 23, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name DEVICE_FILTER_PACKAGE "ANY QFP"
-set_global_assignment -name DEVICE_FILTER_PIN_COUNT 64
-set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 4
-set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
-set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name EDA_BOARD_DESIGN_TIMING_TOOL "Stamp (Timing)"
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT STAMP -section_id eda_board_design_timing
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name QIP_FILE ram/sram.qip
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_27 -to clk
+set_location_assignment PIN_38 -to left_out[11]
+set_location_assignment PIN_39 -to left_out[10]
+set_location_assignment PIN_41 -to left_out[9]
+set_location_assignment PIN_43 -to left_out[8]
+set_location_assignment PIN_44 -to left_out[7]
+set_location_assignment PIN_45 -to left_out[6]
+set_location_assignment PIN_46 -to left_out[5]
+set_location_assignment PIN_47 -to left_out[4]
+set_location_assignment PIN_48 -to left_out[3]
+set_location_assignment PIN_50 -to left_out[2]
+set_location_assignment PIN_52 -to left_out[1]
+set_location_assignment PIN_54 -to left_out[0]
+set_location_assignment PIN_55 -to right_out[11]
+set_location_assignment PIN_56 -to right_out[10]
+set_location_assignment PIN_57 -to right_out[9]
+set_location_assignment PIN_58 -to right_out[8]
+set_location_assignment PIN_59 -to right_out[7]
+set_location_assignment PIN_60 -to right_out[6]
+set_location_assignment PIN_62 -to right_out[5]
+set_location_assignment PIN_64 -to right_out[4]
+set_location_assignment PIN_65 -to right_out[3]
+set_location_assignment PIN_66 -to right_out[2]
+set_location_assignment PIN_69 -to right_out[1]
+set_location_assignment PIN_70 -to right_out[0]
+set_location_assignment PIN_14 -to mem_a[7]
+set_location_assignment PIN_13 -to mem_a[6]
+set_location_assignment PIN_12 -to mem_a[5]
+set_location_assignment PIN_11 -to mem_a[4]
+set_location_assignment PIN_10 -to mem_a[3]
+set_location_assignment PIN_8 -to mem_a[2]
+set_location_assignment PIN_7 -to mem_a[1]
+set_location_assignment PIN_6 -to mem_a[0]
+set_location_assignment PIN_92 -to slot_a[15]
+set_location_assignment PIN_93 -to slot_a[14]
+set_location_assignment PIN_96 -to slot_a[13]
+set_location_assignment PIN_98 -to slot_a[12]
+set_location_assignment PIN_99 -to slot_a[11]
+set_location_assignment PIN_100 -to slot_a[10]
+set_location_assignment PIN_101 -to slot_a[9]
+set_location_assignment PIN_102 -to slot_a[8]
+set_location_assignment PIN_105 -to slot_a[7]
+set_location_assignment PIN_106 -to slot_a[6]
+set_location_assignment PIN_110 -to slot_a[5]
+set_location_assignment PIN_111 -to slot_a[4]
+set_location_assignment PIN_113 -to slot_a[3]
+set_location_assignment PIN_114 -to slot_a[2]
+set_location_assignment PIN_118 -to slot_a[1]
+set_location_assignment PIN_119 -to slot_a[0]
+set_location_assignment PIN_74 -to slot_d[7]
+set_location_assignment PIN_75 -to slot_d[6]
+set_location_assignment PIN_76 -to slot_d[5]
+set_location_assignment PIN_77 -to slot_d[4]
+set_location_assignment PIN_78 -to slot_d[3]
+set_location_assignment PIN_79 -to slot_d[2]
+set_location_assignment PIN_81 -to slot_d[1]
+set_location_assignment PIN_84 -to slot_d[0]
+set_location_assignment PIN_87 -to slot_nint
+set_location_assignment PIN_134 -to slot_nmerq
+set_location_assignment PIN_132 -to slot_nrd
+set_location_assignment PIN_121 -to slot_nreset
+set_location_assignment PIN_127 -to slot_nsltsl
+set_location_assignment PIN_130 -to slot_nwr
+set_location_assignment PIN_131 -to sw_mono
+set_location_assignment PIN_21 -to mem_ncs
+set_global_assignment -name SDC_FILE wave_table_sound.out.sdc
+set_global_assignment -name VERILOG_FILE ../rtl/wts_virtual_rom_controller.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_tone_generator.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_timer.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_register.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_ram.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_noise_generator.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_core.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_volume.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_part.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_mixer.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_adsr_envelope_generator.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_for_cartridge.v
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
