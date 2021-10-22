@@ -310,6 +310,10 @@ module wts_channel_mixer (
 	wire			w_half_timing_d1;
 	wire			w_half_timing_e1;
 	wire			w_half_timing_f1;
+	wire	[2:0]	w_address_mask1;
+	wire	[2:0]	w_address_mask2;
+	wire	[1:0]	w_wave_length1;
+	wire	[1:0]	w_wave_length2;
 
 	function func_trigger_sel (
 		input	[3:0]	reg_timer_sel,
@@ -343,8 +347,9 @@ module wts_channel_mixer (
 		endcase
 	endfunction
 
-	function func_address_sel (
+	function [6:0] func_address_sel (
 		input	[3:0]	reg_timer_sel,
+		input	[2:0]	address_mask,
 		input	[6:0]	half_address_a0,
 		input	[6:0]	half_address_b0,
 		input	[6:0]	half_address_c0,
@@ -359,33 +364,71 @@ module wts_channel_mixer (
 		input	[6:0]	half_address_f1
 	);
 		case( reg_timer_sel )
-		4'd0:		func_address_sel = half_address_a0;
-		4'd1:		func_address_sel = half_address_b0;
-		4'd2:		func_address_sel = half_address_c0;
-		4'd3:		func_address_sel = half_address_d0;
-		4'd4:		func_address_sel = half_address_e0;
-		4'd5:		func_address_sel = half_address_f0;
-		4'd6:		func_address_sel = half_address_a1;
-		4'd7:		func_address_sel = half_address_b1;
-		4'd8:		func_address_sel = half_address_c1;
-		4'd9:		func_address_sel = half_address_d1;
-		4'd10:		func_address_sel = half_address_e1;
-		4'd11:		func_address_sel = half_address_f1;
-		default:	func_address_sel = 1'b0;
+		4'd0:		func_address_sel = { half_address_a0[6:4] & address_mask, 4'd0 };
+		4'd1:		func_address_sel = { half_address_b0[6:4] & address_mask, 4'd0 };
+		4'd2:		func_address_sel = { half_address_c0[6:4] & address_mask, 4'd0 };
+		4'd3:		func_address_sel = { half_address_d0[6:4] & address_mask, 4'd0 };
+		4'd4:		func_address_sel = { half_address_e0[6:4] & address_mask, 4'd0 };
+		4'd5:		func_address_sel = { half_address_f0[6:4] & address_mask, 4'd0 };
+		4'd6:		func_address_sel = { half_address_a1[6:4] & address_mask, 4'd0 };
+		4'd7:		func_address_sel = { half_address_b1[6:4] & address_mask, 4'd0 };
+		4'd8:		func_address_sel = { half_address_c1[6:4] & address_mask, 4'd0 };
+		4'd9:		func_address_sel = { half_address_d1[6:4] & address_mask, 4'd0 };
+		4'd10:		func_address_sel = { half_address_e1[6:4] & address_mask, 4'd0 };
+		4'd11:		func_address_sel = { half_address_f1[6:4] & address_mask, 4'd0 };
+		default:	func_address_sel = 7'b0;
+		endcase
+	endfunction
+
+	function [1:0] func_wave_length_sel (
+		input	[3:0]	reg_timer_sel,
+		input	[1:0]	wave_length_a0,
+		input	[1:0]	wave_length_b0,
+		input	[1:0]	wave_length_c0,
+		input	[1:0]	wave_length_d0,
+		input	[1:0]	wave_length_e0,
+		input	[1:0]	wave_length_f0,
+		input	[1:0]	wave_length_a1,
+		input	[1:0]	wave_length_b1,
+		input	[1:0]	wave_length_c1,
+		input	[1:0]	wave_length_d1,
+		input	[1:0]	wave_length_e1,
+		input	[1:0]	wave_length_f1
+	);
+		case( reg_timer_sel )
+		4'd0:		func_wave_length_sel = wave_length_a0;
+		4'd1:		func_wave_length_sel = wave_length_b0;
+		4'd2:		func_wave_length_sel = wave_length_c0;
+		4'd3:		func_wave_length_sel = wave_length_d0;
+		4'd4:		func_wave_length_sel = wave_length_e0;
+		4'd5:		func_wave_length_sel = wave_length_f0;
+		4'd6:		func_wave_length_sel = wave_length_a1;
+		4'd7:		func_wave_length_sel = wave_length_b1;
+		4'd8:		func_wave_length_sel = wave_length_c1;
+		4'd9:		func_wave_length_sel = wave_length_d1;
+		4'd10:		func_wave_length_sel = wave_length_e1;
+		4'd11:		func_wave_length_sel = wave_length_f1;
+		default:	func_wave_length_sel = 2'b0;
 		endcase
 	endfunction
 
 	// ------------------------------------------------------------------------
 	//	TIMER1
 	// ------------------------------------------------------------------------
+	assign w_wave_length1	= func_wave_length_sel( reg_timer1_channel, reg_wave_length_a0, reg_wave_length_b0, reg_wave_length_c0, reg_wave_length_d0, reg_wave_length_e0, reg_wave_length_f0, reg_wave_length_a1, reg_wave_length_b1, reg_wave_length_c1, reg_wave_length_d1, reg_wave_length_e1, reg_wave_length_f1 );
 	assign timer1_trigger	= func_trigger_sel( reg_timer1_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
-	assign timer1_address	= func_address_sel( reg_timer1_channel, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_f0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1, w_sram_a_f1 );
+	assign timer1_address	= func_address_sel( reg_timer1_channel, w_address_mask1, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_f0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1, w_sram_a_f1 );
+	assign w_address_mask1	= ( w_wave_length1 == 2'b00 ) ? 3'b111 :
+							  ( w_wave_length1 == 2'b01 ) ? 3'b110 : 3'b100;
 
 	// ------------------------------------------------------------------------
 	//	TIMER2
 	// ------------------------------------------------------------------------
+	assign w_wave_length2	= func_wave_length_sel( reg_timer2_channel, reg_wave_length_a0, reg_wave_length_b0, reg_wave_length_c0, reg_wave_length_d0, reg_wave_length_e0, reg_wave_length_f0, reg_wave_length_a1, reg_wave_length_b1, reg_wave_length_c1, reg_wave_length_d1, reg_wave_length_e1, reg_wave_length_f1 );
 	assign timer2_trigger	= func_trigger_sel( reg_timer2_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_f0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1, w_half_timing_f1 );
-	assign timer2_address	= func_address_sel( reg_timer2_channel, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_f0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1, w_sram_a_f1 );
+	assign timer2_address	= func_address_sel( reg_timer2_channel, w_address_mask2, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_f0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1, w_sram_a_f1 );
+	assign w_address_mask2	= ( w_wave_length2 == 2'b00 ) ? 3'b111 :
+							  ( w_wave_length2 == 2'b01 ) ? 3'b110 : 3'b100;
 
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE

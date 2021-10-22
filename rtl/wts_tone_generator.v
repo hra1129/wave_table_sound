@@ -80,7 +80,7 @@ module wts_tone_generator (
 
 	// output assignment ------------------------------------------------------
 	assign wave_address				= { w_address_mask, ff_wave_address[4:0] };
-	assign half_timing				= ( (reg_wave_length == 2'b00) && ff_wave_address[3:0] == 4'd0 ) ? w_frequency_counter_end :
-									  ( (reg_wave_length == 2'b01) && ff_wave_address[4:0] == 5'd0 ) ? w_frequency_counter_end :
-									  (                               ff_wave_address[5:0] == 5'd0 ) ? w_frequency_counter_end : 1'b0;
+	assign half_timing				= ( (reg_wave_length == 2'b00) && ff_wave_address[3:0] == 4'b1111   ) ? w_frequency_counter_end :
+									  ( (reg_wave_length == 2'b01) && ff_wave_address[4:0] == 5'b11111  ) ? w_frequency_counter_end :
+									  (                               ff_wave_address[5:0] == 6'b111111 ) ? w_frequency_counter_end : 1'b0;
 endmodule
