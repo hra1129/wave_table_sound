@@ -1,0 +1,7 @@
+-- ATTENSION!! --
+
+合成が通るか確認した程度のものです。
+実際のデバイスに書き込んで動作確認は行っていません。
+
+This is just a check to see if the synthesis passes.
+It has not been written to an actual device to check its operation.
