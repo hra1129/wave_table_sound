@@ -27,7 +27,7 @@ module wts_register (
 	input				rdreq,
 	input				wr_active,
 	input				rd_active,
-	input		[15:0]	address,
+	input		[14:0]	address,
 	input		[7:0]	wrdata,
 	output		[7:0]	rddata,
 

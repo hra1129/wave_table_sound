@@ -236,6 +236,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "slot_nmerq",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

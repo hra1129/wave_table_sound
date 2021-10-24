@@ -1,5 +1,5 @@
 Analysis & Synthesis report for wave_table_sound
-Sat Oct 23 06:58:22 2021
+Mon Oct 25 07:14:33 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -76,16 +76,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Oct 23 06:58:22 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 25 07:14:33 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; wave_table_sound                            ;
 ; Top-level Entity Name              ; wts_for_cartridge                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 5,035                                       ;
-;     Total combinational functions  ; 3,543                                       ;
+; Total logic elements               ; 5,043                                       ;
+;     Total combinational functions  ; 3,551                                       ;
 ;     Dedicated logic registers      ; 2,304                                       ;
 ; Total registers                    ; 2304                                        ;
-; Total pins                         ; 65                                          ;
+; Total pins                         ; 64                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 12,288                                      ;
 ; Embedded Multiplier 9-bit elements ; 4                                           ;
@@ -246,30 +246,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 5,035     ;
+; Estimated Total logic elements              ; 5,043     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3543      ;
+; Total combinational functions               ; 3551      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1821      ;
-;     -- 3 input functions                    ; 882       ;
-;     -- <=2 input functions                  ; 840       ;
+;     -- 4 input functions                    ; 1814      ;
+;     -- 3 input functions                    ; 891       ;
+;     -- <=2 input functions                  ; 846       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2925      ;
+;     -- normal mode                          ; 2933      ;
 ;     -- arithmetic mode                      ; 618       ;
 ;                                             ;           ;
 ; Total registers                             ; 2304      ;
 ;     -- Dedicated logic registers            ; 2304      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 65        ;
+; I/O pins                                    ; 64        ;
 ; Total memory bits                           ; 12288     ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 4         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 2336      ;
-; Total fan-out                               ; 22043     ;
+; Total fan-out                               ; 22053     ;
 ; Average fan-out                             ; 3.66      ;
 +---------------------------------------------+-----------+
 
@@ -279,17 +279,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                                          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                     ; Entity Name                 ; Library Name ;
 +---------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |wts_for_cartridge                                                  ; 3543 (44)           ; 2304 (4)                  ; 12288       ; 0          ; 4            ; 4       ; 0         ; 65   ; 0            ; 0          ; |wts_for_cartridge                                                                                                                                                                                      ; wts_for_cartridge           ; work         ;
-;    |wts_core:u_wts_core|                                            ; 3499 (0)            ; 2300 (0)                  ; 12288       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core                                                                                                                                                                  ; wts_core                    ; work         ;
-;       |wts_channel_mixer:u_wts_channel_mixer|                       ; 2960 (507)          ; 982 (76)                  ; 12288       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer                                                                                                                            ; wts_channel_mixer           ; work         ;
+; |wts_for_cartridge                                                  ; 3551 (44)           ; 2304 (4)                  ; 12288       ; 0          ; 4            ; 4       ; 0         ; 64   ; 0            ; 0          ; |wts_for_cartridge                                                                                                                                                                                      ; wts_for_cartridge           ; work         ;
+;    |wts_core:u_wts_core|                                            ; 3507 (0)            ; 2300 (0)                  ; 12288       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core                                                                                                                                                                  ; wts_core                    ; work         ;
+;       |wts_channel_mixer:u_wts_channel_mixer|                       ; 2967 (507)          ; 982 (76)                  ; 12288       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer                                                                                                                            ; wts_channel_mixer           ; work         ;
 ;          |wts_channel_part:u_ch_a0|                                 ; 171 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0                                                                                                   ; wts_channel_part            ; work         ;
 ;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 121 (110)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                   ; 30 (30)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_tone_generator:u_tone_generator                                                               ; wts_tone_generator          ; work         ;
-;          |wts_channel_part:u_ch_a1|                                 ; 229 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1                                                                                                   ; wts_channel_part            ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 162 (151)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
+;          |wts_channel_part:u_ch_a1|                                 ; 235 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1                                                                                                   ; wts_channel_part            ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 168 (157)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 25 (25)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
@@ -300,8 +300,8 @@ https://fpgasoftware.intel.com/eula.
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b0|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                   ; 30 (30)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b0|wts_tone_generator:u_tone_generator                                                               ; wts_tone_generator          ; work         ;
-;          |wts_channel_part:u_ch_b1|                                 ; 236 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1                                                                                                   ; wts_channel_part            ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 169 (158)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
+;          |wts_channel_part:u_ch_b1|                                 ; 233 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1                                                                                                   ; wts_channel_part            ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 166 (155)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 25 (25)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
@@ -312,8 +312,8 @@ https://fpgasoftware.intel.com/eula.
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c0|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                   ; 30 (30)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c0|wts_tone_generator:u_tone_generator                                                               ; wts_tone_generator          ; work         ;
-;          |wts_channel_part:u_ch_c1|                                 ; 232 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1                                                                                                   ; wts_channel_part            ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 165 (154)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
+;          |wts_channel_part:u_ch_c1|                                 ; 237 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1                                                                                                   ; wts_channel_part            ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 170 (159)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 25 (25)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
@@ -324,8 +324,8 @@ https://fpgasoftware.intel.com/eula.
 ;                   |add_sub_39i:auto_generated|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d0|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                   ; 30 (30)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d0|wts_tone_generator:u_tone_generator                                                               ; wts_tone_generator          ; work         ;
-;          |wts_channel_part:u_ch_d1|                                 ; 234 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1                                                                                                   ; wts_channel_part            ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 167 (156)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
+;          |wts_channel_part:u_ch_d1|                                 ; 232 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1                                                                                                   ; wts_channel_part            ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 165 (154)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 25 (25)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
@@ -336,8 +336,8 @@ https://fpgasoftware.intel.com/eula.
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e0|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                   ; 30 (30)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e0|wts_tone_generator:u_tone_generator                                                               ; wts_tone_generator          ; work         ;
-;          |wts_channel_part:u_ch_e1|                                 ; 233 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1                                                                                                   ; wts_channel_part            ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 166 (155)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
+;          |wts_channel_part:u_ch_e1|                                 ; 237 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1                                                                                                   ; wts_channel_part            ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 170 (159)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 25 (25)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
@@ -348,8 +348,8 @@ https://fpgasoftware.intel.com/eula.
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f0|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f0|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                   ; 30 (30)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f0|wts_tone_generator:u_tone_generator                                                               ; wts_tone_generator          ; work         ;
-;          |wts_channel_part:u_ch_f1|                                 ; 235 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1                                                                                                   ; wts_channel_part            ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 168 (157)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
+;          |wts_channel_part:u_ch_f1|                                 ; 232 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1                                                                                                   ; wts_channel_part            ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator| ; 165 (154)           ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_adsr_envelope_generator:u_adsr_envelope_generator                                             ; wts_adsr_envelope_generator ; work         ;
 ;                |lpm_add_sub:Add0|                                   ; 11 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0                            ; lpm_add_sub                 ; work         ;
 ;                   |add_sub_39i:auto_generated|                      ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_adsr_envelope_generator:u_adsr_envelope_generator|lpm_add_sub:Add0|add_sub_39i:auto_generated ; add_sub_39i                 ; work         ;
 ;             |wts_noise_generator:u_noise_generator|                 ; 25 (25)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_noise_generator:u_noise_generator                                                             ; wts_noise_generator         ; work         ;
@@ -376,7 +376,7 @@ https://fpgasoftware.intel.com/eula.
 ;          |wts_ram:u_ram11|                                          ; 0 (0)               ; 0 (0)                     ; 3072        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram11                                                                                                            ; wts_ram                     ; work         ;
 ;             |altsyncram:ram_array_rtl_0|                            ; 0 (0)               ; 0 (0)                     ; 3072        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram11|altsyncram:ram_array_rtl_0                                                                                 ; altsyncram                  ; work         ;
 ;                |altsyncram_s4d1:auto_generated|                     ; 0 (0)               ; 0 (0)                     ; 3072        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram11|altsyncram:ram_array_rtl_0|altsyncram_s4d1:auto_generated                                                  ; altsyncram_s4d1             ; work         ;
-;       |wts_register:u_wts_register|                                 ; 528 (528)           ; 1308 (1308)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register                                                                                                                                      ; wts_register                ; work         ;
+;       |wts_register:u_wts_register|                                 ; 529 (529)           ; 1308 (1308)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register                                                                                                                                      ; wts_register                ; work         ;
 ;       |wts_timer:u_wts_timer|                                       ; 11 (11)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_timer:u_wts_timer                                                                                                                                            ; wts_timer                   ; work         ;
 +---------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -452,10 +452,10 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|ff_left_out[11]                                                             ; 2       ;
 ; wts_core:u_wts_core|wts_timer:u_wts_timer|ff_nint1                                                                                    ; 3       ;
 ; wts_core:u_wts_core|wts_timer:u_wts_timer|ff_nint2                                                                                    ; 3       ;
-; ff_nrd2                                                                                                                               ; 4       ;
-; ff_nrd1                                                                                                                               ; 3       ;
-; ff_nwr2                                                                                                                               ; 7       ;
-; ff_nwr1                                                                                                                               ; 7       ;
+; ff_nrd2                                                                                                                               ; 3       ;
+; ff_nrd1                                                                                                                               ; 2       ;
+; ff_nwr2                                                                                                                               ; 2       ;
+; ff_nwr1                                                                                                                               ; 2       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_e1                                                                  ; 4       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_d1                                                                  ; 4       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_c1                                                                  ; 4       ;
@@ -469,14 +469,14 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_d1                                                             ; 12      ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_d1                                                                   ; 5       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_c1                                                             ; 12      ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_c1                                                                   ; 5       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_c1                                                                   ; 6       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_f1                                                             ; 12      ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_f1                                                                   ; 5       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|ff_active[0]                                                                ; 86      ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_a1                                                             ; 12      ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_a1                                                                   ; 5       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_b1                                                             ; 12      ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_b1                                                                   ; 6       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_b1                                                                   ; 5       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_noise_generator:u_noise_generator|ff_noise[17] ; 11      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_noise_generator:u_noise_generator|ff_noise[17] ; 11      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_noise_generator:u_noise_generator|ff_noise[17] ; 4       ;
@@ -489,16 +489,16 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b0|wts_noise_generator:u_noise_generator|ff_noise[17] ; 4       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e0|wts_noise_generator:u_noise_generator|ff_noise[17] ; 11      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c0|wts_noise_generator:u_noise_generator|ff_noise[17] ; 11      ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_a1                                                                  ; 41      ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_a1                                                                  ; 43      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a1|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_f1                                                                  ; 43      ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_f1                                                                  ; 42      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_f1|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_b1                                                                  ; 43      ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_b1                                                                  ; 42      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_b1|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_c1|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_c1                                                                  ; 43      ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_e1                                                                  ; 42      ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_d1                                                                  ; 45      ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_c1                                                                  ; 44      ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_e1                                                                  ; 43      ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_d1                                                                  ; 44      ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_d1|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_e1|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_noise_generator:u_noise_generator|ff_noise[16] ; 2       ;
@@ -1517,7 +1517,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 65                          ;
+; boundary_port         ; 64                          ;
 ; cycloneiii_ff         ; 2304                        ;
 ;     CLR               ; 65                          ;
 ;     CLR SLD           ; 56                          ;
@@ -1526,22 +1526,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR SCLR      ; 96                          ;
 ;     ENA CLR SLD       ; 351                         ;
 ; cycloneiii_io_obuf    ; 9                           ;
-; cycloneiii_lcell_comb ; 3543                        ;
+; cycloneiii_lcell_comb ; 3551                        ;
 ;     arith             ; 618                         ;
 ;         2 data inputs ; 468                         ;
 ;         3 data inputs ; 150                         ;
-;     normal            ; 2925                        ;
+;     normal            ; 2933                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 103                         ;
-;         2 data inputs ; 267                         ;
-;         3 data inputs ; 732                         ;
-;         4 data inputs ; 1821                        ;
+;         2 data inputs ; 273                         ;
+;         3 data inputs ; 741                         ;
+;         4 data inputs ; 1814                        ;
 ; cycloneiii_mac_mult   ; 4                           ;
 ; cycloneiii_mac_out    ; 4                           ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 11.80                       ;
-; Average LUT depth     ; 5.64                        ;
+; Average LUT depth     ; 5.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1560,7 +1560,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Oct 23 06:58:02 2021
+    Info: Processing started: Mon Oct 25 07:14:11 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off wave_table_sound -c wave_table_sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1606,8 +1606,6 @@ Info (10264): Verilog HDL Case Statement information at wts_channel_mixer.v(844)
 Info (12128): Elaborating entity "wts_channel_part" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 551
 Info (12128): Elaborating entity "wts_noise_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_noise_generator:u_noise_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_part.v Line: 54
 Info (12128): Elaborating entity "wts_adsr_envelope_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_adsr_envelope_generator:u_adsr_envelope_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_part.v Line: 69
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator.v(80): truncated value with size 10 to match size of target (9) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator.v Line: 80
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator.v(83): truncated value with size 10 to match size of target (9) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator.v Line: 83
 Info (12128): Elaborating entity "wts_tone_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_part:u_ch_a0|wts_tone_generator:u_tone_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_part.v Line: 80
 Info (12128): Elaborating entity "wts_ram" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram00" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 887
 Info (12128): Elaborating entity "wts_channel_volume" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 923
@@ -1770,21 +1768,18 @@ Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/hra/Documents/github/wave_table_sound/quartus/output_files/wave_table_sound.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "slot_a[15]" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_for_cartridge.v Line: 27
-    Warning (15610): No output dependent on input pin "slot_nmerq" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_for_cartridge.v Line: 30
-Info (21057): Implemented 5158 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 23 input pins
+Info (21057): Implemented 5165 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 22 input pins
     Info (21059): Implemented 34 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 5057 logic cells
+    Info (21061): Implemented 5065 logic cells
     Info (21064): Implemented 32 RAM segments
     Info (21062): Implemented 4 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
     Info: Peak virtual memory: 4817 megabytes
-    Info: Processing ended: Sat Oct 23 06:58:22 2021
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:32
+    Info: Processing ended: Mon Oct 25 07:14:33 2021
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:36
 
 
 +------------------------------------------+

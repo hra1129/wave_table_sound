@@ -17,7 +17,6 @@ slot_a[11] => slot_a[11].IN1
 slot_a[12] => slot_a[12].IN1
 slot_a[13] => slot_a[13].IN1
 slot_a[14] => slot_a[14].IN1
-slot_a[15] => slot_a[15].IN1
 slot_d[0] <> wts_core:u_wts_core.d
 slot_d[0] <> slot_d[0]
 slot_d[1] <> wts_core:u_wts_core.d
@@ -38,7 +37,8 @@ slot_nsltsl => mem_ncs.IN1
 slot_nsltsl => slot_d.IN0
 slot_nsltsl => w_wrreq.IN1
 slot_nsltsl => w_rdreq.IN1
-slot_nmerq => ~NO_FANOUT~
+slot_nmerq => w_wrreq.IN1
+slot_nmerq => w_rdreq.IN1
 slot_nrd => ff_nrd1.DATAIN
 slot_nrd => slot_d.IN1
 slot_nwr => ff_nwr1.DATAIN
@@ -123,7 +123,6 @@ a[11] => a[11].IN1
 a[12] => a[12].IN1
 a[13] => a[13].IN1
 a[14] => a[14].IN1
-a[15] => a[15].IN1
 d[0] => d[0].IN1
 d[1] => d[1].IN1
 d[2] => d[2].IN1
@@ -12033,7 +12032,6 @@ address[14] => Equal0.IN0
 address[14] => Equal1.IN0
 address[14] => Equal2.IN0
 address[14] => Equal3.IN1
-address[15] => ~NO_FANOUT~
 wrdata[0] => reg_ram_mode0.IN0
 wrdata[0] => reg_bank3.DATAB
 wrdata[0] => reg_bank2.DATAB

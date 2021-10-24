@@ -1,0 +1,23 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device>gw1n4-028</Device>
+    <FileList>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_part.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_volume.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_core.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_ram.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_timer.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_virtual_rom_controller.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_for_cartridge.v" type="file.verilog" enable="1"/>
+        <File path="src/wave_table_sound.sdc" type="file.sdc" enable="1"/>
+        <File path="src/wave_table_sound.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>

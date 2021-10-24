@@ -1,0 +1,22 @@
+
+Starting:    C:\Gowin\Gowin_V1.9.2.01Beta\SynplifyPro\bin64\mbin\synbatch.exe
+Install:     C:\Gowin\Gowin_V1.9.2.01Beta\SynplifyPro
+Hostname:    MSI
+Date:        Sat Oct 23 22:03:23 2021
+Version:     P-2019.03G
+
+Arguments:   -product synplify_pro -batch C:/Users/hra/Documents/github/wave_table_sound/gowin/wave_table_sound/impl/synthesize/wave_table_sound.prj
+ProductType: synplify_pro
+
+No such feature exists.
+Feature:       synplifypro
+License path:  27020@45.33.107.56;
+FlexNet Licensing error:-5,21
+
+
+Host ID:  "48a472fa6528 4aa472fa6527 48a472fa6527 48a472fa652b"
+Please contact support at https://solvnet.synopsys.com/ManageCase?ccf=1
+
+
+Running in Vendor Mode
+

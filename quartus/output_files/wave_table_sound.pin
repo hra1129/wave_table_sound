@@ -161,7 +161,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 88        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 89        :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 90        :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 91        :        :                   :         : 6         :                
-slot_a[15]                   : 92        : input  : 2.5 V             :         : 6         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 92        :        :                   :         : 6         :                
 slot_a[14]                   : 93        : input  : 2.5 V             :         : 6         : Y              
 VCCIO6                       : 94        : power  :                   : 2.5V    : 6         :                
 GND                          : 95        : gnd    :                   :         :           :                

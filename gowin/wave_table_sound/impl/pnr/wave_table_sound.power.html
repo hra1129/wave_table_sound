@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ENhttp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Power Analysis Report</title>
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+div#main_wrapper { width: 100%; }
+div#content { margin-left: 350px; margin-right: 30px; }
+div#catalog_wrapper {position: fixed; top: 30px; width: 350px; float: left; }
+div#catalog ul { list-style-type: none; }
+div#catalog li { text-align: left; list-style-type:circle; color: #0084ff; margin-top: 3px; margin-bottom: 3px; }
+div#catalog a { display:inline-block; text-decoration: none; color: #0084ff; font-weight: bold; padding: 3px; }
+div#catalog a:visited { color: #0084ff; }
+div#catalog a:hover { color: #fff; background: #0084ff; }
+hr { margin-top: 30px; margin-bottom: 30px; }
+h1, h3 { text-align: center; }
+h1 {margin-top: 50px; }
+table, th, td {white-space:pre;  border: 1px solid #aaa; }
+table { border-collapse:collapse; margin-top: 10px; margin-bottom: 20px; width: 100%; }
+th, td { padding: 5px 5px 5px 5px; }
+th { color: #fff; font-weight: bold; background-color: #0084ff; }
+table.summary_table td.label { width: 24%; min-width: 200px; background-color: #dee8f4; }
+table.thermal_table td.label { width: 24%; min-width: 200px; background-color: #dee8f4; }
+table.Configure_table td.label { width: 24%; min-width: 200px; background-color: #dee8f4; }
+table.detail_table th.label {  min-width: 8%; width: 8%; }
+</style>
+</head>
+<body>
+<div id="main_wrapper">
+<div id="catalog_wrapper">
+<div id="catalog">
+<ul>
+<li><a href="#Message" style=" font-size: 16px;">Power Messages</a>
+</li>
+<li><a href="#Summary" style=" font-size: 16px;">Power Summary</a>
+<ul>
+<li><a href="#Power_Info" style=" font-size: 14px;">Power Information</a></li>
+<li><a href="#Thermal_Info" style=" font-size: 14px;">Thermal Information</a></li>
+<li><a href="#Configure_Info" style=" font-size: 14px;">Configure Information</a></li>
+<li><a href="#Supply_Summary" style=" font-size: 14px;">Supply Information</a></li>
+</ul>
+</li>
+<li><a href="#Detail" style=" font-size: 16px;">Power Details</a>
+<ul>
+<li><a href="#By_Block_Type" style=" font-size: 14px;">Power By Block Type</a></li>
+<li><a href="#By_Hierarchy" style=" font-size: 14px;">Power By Hierarchy</a></li>
+<li><a href="#By_Clock_Domain" style=" font-size: 14px;">Power By Clock Domain</a></li>
+</ul>
+</li>
+</ul>
+</div><!-- catalog -->
+</div><!-- catalog_wrapper -->
+<div id="content">
+<h1><a name="Message">Power Messages</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Report Title</td>
+<td>Gowin Power Analysis Report</td>
+</tr>
+<tr>
+<td class="label">Design File</td>
+<td>C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\gwsynthesis\wave_table_sound.vg</td>
+</tr>
+<tr>
+<td class="label">Physical Constraints File</td>
+<td>C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\src\wave_table_sound.cst</td>
+</tr>
+<tr>
+<td class="label">Timing Constraints File</td>
+<td>C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\src\wave_table_sound.sdc</td>
+</tr>
+<tr>
+<td class="label">GOWIN Version</td>
+<td>V1.9.2.01Beta</td>
+</tr>
+<tr>
+<td class="label">Part Number</td>
+<td>GW1N-UV4LQ100C6/I5</td>
+</tr>
+<tr>
+<td class="label">Created Time</td>
+<td>Mon Oct 25 07:03:56 2021
+</td>
+</tr>
+<tr>
+<td class="label">Legal Announcement</td>
+<td>Copyright (C)2014-2019 Gowin Semiconductor Corporation. All rights reserved.</td>
+</tr>
+</table>
+<h1><a name="Summary">Power Summary</a></h1>
+<h2><a name="Power_Info">Power Information:</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label">Total Power (mW)</td>
+<td>323.176</td>
+</tr>
+<tr>
+<td class="label">Quiescent Power (mW)</td>
+<td>22.969</td>
+</tr>
+<tr>
+<td class="label">Dynamic Power (mW)</td>
+<td>300.207</td>
+</tr>
+</table>
+<h2><a name="Thermal_Info">Thermal Information:</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label">Junction Temperature</td>
+<td>28.329</td>
+</tr>
+<tr>
+<td class="label">Theta JA</td>
+<td>10.300</td>
+</tr>
+<tr>
+<td class="label">Max Allowed Ambient Temperature</td>
+<td>81.671</td>
+</tr>
+</table>
+<h2><a name="Configure_Info">Configure Information:</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label">Default IO Toggle Rate</td>
+<td>0.125</td>
+</tr>
+<td class="label">Default Remain Toggle Rate</td>
+<td>0.125</td>
+</tr>
+<tr>
+<td class="label">Use Vectorless Estimation</td>
+<td>false</td>
+</tr>
+<tr>
+<td class="label">Filter Glitches</td>
+<td>false</td>
+</tr>
+<tr>
+<td class="label">Related Vcd File</td>
+<td></td>
+</tr>
+<tr>
+<td class="label">Related Saif File</td>
+<td></td>
+</tr>
+<tr>
+<td class="label">Use Custom Theta JA</td>
+<td>false</td>
+</tr>
+<tr>
+<td class="label">Air Flow</td>
+<td>LFM_0</td>
+</tr>
+<tr>
+<td class="label">Heat Sink</td>
+<td>None</td>
+</tr>
+<tr>
+<td class="label">Use Custom Theta SA</td>
+<td>false</td>
+</tr>
+<tr>
+<td class="label">Board Thermal Model</td>
+<td>None</td>
+</tr>
+<tr>
+<td class="label">Use Custom Theta JB</td>
+<td>false</td>
+</tr>
+<tr>
+<td class="label">Ambient Temperature</td>
+<td>25.000
+</tr>
+</table>
+<h2><a name="Supply_Summary">Supply Information:</a></h2>
+<table class="summary_table">
+<tr>
+<th class="label">Voltage Source</th>
+<th class="label">Voltage</th>
+<th class="label">Dynamic Current(mA)</th>
+<th class="label">Quiescent Current(mA)</th>
+<th class="label">Power(mW)</th>
+</tr>
+<tr>
+<td>VCC</td>
+<td>2.500</td>
+<td>118.768</td>
+<td>8.400</td>
+<td>317.919</td>
+</tr>
+<tr>
+<td>VCCX</td>
+<td>2.500</td>
+<td>0.766</td>
+<td>0.460</td>
+<td>3.066</td>
+</tr>
+<tr>
+<td>VCCO18</td>
+<td>1.800</td>
+<td>0.762</td>
+<td>0.455</td>
+<td>2.191</td>
+</tr>
+</table>
+<h1><a name="Detail">Power Details</a></h1>
+<h2><a name="By_Block_Type">Power By Block Type:</a></h2>
+<table class="detail_table">
+<tr>
+<th class="label">Block Type</th>
+<th class="label">Total Power(mW)</th>
+<th class="label">Static Power(mW)</th>
+<th class="label">Average Toggle Rate(millions of transitions/sec)</th>
+</tr>
+<tr>
+<td>Logic</td>
+<td>31.861</td>
+<td>NA</td>
+<td>12.500</td>
+</tr>
+<tr>
+<td>IO</td>
+<td>8.323
+<td>3.119
+<td>13.542
+</tr>
+<tr>
+<td>BSRAM</td>
+<td>2.840
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>DSP</td>
+<td>4.219
+<td>NA</td>
+<td>12.500
+</tr>
+</table>
+<h2><a name="By_Hierarchy">Power By Hierarchy:</a></h2>
+<table class="detail_table">
+<tr>
+<th class="label">Hierarchy Entity</th>
+<th class="label">Total Power(mW)</th>
+<th class="label">Block Dynamic Power(mW)</th>
+<th class="label">Routing Dynamic Power(mW)</th>
+</tr>
+<tr>
+<td>wts_for_cartridge</td>
+<td>295.154</td>
+<td>38.920(38.251)</td>
+<td>256.235(233.768)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/</td>
+<td>272.019</td>
+<td>38.251(38.251)</td>
+<td>233.768(233.768)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/</td>
+<td>167.166</td>
+<td>32.393(27.807)</td>
+<td>134.773(110.934)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a0/</td>
+<td>9.436</td>
+<td>1.527(1.527)</td>
+<td>7.909(7.909)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a0/u_adsr_envelope_generator/</td>
+<td>6.423</td>
+<td>1.118(0.000)</td>
+<td>5.305(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a0/u_noise_generator/</td>
+<td>1.370</td>
+<td>0.166(0.000)</td>
+<td>1.204(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a0/u_tone_generator/</td>
+<td>1.643</td>
+<td>0.242(0.000)</td>
+<td>1.401(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a1/</td>
+<td>11.347</td>
+<td>1.878(1.878)</td>
+<td>9.469(9.469)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a1/u_adsr_envelope_generator/</td>
+<td>8.219</td>
+<td>1.399(0.000)</td>
+<td>6.820(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a1/u_noise_generator/</td>
+<td>1.227</td>
+<td>0.193(0.000)</td>
+<td>1.034(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_a1/u_tone_generator/</td>
+<td>1.901</td>
+<td>0.286(0.000)</td>
+<td>1.614(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b0/</td>
+<td>9.160</td>
+<td>1.521(1.521)</td>
+<td>7.639(7.639)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b0/u_adsr_envelope_generator/</td>
+<td>5.766</td>
+<td>1.113(0.000)</td>
+<td>4.653(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b0/u_noise_generator/</td>
+<td>1.351</td>
+<td>0.166(0.000)</td>
+<td>1.185(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b0/u_tone_generator/</td>
+<td>2.043</td>
+<td>0.242(0.000)</td>
+<td>1.801(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b1/</td>
+<td>11.995</td>
+<td>1.906(1.906)</td>
+<td>10.089(10.089)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b1/u_adsr_envelope_generator/</td>
+<td>8.901</td>
+<td>1.431(0.000)</td>
+<td>7.470(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b1/u_noise_generator/</td>
+<td>1.344</td>
+<td>0.193(0.000)</td>
+<td>1.151(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_b1/u_tone_generator/</td>
+<td>1.750</td>
+<td>0.281(0.000)</td>
+<td>1.469(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c0/</td>
+<td>9.939</td>
+<td>1.521(1.521)</td>
+<td>8.418(8.418)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c0/u_adsr_envelope_generator/</td>
+<td>7.040</td>
+<td>1.113(0.000)</td>
+<td>5.928(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c0/u_noise_generator/</td>
+<td>1.384</td>
+<td>0.166(0.000)</td>
+<td>1.218(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c0/u_tone_generator/</td>
+<td>1.515</td>
+<td>0.242(0.000)</td>
+<td>1.272(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c1/</td>
+<td>12.951</td>
+<td>1.906(1.906)</td>
+<td>11.045(11.045)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c1/u_adsr_envelope_generator/</td>
+<td>9.268</td>
+<td>1.431(0.000)</td>
+<td>7.837(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c1/u_noise_generator/</td>
+<td>1.479</td>
+<td>0.193(0.000)</td>
+<td>1.285(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_c1/u_tone_generator/</td>
+<td>2.204</td>
+<td>0.281(0.000)</td>
+<td>1.923(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d0/</td>
+<td>8.217</td>
+<td>1.417(1.417)</td>
+<td>6.801(6.801)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d0/u_adsr_envelope_generator/</td>
+<td>5.347</td>
+<td>1.008(0.000)</td>
+<td>4.339(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d0/u_noise_generator/</td>
+<td>1.246</td>
+<td>0.166(0.000)</td>
+<td>1.080(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d0/u_tone_generator/</td>
+<td>1.624</td>
+<td>0.242(0.000)</td>
+<td>1.382(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d1/</td>
+<td>11.511</td>
+<td>1.829(1.829)</td>
+<td>9.682(9.682)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d1/u_adsr_envelope_generator/</td>
+<td>7.974</td>
+<td>1.355(0.000)</td>
+<td>6.619(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d1/u_noise_generator/</td>
+<td>1.527</td>
+<td>0.193(0.000)</td>
+<td>1.333(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_d1/u_tone_generator/</td>
+<td>2.010</td>
+<td>0.281(0.000)</td>
+<td>1.730(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e0/</td>
+<td>8.917</td>
+<td>1.527(1.527)</td>
+<td>7.391(7.391)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e0/u_adsr_envelope_generator/</td>
+<td>5.773</td>
+<td>1.118(0.000)</td>
+<td>4.655(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e0/u_noise_generator/</td>
+<td>1.172</td>
+<td>0.166(0.000)</td>
+<td>1.006(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e0/u_tone_generator/</td>
+<td>1.972</td>
+<td>0.242(0.000)</td>
+<td>1.730(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e1/</td>
+<td>11.176</td>
+<td>1.867(1.867)</td>
+<td>9.309(9.309)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e1/u_adsr_envelope_generator/</td>
+<td>7.613</td>
+<td>1.393(0.000)</td>
+<td>6.220(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e1/u_noise_generator/</td>
+<td>1.661</td>
+<td>0.193(0.000)</td>
+<td>1.468(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_e1/u_tone_generator/</td>
+<td>1.901</td>
+<td>0.281(0.000)</td>
+<td>1.620(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f0/</td>
+<td>8.792</td>
+<td>1.521(1.521)</td>
+<td>7.271(7.271)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f0/u_adsr_envelope_generator/</td>
+<td>5.877</td>
+<td>1.113(0.000)</td>
+<td>4.765(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f0/u_noise_generator/</td>
+<td>1.454</td>
+<td>0.166(0.000)</td>
+<td>1.288(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f0/u_tone_generator/</td>
+<td>1.461</td>
+<td>0.242(0.000)</td>
+<td>1.219(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f1/</td>
+<td>11.029</td>
+<td>1.889(1.889)</td>
+<td>9.140(9.140)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f1/u_adsr_envelope_generator/</td>
+<td>7.840</td>
+<td>1.410(0.000)</td>
+<td>6.431(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f1/u_noise_generator/</td>
+<td>1.383</td>
+<td>0.193(0.000)</td>
+<td>1.189(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ch_f1/u_tone_generator/</td>
+<td>1.806</td>
+<td>0.286(0.000)</td>
+<td>1.520(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_channel_volume0/</td>
+<td>4.951</td>
+<td>2.329(0.000)</td>
+<td>2.622(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_channel_volume1/</td>
+<td>4.865</td>
+<td>2.329(0.000)</td>
+<td>2.536(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ram00/</td>
+<td>1.046</td>
+<td>0.710(0.000)</td>
+<td>0.336(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ram01/</td>
+<td>1.130</td>
+<td>0.710(0.000)</td>
+<td>0.420(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ram10/</td>
+<td>1.293</td>
+<td>0.710(0.000)</td>
+<td>0.583(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_channel_mixer/u_ram11/</td>
+<td>0.986</td>
+<td>0.710(0.000)</td>
+<td>0.276(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_register/</td>
+<td>104.207</td>
+<td>5.773(0.000)</td>
+<td>98.434(0.000)</td>
+<tr>
+<td>wts_for_cartridge/u_wts_core/u_wts_timer/</td>
+<td>0.646</td>
+<td>0.084(0.000)</td>
+<td>0.562(0.000)</td>
+</table>
+<h2><a name="By_Clock_Domain">Power By Clock Domain:</a></h2>
+<table class="detail_table">
+<tr>
+<th class="label">Clock Domain</th>
+<th class="label">Clock Frequency(Mhz)</th>
+<th class="label">Total Dynamic Power(mW)</th>
+</tr>
+<tr>
+<td>DEFAULT_CLK</td>
+<td>100.000</td>
+<td>295.008</td>
+</tr>
+</table>
+</div><!-- content -->
+</div><!-- main_wrapper -->
+</body>
+</html>

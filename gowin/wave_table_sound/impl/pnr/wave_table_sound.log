@@ -1,0 +1,19 @@
+Info    (PA0001) : "C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\gwsynthesis\wave_table_sound.vg" | Reading netlist file.
+Info    (PA0004) : Parsing netlist file 'C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\gwsynthesis\wave_table_sound.vg' completed.
+Warning (PA1017) : Not support read random memory from block RAM via the blank initial value.
+Info    (PA0006) : Processing netlist completed.
+Info    (CT0002) : Physical Constraint parsed completed.
+Info    (PR0001) : Placement in progress......
+Info    (PR0005) : Routing in progress......
+Info    (PR0002) : Placement and routing completed.
+Info    (TA0001) : Timing analysis completed.
+Info    (FS0001) : Bitstream generation in progress......
+Info    (FS0002) : Bitstream generation completed.
+Info    (PW0001) : Power analysis completed.
+Info    (CM0008) : Generate 'C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\pnr\wave_table_sound.power.html' file completed.
+Info    (CM0008) : Generate 'C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\pnr\wave_table_sound.pin.html' file completed.
+Info    (CM0008) : Generate 'C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\pnr\wave_table_sound.rpt.html' file completed.
+Info    (CM0008) : Generate 'C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\pnr\wave_table_sound.rpt.txt' file completed.
+Info    (CM0008) : Generate 'C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\pnr\wave_table_sound.tr.html' file completed.
+Info    (CM0001) : Mon Oct 25 07:03:56 2021
+

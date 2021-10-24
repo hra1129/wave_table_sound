@@ -27,7 +27,7 @@ module wts_core (
 	input			rdreq,
 	input			wr_active,
 	input			rd_active,
-	input	[15:0]	a,
+	input	[14:0]	a,
 	input	[7:0]	d,
 	output	[7:0]	q,
 	output			nint,

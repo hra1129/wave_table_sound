@@ -1,0 +1,9 @@
+-- ATTENSION!! --
+
+合成が通るか確認した程度のものです。
+実際のデバイスに書き込んで動作確認は行っていません。
+各ピンアサインも自動割り当てされたものがそのままになっています。
+
+This is just a check to see if the synthesis passes.
+It has not been written to an actual device to check its operation.
+The pin assignments are still the same as the ones that were automatically assigned.

@@ -24,7 +24,7 @@ module wts_for_cartridge (
 	input			clk,			//	21.47727MHz
 	input			slot_nreset,	//	negative logic
 	output			slot_nint,		//	negative logic, open collector
-	input	[15:0]	slot_a,
+	input	[14:0]	slot_a,
 	inout	[7:0]	slot_d,
 	input			slot_nsltsl,	//	negative logic
 	input			slot_nmerq,		//	negative logic
@@ -74,8 +74,8 @@ module wts_for_cartridge (
 		end
 	end
 
-	assign w_wrreq			= ~ff_nwr1 & ff_nwr2 & ~slot_nsltsl;
-	assign w_rdreq			= ~ff_nrd1 & ff_nrd2 & ~slot_nsltsl;
+	assign w_wrreq			= ~ff_nwr1 & ff_nwr2 & ~slot_nsltsl & ~slot_nmerq;
+	assign w_rdreq			= ~ff_nrd1 & ff_nrd2 & ~slot_nsltsl & ~slot_nmerq;
 	assign mem_ncs			= w_mem_ncs | slot_nsltsl;
 
 	wts_core u_wts_core (
