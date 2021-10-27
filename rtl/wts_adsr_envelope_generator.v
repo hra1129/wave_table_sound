@@ -42,10 +42,10 @@ module wts_adsr_envelope_generator (
 	wire			w_note_end;
 	wire			w_attack_end;
 	wire			w_decay_end;
-	wire	[15:0]	w_rate;
+	wire	[11:0]	w_rate;
 	wire	[7:0]	w_add_value;
 	wire	[7:0]	w_level_next;
-	wire	[8:0]	w_attack;
+	wire	[7:0]	w_attack;
 
 	function [11:0] func_rate_sel(
 		input	[2:0]	state,
@@ -97,7 +97,7 @@ module wts_adsr_envelope_generator (
 		end
 		else if( active ) begin
 			if( key_on || w_counter_end ) begin
-				ff_counter <= { w_rate, 4'd0 };
+				ff_counter <= { w_rate, 4'b1111 };
 			end
 			else begin
 				ff_counter <= ff_counter - 16'd1;

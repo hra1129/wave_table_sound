@@ -17,6 +17,7 @@
         <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_for_cartridge.v"/>
     </FileList>
     <OptionList>
+        <Option type="top_module"  value="wts_for_cartridge"/>
         <Option type="output_file"  value="C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\impl\gwsynthesis\wave_table_sound.vg"/>
     </OptionList>
 </Project>

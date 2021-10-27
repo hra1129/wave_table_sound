@@ -743,7 +743,7 @@ module wts_channel_mixer (
 			6'b000100:	func_envelope_sel = envelope_c;
 			6'b001000:	func_envelope_sel = envelope_d;
 			6'b010000:	func_envelope_sel = envelope_e;
-			default:	func_envelope_sel = 9'dx;
+			default:	func_envelope_sel = 8'dx;
 		endcase
 	endfunction
 
