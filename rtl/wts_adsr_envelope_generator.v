@@ -27,32 +27,32 @@ module wts_adsr_envelope_generator (
 	input			key_on,					//	pulse
 	input			key_release,			//	pulse
 	input			key_off,				//	pulse
-	output	[8:0]	envelope,				//	0...256
-	input	[15:0]	reg_ar,
-	input	[15:0]	reg_dr,
-	input	[15:0]	reg_sr,
-	input	[15:0]	reg_rr,
-	input	[7:0]	reg_sl
+	output	[7:0]	envelope,				//	0...128
+	input	[11:0]	reg_ar,
+	input	[11:0]	reg_dr,
+	input	[11:0]	reg_sr,
+	input	[11:0]	reg_rr,
+	input	[6:0]	reg_sl
 );
 	reg		[2:0]	ff_state;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[15:0]	ff_counter;
-	reg		[8:0]	ff_level;
+	reg		[7:0]	ff_level;
 	wire	[3:0]	w_state;
 	wire			w_counter_end;
 	wire			w_note_end;
 	wire			w_attack_end;
 	wire			w_decay_end;
 	wire	[15:0]	w_rate;
-	wire	[9:0]	w_add_value;
-	wire	[9:0]	w_level_next;
+	wire	[7:0]	w_add_value;
+	wire	[7:0]	w_level_next;
 	wire	[8:0]	w_attack;
 
-	function [15:0] func_rate_sel(
+	function [11:0] func_rate_sel(
 		input	[2:0]	state,
-		input	[15:0]	ar,
-		input	[15:0]	dr,
-		input	[15:0]	sr,
-		input	[15:0]	rr
+		input	[11:0]	ar,
+		input	[11:0]	dr,
+		input	[11:0]	sr,
+		input	[11:0]	rr
 	);
 		case( state )
 		3'd1:		func_rate_sel = ar;
@@ -64,23 +64,23 @@ module wts_adsr_envelope_generator (
 	endfunction
 
 	assign w_rate			= func_rate_sel( ff_state, reg_ar, reg_dr, reg_sr, reg_rr );
-	assign w_add_value		= ( w_rate != 16'd0 )? 9'b1 : 9'b0;
+	assign w_add_value		= ( w_rate != 12'd0 )? 8'b1 : 8'b0;
 	assign w_level_next		= w_state[0] ? (ff_level + w_add_value) : (ff_level - w_add_value);
-	assign w_attack			= (reg_ar == 16'd0) ? 9'd256 : 9'd0;
+	assign w_attack			= (reg_ar == 16'd0) ? 8'd128 : 8'd0;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_level <= 9'd0;
+			ff_level <= 8'd0;
 		end
 		else if( active ) begin
 			if( key_off ) begin
-				ff_level <= 9'd0;
+				ff_level <= 8'd0;
 			end
 			else if( key_on ) begin
 				ff_level <= w_attack;
 			end
 			else if( w_counter_end ) begin
-				ff_level <= w_level_next[8:0];
+				ff_level <= w_level_next[7:0];
 			end
 			else begin
 				//	hold
@@ -97,7 +97,7 @@ module wts_adsr_envelope_generator (
 		end
 		else if( active ) begin
 			if( key_on || w_counter_end ) begin
-				ff_counter <= w_rate;
+				ff_counter <= { w_rate, 4'd0 };
 			end
 			else begin
 				ff_counter <= ff_counter - 16'd1;

@@ -6,7 +6,7 @@ module tb;
 	reg				clk;			//	21.47727MHz
 	reg				slot_nreset;	//	negative logic
 	wire			slot_nint;		//	negative logic; open collector
-	reg		[15:0]	slot_a;
+	reg		[14:0]	slot_a;
 	wire	[7:0]	slot_d;
 	reg		[7:0]	ff_slot_d;
 	reg				ff_slot_d_dir;

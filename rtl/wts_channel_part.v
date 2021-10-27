@@ -28,21 +28,21 @@ module wts_channel_part (
 	input			key_on,					//	pulse
 	input			key_release,			//	pulse
 	input			key_off,				//	pulse
-	output	[8:0]	envelope,
+	output	[7:0]	envelope,
 	output	[6:0]	sram_a,
 	output			half_timing,
 	input			reg_noise_enable,
-	input	[15:0]	reg_ar,
-	input	[15:0]	reg_dr,
-	input	[15:0]	reg_sr,
-	input	[15:0]	reg_rr,
-	input	[7:0]	reg_sl,
+	input	[11:0]	reg_ar,
+	input	[11:0]	reg_dr,
+	input	[11:0]	reg_sr,
+	input	[11:0]	reg_rr,
+	input	[6:0]	reg_sl,
 	input	[1:0]	reg_wave_length,
 	input	[11:0]	reg_frequency_count,
 	input	[4:0]	reg_noise_frequency_count
 );
 	wire			w_noise;
-	wire	[8:0]	w_envelope;
+	wire	[7:0]	w_envelope;
 
 	wts_noise_generator u_noise_generator (
 		.nreset					( nreset					),
@@ -79,5 +79,5 @@ module wts_channel_part (
 		.reg_frequency_count	( reg_frequency_count		)
 	);
 
-	assign envelope		= w_noise ? w_envelope : 9'd0;
+	assign envelope		= w_noise ? w_envelope : 8'd0;
 endmodule

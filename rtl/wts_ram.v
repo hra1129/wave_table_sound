@@ -28,7 +28,7 @@ module wts_ram (
 	output	[7:0]	sram_q
 );
 	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [767:0];		//	10bit 768word
+	reg		[7:0]	ram_array [639:0];		//	10bit 639word
 
 	always @( posedge clk ) begin
 		if( sram_we ) begin

@@ -24,10 +24,6 @@ module tb;
 	reg				ch_e0_key_release;
 	reg				ch_e0_key_off;
 
-	reg				ch_f0_key_on;
-	reg				ch_f0_key_release;
-	reg				ch_f0_key_off;
-
 	reg				ch_a1_key_on;
 	reg				ch_a1_key_release;
 	reg				ch_a1_key_off;
@@ -47,10 +43,6 @@ module tb;
 	reg				ch_e1_key_on;
 	reg				ch_e1_key_release;
 	reg				ch_e1_key_off;
-
-	reg				ch_f1_key_on;
-	reg				ch_f1_key_release;
-	reg				ch_f1_key_off;
 
 	reg		[3:0]	sram_id;
 	reg		[6:0]	sram_a;
@@ -123,18 +115,6 @@ module tb;
 	reg		[11:0]	reg_frequency_count_e0;
 	reg		[4:0]	reg_noise_frequency_e0;
 
-	reg		[3:0]	reg_volume_f0;
-	reg		[1:0]	reg_enable_f0;
-	reg				reg_noise_enable_f0;
-	reg		[15:0]	reg_ar_f0;
-	reg		[15:0]	reg_dr_f0;
-	reg		[15:0]	reg_sr_f0;
-	reg		[15:0]	reg_rr_f0;
-	reg		[7:0]	reg_sl_f0;
-	reg		[1:0]	reg_wave_length_f0;
-	reg		[11:0]	reg_frequency_count_f0;
-	reg		[4:0]	reg_noise_frequency_f0;
-
 	reg		[3:0]	reg_volume_a1;
 	reg		[1:0]	reg_enable_a1;
 	reg				reg_noise_enable_a1;
@@ -195,18 +175,6 @@ module tb;
 	reg		[11:0]	reg_frequency_count_e1;
 	reg		[4:0]	reg_noise_frequency_e1;
 
-	reg		[3:0]	reg_volume_f1;
-	reg		[1:0]	reg_enable_f1;
-	reg				reg_noise_enable_f1;
-	reg		[15:0]	reg_ar_f1;
-	reg		[15:0]	reg_dr_f1;
-	reg		[15:0]	reg_sr_f1;
-	reg		[15:0]	reg_rr_f1;
-	reg		[7:0]	reg_sl_f1;
-	reg		[1:0]	reg_wave_length_f1;
-	reg		[11:0]	reg_frequency_count_f1;
-	reg		[4:0]	reg_noise_frequency_f1;
-
 	reg		[3:0]	reg_timer1_channel;
 	wire			timer1_trigger;
 	wire	[6:0]	timer1_address;
@@ -246,9 +214,6 @@ module tb;
 		.ch_e0_key_on				( ch_e0_key_on				),
 		.ch_e0_key_release			( ch_e0_key_release			),
 		.ch_e0_key_off				( ch_e0_key_off				),
-		.ch_f0_key_on				( ch_f0_key_on				),
-		.ch_f0_key_release			( ch_f0_key_release			),
-		.ch_f0_key_off				( ch_f0_key_off				),
 		.ch_a1_key_on				( ch_a1_key_on				),
 		.ch_a1_key_release			( ch_a1_key_release			),
 		.ch_a1_key_off				( ch_a1_key_off				),
@@ -264,9 +229,6 @@ module tb;
 		.ch_e1_key_on				( ch_e1_key_on				),
 		.ch_e1_key_release			( ch_e1_key_release			),
 		.ch_e1_key_off				( ch_e1_key_off				),
-		.ch_f1_key_on				( ch_f1_key_on				),
-		.ch_f1_key_release			( ch_f1_key_release			),
-		.ch_f1_key_off				( ch_f1_key_off				),
 		.sram_id					( sram_id					),
 		.sram_a						( sram_a					),
 		.sram_d						( sram_d					),
@@ -331,17 +293,6 @@ module tb;
 		.reg_wave_length_e0			( reg_wave_length_e0		),
 		.reg_frequency_count_e0		( reg_frequency_count_e0	),
 		.reg_noise_frequency_e0		( reg_noise_frequency_e0	),
-		.reg_volume_f0				( reg_volume_f0				),
-		.reg_enable_f0				( reg_enable_f0				),
-		.reg_noise_enable_f0		( reg_noise_enable_f0		),
-		.reg_ar_f0					( reg_ar_f0					),
-		.reg_dr_f0					( reg_dr_f0					),
-		.reg_sr_f0					( reg_sr_f0					),
-		.reg_rr_f0					( reg_rr_f0					),
-		.reg_sl_f0					( reg_sl_f0					),
-		.reg_wave_length_f0			( reg_wave_length_f0		),
-		.reg_frequency_count_f0		( reg_frequency_count_f0	),
-		.reg_noise_frequency_f0		( reg_noise_frequency_f0	),
 		.reg_volume_a1				( reg_volume_a1				),
 		.reg_enable_a1				( reg_enable_a1				),
 		.reg_noise_enable_a1		( reg_noise_enable_a1		),
@@ -397,17 +348,6 @@ module tb;
 		.reg_wave_length_e1			( reg_wave_length_e1		),
 		.reg_frequency_count_e1		( reg_frequency_count_e1	),
 		.reg_noise_frequency_e1		( reg_noise_frequency_e1	),
-		.reg_volume_f1				( reg_volume_f1				),
-		.reg_enable_f1				( reg_enable_f1				),
-		.reg_noise_enable_f1		( reg_noise_enable_f1		),
-		.reg_ar_f1					( reg_ar_f1					),
-		.reg_dr_f1					( reg_dr_f1					),
-		.reg_sr_f1					( reg_sr_f1					),
-		.reg_rr_f1					( reg_rr_f1					),
-		.reg_sl_f1					( reg_sl_f1					),
-		.reg_wave_length_f1			( reg_wave_length_f1		),
-		.reg_frequency_count_f1		( reg_frequency_count_f1	),
-		.reg_noise_frequency_f1		( reg_noise_frequency_f1	),
 		.reg_timer1_channel			( reg_timer1_channel		),
 		.timer1_trigger				( timer1_trigger			),
 		.timer1_address				( timer1_address			),
@@ -507,10 +447,6 @@ module tb;
 		ch_e0_key_release = 0;
 		ch_e0_key_off = 0;
 
-		ch_f0_key_on = 0;
-		ch_f0_key_release = 0;
-		ch_f0_key_off = 0;
-
 		ch_a1_key_on = 0;
 		ch_a1_key_release = 0;
 		ch_a1_key_off = 0;
@@ -530,10 +466,6 @@ module tb;
 		ch_e1_key_on = 0;
 		ch_e1_key_release = 0;
 		ch_e1_key_off = 0;
-
-		ch_f1_key_on = 0;
-		ch_f1_key_release = 0;
-		ch_f1_key_off = 0;
 
 		sram_id = 0;
 		sram_a = 0;
@@ -601,18 +533,6 @@ module tb;
 		reg_frequency_count_e0 = 0;
 		reg_noise_frequency_e0 = 0;
 
-		reg_volume_f0 = 0;
-		reg_enable_f0 = 0;
-		reg_noise_enable_f0 = 0;
-		reg_ar_f0 = 0;
-		reg_dr_f0 = 0;
-		reg_sr_f0 = 0;
-		reg_rr_f0 = 0;
-		reg_sl_f0 = 0;
-		reg_wave_length_f0 = 0;
-		reg_frequency_count_f0 = 0;
-		reg_noise_frequency_f0 = 0;
-
 		reg_volume_a1 = 0;
 		reg_enable_a1 = 0;
 		reg_noise_enable_a1 = 0;
@@ -673,17 +593,6 @@ module tb;
 		reg_frequency_count_e1 = 0;
 		reg_noise_frequency_e1 = 0;
 
-		reg_volume_f1 = 0;
-		reg_enable_f1 = 0;
-		reg_noise_enable_f1 = 0;
-		reg_ar_f1 = 0;
-		reg_dr_f1 = 0;
-		reg_sr_f1 = 0;
-		reg_rr_f1 = 0;
-		reg_sl_f1 = 0;
-		reg_wave_length_f1 = 0;
-		reg_frequency_count_f1 = 0;
-		reg_noise_frequency_f1 = 0;
 		reg_timer1_channel = 0;
 		reg_timer2_channel = 0;
 

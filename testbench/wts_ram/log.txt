@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 06:54:31 on Oct 21,2021
+# Start time: 06:43:31 on Oct 28,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_ram
@@ -7,13 +7,13 @@
 # ------------------------------------------------------------
 # [             4632720]   1: Data can be written.
 # ------------------------------------------------------------
-# [            22558320]   2: Data can be read out.
+# [            34477680]   2: Data can be read out.
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $                                   $
 # $        Success of all!!           $
 # $                                   $
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(68)
-#    Time: 60644400 ps  Iteration: 1  Instance: /tb
-# End time: 06:54:31 on Oct 21,2021, Elapsed time: 0:00:00
+#    Time: 96402480 ps  Iteration: 1  Instance: /tb
+# End time: 06:43:31 on Oct 28,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

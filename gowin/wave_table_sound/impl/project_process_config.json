@@ -56,7 +56,7 @@
  "Show_All_Warnings" : false,
  "Synthesis On/Off Implemented as Translate On/Off" : false,
  "Synthesize_tool" : "GowinSyn",
- "TopModule" : "",
+ "TopModule" : "wts_for_cartridge",
  "USERCODE_CUSTOM" : false,
  "USERCODE_CUSTOM_TEXT" : "00000000",
  "USERCODE_DEFAULT" : true,

@@ -7,12 +7,12 @@ module tb;
 	reg				key_on;					//	pulse
 	reg				key_release;			//	pulse
 	reg				key_off;				//	pulse
-	wire	[8:0]	envelope;				//	0...256
-	reg		[15:0]	reg_ar;
-	reg		[15:0]	reg_dr;
-	reg		[15:0]	reg_sr;
-	reg		[15:0]	reg_rr;
-	reg		[7:0]	reg_sl;
+	wire	[7:0]	envelope;				//	0...128
+	reg		[11:0]	reg_ar;
+	reg		[11:0]	reg_dr;
+	reg		[11:0]	reg_sr;
+	reg		[11:0]	reg_rr;
+	reg		[6:0]	reg_sl;
 
 	reg		[2:0]	ff_div;
 	int				pattern_no = 0;
@@ -133,7 +133,7 @@ module tb;
 		@( posedge active );
 		@( posedge clk );
 		repeat( 50 ) begin
-			success_condition_is( envelope == 256, "Envelope is MAXIMUM." );
+			success_condition_is( envelope == 128, "Envelope is MAXIMUM." );
 			@( posedge active );
 			@( posedge clk );
 		end
@@ -147,7 +147,7 @@ module tb;
 		@( posedge active );
 		@( posedge clk );
 		repeat( 50 ) begin
-			success_condition_is( envelope == 256, "Envelope is MAXIMUM." );
+			success_condition_is( envelope == 128, "Envelope is MAXIMUM." );
 			@( posedge active );
 			@( posedge clk );
 		end
@@ -172,7 +172,7 @@ module tb;
 		set_test_pattern_no( 4, "If you put values in AR, DR, SR, SL, and RR. (1)" );
 		reg_ar				= 2;
 		reg_dr				= 3;
-		reg_sl				= 200;
+		reg_sl				= 100;
 		reg_sr				= 100;
 		reg_rr				= 4;
 		key_on				= 1;
@@ -232,7 +232,7 @@ module tb;
 		set_test_pattern_no( 6, "If you put values in AR, DR, SR, SL, and RR. (3)" );
 		reg_ar				= 1;
 		reg_dr				= 3;
-		reg_sl				= 200;
+		reg_sl				= 100;
 		reg_sr				= 0;
 		reg_rr				= 3;
 		key_on				= 1;

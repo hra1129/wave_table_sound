@@ -1,4 +1,4 @@
-Warning (10273): Verilog HDL warning at wts_channel_mixer.v(806): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 806
-Warning (10273): Verilog HDL warning at wts_channel_mixer.v(826): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 826
-Warning (10273): Verilog HDL warning at wts_channel_mixer.v(846): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 846
+Warning (10273): Verilog HDL warning at wts_channel_mixer.v(710): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 710
+Warning (10273): Verilog HDL warning at wts_channel_mixer.v(728): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 728
+Warning (10273): Verilog HDL warning at wts_channel_mixer.v(746): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 746
 Warning (10273): Verilog HDL warning at wts_for_cartridge.v(60): extended using "x" or "z" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_for_cartridge.v Line: 60

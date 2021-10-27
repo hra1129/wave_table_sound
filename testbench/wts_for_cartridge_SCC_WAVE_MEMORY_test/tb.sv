@@ -6,7 +6,7 @@ module tb;
 	reg				clk;			//	21.47727MHz
 	reg				slot_nreset;	//	negative logic
 	wire			slot_nint;		//	negative logic; open collector
-	reg		[15:0]	slot_a;
+	reg		[14:0]	slot_a;
 	wire	[7:0]	slot_d;
 	reg		[7:0]	ff_slot_d;
 	reg				ff_slot_d_dir;
@@ -240,12 +240,12 @@ module tb;
 		write_reg( 'hB000, 128 );
 		write_reg( 'hBFFF, 8'b01000000 );
 
-		for( i = 0; i < (128 * 12); i++ ) begin
+		for( i = 0; i < (128 * 10); i++ ) begin
 			write_reg( 'hA800 + i, i + 2 );
 			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
 		end
 
-		for( i = 0; i < (128 * 12); i++ ) begin
+		for( i = 0; i < (128 * 10); i++ ) begin
 			ff_i <= i + 2;
 			read_reg( 'hA800 + i, read_data );
 			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );

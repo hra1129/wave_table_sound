@@ -3,7 +3,7 @@ module tb;
 
 	reg				clk;
 	reg				sram_we;
-	reg		[8:0]	sram_a;
+	reg		[9:0]	sram_a;
 	reg		[7:0]	sram_d;
 	wire	[7:0]	sram_q;
 	int				i;
@@ -84,7 +84,7 @@ module tb;
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 1, "Data can be written." );
-		for( i = 0; i < 384; i++ ) begin
+		for( i = 0; i < 640; i++ ) begin
 			sram_we		<= 1'b1;
 			sram_a		<= i;
 			sram_d		<= i + 100;
@@ -98,7 +98,7 @@ module tb;
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 2, "Data can be read out." );
-		for( i = 0; i < 384; i++ ) begin
+		for( i = 0; i < 640; i++ ) begin
 			sram_we		<= 1'b0;
 			sram_a		<= i;
 			sram_d		<= $random;

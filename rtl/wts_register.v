@@ -62,10 +62,6 @@ module wts_register (
 	output reg			ch_e0_key_release,
 	output reg			ch_e0_key_off,
 
-	output reg			ch_f0_key_on,
-	output reg			ch_f0_key_release,
-	output reg			ch_f0_key_off,
-
 	output				ch_a1_key_on,
 	output				ch_a1_key_release,
 	output				ch_a1_key_off,
@@ -86,18 +82,14 @@ module wts_register (
 	output				ch_e1_key_release,
 	output				ch_e1_key_off,
 
-	output				ch_f1_key_on,
-	output				ch_f1_key_release,
-	output				ch_f1_key_off,
-
 	output reg	[3:0]	reg_volume_a0,
 	output reg	[1:0]	reg_enable_a0,
 	output reg			reg_noise_enable_a0,
-	output reg	[15:0]	reg_ar_a0,
-	output reg	[15:0]	reg_dr_a0,
-	output reg	[15:0]	reg_sr_a0,
-	output reg	[15:0]	reg_rr_a0,
-	output reg	[7:0]	reg_sl_a0,
+	output reg	[11:0]	reg_ar_a0,
+	output reg	[11:0]	reg_dr_a0,
+	output reg	[11:0]	reg_sr_a0,
+	output reg	[11:0]	reg_rr_a0,
+	output reg	[6:0]	reg_sl_a0,
 	output reg	[1:0]	reg_wave_length_a0,
 	output reg	[11:0]	reg_frequency_count_a0,
 	output reg	[4:0]	reg_noise_frequency_a0,
@@ -105,11 +97,11 @@ module wts_register (
 	output reg	[3:0]	reg_volume_b0,
 	output reg	[1:0]	reg_enable_b0,
 	output reg			reg_noise_enable_b0,
-	output reg	[15:0]	reg_ar_b0,
-	output reg	[15:0]	reg_dr_b0,
-	output reg	[15:0]	reg_sr_b0,
-	output reg	[15:0]	reg_rr_b0,
-	output reg	[7:0]	reg_sl_b0,
+	output reg	[11:0]	reg_ar_b0,
+	output reg	[11:0]	reg_dr_b0,
+	output reg	[11:0]	reg_sr_b0,
+	output reg	[11:0]	reg_rr_b0,
+	output reg	[6:0]	reg_sl_b0,
 	output reg	[1:0]	reg_wave_length_b0,
 	output reg	[11:0]	reg_frequency_count_b0,
 	output reg	[4:0]	reg_noise_frequency_b0,
@@ -117,11 +109,11 @@ module wts_register (
 	output reg	[3:0]	reg_volume_c0,
 	output reg	[1:0]	reg_enable_c0,
 	output reg			reg_noise_enable_c0,
-	output reg	[15:0]	reg_ar_c0,
-	output reg	[15:0]	reg_dr_c0,
-	output reg	[15:0]	reg_sr_c0,
-	output reg	[15:0]	reg_rr_c0,
-	output reg	[7:0]	reg_sl_c0,
+	output reg	[11:0]	reg_ar_c0,
+	output reg	[11:0]	reg_dr_c0,
+	output reg	[11:0]	reg_sr_c0,
+	output reg	[11:0]	reg_rr_c0,
+	output reg	[6:0]	reg_sl_c0,
 	output reg	[1:0]	reg_wave_length_c0,
 	output reg	[11:0]	reg_frequency_count_c0,
 	output reg	[4:0]	reg_noise_frequency_c0,
@@ -129,11 +121,11 @@ module wts_register (
 	output reg	[3:0]	reg_volume_d0,
 	output reg	[1:0]	reg_enable_d0,
 	output reg			reg_noise_enable_d0,
-	output reg	[15:0]	reg_ar_d0,
-	output reg	[15:0]	reg_dr_d0,
-	output reg	[15:0]	reg_sr_d0,
-	output reg	[15:0]	reg_rr_d0,
-	output reg	[7:0]	reg_sl_d0,
+	output reg	[11:0]	reg_ar_d0,
+	output reg	[11:0]	reg_dr_d0,
+	output reg	[11:0]	reg_sr_d0,
+	output reg	[11:0]	reg_rr_d0,
+	output reg	[6:0]	reg_sl_d0,
 	output reg	[1:0]	reg_wave_length_d0,
 	output reg	[11:0]	reg_frequency_count_d0,
 	output reg	[4:0]	reg_noise_frequency_d0,
@@ -141,35 +133,23 @@ module wts_register (
 	output reg	[3:0]	reg_volume_e0,
 	output reg	[1:0]	reg_enable_e0,
 	output reg			reg_noise_enable_e0,
-	output reg	[15:0]	reg_ar_e0,
-	output reg	[15:0]	reg_dr_e0,
-	output reg	[15:0]	reg_sr_e0,
-	output reg	[15:0]	reg_rr_e0,
-	output reg	[7:0]	reg_sl_e0,
+	output reg	[11:0]	reg_ar_e0,
+	output reg	[11:0]	reg_dr_e0,
+	output reg	[11:0]	reg_sr_e0,
+	output reg	[11:0]	reg_rr_e0,
+	output reg	[6:0]	reg_sl_e0,
 	output reg	[1:0]	reg_wave_length_e0,
 	output reg	[11:0]	reg_frequency_count_e0,
 	output reg	[4:0]	reg_noise_frequency_e0,
 
-	output reg	[3:0]	reg_volume_f0,
-	output reg	[1:0]	reg_enable_f0,
-	output reg			reg_noise_enable_f0,
-	output reg	[15:0]	reg_ar_f0,
-	output reg	[15:0]	reg_dr_f0,
-	output reg	[15:0]	reg_sr_f0,
-	output reg	[15:0]	reg_rr_f0,
-	output reg	[7:0]	reg_sl_f0,
-	output reg	[1:0]	reg_wave_length_f0,
-	output reg	[11:0]	reg_frequency_count_f0,
-	output reg	[4:0]	reg_noise_frequency_f0,
-
 	output		[3:0]	reg_volume_a1,
 	output		[1:0]	reg_enable_a1,
 	output				reg_noise_enable_a1,
-	output		[15:0]	reg_ar_a1,
-	output		[15:0]	reg_dr_a1,
-	output		[15:0]	reg_sr_a1,
-	output		[15:0]	reg_rr_a1,
-	output		[7:0]	reg_sl_a1,
+	output		[11:0]	reg_ar_a1,
+	output		[11:0]	reg_dr_a1,
+	output		[11:0]	reg_sr_a1,
+	output		[11:0]	reg_rr_a1,
+	output		[6:0]	reg_sl_a1,
 	output		[1:0]	reg_wave_length_a1,
 	output		[11:0]	reg_frequency_count_a1,
 	output		[4:0]	reg_noise_frequency_a1,
@@ -177,11 +157,11 @@ module wts_register (
 	output		[3:0]	reg_volume_b1,
 	output		[1:0]	reg_enable_b1,
 	output				reg_noise_enable_b1,
-	output		[15:0]	reg_ar_b1,
-	output		[15:0]	reg_dr_b1,
-	output		[15:0]	reg_sr_b1,
-	output		[15:0]	reg_rr_b1,
-	output		[7:0]	reg_sl_b1,
+	output		[11:0]	reg_ar_b1,
+	output		[11:0]	reg_dr_b1,
+	output		[11:0]	reg_sr_b1,
+	output		[11:0]	reg_rr_b1,
+	output		[6:0]	reg_sl_b1,
 	output		[1:0]	reg_wave_length_b1,
 	output		[11:0]	reg_frequency_count_b1,
 	output		[4:0]	reg_noise_frequency_b1,
@@ -189,11 +169,11 @@ module wts_register (
 	output		[3:0]	reg_volume_c1,
 	output		[1:0]	reg_enable_c1,
 	output				reg_noise_enable_c1,
-	output		[15:0]	reg_ar_c1,
-	output		[15:0]	reg_dr_c1,
-	output		[15:0]	reg_sr_c1,
-	output		[15:0]	reg_rr_c1,
-	output		[7:0]	reg_sl_c1,
+	output		[11:0]	reg_ar_c1,
+	output		[11:0]	reg_dr_c1,
+	output		[11:0]	reg_sr_c1,
+	output		[11:0]	reg_rr_c1,
+	output		[6:0]	reg_sl_c1,
 	output		[1:0]	reg_wave_length_c1,
 	output		[11:0]	reg_frequency_count_c1,
 	output		[4:0]	reg_noise_frequency_c1,
@@ -201,11 +181,11 @@ module wts_register (
 	output		[3:0]	reg_volume_d1,
 	output		[1:0]	reg_enable_d1,
 	output				reg_noise_enable_d1,
-	output		[15:0]	reg_ar_d1,
-	output		[15:0]	reg_dr_d1,
-	output		[15:0]	reg_sr_d1,
-	output		[15:0]	reg_rr_d1,
-	output		[7:0]	reg_sl_d1,
+	output		[11:0]	reg_ar_d1,
+	output		[11:0]	reg_dr_d1,
+	output		[11:0]	reg_sr_d1,
+	output		[11:0]	reg_rr_d1,
+	output		[6:0]	reg_sl_d1,
 	output		[1:0]	reg_wave_length_d1,
 	output		[11:0]	reg_frequency_count_d1,
 	output		[4:0]	reg_noise_frequency_d1,
@@ -213,26 +193,14 @@ module wts_register (
 	output		[3:0]	reg_volume_e1,
 	output		[1:0]	reg_enable_e1,
 	output				reg_noise_enable_e1,
-	output		[15:0]	reg_ar_e1,
-	output		[15:0]	reg_dr_e1,
-	output		[15:0]	reg_sr_e1,
-	output		[15:0]	reg_rr_e1,
-	output		[7:0]	reg_sl_e1,
+	output		[11:0]	reg_ar_e1,
+	output		[11:0]	reg_dr_e1,
+	output		[11:0]	reg_sr_e1,
+	output		[11:0]	reg_rr_e1,
+	output		[6:0]	reg_sl_e1,
 	output		[1:0]	reg_wave_length_e1,
 	output		[11:0]	reg_frequency_count_e1,
 	output		[4:0]	reg_noise_frequency_e1,
-
-	output		[3:0]	reg_volume_f1,
-	output		[1:0]	reg_enable_f1,
-	output				reg_noise_enable_f1,
-	output		[15:0]	reg_ar_f1,
-	output		[15:0]	reg_dr_f1,
-	output		[15:0]	reg_sr_f1,
-	output		[15:0]	reg_rr_f1,
-	output		[7:0]	reg_sl_f1,
-	output		[1:0]	reg_wave_length_f1,
-	output		[11:0]	reg_frequency_count_f1,
-	output		[4:0]	reg_noise_frequency_f1,
 
 	output reg			reg_timer1_enable,
 	output reg	[3:0]	reg_timer1_channel,
@@ -290,10 +258,6 @@ module wts_register (
 	reg				ff_ch_e1_key_release;
 	reg				ff_ch_e1_key_off;
 
-	reg				ff_ch_f1_key_on;
-	reg				ff_ch_f1_key_release;
-	reg				ff_ch_f1_key_off;
-
 	reg		[3:0]	ff_reg_volume_a1;
 	reg		[1:0]	ff_reg_enable_a1;
 	reg				ff_reg_noise_enable_a1;
@@ -302,11 +266,11 @@ module wts_register (
 	reg				ff_reg_clone_noise_a1;
 	reg				ff_reg_clone_wave_a1;
 	reg				ff_reg_clone_key_a1;
-	reg		[15:0]	ff_reg_ar_a1;
-	reg		[15:0]	ff_reg_dr_a1;
-	reg		[15:0]	ff_reg_sr_a1;
-	reg		[15:0]	ff_reg_rr_a1;
-	reg		[7:0]	ff_reg_sl_a1;
+	reg		[11:0]	ff_reg_ar_a1;
+	reg		[11:0]	ff_reg_dr_a1;
+	reg		[11:0]	ff_reg_sr_a1;
+	reg		[11:0]	ff_reg_rr_a1;
+	reg		[6:0]	ff_reg_sl_a1;
 	reg		[1:0]	ff_reg_wave_length_a1;
 	reg		[11:0]	ff_reg_frequency_count_a1;
 	reg		[4:0]	ff_reg_noise_frequency_a1;
@@ -319,11 +283,11 @@ module wts_register (
 	reg				ff_reg_clone_noise_b1;
 	reg				ff_reg_clone_wave_b1;
 	reg				ff_reg_clone_key_b1;
-	reg		[15:0]	ff_reg_ar_b1;
-	reg		[15:0]	ff_reg_dr_b1;
-	reg		[15:0]	ff_reg_sr_b1;
-	reg		[15:0]	ff_reg_rr_b1;
-	reg		[7:0]	ff_reg_sl_b1;
+	reg		[11:0]	ff_reg_ar_b1;
+	reg		[11:0]	ff_reg_dr_b1;
+	reg		[11:0]	ff_reg_sr_b1;
+	reg		[11:0]	ff_reg_rr_b1;
+	reg		[6:0]	ff_reg_sl_b1;
 	reg		[1:0]	ff_reg_wave_length_b1;
 	reg		[11:0]	ff_reg_frequency_count_b1;
 	reg		[4:0]	ff_reg_noise_frequency_b1;
@@ -336,11 +300,11 @@ module wts_register (
 	reg				ff_reg_clone_noise_c1;
 	reg				ff_reg_clone_wave_c1;
 	reg				ff_reg_clone_key_c1;
-	reg		[15:0]	ff_reg_ar_c1;
-	reg		[15:0]	ff_reg_dr_c1;
-	reg		[15:0]	ff_reg_sr_c1;
-	reg		[15:0]	ff_reg_rr_c1;
-	reg		[7:0]	ff_reg_sl_c1;
+	reg		[11:0]	ff_reg_ar_c1;
+	reg		[11:0]	ff_reg_dr_c1;
+	reg		[11:0]	ff_reg_sr_c1;
+	reg		[11:0]	ff_reg_rr_c1;
+	reg		[6:0]	ff_reg_sl_c1;
 	reg		[1:0]	ff_reg_wave_length_c1;
 	reg		[11:0]	ff_reg_frequency_count_c1;
 	reg		[4:0]	ff_reg_noise_frequency_c1;
@@ -353,11 +317,11 @@ module wts_register (
 	reg				ff_reg_clone_noise_d1;
 	reg				ff_reg_clone_wave_d1;
 	reg				ff_reg_clone_key_d1;
-	reg		[15:0]	ff_reg_ar_d1;
-	reg		[15:0]	ff_reg_dr_d1;
-	reg		[15:0]	ff_reg_sr_d1;
-	reg		[15:0]	ff_reg_rr_d1;
-	reg		[7:0]	ff_reg_sl_d1;
+	reg		[11:0]	ff_reg_ar_d1;
+	reg		[11:0]	ff_reg_dr_d1;
+	reg		[11:0]	ff_reg_sr_d1;
+	reg		[11:0]	ff_reg_rr_d1;
+	reg		[6:0]	ff_reg_sl_d1;
 	reg		[1:0]	ff_reg_wave_length_d1;
 	reg		[11:0]	ff_reg_frequency_count_d1;
 	reg		[4:0]	ff_reg_noise_frequency_d1;
@@ -370,31 +334,14 @@ module wts_register (
 	reg				ff_reg_clone_noise_e1;
 	reg				ff_reg_clone_wave_e1;
 	reg				ff_reg_clone_key_e1;
-	reg		[15:0]	ff_reg_ar_e1;
-	reg		[15:0]	ff_reg_dr_e1;
-	reg		[15:0]	ff_reg_sr_e1;
-	reg		[15:0]	ff_reg_rr_e1;
-	reg		[7:0]	ff_reg_sl_e1;
+	reg		[11:0]	ff_reg_ar_e1;
+	reg		[11:0]	ff_reg_dr_e1;
+	reg		[11:0]	ff_reg_sr_e1;
+	reg		[11:0]	ff_reg_rr_e1;
+	reg		[6:0]	ff_reg_sl_e1;
 	reg		[1:0]	ff_reg_wave_length_e1;
 	reg		[11:0]	ff_reg_frequency_count_e1;
 	reg		[4:0]	ff_reg_noise_frequency_e1;
-
-	reg		[3:0]	ff_reg_volume_f1;
-	reg		[1:0]	ff_reg_enable_f1;
-	reg				ff_reg_noise_enable_f1;
-	reg				ff_reg_clone_frequency_f1;
-	reg				ff_reg_clone_adsr_f1;
-	reg				ff_reg_clone_noise_f1;
-	reg				ff_reg_clone_wave_f1;
-	reg				ff_reg_clone_key_f1;
-	reg		[15:0]	ff_reg_ar_f1;
-	reg		[15:0]	ff_reg_dr_f1;
-	reg		[15:0]	ff_reg_sr_f1;
-	reg		[15:0]	ff_reg_rr_f1;
-	reg		[7:0]	ff_reg_sl_f1;
-	reg		[1:0]	ff_reg_wave_length_f1;
-	reg		[11:0]	ff_reg_frequency_count_f1;
-	reg		[4:0]	ff_reg_noise_frequency_f1;
 
 	// Bank decoder -----------------------------------------------------------
 	assign w_dec_bank0		= (address[14:13] == 2'b10) ? 1'b1 : 1'b0;
@@ -619,10 +566,6 @@ module wts_register (
 			ch_e0_key_release			<= 1'b0;
 			ch_e0_key_off				<= 1'b0;
 
-			ch_f0_key_on				<= 1'b0;
-			ch_f0_key_release			<= 1'b0;
-			ch_f0_key_off				<= 1'b0;
-
 			ff_ch_a1_key_on				<= 1'b0;
 			ff_ch_a1_key_release		<= 1'b0;
 			ff_ch_a1_key_off			<= 1'b0;
@@ -642,10 +585,6 @@ module wts_register (
 			ff_ch_e1_key_on				<= 1'b0;
 			ff_ch_e1_key_release		<= 1'b0;
 			ff_ch_e1_key_off			<= 1'b0;
-
-			ff_ch_f1_key_on				<= 1'b0;
-			ff_ch_f1_key_release		<= 1'b0;
-			ff_ch_f1_key_off			<= 1'b0;
 
 			reg_volume_a0				<= 'd0;
 			reg_enable_a0				<= 'd0;
@@ -706,18 +645,6 @@ module wts_register (
 			reg_wave_length_e0			<= 'd0;
 			reg_frequency_count_e0		<= 'd0;
 			reg_noise_frequency_e0		<= 'd0;
-
-			reg_volume_f0				<= 'd0;
-			reg_enable_f0				<= 'd0;
-			reg_noise_enable_f0			<= 'd0;
-			reg_ar_f0					<= 'd0;
-			reg_dr_f0					<= 'd0;
-			reg_sr_f0					<= 'd0;
-			reg_rr_f0					<= 'd0;
-			reg_sl_f0					<= 'd0;
-			reg_wave_length_f0			<= 'd0;
-			reg_frequency_count_f0		<= 'd0;
-			reg_noise_frequency_f0		<= 'd0;
 
 			ff_reg_volume_a1			<= 'd0;
 			ff_reg_enable_a1			<= 'd0;
@@ -804,23 +731,6 @@ module wts_register (
 			ff_reg_frequency_count_e1	<= 'd0;
 			ff_reg_noise_frequency_e1	<= 'd0;
 
-			ff_reg_volume_f1			<= 'd0;
-			ff_reg_enable_f1			<= 'd0;
-			ff_reg_noise_enable_f1		<= 'd0;
-			ff_reg_clone_frequency_f1	<= 'd1;
-			ff_reg_clone_adsr_f1		<= 'd1;
-			ff_reg_clone_noise_f1		<= 'd1;
-			ff_reg_clone_wave_f1		<= 'd1;
-			ff_reg_clone_key_f1			<= 'd1;
-			ff_reg_ar_f1				<= 'd0;
-			ff_reg_dr_f1				<= 'd0;
-			ff_reg_sr_f1				<= 'd0;
-			ff_reg_rr_f1				<= 'd0;
-			ff_reg_sl_f1				<= 'd0;
-			ff_reg_wave_length_f1		<= 'd0;
-			ff_reg_frequency_count_f1	<= 'd0;
-			ff_reg_noise_frequency_f1	<= 'd0;
-
 			reg_timer1_channel			<= 4'd0;
 			reg_timer1_oneshot			<= 1'b0;
 			reg_timer1_enable			<= 1'b0;
@@ -893,14 +803,14 @@ module wts_register (
 				8'h02:		reg_volume_a0					<= wrdata[3:0];
 				8'h03:		reg_enable_a0					<= wrdata[1:0];
 				8'h04:		reg_ar_a0[7:0]					<= wrdata;
-				8'h05:		reg_ar_a0[15:8]					<= wrdata;
+				8'h05:		reg_ar_a0[11:8]					<= wrdata[3:0];
 				8'h06:		reg_dr_a0[7:0]					<= wrdata;
-				8'h07:		reg_dr_a0[15:8]					<= wrdata;
+				8'h07:		reg_dr_a0[11:8]					<= wrdata[3:0];
 				8'h08:		reg_sr_a0[7:0]					<= wrdata;
-				8'h09:		reg_sr_a0[15:8]					<= wrdata;
+				8'h09:		reg_sr_a0[11:8]					<= wrdata[3:0];
 				8'h0A:		reg_rr_a0[7:0]					<= wrdata;
-				8'h0B:		reg_rr_a0[15:8]					<= wrdata;
-				8'h0C:		reg_sl_a0						<= wrdata;
+				8'h0B:		reg_rr_a0[11:8]					<= wrdata[3:0];
+				8'h0C:		reg_sl_a0						<= wrdata[6:0];
 				8'h0D:
 					begin
 						reg_noise_enable_a0					<= wrdata[7];
@@ -919,14 +829,14 @@ module wts_register (
 				8'h12:		reg_volume_b0					<= wrdata[3:0];
 				8'h13:		reg_enable_b0					<= wrdata[1:0];
 				8'h14:		reg_ar_b0[7:0]					<= wrdata;
-				8'h15:		reg_ar_b0[15:8]					<= wrdata;
+				8'h15:		reg_ar_b0[11:8]					<= wrdata[3:0];
 				8'h16:		reg_dr_b0[7:0]					<= wrdata;
-				8'h17:		reg_dr_b0[15:8]					<= wrdata;
+				8'h17:		reg_dr_b0[11:8]					<= wrdata[3:0];
 				8'h18:		reg_sr_b0[7:0]					<= wrdata;
-				8'h19:		reg_sr_b0[15:8]					<= wrdata;
+				8'h19:		reg_sr_b0[11:8]					<= wrdata[3:0];
 				8'h1A:		reg_rr_b0[7:0]					<= wrdata;
-				8'h1B:		reg_rr_b0[15:8]					<= wrdata;
-				8'h1C:		reg_sl_b0						<= wrdata;
+				8'h1B:		reg_rr_b0[11:8]					<= wrdata[3:0];
+				8'h1C:		reg_sl_b0						<= wrdata[6:0];
 				8'h1D:
 					begin
 						reg_noise_enable_b0					<= wrdata[7];
@@ -945,14 +855,14 @@ module wts_register (
 				8'h22:		reg_volume_c0					<= wrdata[3:0];
 				8'h23:		reg_enable_c0					<= wrdata[1:0];
 				8'h24:		reg_ar_c0[7:0]					<= wrdata;
-				8'h25:		reg_ar_c0[15:8]					<= wrdata;
+				8'h25:		reg_ar_c0[11:8]					<= wrdata[3:0];
 				8'h26:		reg_dr_c0[7:0]					<= wrdata;
-				8'h27:		reg_dr_c0[15:8]					<= wrdata;
+				8'h27:		reg_dr_c0[11:8]					<= wrdata[3:0];
 				8'h28:		reg_sr_c0[7:0]					<= wrdata;
-				8'h29:		reg_sr_c0[15:8]					<= wrdata;
+				8'h29:		reg_sr_c0[11:8]					<= wrdata[3:0];
 				8'h2A:		reg_rr_c0[7:0]					<= wrdata;
-				8'h2B:		reg_rr_c0[15:8]					<= wrdata;
-				8'h2C:		reg_sl_c0						<= wrdata;
+				8'h2B:		reg_rr_c0[11:8]					<= wrdata[3:0];
+				8'h2C:		reg_sl_c0						<= wrdata[6:0];
 				8'h2D:
 					begin
 						reg_noise_enable_c0					<= wrdata[7];
@@ -971,14 +881,14 @@ module wts_register (
 				8'h32:		reg_volume_d0					<= wrdata[3:0];
 				8'h33:		reg_enable_d0					<= wrdata[1:0];
 				8'h34:		reg_dr_d0[7:0]					<= wrdata;
-				8'h35:		reg_dr_d0[15:8]					<= wrdata;
+				8'h35:		reg_dr_d0[11:8]					<= wrdata[3:0];
 				8'h36:		reg_dr_d0[7:0]					<= wrdata;
-				8'h37:		reg_dr_d0[15:8]					<= wrdata;
+				8'h37:		reg_dr_d0[11:8]					<= wrdata[3:0];
 				8'h38:		reg_sr_d0[7:0]					<= wrdata;
-				8'h39:		reg_sr_d0[15:8]					<= wrdata;
+				8'h39:		reg_sr_d0[11:8]					<= wrdata[3:0];
 				8'h3A:		reg_rr_d0[7:0]					<= wrdata;
-				8'h3B:		reg_rr_d0[15:8]					<= wrdata;
-				8'h3C:		reg_sl_d0						<= wrdata;
+				8'h3B:		reg_rr_d0[11:8]					<= wrdata[3:0];
+				8'h3C:		reg_sl_d0						<= wrdata[6:0];
 				8'h3D:
 					begin
 						reg_noise_enable_d0					<= wrdata[7];
@@ -997,14 +907,14 @@ module wts_register (
 				8'h42:		reg_volume_e0					<= wrdata[3:0];
 				8'h43:		reg_enable_e0					<= wrdata[1:0];
 				8'h44:		reg_ar_e0[7:0]					<= wrdata;
-				8'h45:		reg_ar_e0[15:8]					<= wrdata;
+				8'h45:		reg_ar_e0[11:8]					<= wrdata[3:0];
 				8'h46:		reg_dr_e0[7:0]					<= wrdata;
-				8'h47:		reg_dr_e0[15:8]					<= wrdata;
+				8'h47:		reg_dr_e0[11:8]					<= wrdata[3:0];
 				8'h48:		reg_sr_e0[7:0]					<= wrdata;
-				8'h49:		reg_sr_e0[15:8]					<= wrdata;
+				8'h49:		reg_sr_e0[11:8]					<= wrdata[3:0];
 				8'h4A:		reg_rr_e0[7:0]					<= wrdata;
-				8'h4B:		reg_rr_e0[15:8]					<= wrdata;
-				8'h4C:		reg_sl_e0						<= wrdata;
+				8'h4B:		reg_rr_e0[11:8]					<= wrdata[3:0];
+				8'h4C:		reg_sl_e0						<= wrdata[6:0];
 				8'h4D:
 					begin
 						reg_noise_enable_e0					<= wrdata[7];
@@ -1016,32 +926,6 @@ module wts_register (
 						ch_e0_key_on						<= wrdata[0];
 						ch_e0_key_release					<= wrdata[1];
 						ch_e0_key_off						<= wrdata[2];
-					end
-
-				8'h50:		reg_frequency_count_f0[ 7:0]	<= wrdata;
-				8'h51:		reg_frequency_count_f0[11:8]	<= wrdata[3:0];
-				8'h52:		reg_volume_f0					<= wrdata[3:0];
-				8'h53:		reg_enable_f0					<= wrdata[1:0];
-				8'h54:		reg_ar_f0[7:0]					<= wrdata;
-				8'h55:		reg_ar_f0[15:8]					<= wrdata;
-				8'h56:		reg_dr_f0[7:0]					<= wrdata;
-				8'h57:		reg_dr_f0[15:8]					<= wrdata;
-				8'h58:		reg_sr_f0[7:0]					<= wrdata;
-				8'h59:		reg_sr_f0[15:8]					<= wrdata;
-				8'h5A:		reg_rr_f0[7:0]					<= wrdata;
-				8'h5B:		reg_rr_f0[15:8]					<= wrdata;
-				8'h5C:		reg_sl_f0						<= wrdata;
-				8'h5D:
-					begin
-						reg_noise_enable_f0					<= wrdata[7];
-						reg_noise_frequency_f0				<= wrdata[4:0];
-					end
-				8'h5E:		reg_wave_length_f0				<= wrdata[1:0];
-				8'h5F:
-					begin
-						ch_f0_key_on						<= wrdata[0];
-						ch_f0_key_release					<= wrdata[1];
-						ch_f0_key_off						<= wrdata[2];
 					end
 
 				8'h60:		ff_reg_frequency_count_a1[ 7:0]	<= wrdata;
@@ -1057,14 +941,14 @@ module wts_register (
 						ff_reg_clone_key_a1					<= wrdata[7];
 					end
 				8'h64:		ff_reg_ar_a1[7:0]				<= wrdata;
-				8'h65:		ff_reg_ar_a1[15:8]				<= wrdata;
+				8'h65:		ff_reg_ar_a1[11:8]				<= wrdata[3:0];
 				8'h66:		ff_reg_dr_a1[7:0]				<= wrdata;
-				8'h67:		ff_reg_dr_a1[15:8]				<= wrdata;
+				8'h67:		ff_reg_dr_a1[11:8]				<= wrdata[3:0];
 				8'h68:		ff_reg_sr_a1[7:0]				<= wrdata;
-				8'h69:		ff_reg_sr_a1[15:8]				<= wrdata;
+				8'h69:		ff_reg_sr_a1[11:8]				<= wrdata[3:0];
 				8'h6A:		ff_reg_rr_a1[7:0]				<= wrdata;
-				8'h6B:		ff_reg_rr_a1[15:8]				<= wrdata;
-				8'h6C:		ff_reg_sl_a1					<= wrdata;
+				8'h6B:		ff_reg_rr_a1[11:8]				<= wrdata[3:0];
+				8'h6C:		ff_reg_sl_a1					<= wrdata[6:0];
 				8'h6D:
 					begin
 						ff_reg_noise_enable_a1				<= wrdata[7];
@@ -1091,14 +975,14 @@ module wts_register (
 						ff_reg_clone_key_b1					<= wrdata[7];
 					end
 				8'h74:		ff_reg_ar_b1[7:0]				<= wrdata;
-				8'h75:		ff_reg_ar_b1[15:8]				<= wrdata;
+				8'h75:		ff_reg_ar_b1[11:8]				<= wrdata[3:0];
 				8'h76:		ff_reg_dr_b1[7:0]				<= wrdata;
-				8'h77:		ff_reg_dr_b1[15:8]				<= wrdata;
+				8'h77:		ff_reg_dr_b1[11:8]				<= wrdata[3:0];
 				8'h78:		ff_reg_sr_b1[7:0]				<= wrdata;
-				8'h79:		ff_reg_sr_b1[15:8]				<= wrdata;
+				8'h79:		ff_reg_sr_b1[11:8]				<= wrdata[3:0];
 				8'h7A:		ff_reg_rr_b1[7:0]				<= wrdata;
-				8'h7B:		ff_reg_rr_b1[15:8]				<= wrdata;
-				8'h7C:		ff_reg_sl_b1					<= wrdata;
+				8'h7B:		ff_reg_rr_b1[11:8]				<= wrdata[3:0];
+				8'h7C:		ff_reg_sl_b1					<= wrdata[6:0];
 				8'h7D:
 					begin
 						ff_reg_noise_enable_b1				<= wrdata[7];
@@ -1125,14 +1009,14 @@ module wts_register (
 						ff_reg_clone_key_c1					<= wrdata[7];
 					end
 				8'h84:		ff_reg_ar_c1[7:0]				<= wrdata;
-				8'h85:		ff_reg_ar_c1[15:8]				<= wrdata;
+				8'h85:		ff_reg_ar_c1[11:8]				<= wrdata[3:0];
 				8'h86:		ff_reg_dr_c1[7:0]				<= wrdata;
-				8'h87:		ff_reg_dr_c1[15:8]				<= wrdata;
+				8'h87:		ff_reg_dr_c1[11:8]				<= wrdata[3:0];
 				8'h88:		ff_reg_sr_c1[7:0]				<= wrdata;
-				8'h89:		ff_reg_sr_c1[15:8]				<= wrdata;
+				8'h89:		ff_reg_sr_c1[11:8]				<= wrdata[3:0];
 				8'h8A:		ff_reg_rr_c1[7:0]				<= wrdata;
-				8'h8B:		ff_reg_rr_c1[15:8]				<= wrdata;
-				8'h8C:		ff_reg_sl_c1					<= wrdata;
+				8'h8B:		ff_reg_rr_c1[11:8]				<= wrdata[3:0];
+				8'h8C:		ff_reg_sl_c1					<= wrdata[6:0];
 				8'h8D:
 					begin
 						ff_reg_noise_enable_c1				<= wrdata[7];
@@ -1159,14 +1043,14 @@ module wts_register (
 						ff_reg_clone_key_d1					<= wrdata[7];
 					end
 				8'h94:		ff_reg_ar_d1[7:0]				<= wrdata;
-				8'h95:		ff_reg_ar_d1[15:8]				<= wrdata;
+				8'h95:		ff_reg_ar_d1[11:8]				<= wrdata[3:0];
 				8'h96:		ff_reg_dr_d1[7:0]				<= wrdata;
-				8'h97:		ff_reg_dr_d1[15:8]				<= wrdata;
+				8'h97:		ff_reg_dr_d1[11:8]				<= wrdata[3:0];
 				8'h98:		ff_reg_sr_d1[7:0]				<= wrdata;
-				8'h99:		ff_reg_sr_d1[15:8]				<= wrdata;
+				8'h99:		ff_reg_sr_d1[11:8]				<= wrdata[3:0];
 				8'h9A:		ff_reg_rr_d1[7:0]				<= wrdata;
-				8'h9B:		ff_reg_rr_d1[15:8]				<= wrdata;
-				8'h9C:		ff_reg_sl_d1					<= wrdata;
+				8'h9B:		ff_reg_rr_d1[11:8]				<= wrdata[3:0];
+				8'h9C:		ff_reg_sl_d1					<= wrdata[6:0];
 				8'h9D:
 					begin
 						ff_reg_noise_enable_d1				<= wrdata[7];
@@ -1193,14 +1077,14 @@ module wts_register (
 						ff_reg_clone_key_e1					<= wrdata[7];
 					end
 				8'hA4:		ff_reg_ar_e1[7:0]				<= wrdata;
-				8'hA5:		ff_reg_ar_e1[15:8]				<= wrdata;
+				8'hA5:		ff_reg_ar_e1[11:8]				<= wrdata[3:0];
 				8'hA6:		ff_reg_dr_e1[7:0]				<= wrdata;
-				8'hA7:		ff_reg_dr_e1[15:8]				<= wrdata;
+				8'hA7:		ff_reg_dr_e1[11:8]				<= wrdata[3:0];
 				8'hA8:		ff_reg_sr_e1[7:0]				<= wrdata;
-				8'hA9:		ff_reg_sr_e1[15:8]				<= wrdata;
+				8'hA9:		ff_reg_sr_e1[11:8]				<= wrdata[3:0];
 				8'hAA:		ff_reg_rr_e1[7:0]				<= wrdata;
-				8'hAB:		ff_reg_rr_e1[15:8]				<= wrdata;
-				8'hAC:		ff_reg_sl_e1					<= wrdata;
+				8'hAB:		ff_reg_rr_e1[11:8]				<= wrdata[3:0];
+				8'hAC:		ff_reg_sl_e1					<= wrdata[6:0];
 				8'hAD:
 					begin
 						ff_reg_noise_enable_e1				<= wrdata[7];
@@ -1212,40 +1096,6 @@ module wts_register (
 						ff_ch_e1_key_on						<= wrdata[0];
 						ff_ch_e1_key_release				<= wrdata[1];
 						ff_ch_e1_key_off					<= wrdata[2];
-					end
-
-				8'hB0:		ff_reg_frequency_count_f1[ 7:0]	<= wrdata;
-				8'hB1:		ff_reg_frequency_count_f1[11:8]	<= wrdata[3:0];
-				8'hB2:		ff_reg_volume_f1				<= wrdata[3:0];
-				8'hB3:
-					begin
-						ff_reg_enable_f1					<= wrdata[1:0];
-						ff_reg_clone_frequency_f1			<= wrdata[3];
-						ff_reg_clone_adsr_f1				<= wrdata[4];
-						ff_reg_clone_noise_f1				<= wrdata[5];
-						ff_reg_clone_wave_f1				<= wrdata[6];
-						ff_reg_clone_key_f1					<= wrdata[7];
-					end
-				8'hB4:		ff_reg_ar_f1[7:0]				<= wrdata;
-				8'hB5:		ff_reg_ar_f1[15:8]				<= wrdata;
-				8'hB6:		ff_reg_dr_f1[7:0]				<= wrdata;
-				8'hB7:		ff_reg_dr_f1[15:8]				<= wrdata;
-				8'hB8:		ff_reg_sr_f1[7:0]				<= wrdata;
-				8'hB9:		ff_reg_sr_f1[15:8]				<= wrdata;
-				8'hBA:		ff_reg_rr_f1[7:0]				<= wrdata;
-				8'hBB:		ff_reg_rr_f1[15:8]				<= wrdata;
-				8'hBC:		ff_reg_sl_f1					<= wrdata;
-				8'hBD:
-					begin
-						ff_reg_noise_enable_f1				<= wrdata[7];
-						ff_reg_noise_frequency_f1			<= wrdata[4:0];
-					end
-				8'hBE:		ff_reg_wave_length_f1			<= wrdata[1:0];
-				8'hBF:
-					begin
-						ff_ch_f1_key_on						<= wrdata[0];
-						ff_ch_f1_key_release				<= wrdata[1];
-						ff_ch_f1_key_off					<= wrdata[2];
 					end
 
 				8'hF0:
@@ -1299,10 +1149,6 @@ module wts_register (
 			ch_e0_key_release			<= 1'b0;
 			ch_e0_key_off				<= 1'b0;
 
-			ch_f0_key_on				<= 1'b0;
-			ch_f0_key_release			<= 1'b0;
-			ch_f0_key_off				<= 1'b0;
-
 			ff_ch_a1_key_on				<= 1'b0;
 			ff_ch_a1_key_release		<= 1'b0;
 			ff_ch_a1_key_off			<= 1'b0;
@@ -1322,10 +1168,6 @@ module wts_register (
 			ff_ch_e1_key_on				<= 1'b0;
 			ff_ch_e1_key_release		<= 1'b0;
 			ff_ch_e1_key_off			<= 1'b0;
-
-			ff_ch_f1_key_on				<= 1'b0;
-			ff_ch_f1_key_release		<= 1'b0;
-			ff_ch_f1_key_off			<= 1'b0;
 		end
 	end
 
@@ -1348,10 +1190,6 @@ module wts_register (
 	assign ch_e1_key_on				= ff_reg_clone_key_e1 ? ch_e0_key_on : ff_ch_e1_key_on;
 	assign ch_e1_key_release		= ff_reg_clone_key_e1 ? ch_e0_key_release : ff_ch_e1_key_release;
 	assign ch_e1_key_off			= ff_reg_clone_key_e1 ? ch_e0_key_off : ff_ch_e1_key_off;
-
-	assign ch_f1_key_on				= ff_reg_clone_key_f1 ? ch_f0_key_on : ff_ch_f1_key_on;
-	assign ch_f1_key_release		= ff_reg_clone_key_f1 ? ch_f0_key_release : ff_ch_f1_key_release;
-	assign ch_f1_key_off			= ff_reg_clone_key_f1 ? ch_f0_key_off : ff_ch_f1_key_off;
 
 	assign reg_volume_a1			= ff_reg_volume_a1;
 	assign reg_enable_a1			= ff_reg_enable_a1;
@@ -1412,18 +1250,6 @@ module wts_register (
 	assign reg_wave_length_e1		= ff_reg_clone_wave_e1 ? reg_wave_length_e0 : ff_reg_wave_length_e1;
 	assign reg_frequency_count_e1	= ff_reg_clone_frequency_e1 ? reg_frequency_count_e0 : ff_reg_frequency_count_e1;
 	assign reg_noise_frequency_e1	= ff_reg_clone_noise_e1 ? reg_noise_frequency_e0 : ff_reg_noise_frequency_e1;
-
-	assign reg_volume_f1			= ff_reg_volume_f1;
-	assign reg_enable_f1			= ff_reg_enable_f1;
-	assign reg_noise_enable_f1		= ff_reg_noise_enable_f1;
-	assign reg_ar_f1				= ff_reg_clone_adsr_f1 ? reg_ar_f0 : ff_reg_ar_f1;
-	assign reg_dr_f1				= ff_reg_clone_adsr_f1 ? reg_dr_f0 : ff_reg_dr_f1;
-	assign reg_sr_f1				= ff_reg_clone_adsr_f1 ? reg_sr_f0 : ff_reg_sr_f1;
-	assign reg_rr_f1				= ff_reg_clone_adsr_f1 ? reg_rr_f0 : ff_reg_rr_f1;
-	assign reg_sl_f1				= ff_reg_clone_adsr_f1 ? reg_sl_f0 : ff_reg_sl_f1;
-	assign reg_wave_length_f1		= ff_reg_clone_wave_f1 ? reg_wave_length_f0 : ff_reg_wave_length_f1;
-	assign reg_frequency_count_f1	= ff_reg_clone_frequency_f1 ? reg_frequency_count_f0 : ff_reg_frequency_count_f1;
-	assign reg_noise_frequency_f1	= ff_reg_clone_noise_f1 ? reg_noise_frequency_f0 : ff_reg_noise_frequency_f1;
 
 	// External memory address ------------------------------------------------
 	assign ext_memory_address	= w_dec_bank0 ? reg_bank0 :
