@@ -1,5 +1,5 @@
 Assembler report for wave_table_sound
-Mon Oct 25 07:15:00 2021
+Wed Oct 27 07:05:08 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Oct 25 07:15:00 2021 ;
+; Assembler Status      ; Successful - Wed Oct 27 07:05:08 2021 ;
 ; Revision Name         ; wave_table_sound                      ;
 ; Top-level Entity Name ; wts_for_cartridge                     ;
 ; Family                ; MAX 10                                ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+---------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                           ;
 +----------------+---------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x0031A1A4                                                                                        ;
-; Checksum       ; 0x0031A1A4                                                                                        ;
+; JTAG usercode  ; 0x0030BC01                                                                                        ;
+; Checksum       ; 0x0030BC01                                                                                        ;
 +----------------+---------------------------------------------------------------------------------------------------+
 
 
@@ -78,15 +78,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Oct 25 07:14:56 2021
+    Info: Processing started: Wed Oct 27 07:05:07 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off wave_table_sound -c wave_table_sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4701 megabytes
-    Info: Processing ended: Mon Oct 25 07:15:00 2021
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 4695 megabytes
+    Info: Processing ended: Wed Oct 27 07:05:08 2021
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

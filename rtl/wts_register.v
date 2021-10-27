@@ -414,7 +414,7 @@ module wts_register (
 			if( address[7] == 1'b0 ) begin
 				ext_memory_nactive <= 1'b1;
 			end
-			else if( rdreq ) begin
+			else if( rd_active ) begin
 				ext_memory_nactive <= 1'b0;
 			end
 			else begin
@@ -440,7 +440,7 @@ module wts_register (
 		end
 		else if( address[11] == 1'b0 ) begin
 			//	bank register
-			if( rdreq ) begin
+			if( rd_active ) begin
 				ext_memory_nactive <= 1'b0;
 			end
 			else if( w_dec_bank0 && reg_ram_mode0 ) begin
@@ -463,7 +463,7 @@ module wts_register (
 			end
 		end
 		else begin
-			if( rdreq ) begin
+			if( rd_active ) begin
 				ext_memory_nactive <= 1'b0;
 			end
 			else if( w_dec_bank0 && reg_ram_mode0 ) begin

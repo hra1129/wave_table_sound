@@ -23,12 +23,12 @@
 module wts_ram (
 	input			clk,
 	input			sram_we,
-	input	[8:0]	sram_a,
+	input	[9:0]	sram_a,
 	input	[7:0]	sram_d,
 	output	[7:0]	sram_q
 );
 	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [383:0];		//	8bit 384word
+	reg		[7:0]	ram_array [767:0];		//	10bit 768word
 
 	always @( posedge clk ) begin
 		if( sram_we ) begin

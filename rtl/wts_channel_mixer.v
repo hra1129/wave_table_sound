@@ -252,16 +252,10 @@ module wts_channel_mixer (
 	wire	[3:0]	w_volume1;
 	wire	[1:0]	w_enable0;
 	wire	[1:0]	w_enable1;
-	wire	[8:0]	w_sram_a00;
-	wire	[8:0]	w_sram_a01;
-	wire	[8:0]	w_sram_a10;
-	wire	[8:0]	w_sram_a11;
+	wire	[9:0]	w_sram_a0;
+	wire	[9:0]	w_sram_a1;
 	wire	[7:0]	w_sram_q0;
-	wire	[7:0]	w_sram_q00;
-	wire	[7:0]	w_sram_q01;
 	wire	[7:0]	w_sram_q1;
-	wire	[7:0]	w_sram_q10;
-	wire	[7:0]	w_sram_q11;
 	wire	[7:0]	w_channel0;
 	wire	[8:0]	w_envelope0;
 	wire	[8:0]	w_envelope1;
@@ -314,6 +308,9 @@ module wts_channel_mixer (
 	wire	[2:0]	w_address_mask2;
 	wire	[1:0]	w_wave_length1;
 	wire	[1:0]	w_wave_length2;
+
+	wire			w_sram_we0;
+	wire			w_sram_we1;
 
 	function func_trigger_sel (
 		input	[3:0]	reg_timer_sel,
@@ -500,9 +497,7 @@ module wts_channel_mixer (
 	                      ( ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5])) |
 	                      (~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4])) );
 	assign sram_q_en	= ff_sram_q_en;
-	assign sram_q		= (!ff_sram_id[3] && !ff_sram_id[0]) ? w_sram_q00 :
-	                      (!ff_sram_id[3] &&  ff_sram_id[0]) ? w_sram_q01 :
-	                      ( ff_sram_id[3] && !ff_sram_id[0]) ? w_sram_q10 : w_sram_q11;
+	assign sram_q		= ( ff_sram_id[3] ) ? w_sram_q1 : w_sram_q0;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -859,59 +854,37 @@ module wts_channel_mixer (
 	assign w_envelope0	= func_envelope_sel( ff_active, w_envelope_a0, w_envelope_b0, w_envelope_c0, w_envelope_d0, w_envelope_e0, w_envelope_f0 );
 	assign w_envelope1	= func_envelope_sel( ff_active, w_envelope_a1, w_envelope_b1, w_envelope_c1, w_envelope_d1, w_envelope_e1, w_envelope_f1 );
 
-	assign w_sram_a00	= ff_active[5] ? { 2'b00, w_sram_a_a0 } :
-						  ff_active[1] ? { 2'b01, w_sram_a_c0 } :
-						  ff_active[3] ? { 2'b10, w_sram_a_e0 } : { ff_sram_id[2:1], ff_sram_a };
-	assign w_sram_a01	= ff_active[4] ? { 2'b00, w_sram_a_b0 } :
-						  ff_active[0] ? { 2'b01, w_sram_a_d0 } :
-						  ff_active[2] ? { 2'b10, w_sram_a_f0 } : { ff_sram_id[2:1], ff_sram_a };
+	assign w_sram_a0	= ((ff_sram_id[3] == 1'b0) && ff_sram_we) ? { ff_sram_id[2:0], ff_sram_a } : 
+						  ( ff_active[0] ) ? { 3'd0, w_sram_a_a0 } : 
+						  ( ff_active[1] ) ? { 3'd1, w_sram_a_b0 } : 
+						  ( ff_active[2] ) ? { 3'd2, w_sram_a_c0 } : 
+						  ( ff_active[3] ) ? { 3'd3, w_sram_a_d0 } : 
+						  ( ff_active[4] ) ? { 3'd4, w_sram_a_e0 } : { 3'd5, w_sram_a_f0 };
+	assign w_sram_a1	= ((ff_sram_id[3] == 1'b1) && ff_sram_we) ? { ff_sram_id[2:0], ff_sram_a } : 
+						  ( ff_active[0] ) ? { 3'd0, w_sram_a_a1 } : 
+						  ( ff_active[1] ) ? { 3'd1, w_sram_a_b1 } : 
+						  ( ff_active[2] ) ? { 3'd2, w_sram_a_c1 } : 
+						  ( ff_active[3] ) ? { 3'd3, w_sram_a_d1 } : 
+						  ( ff_active[4] ) ? { 3'd4, w_sram_a_e1 } : { 3'd5, w_sram_a_f1 };
 
-	assign w_sram_a10	= ff_active[5] ? { 2'b00, w_sram_a_a1 } :
-						  ff_active[1] ? { 2'b01, w_sram_a_c1 } :
-						  ff_active[3] ? { 2'b10, w_sram_a_e1 } : { ff_sram_id[2:1], ff_sram_a };
-	assign w_sram_a11	= ff_active[4] ? { 2'b00, w_sram_a_b1 } :
-						  ff_active[0] ? { 2'b01, w_sram_a_d1 } :
-						  ff_active[2] ? { 2'b10, w_sram_a_f1 } : { ff_sram_id[2:1], ff_sram_a };
-
-	assign w_sram_we00	= ~ff_sram_id[3] & ~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
-	assign w_sram_we01	= ~ff_sram_id[3] &  ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
-	assign w_sram_we10	=  ff_sram_id[3] & ~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4]) & ff_sram_we;
-	assign w_sram_we11	=  ff_sram_id[3] &  ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5]) & ff_sram_we;
+	assign w_sram_we0	= (ff_sram_id[3] == 1'b0) ? ff_sram_we : 1'b0;
+	assign w_sram_we1	= (ff_sram_id[3] == 1'b1) ? ff_sram_we : 1'b0;
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
-		.sram_we		( w_sram_we00		),
-		.sram_a			( w_sram_a00		),
+		.sram_we		( w_sram_we0		),
+		.sram_a			( w_sram_a0			),
 		.sram_d			( ff_sram_d			),
-		.sram_q			( w_sram_q00		)
-	);
-
-	wts_ram u_ram01 (
-		.clk			( clk				),
-		.sram_we		( w_sram_we01		),
-		.sram_a			( w_sram_a01		),
-		.sram_d			( ff_sram_d			),
-		.sram_q			( w_sram_q01		)
+		.sram_q			( w_sram_q0			)
 	);
 
 	wts_ram u_ram10 (
 		.clk			( clk				),
-		.sram_we		( w_sram_we10		),
-		.sram_a			( w_sram_a10		),
+		.sram_we		( w_sram_we1		),
+		.sram_a			( w_sram_a1			),
 		.sram_d			( ff_sram_d			),
-		.sram_q			( w_sram_q10		)
+		.sram_q			( w_sram_q1			)
 	);
-
-	wts_ram u_ram11 (
-		.clk			( clk				),
-		.sram_we		( w_sram_we11		),
-		.sram_a			( w_sram_a11		),
-		.sram_d			( ff_sram_d			),
-		.sram_q			( w_sram_q11		)
-	);
-
-	assign w_sram_q0	= ( ff_active[4] || ff_active[2] || ff_active[0] ) ? w_sram_q00 : w_sram_q01;
-	assign w_sram_q1	= ( ff_active[4] || ff_active[2] || ff_active[0] ) ? w_sram_q10 : w_sram_q11;
 
 	wts_channel_volume u_channel_volume0 (
 		.nreset			( nreset			),
