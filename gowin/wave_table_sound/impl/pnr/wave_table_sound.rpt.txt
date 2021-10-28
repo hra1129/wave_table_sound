@@ -10,17 +10,17 @@
   <Timing Constraints File>: C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\src\wave_table_sound.sdc
   <GOWIN Version>: V1.9.2.01Beta
   <Part Number>: GW1N-UV4LQ100C6/I5
-  <Created Time>:Thu Oct 28 07:30:32 2021
+  <Created Time>:Thu Oct 28 09:50:13 2021
 
 
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 3.512 secs
-    Placement Phase 1 ...   REAL time: 0.329 secs
-    Placement Phase 2 ...   REAL time: 4.456 secs
-    Placement Phase 3 ...   REAL time: 2.534 secs
-  Total REAL time to Placement completion: 10.831 secs.
+    Placement Phase 0 ...   REAL time: 2.997 secs
+    Placement Phase 1 ...   REAL time: 0.303 secs
+    Placement Phase 2 ...   REAL time: 3.234 secs
+    Placement Phase 3 ...   REAL time: 2.378 secs
+  Total REAL time to Placement completion: 8.912 secs.
 
 
 3. Resource Usage Summary
@@ -28,13 +28,13 @@
   ----------------------------------------------------------
   Resources            | Usage
   ----------------------------------------------------------
-  Logics               | 2751/4608  59%
-    --LUTs,ALUs,ROM16s | 2751(2617 LUTs, 134 ALUs, 0 ROM16s)
+  Logics               | 2504/4608  54%
+    --LUTs,ALUs,ROM16s | 2504(2370 LUTs, 134 ALUs, 0 ROM16s)
     --SSRAMs(RAM16s)   | 0
-  Registers            | 1749/3642  48%
-    --Logic Registers  | 1735/3456  50%
-    --I/O Registers    | 14/186  7%
-  CLSs                 | 1640/2304  71%
+  Registers            | 1593/3642  43%
+    --Logic Registers  | 1578/3456  45%
+    --I/O Registers    | 15/186  8%
+  CLSs                 | 1530/2304  66%
   I/O Ports            | 64
   I/O Bufs             | 64
     --Input Bufs       | 22
@@ -73,10 +73,10 @@
 5. Router
 
   Starting Router:
-    Route Phase 0: 5233 unrouted; REAL time: 0.001 secs
-    Route Phase 1: 3922 unrouted; REAL time: 0.098 secs
-    Route Phase 2: 0  unrouted; REAL time: 1.256 secs
-  Total REAL time to Router completion: 1.355 secs.
+    Route Phase 0: 4787 unrouted; REAL time: 0.002 secs
+    Route Phase 1: 3560 unrouted; REAL time: 0.096 secs
+    Route Phase 2: 0  unrouted; REAL time: 0.88 secs
+  Total REAL time to Router completion: 0.978 secs.
 
 
 6. Global Clock Usage Summary
@@ -114,70 +114,70 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 Port Name      | Loc./Bank  | Dir.  | Site     | IO Type    | Drive      | Pull Mode  | Slew Rate  | Clamp      | OpenDrain  | VREF       | BankVccio 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-slot_a[0]      | 98/0       | in    | IOT4[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[1]      | 95/0       | in    | IOT9[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[2]      | 96/0       | in    | IOT6[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[3]      | 97/0       | in    | IOT6[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[4]      | 94/0       | in    | IOT9[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[5]      | 91/0       | in    | IOT16[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[6]      | 92/0       | in    | IOT14[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[7]      | 93/0       | in    | IOT14[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[8]      | 31/2       | in    | IOB10[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[9]      | 34/2       | in    | IOB12[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[10]     | 32/2       | in    | IOB10[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[11]     | 27/2       | in    | IOB6[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[12]     | 30/2       | in    | IOB8[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[13]     | 29/2       | in    | IOB8[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_a[14]     | 36/2       | in    | IOB14[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[0]      | 93/0       | in    | IOT14[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[1]      | 91/0       | in    | IOT16[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[2]      | 92/0       | in    | IOT14[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[3]      | 89/0       | in    | IOT17[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[4]      | 90/0       | in    | IOT16[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[5]      | 57/1       | in    | IOR11[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[6]      | 55/2       | in    | IOB34[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[7]      | 56/1       | in    | IOR11[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[8]      | 69/1       | in    | IOR9[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[9]      | 58/1       | in    | IOR10[J] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[10]     | 59/1       | in    | IOR10[I] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[11]     | 53/2       | in    | IOB34[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[12]     | 50/2       | in    | IOB32[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[13]     | 49/2       | in    | IOB32[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_a[14]     | 48/2       | in    | IOB30[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 clk            | 17/3       | in    | IOL11[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_nreset    | 86/0       | in    | IOT20[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_nsltsl    | 5/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_nmerq     | 3/3        | in    | IOL3[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_nrd       | 99/0       | in    | IOT4[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-slot_nwr       | 89/0       | in    | IOT17[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-sw_mono        | 78/0       | in    | IOT37[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-mem_a[0]       | 35/2       | out   | IOB14[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[1]       | 33/2       | out   | IOB12[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[2]       | 58/1       | out   | IOR10[J] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[3]       | 20/3       | out   | IOL13[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[4]       | 40/2       | out   | IOB19[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[5]       | 83/0       | out   | IOT24[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[6]       | 84/0       | out   | IOT24[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_a[7]       | 85/0       | out   | IOT20[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[0]    | 81/0       | out   | IOT30[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[1]    | 82/0       | out   | IOT30[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[2]    | 39/2       | out   | IOB19[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[3]    | 41/2       | out   | IOB20[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[4]    | 46/2       | out   | IOB26[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[5]    | 43/2       | out   | IOB24[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[6]    | 50/2       | out   | IOB32[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[7]    | 47/2       | out   | IOB30[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[8]    | 55/2       | out   | IOB34[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[9]    | 57/1       | out   | IOR11[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[10]   | 69/1       | out   | IOR9[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-left_out[11]   | 70/1       | out   | IOR9[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[0]   | 73/1       | out   | IOR3[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[1]   | 77/0       | out   | IOT37[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[2]   | 42/2       | out   | IOB20[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[3]   | 44/2       | out   | IOB24[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[4]   | 45/2       | out   | IOB26[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[5]   | 48/2       | out   | IOB30[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[6]   | 49/2       | out   | IOB32[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[7]   | 53/2       | out   | IOB34[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[8]   | 56/1       | out   | IOR11[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[9]   | 59/1       | out   | IOR10[I] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[10]  | 72/1       | out   | IOR3[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-right_out[11]  | 79/0       | out   | IOT35[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_nint      | 80/0       | out   | IOT35[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-mem_ncs        | 90/0       | out   | IOT16[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[0]      | 22/2       | io    | IOB4[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[1]      | 23/2       | io    | IOB5[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[2]      | 18/3       | io    | IOL11[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[3]      | 19/3       | io    | IOL13[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[4]      | 7/3        | io    | IOL9[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[5]      | 6/3        | io    | IOL9[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[6]      | 28/2       | io    | IOB6[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-slot_d[7]      | 10/3       | io    | IOL10[C] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_nreset    | 41/2       | in    | IOB20[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_nsltsl    | 83/0       | in    | IOT24[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_nmerq     | 84/0       | in    | IOT24[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_nrd       | 82/0       | in    | IOT30[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+slot_nwr       | 85/0       | in    | IOT20[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+sw_mono        | 32/2       | in    | IOB10[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+mem_a[0]       | 47/2       | out   | IOB30[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[1]       | 45/2       | out   | IOB26[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[2]       | 40/2       | out   | IOB19[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[3]       | 39/2       | out   | IOB19[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[4]       | 42/2       | out   | IOB20[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[5]       | 46/2       | out   | IOB26[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[6]       | 44/2       | out   | IOB24[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_a[7]       | 43/2       | out   | IOB24[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[0]    | 96/0       | out   | IOT6[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[1]    | 94/0       | out   | IOT9[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[2]    | 34/2       | out   | IOB12[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[3]    | 36/2       | out   | IOB14[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[4]    | 99/0       | out   | IOT4[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[5]    | 98/0       | out   | IOT4[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[6]    | 7/3        | out   | IOL9[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[7]    | 3/3        | out   | IOL3[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[8]    | 18/3       | out   | IOL11[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[9]    | 19/3       | out   | IOL13[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[10]   | 23/2       | out   | IOB5[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+left_out[11]   | 28/2       | out   | IOB6[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[0]   | 30/2       | out   | IOB8[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[1]   | 29/2       | out   | IOB8[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[2]   | 33/2       | out   | IOB12[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[3]   | 35/2       | out   | IOB14[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[4]   | 97/0       | out   | IOT6[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[5]   | 5/3        | out   | IOL3[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[6]   | 6/3        | out   | IOL9[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[7]   | 10/3       | out   | IOL10[C] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[8]   | 20/3       | out   | IOL13[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[9]   | 22/2       | out   | IOB4[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[10]  | 27/2       | out   | IOB6[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+right_out[11]  | 31/2       | out   | IOB10[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_nint      | 95/0       | out   | IOT9[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+mem_ncs        | 86/0       | out   | IOT20[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[0]      | 70/1       | io    | IOR9[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[1]      | 73/1       | io    | IOR3[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[2]      | 77/0       | io    | IOT37[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[3]      | 78/0       | io    | IOT37[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[4]      | 79/0       | io    | IOT35[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[5]      | 80/0       | io    | IOT35[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[6]      | 72/1       | io    | IOR3[B]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+slot_d[7]      | 81/0       | io    | IOT30[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
 =====================================================================================================================================================
 
 
@@ -189,76 +189,76 @@ slot_d[7]      | 10/3       | io    | IOL10[C] | LVCMOS18   | 8          | UP   
 Loc./Bank| Signal         | Dir.  | Site     | IO Type  | Pull Mode | Hysteresis | DiffResistor | SingleResistor
 --------------------------------------------------------------------------------------------------------------------
 100/0    | UNUSED         | -     | IOT2[B]  | -        | -         | -          | -            | -             
-99/0     | slot_nrd       | in    | IOT4[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-98/0     | slot_a[0]      | in    | IOT4[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-97/0     | slot_a[3]      | in    | IOT6[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-96/0     | slot_a[2]      | in    | IOT6[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-95/0     | slot_a[1]      | in    | IOT9[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-94/0     | slot_a[4]      | in    | IOT9[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-93/0     | slot_a[7]      | in    | IOT14[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-92/0     | slot_a[6]      | in    | IOT14[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
-91/0     | slot_a[5]      | in    | IOT16[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-90/0     | mem_ncs        | out   | IOT16[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-89/0     | slot_nwr       | in    | IOT17[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-86/0     | slot_nreset    | in    | IOT20[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-85/0     | mem_a[7]       | out   | IOT20[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-84/0     | mem_a[6]       | out   | IOT24[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-83/0     | mem_a[5]       | out   | IOT24[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-82/0     | left_out[1]    | out   | IOT30[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-81/0     | left_out[0]    | out   | IOT30[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-80/0     | slot_nint      | out   | IOT35[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-79/0     | right_out[11]  | out   | IOT35[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-78/0     | sw_mono        | in    | IOT37[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-77/0     | right_out[1]   | out   | IOT37[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+99/0     | left_out[4]    | out   | IOT4[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+98/0     | left_out[5]    | out   | IOT4[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+97/0     | right_out[4]   | out   | IOT6[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+96/0     | left_out[0]    | out   | IOT6[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+95/0     | slot_nint      | out   | IOT9[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+94/0     | left_out[1]    | out   | IOT9[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+93/0     | slot_a[0]      | in    | IOT14[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+92/0     | slot_a[2]      | in    | IOT14[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+91/0     | slot_a[1]      | in    | IOT16[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+90/0     | slot_a[4]      | in    | IOT16[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+89/0     | slot_a[3]      | in    | IOT17[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+86/0     | mem_ncs        | out   | IOT20[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+85/0     | slot_nwr       | in    | IOT20[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+84/0     | slot_nmerq     | in    | IOT24[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+83/0     | slot_nsltsl    | in    | IOT24[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+82/0     | slot_nrd       | in    | IOT30[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+81/0     | slot_d[7]      | io    | IOT30[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+80/0     | slot_d[5]      | io    | IOT35[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+79/0     | slot_d[4]      | io    | IOT35[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+78/0     | slot_d[3]      | io    | IOT37[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+77/0     | slot_d[2]      | io    | IOT37[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 --------------------------------------------------------------------------------------------------------------------
-22/2     | slot_d[0]      | io    | IOB4[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-23/2     | slot_d[1]      | io    | IOB5[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-27/2     | slot_a[11]     | in    | IOB6[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-28/2     | slot_d[6]      | io    | IOB6[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-29/2     | slot_a[13]     | in    | IOB8[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-30/2     | slot_a[12]     | in    | IOB8[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-31/2     | slot_a[8]      | in    | IOB10[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-32/2     | slot_a[10]     | in    | IOB10[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
-33/2     | mem_a[1]       | out   | IOB12[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-34/2     | slot_a[9]      | in    | IOB12[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
-35/2     | mem_a[0]       | out   | IOB14[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-36/2     | slot_a[14]     | in    | IOB14[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
-39/2     | left_out[2]    | out   | IOB19[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-40/2     | mem_a[4]       | out   | IOB19[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-41/2     | left_out[3]    | out   | IOB20[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-42/2     | right_out[2]   | out   | IOB20[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-43/2     | left_out[5]    | out   | IOB24[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-44/2     | right_out[3]   | out   | IOB24[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-45/2     | right_out[4]   | out   | IOB26[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-46/2     | left_out[4]    | out   | IOB26[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-47/2     | left_out[7]    | out   | IOB30[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-48/2     | right_out[5]   | out   | IOB30[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-49/2     | right_out[6]   | out   | IOB32[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-50/2     | left_out[6]    | out   | IOB32[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-55/2     | left_out[8]    | out   | IOB34[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-53/2     | right_out[7]   | out   | IOB34[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+22/2     | right_out[9]   | out   | IOB4[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+23/2     | left_out[10]   | out   | IOB5[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+27/2     | right_out[10]  | out   | IOB6[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+28/2     | left_out[11]   | out   | IOB6[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+29/2     | right_out[1]   | out   | IOB8[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+30/2     | right_out[0]   | out   | IOB8[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+31/2     | right_out[11]  | out   | IOB10[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+32/2     | sw_mono        | in    | IOB10[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+33/2     | right_out[2]   | out   | IOB12[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+34/2     | left_out[2]    | out   | IOB12[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+35/2     | right_out[3]   | out   | IOB14[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+36/2     | left_out[3]    | out   | IOB14[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+39/2     | mem_a[3]       | out   | IOB19[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+40/2     | mem_a[2]       | out   | IOB19[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+41/2     | slot_nreset    | in    | IOB20[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+42/2     | mem_a[4]       | out   | IOB20[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+43/2     | mem_a[7]       | out   | IOB24[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+44/2     | mem_a[6]       | out   | IOB24[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+45/2     | mem_a[1]       | out   | IOB26[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+46/2     | mem_a[5]       | out   | IOB26[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+47/2     | mem_a[0]       | out   | IOB30[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+48/2     | slot_a[14]     | in    | IOB30[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+49/2     | slot_a[13]     | in    | IOB32[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+50/2     | slot_a[12]     | in    | IOB32[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
+55/2     | slot_a[6]      | in    | IOB34[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+53/2     | slot_a[11]     | in    | IOB34[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 --------------------------------------------------------------------------------------------------------------------
-3/3      | slot_nmerq     | in    | IOL3[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-5/3      | slot_nsltsl    | in    | IOL3[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-6/3      | slot_d[5]      | io    | IOL9[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
-7/3      | slot_d[4]      | io    | IOL9[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+3/3      | left_out[7]    | out   | IOL3[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+5/3      | right_out[5]   | out   | IOL3[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+6/3      | right_out[6]   | out   | IOL9[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+7/3      | left_out[6]    | out   | IOL9[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
 8/3      | UNUSED         | -     | IOL10[A] | -        | -         | -          | -            | -             
 9/3      | UNUSED         | -     | IOL10[B] | -        | -         | -          | -            | -             
-10/3     | slot_d[7]      | io    | IOL10[C] | LVCMOS18 | UP        | NONE       | NA           | NA            
+10/3     | right_out[7]   | out   | IOL10[C] | LVCMOS18 | UP        | NA         | NA           | NA            
 11/3     | UNUSED         | -     | IOL10[D] | -        | -         | -          | -            | -             
 12/3     | UNUSED         | -     | IOL10[E] | -        | -         | -          | -            | -             
 14/3     | UNUSED         | -     | IOL10[F] | -        | -         | -          | -            | -             
 15/3     | UNUSED         | -     | IOL10[G] | -        | -         | -          | -            | -             
 16/3     | UNUSED         | -     | IOL10[H] | -        | -         | -          | -            | -             
 17/3     | clk            | in    | IOL11[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-18/3     | slot_d[2]      | io    | IOL11[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
-19/3     | slot_d[3]      | io    | IOL13[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
-20/3     | mem_a[3]       | out   | IOL13[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+18/3     | left_out[8]    | out   | IOL11[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+19/3     | left_out[9]    | out   | IOL13[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+20/3     | right_out[8]   | out   | IOL13[B] | LVCMOS18 | UP        | NA         | NA           | NA            
 --------------------------------------------------------------------------------------------------------------------
-73/1     | right_out[0]   | out   | IOR3[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
-72/1     | right_out[10]  | out   | IOR3[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
-70/1     | left_out[11]   | out   | IOR9[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
-69/1     | left_out[10]   | out   | IOR9[B]  | LVCMOS18 | UP        | NA         | NA           | NA            
+73/1     | slot_d[1]      | io    | IOR3[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+72/1     | slot_d[6]      | io    | IOR3[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+70/1     | slot_d[0]      | io    | IOR9[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+69/1     | slot_a[8]      | in    | IOR9[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
 68/1     | UNUSED         | -     | IOR10[A] | -        | -         | -          | -            | -             
 67/1     | UNUSED         | -     | IOR10[B] | -        | -         | -          | -            | -             
 66/1     | UNUSED         | -     | IOR10[C] | -        | -         | -          | -            | -             
@@ -267,10 +267,10 @@ Loc./Bank| Signal         | Dir.  | Site     | IO Type  | Pull Mode | Hysteresis
 62/1     | UNUSED         | -     | IOR10[F] | -        | -         | -          | -            | -             
 61/1     | UNUSED         | -     | IOR10[G] | -        | -         | -          | -            | -             
 60/1     | UNUSED         | -     | IOR10[H] | -        | -         | -          | -            | -             
-59/1     | right_out[9]   | out   | IOR10[I] | LVCMOS18 | UP        | NA         | NA           | NA            
-58/1     | mem_a[2]       | out   | IOR10[J] | LVCMOS18 | UP        | NA         | NA           | NA            
-57/1     | left_out[9]    | out   | IOR11[A] | LVCMOS18 | UP        | NA         | NA           | NA            
-56/1     | right_out[8]   | out   | IOR11[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+59/1     | slot_a[10]     | in    | IOR10[I] | LVCMOS18 | UP        | NONE       | NA           | NA            
+58/1     | slot_a[9]      | in    | IOR10[J] | LVCMOS18 | UP        | NONE       | NA           | NA            
+57/1     | slot_a[5]      | in    | IOR11[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+56/1     | slot_a[7]      | in    | IOR11[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 --------------------------------------------------------------------------------------------------------------------
 ====================================================================================================================
 
@@ -279,4 +279,4 @@ Loc./Bank| Signal         | Dir.  | Site     | IO Type  | Pull Mode | Hysteresis
   Placement and routing completed.
 
 
-10. Memory usage: 155MB.
+10. Memory usage: 140MB.

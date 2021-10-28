@@ -8,10 +8,10 @@ module tb;
 	reg				key_release;			//	pulse
 	reg				key_off;				//	pulse
 	wire	[7:0]	envelope;				//	0...128
-	reg		[11:0]	reg_ar;
-	reg		[11:0]	reg_dr;
-	reg		[11:0]	reg_sr;
-	reg		[11:0]	reg_rr;
+	reg		[7:0]	reg_ar;
+	reg		[7:0]	reg_dr;
+	reg		[7:0]	reg_sr;
+	reg		[7:0]	reg_rr;
 	reg		[6:0]	reg_sl;
 
 	reg		[2:0]	ff_div;

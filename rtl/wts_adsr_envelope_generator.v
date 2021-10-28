@@ -28,10 +28,10 @@ module wts_adsr_envelope_generator (
 	input			key_release,			//	pulse
 	input			key_off,				//	pulse
 	output	[7:0]	envelope,				//	0...128
-	input	[11:0]	reg_ar,
-	input	[11:0]	reg_dr,
-	input	[11:0]	reg_sr,
-	input	[11:0]	reg_rr,
+	input	[7:0]	reg_ar,
+	input	[7:0]	reg_dr,
+	input	[7:0]	reg_sr,
+	input	[7:0]	reg_rr,
 	input	[6:0]	reg_sl
 );
 	reg		[2:0]	ff_state;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
@@ -42,31 +42,31 @@ module wts_adsr_envelope_generator (
 	wire			w_note_end;
 	wire			w_attack_end;
 	wire			w_decay_end;
-	wire	[11:0]	w_rate;
+	wire	[7:0]	w_rate;
 	wire	[7:0]	w_add_value;
 	wire	[7:0]	w_level_next;
 	wire	[7:0]	w_attack;
 
-	function [11:0] func_rate_sel(
+	function [7:0] func_rate_sel(
 		input	[2:0]	state,
-		input	[11:0]	ar,
-		input	[11:0]	dr,
-		input	[11:0]	sr,
-		input	[11:0]	rr
+		input	[7:0]	ar,
+		input	[7:0]	dr,
+		input	[7:0]	sr,
+		input	[7:0]	rr
 	);
 		case( state )
 		3'd1:		func_rate_sel = ar;
 		3'd2:		func_rate_sel = dr;
 		3'd3:		func_rate_sel = sr;
 		3'd4:		func_rate_sel = rr;
-		default:	func_rate_sel = 16'd0;
+		default:	func_rate_sel = 8'd0;
 		endcase
 	endfunction
 
 	assign w_rate			= func_rate_sel( ff_state, reg_ar, reg_dr, reg_sr, reg_rr );
-	assign w_add_value		= ( w_rate != 12'd0 )? 8'b1 : 8'b0;
+	assign w_add_value		= ( w_rate != 8'd0 )? 8'b1 : 8'b0;
 	assign w_level_next		= w_state[0] ? (ff_level + w_add_value) : (ff_level - w_add_value);
-	assign w_attack			= (reg_ar == 16'd0) ? 8'd128 : 8'd0;
+	assign w_attack			= (reg_ar == 8'd0) ? 8'd128 : 8'd0;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -97,7 +97,7 @@ module wts_adsr_envelope_generator (
 		end
 		else if( active ) begin
 			if( key_on || w_counter_end ) begin
-				ff_counter <= { w_rate, 4'b1111 };
+				ff_counter <= { w_rate, 8'b11111111 };
 			end
 			else begin
 				ff_counter <= ff_counter - 16'd1;

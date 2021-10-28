@@ -1,8 +1,10 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 06:53:09 on Oct 21,2021
+# Start time: 09:45:55 on Oct 28,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_channel_volume
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (9) for port 'envelope'. The port definition is at: ../../rtl/wts_channel_volume.v(26).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_volume File: tb.sv Line: 24
 # do run.do
 # ------------------------------------------------------------
 # [             4632720]   1: Data can be written.
@@ -13,5 +15,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(70)
 #    Time: 6960720 ps  Iteration: 1  Instance: /tb
-# End time: 06:53:09 on Oct 21,2021, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
+# End time: 09:45:55 on Oct 28,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
