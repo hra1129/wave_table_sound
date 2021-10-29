@@ -1,13 +1,16 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 09:48:09 on Oct 28,2021
+# Start time: 22:54:20 on Oct 29,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_for_cartridge
 # Loading work.wts_core
 # Loading work.wts_channel_mixer
-# Loading work.wts_channel_part
-# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator_5ch
+# Loading work.wts_selector
 # Loading work.wts_adsr_envelope_generator
+# Loading work.wts_noise_generator_4ch
+# Loading work.wts_noise_generator
+# Loading work.wts_tone_generator_5ch
 # Loading work.wts_tone_generator
 # Loading work.wts_ram
 # Loading work.wts_channel_volume
@@ -18,12 +21,19 @@
 # [             4632720]   1: Check /INT signal.
 # ------------------------------------------------------------
 # [             6960720]   2: Activate WTS registers.
-# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-# $                                   $
-# $        Success of all!!           $
-# $                                   $
-# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# [            63835131] <1> TIMER1 status is 8'h80.
+# [            64952595] <2> TIMER2 status is 8'h80.
+# [            69490800] SLOT_NINT is 0.
+# [            70539915] <3> TIMER1 status is 8'h00.
+# [            71657379] <4> TIMER2 status is 8'h00.
+# [            75009771] <5> TIMER1 status is 8'h80.
+# [            76127235] <6> TIMER2 status is 8'h80.
+#####################################
+#                                   #
+#    Found           7 error(s)
+#                                   #
+#####################################
 # ** Note: $finish    : tb.sv(106)
 #    Time: 78430320 ps  Iteration: 1  Instance: /tb
-# End time: 09:48:10 on Oct 28,2021, Elapsed time: 0:00:01
+# End time: 22:54:21 on Oct 29,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

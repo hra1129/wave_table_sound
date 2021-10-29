@@ -27,7 +27,7 @@ module tb;
 	int				pattern_no = 0;
 	int				error_count = 0;
 	int				last_wave_address;
-	int				i;
+	int				i, j;
 	reg		[7:0]	ff_i;
 
 	// -------------------------------------------------------------
@@ -240,16 +240,20 @@ module tb;
 		write_reg( 'hB000, 128 );
 		write_reg( 'hBFFF, 8'b01000000 );
 
-		for( i = 0; i < (128 * 10); i++ ) begin
-			write_reg( 'hA800 + i, i + 2 );
-			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+		for( i = 0; i < 10; i++ ) begin
+			for( j = 0; j < 128; j++ ) begin
+				write_reg( 'hA000 + i * 256 + j, j );
+				success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+			end
 		end
 
-		for( i = 0; i < (128 * 10); i++ ) begin
-			ff_i <= i + 2;
-			read_reg( 'hA800 + i, read_data );
-			success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
-			success_condition_is( read_data === ff_i, $sformatf( "Read data is %d: %d.", ff_i, read_data ) );
+		for( i = 0; i < 10; i++ ) begin
+			for( j = 0; j < 128; j++ ) begin
+				ff_i <= j;
+				read_reg( 'hA000 + i * 256 + j, read_data );
+				success_condition_is( ff_mem_ncs == 1'b1, "Not activate the external memory access." );
+				success_condition_is( read_data === ff_i, $sformatf( "Read data is %d: %d.", ff_i, read_data ) );
+			end
 		end
 
 		repeat( 50 ) @( posedge clk );

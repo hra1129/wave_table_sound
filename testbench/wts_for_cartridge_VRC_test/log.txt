@@ -1,13 +1,16 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 09:47:54 on Oct 28,2021
+# Start time: 22:53:53 on Oct 29,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_for_cartridge
 # Loading work.wts_core
 # Loading work.wts_channel_mixer
-# Loading work.wts_channel_part
-# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator_5ch
+# Loading work.wts_selector
 # Loading work.wts_adsr_envelope_generator
+# Loading work.wts_noise_generator_4ch
+# Loading work.wts_noise_generator
+# Loading work.wts_tone_generator_5ch
 # Loading work.wts_tone_generator
 # Loading work.wts_ram
 # Loading work.wts_channel_volume
@@ -37,5 +40,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(103)
 #    Time: 9629376240 ps  Iteration: 1  Instance: /tb
-# End time: 09:48:04 on Oct 28,2021, Elapsed time: 0:00:10
+# End time: 22:54:12 on Oct 29,2021, Elapsed time: 0:00:19
 # Errors: 0, Warnings: 0

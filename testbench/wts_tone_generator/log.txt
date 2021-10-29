@@ -1,21 +1,23 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 09:48:36 on Oct 28,2021
+# Start time: 10:52:18 on Oct 29,2021
 # Loading sv_std.std
 # Loading work.tb
+# Loading work.wts_tone_generator_5ch
+# Loading work.wts_selector
 # Loading work.wts_tone_generator
 # do run.do
 # ------------------------------------------------------------
 # [             4632720]   1: The address increments every cycle.
 # ------------------------------------------------------------
-# [            10592400]   2: The address is incremented once every two cycles.
+# [             5657040]   2: The address is incremented once every two cycles.
 # ------------------------------------------------------------
-# [            22325520]   3: The address is incremented once every three cycles.
+# [             7612560]   3: The address is incremented once every three cycles.
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $                                   $
 # $        Success of all!!           $
 # $                                   $
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-# ** Note: $finish    : tb.sv(86)
-#    Time: 41973840 ps  Iteration: 1  Instance: /tb
-# End time: 09:48:36 on Oct 28,2021, Elapsed time: 0:00:00
+# ** Note: $finish    : tb.sv(91)
+#    Time: 12827280 ps  Iteration: 1  Instance: /tb
+# End time: 10:52:19 on Oct 29,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

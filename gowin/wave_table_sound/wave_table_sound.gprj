@@ -19,5 +19,9 @@
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_for_cartridge.v" type="file.verilog" enable="1"/>
         <File path="src/wave_table_sound.sdc" type="file.sdc" enable="1"/>
         <File path="src/wave_table_sound.cst" type="file.cst" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator_4ch.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_selector.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator_5ch.v" type="file.verilog" enable="1"/>
     </FileList>
 </Project>

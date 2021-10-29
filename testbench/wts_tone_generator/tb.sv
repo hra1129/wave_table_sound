@@ -1,15 +1,23 @@
 module tb;
 	localparam		CLK_BASE	= 1000000000/21477;
 
-	reg				nreset;					//	negative logic
+	reg				nreset;
 	reg				clk;
-	wire			active;					//	3.579MHz timing pulse
+	reg		[2:0]	active;
 	reg				address_reset;
 	wire	[6:0]	wave_address;
 	wire			half_timing;
-	reg		[1:0]	reg_wave_length;
-	reg		[11:0]	reg_frequency_count;
-	reg		[2:0]	ff_div;
+	reg		[1:0]	reg_wave_length_a;
+	reg		[1:0]	reg_wave_length_b;
+	reg		[1:0]	reg_wave_length_c;
+	reg		[1:0]	reg_wave_length_d;
+	reg		[1:0]	reg_wave_length_e;
+	reg		[11:0]	reg_frequency_count_a;
+	reg		[11:0]	reg_frequency_count_b;
+	reg		[11:0]	reg_frequency_count_c;
+	reg		[11:0]	reg_frequency_count_d;
+	reg		[11:0]	reg_frequency_count_e;
+
 	int				pattern_no = 0;
 	int				error_count = 0;
 	int				last_wave_address;
@@ -21,29 +29,26 @@ module tb;
 		clk	<= ~clk;
 	end
 
-	always @( posedge clk ) begin
-		if( active ) begin
-			ff_div <= 3'd5;
-		end
-		else begin
-			ff_div <= ff_div - 3'd1;
-		end
-	end
-
-	assign active = (ff_div == 3'd0) ? 1'b1 : 1'b0;
-
 	// -------------------------------------------------------------
 	//	DUT
 	// -------------------------------------------------------------
-	wts_tone_generator u_wts_tone_generator (
-		.nreset					( nreset				),
-		.clk					( clk					),
-		.active					( active				),
-		.address_reset			( address_reset			),
-		.wave_address			( wave_address			),
-		.half_timing			( half_timing			),
-		.reg_wave_length		( reg_wave_length		),
-		.reg_frequency_count	( reg_frequency_count	)
+	wts_tone_generator_5ch u_tone_generator_5ch (
+		.nreset						( nreset					),
+		.clk						( clk						),
+		.active						( active					),
+		.address_reset				( address_reset				),
+		.wave_address				( wave_address				),
+		.half_timing				( half_timing				),
+		.reg_wave_length_a			( reg_wave_length_a			),
+		.reg_wave_length_b			( reg_wave_length_b			),
+		.reg_wave_length_c			( reg_wave_length_c			),
+		.reg_wave_length_d			( reg_wave_length_d			),
+		.reg_wave_length_e			( reg_wave_length_e			),
+		.reg_frequency_count_a		( reg_frequency_count_a		),
+		.reg_frequency_count_b		( reg_frequency_count_b		),
+		.reg_frequency_count_c		( reg_frequency_count_c		),
+		.reg_frequency_count_d		( reg_frequency_count_d		),
+		.reg_frequency_count_e		( reg_frequency_count_e		)
 	);
 
 	// -------------------------------------------------------------
@@ -93,11 +98,19 @@ module tb;
 
 		//	initialization
 		clk							= 0;
-		ff_div						= 0;
 		nreset						= 0;
+		active						= 0;
 		address_reset				= 0;
-		reg_wave_length				= 0;
-		reg_frequency_count			= 0;
+		reg_wave_length_a			= 0;
+		reg_wave_length_b			= 0;
+		reg_wave_length_c			= 0;
+		reg_wave_length_d			= 0;
+		reg_wave_length_e			= 0;
+		reg_frequency_count_a		= 0;
+		reg_frequency_count_b		= 0;
+		reg_frequency_count_c		= 0;
+		reg_frequency_count_d		= 0;
+		reg_frequency_count_e		= 0;
 		repeat( 50 ) @( negedge clk );
 
 		nreset				= 1;
@@ -105,53 +118,59 @@ module tb;
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 1, "The address increments every cycle." );
-		reg_frequency_count = 0;
+		reg_frequency_count_a = 0;
 		last_wave_address = 0;
-		@( posedge active );
+		@( posedge clk );
 		address_reset <= 1;
-		@( posedge active );
+		@( posedge clk );
 		address_reset <= 0;
 		repeat( 20 ) begin
+			@( negedge clk );
 			success_condition_is( wave_address == last_wave_address, "The address will be incremented." );
 			last_wave_address <= (wave_address + 1) & 31;
-			@( posedge active );
+			@( posedge clk );
 		end
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 2, "The address is incremented once every two cycles." );
-		reg_frequency_count = 1;
+		reg_frequency_count_a = 1;
 		last_wave_address = 0;
-		@( posedge active );
+		@( posedge clk );
 		address_reset <= 1;
-		@( posedge active );
+		@( posedge clk );
 		address_reset <= 0;
 		repeat( 20 ) begin
+			@( negedge clk );
 			success_condition_is( wave_address == last_wave_address, "The address does not change." );
 			last_wave_address <= wave_address;
-			@( posedge active );
+			@( posedge clk );
+			@( negedge clk );
 			success_condition_is( wave_address == last_wave_address, "The address will be incremented." );
 			last_wave_address <= (wave_address + 1) & 31;
-			@( posedge active );
+			@( posedge clk );
 		end
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 3, "The address is incremented once every three cycles." );
-		reg_frequency_count = 2;
+		reg_frequency_count_a = 2;
 		last_wave_address = 0;
-		@( posedge active );
+		@( posedge clk );
 		address_reset <= 1;
-		@( posedge active );
+		@( posedge clk );
 		address_reset <= 0;
 		repeat( 20 ) begin
+			@( negedge clk );
 			success_condition_is( wave_address == last_wave_address, "The address does not change." );
 			last_wave_address <= wave_address;
-			@( posedge active );
+			@( posedge clk );
+			@( negedge clk );
 			success_condition_is( wave_address == last_wave_address, "The address does not change." );
 			last_wave_address <= wave_address;
-			@( posedge active );
+			@( posedge clk );
+			@( negedge clk );
 			success_condition_is( wave_address == last_wave_address, "The address will be incremented." );
 			last_wave_address <= (wave_address + 1) & 31;
-			@( posedge active );
+			@( posedge clk );
 		end
 
 		repeat( 50 ) @( posedge clk );

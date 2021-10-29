@@ -15,6 +15,10 @@
         <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_tone_generator.v"/>
         <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_virtual_rom_controller.v"/>
         <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_for_cartridge.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_adsr_envelope_generator_5ch.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_noise_generator_4ch.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_selector.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_tone_generator_5ch.v"/>
     </FileList>
     <OptionList>
         <Option type="top_module"  value="wts_for_cartridge"/>

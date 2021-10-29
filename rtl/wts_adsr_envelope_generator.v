@@ -21,29 +21,29 @@
 // ------------------------------------------------------------------------------------------------
 
 module wts_adsr_envelope_generator (
-	input			nreset,					//	negative logic
-	input			clk,
-	input			active,					//	3.579MHz timing pulse
 	input			key_on,					//	pulse
 	input			key_release,			//	pulse
 	input			key_off,				//	pulse
-	output	[7:0]	envelope,				//	0...128
 	input	[7:0]	reg_ar,
 	input	[7:0]	reg_dr,
 	input	[7:0]	reg_sr,
 	input	[7:0]	reg_rr,
-	input	[6:0]	reg_sl
+	input	[6:0]	reg_sl,
+	input	[15:0]	counter_in,
+	output	[15:0]	counter_out,
+	input	[2:0]	state_in,
+	output	[2:0]	state_out,
+	input	[7:0]	level_in,
+	output	[7:0]	level_out				//	0...128
 );
-	reg		[2:0]	ff_state;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
-	reg		[15:0]	ff_counter;
-	reg		[7:0]	ff_level;
 	wire	[3:0]	w_state;
 	wire			w_counter_end;
 	wire			w_note_end;
 	wire			w_attack_end;
 	wire			w_decay_end;
 	wire	[7:0]	w_rate;
-	wire	[7:0]	w_add_value;
+	wire			w_add_value;
+	wire	[7:0]	w_add_value_ext;
 	wire	[7:0]	w_level_next;
 	wire	[7:0]	w_attack;
 
@@ -63,55 +63,16 @@ module wts_adsr_envelope_generator (
 		endcase
 	endfunction
 
-	assign w_rate			= func_rate_sel( ff_state, reg_ar, reg_dr, reg_sr, reg_rr );
-	assign w_add_value		= ( w_rate != 8'd0 )? 8'b1 : 8'b0;
-	assign w_level_next		= w_state[0] ? (ff_level + w_add_value) : (ff_level - w_add_value);
+	assign w_rate			= func_rate_sel( state_in, reg_ar, reg_dr, reg_sr, reg_rr );
+	assign w_add_value		= ( w_rate != 8'd0 )? 1'b1 : 1'b0;
+	assign w_add_value_ext	= w_state[0] ? { 7'd0, w_add_value } : { 8 { w_add_value } };
+	assign w_level_next		= level_in + w_add_value_ext;
 	assign w_attack			= (reg_ar == 8'd0) ? 8'd128 : 8'd0;
 
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_level <= 8'd0;
-		end
-		else if( active ) begin
-			if( key_off ) begin
-				ff_level <= 8'd0;
-			end
-			else if( key_on ) begin
-				ff_level <= w_attack;
-			end
-			else if( w_counter_end ) begin
-				ff_level <= w_level_next[7:0];
-			end
-			else begin
-				//	hold
-			end
-		end
-		else begin
-			//	hold
-		end
-	end
-
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_counter <= 16'd0;
-		end
-		else if( active ) begin
-			if( key_on || w_counter_end ) begin
-				ff_counter <= { w_rate, 8'b11111111 };
-			end
-			else begin
-				ff_counter <= ff_counter - 16'd1;
-			end
-		end
-		else begin
-			//	hold
-		end
-	end
-
-	assign w_counter_end	= (ff_counter == 16'd0        ) ? 1'b1 : 1'b0;
-	assign w_note_end		=((ff_level == 9'd0           ) ? ~w_state[0] : 1'b0) | key_off;
-	assign w_attack_end		= (ff_level == 9'd256         ) ?  w_state[0] : 1'b0;
-	assign w_decay_end		= (ff_level == {1'b0, reg_sl} ) ?  w_state[1] : 1'b0;
+	assign w_counter_end	= (counter_in == 16'd0        ) ? 1'b1 : 1'b0;
+	assign w_note_end		=((level_in == 8'd0           ) ? ~w_state[0] : 1'b0) | key_off;
+	assign w_attack_end		= (level_in == 8'd128         ) ?  w_state[0] : 1'b0;
+	assign w_decay_end		= (level_in == {1'b0, reg_sl} ) ?  w_state[1] : 1'b0;
 
 	function [3:0] func_one_hot_decoder(
 		input	[2:0]	state
@@ -125,33 +86,59 @@ module wts_adsr_envelope_generator (
 		endcase
 	endfunction
 
-	assign w_state			= func_one_hot_decoder( ff_state );
+	assign w_state			= func_one_hot_decoder( state_in );
 
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_state <= 3'd0;
+	function [2:0] func_state(
+		input	[2:0]	state_in,
+		input			key_on,
+		input			key_release,
+		input			note_end,
+		input			attack_end,
+		input			decay_end
+	);
+		if( key_on ) begin
+			func_state = 3'd1;
 		end
-		else if( active ) begin
-			if( key_on ) begin
-				ff_state <= 3'd1;
-			end
-			else if( w_note_end ) begin
-				ff_state <= 3'd0;
-			end
-			else if( key_release ) begin
-				ff_state <= 3'd4;
-			end
-			else if( w_attack_end ) begin
-				ff_state <= 3'd2;
-			end
-			else if( w_decay_end ) begin
-				ff_state <= 3'd3;
-			end
-			else begin
-				//	hold
-			end
+		else if( note_end ) begin
+			func_state = 3'd0;
 		end
-	end
+		else if( key_release ) begin
+			func_state = 3'd4;
+		end
+		else if( attack_end ) begin
+			func_state = 3'd2;
+		end
+		else if( decay_end ) begin
+			func_state = 3'd3;
+		end
+		else begin
+			func_state = state_in;
+		end
+	endfunction
 
-	assign envelope			= ff_level;
+	function [7:0] func_level(
+		input	[7:0]	level_in,
+		input			key_on,
+		input			key_off,
+		input			counter_end,
+		input	[7:0]	attack,
+		input	[7:0]	level_next
+	);
+		if( key_off ) begin
+			func_level = 8'd0;
+		end
+		else if( key_on ) begin
+			func_level = attack;
+		end
+		else if( counter_end ) begin
+			func_level = level_next;
+		end
+		else begin
+			func_level = level_in;
+		end
+	endfunction
+
+	assign state_out	= func_state( state_in, key_on, key_release, w_note_end, w_attack_end, w_decay_end );
+	assign level_out	= func_level( level_in, key_on, key_off, w_counter_end, w_attack, w_level_next[7:0] );
+	assign counter_out	= (key_on || w_counter_end) ? { w_rate, 8'b11111111 } : (counter_in - 16'd1);
 endmodule

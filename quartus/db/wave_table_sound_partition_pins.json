@@ -4,10 +4,6 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "slot_nint",
-					"strict" : false
-				},
-				{
 					"name" : "mem_ncs",
 					"strict" : false
 				},
@@ -196,6 +192,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "slot_a[6]",
+					"strict" : false
+				},
+				{
 					"name" : "slot_a[4]",
 					"strict" : false
 				},
@@ -204,11 +204,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[6]",
+					"name" : "slot_a[3]",
 					"strict" : false
 				},
 				{
 					"name" : "slot_a[7]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[8]",
 					"strict" : false
 				},
 				{
@@ -225,14 +229,6 @@
 				},
 				{
 					"name" : "slot_a[2]",
-					"strict" : false
-				},
-				{
-					"name" : "slot_a[8]",
-					"strict" : false
-				},
-				{
-					"name" : "slot_a[3]",
 					"strict" : false
 				},
 				{

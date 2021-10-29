@@ -1,25 +1,113 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 09:45:42 on Oct 28,2021
+# Start time: 21:42:30 on Oct 29,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_channel_mixer
-# Loading work.wts_channel_part
-# Loading work.wts_noise_generator
+# Loading work.wts_adsr_envelope_generator_5ch
+# Loading work.wts_selector
 # Loading work.wts_adsr_envelope_generator
+# Loading work.wts_noise_generator_4ch
+# Loading work.wts_noise_generator
+# Loading work.wts_tone_generator_5ch
 # Loading work.wts_tone_generator
 # Loading work.wts_ram
 # Loading work.wts_channel_volume
-# do run.do
-# ------------------------------------------------------------
-# [             4632720]   1: Initialize wave memory.
-# ------------------------------------------------------------
-# [           115073040]   2: Sound Ch.A.
-# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-# $                                   $
-# $        Success of all!!           $
-# $                                   $
-# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-# ** Note: $finish    : tb.sv(396)
-#    Time: 3654750480 ps  Iteration: 1  Instance: /tb
-# End time: 09:45:47 on Oct 28,2021, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 0
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'u_channel_mixer'.  Expected 161, found 157.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_a0' not found in the connected module (52nd connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_b0' not found in the connected module (63rd connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_c0' not found in the connected module (74th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_d0' not found in the connected module (85th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_e0' not found in the connected module (96th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_a1' not found in the connected module (107th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_b1' not found in the connected module (118th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_c1' not found in the connected module (129th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_d1' not found in the connected module (140th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Error: (vsim-3063) Port 'reg_noise_frequency_e1' not found in the connected module (151st connection).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (7) for port 'timer1_address'. The port definition is at: ../../rtl/wts_channel_mixer.v(205).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Warning: (vsim-3015) [PCDPC] - Port size (2) does not match connection size (7) for port 'timer2_address'. The port definition is at: ../../rtl/wts_channel_mixer.v(208).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer File: tb.sv Line: 199
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_a0'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_b0'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_c0'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_d0'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_e0'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_a1'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_b1'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_c1'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_d1'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_sel_e1'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_frequency0'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_frequency1'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_frequency2'.
+# ** Warning: (vsim-3722) tb.sv(199): [TFMPC] - Missing connection for port 'reg_noise_frequency3'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (1) for port 'result'. The port definition is at: ../../rtl/wts_selector.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_sl_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 169
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'result'. The port definition is at: ../../rtl/wts_selector.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_a'. The port definition is at: ../../rtl/wts_selector.v(28).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_b'. The port definition is at: ../../rtl/wts_selector.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_c'. The port definition is at: ../../rtl/wts_selector.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_d'. The port definition is at: ../../rtl/wts_selector.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_e'. The port definition is at: ../../rtl/wts_selector.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (1) for port 'reg_sl'. The port definition is at: ../../rtl/wts_adsr_envelope_generator.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_adsr_envelope_generator File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 239
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'state_in'. The port definition is at: ../../rtl/wts_adsr_envelope_generator.v(34).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_adsr_envelope_generator File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 239
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'state_out'. The port definition is at: ../../rtl/wts_adsr_envelope_generator.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_0/u_adsr_envelope_generator File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 239
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (1) for port 'result'. The port definition is at: ../../rtl/wts_selector.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_sl_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 169
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'result'. The port definition is at: ../../rtl/wts_selector.v(27).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_a'. The port definition is at: ../../rtl/wts_selector.v(28).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_b'. The port definition is at: ../../rtl/wts_selector.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_c'. The port definition is at: ../../rtl/wts_selector.v(30).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_d'. The port definition is at: ../../rtl/wts_selector.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (8) for port 'reg_e'. The port definition is at: ../../rtl/wts_selector.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_level_selector File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 229
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (1) for port 'reg_sl'. The port definition is at: ../../rtl/wts_adsr_envelope_generator.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_adsr_envelope_generator File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 239
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'state_in'. The port definition is at: ../../rtl/wts_adsr_envelope_generator.v(34).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_adsr_envelope_generator File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 239
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'state_out'. The port definition is at: ../../rtl/wts_adsr_envelope_generator.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_adsr_envelope_generator_5ch_1/u_adsr_envelope_generator File: ../../rtl/wts_adsr_envelope_generator_5ch.v Line: 239
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'reg_noise_frequency_count0'. The port definition is at: ../../rtl/wts_noise_generator_4ch.v(54).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_wts_noise_generator_4ch File: ../../rtl/wts_channel_mixer.v Line: 584
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'reg_noise_frequency_count1'. The port definition is at: ../../rtl/wts_noise_generator_4ch.v(55).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_wts_noise_generator_4ch File: ../../rtl/wts_channel_mixer.v Line: 584
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'reg_noise_frequency_count2'. The port definition is at: ../../rtl/wts_noise_generator_4ch.v(56).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_wts_noise_generator_4ch File: ../../rtl/wts_channel_mixer.v Line: 584
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'reg_noise_frequency_count3'. The port definition is at: ../../rtl/wts_noise_generator_4ch.v(57).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_wts_noise_generator_4ch File: ../../rtl/wts_channel_mixer.v Line: 584
+# ** Error: (vsim-3043) Unresolved reference to 'func_noise_sel'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_wts_noise_generator_4ch File: ../../rtl/wts_noise_generator_4ch.v Line: 165
+# ** Error: (vsim-3043) Unresolved reference to 'func_noise_sel'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_wts_noise_generator_4ch File: ../../rtl/wts_noise_generator_4ch.v Line: 165
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (1) for port 'active'. The port definition is at: ../../rtl/wts_tone_generator_5ch.v(26).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_tone_generator_5ch_0 File: ../../rtl/wts_channel_mixer.v Line: 616
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (1) for port 'active'. The port definition is at: ../../rtl/wts_tone_generator_5ch.v(26).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_channel_mixer/u_tone_generator_5ch_1 File: ../../rtl/wts_channel_mixer.v Line: 635
+# Error loading design
+# End time: 21:42:30 on Oct 29,2021, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 43

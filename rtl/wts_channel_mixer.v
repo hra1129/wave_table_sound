@@ -85,7 +85,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_a0,
 	input	[1:0]	reg_wave_length_a0,
 	input	[11:0]	reg_frequency_count_a0,
-	input	[4:0]	reg_noise_frequency_a0,
+	input	[1:0]	reg_noise_sel_a0,
 
 	input	[3:0]	reg_volume_b0,
 	input	[1:0]	reg_enable_b0,
@@ -97,7 +97,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_b0,
 	input	[1:0]	reg_wave_length_b0,
 	input	[11:0]	reg_frequency_count_b0,
-	input	[4:0]	reg_noise_frequency_b0,
+	input	[1:0]	reg_noise_sel_b0,
 
 	input	[3:0]	reg_volume_c0,
 	input	[1:0]	reg_enable_c0,
@@ -109,7 +109,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_c0,
 	input	[1:0]	reg_wave_length_c0,
 	input	[11:0]	reg_frequency_count_c0,
-	input	[4:0]	reg_noise_frequency_c0,
+	input	[1:0]	reg_noise_sel_c0,
 
 	input	[3:0]	reg_volume_d0,
 	input	[1:0]	reg_enable_d0,
@@ -121,7 +121,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_d0,
 	input	[1:0]	reg_wave_length_d0,
 	input	[11:0]	reg_frequency_count_d0,
-	input	[4:0]	reg_noise_frequency_d0,
+	input	[1:0]	reg_noise_sel_d0,
 
 	input	[3:0]	reg_volume_e0,
 	input	[1:0]	reg_enable_e0,
@@ -133,7 +133,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_e0,
 	input	[1:0]	reg_wave_length_e0,
 	input	[11:0]	reg_frequency_count_e0,
-	input	[4:0]	reg_noise_frequency_e0,
+	input	[1:0]	reg_noise_sel_e0,
 
 	input	[3:0]	reg_volume_a1,
 	input	[1:0]	reg_enable_a1,
@@ -145,7 +145,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_a1,
 	input	[1:0]	reg_wave_length_a1,
 	input	[11:0]	reg_frequency_count_a1,
-	input	[4:0]	reg_noise_frequency_a1,
+	input	[1:0]	reg_noise_sel_a1,
 
 	input	[3:0]	reg_volume_b1,
 	input	[1:0]	reg_enable_b1,
@@ -157,7 +157,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_b1,
 	input	[1:0]	reg_wave_length_b1,
 	input	[11:0]	reg_frequency_count_b1,
-	input	[4:0]	reg_noise_frequency_b1,
+	input	[1:0]	reg_noise_sel_b1,
 
 	input	[3:0]	reg_volume_c1,
 	input	[1:0]	reg_enable_c1,
@@ -169,7 +169,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_c1,
 	input	[1:0]	reg_wave_length_c1,
 	input	[11:0]	reg_frequency_count_c1,
-	input	[4:0]	reg_noise_frequency_c1,
+	input	[1:0]	reg_noise_sel_c1,
 
 	input	[3:0]	reg_volume_d1,
 	input	[1:0]	reg_enable_d1,
@@ -181,7 +181,7 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_d1,
 	input	[1:0]	reg_wave_length_d1,
 	input	[11:0]	reg_frequency_count_d1,
-	input	[4:0]	reg_noise_frequency_d1,
+	input	[1:0]	reg_noise_sel_d1,
 
 	input	[3:0]	reg_volume_e1,
 	input	[1:0]	reg_enable_e1,
@@ -193,17 +193,22 @@ module wts_channel_mixer (
 	input	[6:0]	reg_sl_e1,
 	input	[1:0]	reg_wave_length_e1,
 	input	[11:0]	reg_frequency_count_e1,
-	input	[4:0]	reg_noise_frequency_e1,
+	input	[1:0]	reg_noise_sel_e1,
+
+	input	[4:0]	reg_noise_frequency0,
+	input	[4:0]	reg_noise_frequency1,
+	input	[4:0]	reg_noise_frequency2,
+	input	[4:0]	reg_noise_frequency3,
 
 	input	[3:0]	reg_timer1_channel,
 	output			timer1_trigger,
-	output	[6:0]	timer1_address,
+	output	[1:0]	timer1_address,
 	input	[3:0]	reg_timer2_channel,
 	output			timer2_trigger,
-	output	[6:0]	timer2_address
+	output	[1:0]	timer2_address
 );
 
-	reg		[5:0]	ff_active;
+	reg		[2:0]	ff_active;
 	wire	[6:0]	w_sram_a_a0;
 	wire	[6:0]	w_sram_a_b0;
 	wire	[6:0]	w_sram_a_c0;
@@ -225,16 +230,6 @@ module wts_channel_mixer (
 	wire	[7:0]	w_channel0;
 	wire	[7:0]	w_envelope0;
 	wire	[7:0]	w_envelope1;
-	wire	[7:0]	w_envelope_a0;
-	wire	[7:0]	w_envelope_b0;
-	wire	[7:0]	w_envelope_c0;
-	wire	[7:0]	w_envelope_d0;
-	wire	[7:0]	w_envelope_e0;
-	wire	[7:0]	w_envelope_a1;
-	wire	[7:0]	w_envelope_b1;
-	wire	[7:0]	w_envelope_c1;
-	wire	[7:0]	w_envelope_d1;
-	wire	[7:0]	w_envelope_e1;
 	wire	[7:0]	w_left_channel0;
 	wire	[7:0]	w_right_channel0;
 	wire	[7:0]	w_channel1;
@@ -271,6 +266,8 @@ module wts_channel_mixer (
 	wire	[1:0]	w_wave_length1;
 	wire	[1:0]	w_wave_length2;
 
+	wire	[6:0]	w_wave_address0;
+	wire	[6:0]	w_wave_address1;
 	wire			w_sram_we0;
 	wire			w_sram_we1;
 
@@ -302,32 +299,31 @@ module wts_channel_mixer (
 		endcase
 	endfunction
 
-	function [6:0] func_address_sel (
+	function [1:0] func_address_sel (
 		input	[3:0]	reg_timer_sel,
-		input	[2:0]	address_mask,
-		input	[6:0]	half_address_a0,
-		input	[6:0]	half_address_b0,
-		input	[6:0]	half_address_c0,
-		input	[6:0]	half_address_d0,
-		input	[6:0]	half_address_e0,
-		input	[6:0]	half_address_a1,
-		input	[6:0]	half_address_b1,
-		input	[6:0]	half_address_c1,
-		input	[6:0]	half_address_d1,
-		input	[6:0]	half_address_e1
+		input	[1:0]	half_address_a0,
+		input	[1:0]	half_address_b0,
+		input	[1:0]	half_address_c0,
+		input	[1:0]	half_address_d0,
+		input	[1:0]	half_address_e0,
+		input	[1:0]	half_address_a1,
+		input	[1:0]	half_address_b1,
+		input	[1:0]	half_address_c1,
+		input	[1:0]	half_address_d1,
+		input	[1:0]	half_address_e1
 	);
 		case( reg_timer_sel )
-		4'd0:		func_address_sel = { half_address_a0[6:4] & address_mask, 4'd0 };
-		4'd1:		func_address_sel = { half_address_b0[6:4] & address_mask, 4'd0 };
-		4'd2:		func_address_sel = { half_address_c0[6:4] & address_mask, 4'd0 };
-		4'd3:		func_address_sel = { half_address_d0[6:4] & address_mask, 4'd0 };
-		4'd4:		func_address_sel = { half_address_e0[6:4] & address_mask, 4'd0 };
-		4'd5:		func_address_sel = { half_address_a1[6:4] & address_mask, 4'd0 };
-		4'd6:		func_address_sel = { half_address_b1[6:4] & address_mask, 4'd0 };
-		4'd7:		func_address_sel = { half_address_c1[6:4] & address_mask, 4'd0 };
-		4'd8:		func_address_sel = { half_address_d1[6:4] & address_mask, 4'd0 };
-		4'd9:		func_address_sel = { half_address_e1[6:4] & address_mask, 4'd0 };
-		default:	func_address_sel = 7'b0;
+		4'd0:		func_address_sel = half_address_a0;
+		4'd1:		func_address_sel = half_address_b0;
+		4'd2:		func_address_sel = half_address_c0;
+		4'd3:		func_address_sel = half_address_d0;
+		4'd4:		func_address_sel = half_address_e0;
+		4'd5:		func_address_sel = half_address_a1;
+		4'd6:		func_address_sel = half_address_b1;
+		4'd7:		func_address_sel = half_address_c1;
+		4'd8:		func_address_sel = half_address_d1;
+		4'd9:		func_address_sel = half_address_e1;
+		default:	func_address_sel = 3'b0;
 		endcase
 	endfunction
 
@@ -364,18 +360,18 @@ module wts_channel_mixer (
 	// ------------------------------------------------------------------------
 	assign w_wave_length1	= func_wave_length_sel( reg_timer1_channel, reg_wave_length_a0, reg_wave_length_b0, reg_wave_length_c0, reg_wave_length_d0, reg_wave_length_e0, reg_wave_length_a1, reg_wave_length_b1, reg_wave_length_c1, reg_wave_length_d1, reg_wave_length_e1 );
 	assign timer1_trigger	= func_trigger_sel( reg_timer1_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1 );
-	assign timer1_address	= func_address_sel( reg_timer1_channel, w_address_mask1, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1 );
-	assign w_address_mask1	= ( w_wave_length1 == 2'b00 ) ? 3'b111 :
-							  ( w_wave_length1 == 2'b01 ) ? 3'b110 : 3'b100;
+	assign timer1_address	= w_address_mask1 & func_address_sel( reg_timer1_channel, w_sram_a_a0[6:5], w_sram_a_b0[6:5], w_sram_a_c0[6:5], w_sram_a_d0[6:5], w_sram_a_e0[6:5], w_sram_a_a1[6:5], w_sram_a_b1[6:5], w_sram_a_c1[6:5], w_sram_a_d1[6:5], w_sram_a_e1[6:5] );
+	assign w_address_mask1	= ( w_wave_length1 == 2'b00 ) ? 2'b00 :
+							  ( w_wave_length1 == 2'b01 ) ? 2'b01 : 2'b11;
 
 	// ------------------------------------------------------------------------
 	//	TIMER2
 	// ------------------------------------------------------------------------
 	assign w_wave_length2	= func_wave_length_sel( reg_timer2_channel, reg_wave_length_a0, reg_wave_length_b0, reg_wave_length_c0, reg_wave_length_d0, reg_wave_length_e0, reg_wave_length_a1, reg_wave_length_b1, reg_wave_length_c1, reg_wave_length_d1, reg_wave_length_e1 );
 	assign timer2_trigger	= func_trigger_sel( reg_timer2_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1 );
-	assign timer2_address	= func_address_sel( reg_timer2_channel, w_address_mask2, w_sram_a_a0, w_sram_a_b0, w_sram_a_c0, w_sram_a_d0, w_sram_a_e0, w_sram_a_a1, w_sram_a_b1, w_sram_a_c1, w_sram_a_d1, w_sram_a_e1 );
-	assign w_address_mask2	= ( w_wave_length2 == 2'b00 ) ? 3'b111 :
-							  ( w_wave_length2 == 2'b01 ) ? 3'b110 : 3'b100;
+	assign timer2_address	= w_address_mask2 & func_address_sel( reg_timer2_channel, w_sram_a_a0[6:5], w_sram_a_b0[6:5], w_sram_a_c0[6:5], w_sram_a_d0[6:5], w_sram_a_e0[6:5], w_sram_a_a1[6:5], w_sram_a_b1[6:5], w_sram_a_c1[6:5], w_sram_a_d1[6:5], w_sram_a_e1[6:5] );
+	assign w_address_mask2	= ( w_wave_length2 == 2'b00 ) ? 2'b00 :
+							  ( w_wave_length2 == 2'b01 ) ? 2'b01 : 2'b11;
 
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE
@@ -443,9 +439,7 @@ module wts_channel_mixer (
 		end
 	end
 
-	assign w_sram_done	= (ff_sram_we | ff_sram_oe) & (
-	                      ( ff_sram_id[0] & (ff_active[1] | ff_active[3] | ff_active[5])) |
-	                      (~ff_sram_id[0] & (ff_active[0] | ff_active[2] | ff_active[4])) );
+	assign w_sram_done	= (ff_active == 3'd5) ? 1'b1 : 1'b0;
 	assign sram_q_en	= ff_sram_q_en;
 	assign sram_q		= ( ff_sram_id[3] ) ? w_sram_q1 : w_sram_q0;
 
@@ -466,307 +460,242 @@ module wts_channel_mixer (
 	// ------------------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_active <= 6'b000001;
+			ff_active <= 3'd0;
 		end
 		else begin
-			ff_active <= { ff_active[4:0], ff_active[5] };
+			ff_active <= ff_active + 3'd1;
 		end
 	end
 
-	wts_channel_part u_ch_a0 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[0]				),
-		.address_reset				( ch_a0_key_on				),
-		.key_on						( ch_a0_key_on				),
-		.key_release				( ch_a0_key_release			),
-		.key_off					( ch_a0_key_off				),
-		.envelope					( w_envelope_a0				),
-		.sram_a						( w_sram_a_a0				),
-		.half_timing				( w_half_timing_a0			),
-		.reg_noise_enable			( reg_noise_enable_a0		),
-		.reg_ar						( reg_ar_a0					),
-		.reg_dr						( reg_dr_a0					),
-		.reg_sr						( reg_sr_a0					),
-		.reg_rr						( reg_rr_a0					),
-		.reg_sl						( reg_sl_a0					),
-		.reg_wave_length			( reg_wave_length_a0		),
-		.reg_frequency_count		( reg_frequency_count_a0	),
-		.reg_noise_frequency_count	( reg_noise_frequency_a0	)
+	wts_adsr_envelope_generator_5ch u_adsr_envelope_generator_5ch_0 (
+		.nreset						( nreset						),
+		.clk						( clk							),
+		.active						( ff_active						),
+		.envelope					( w_envelope0					),
+		.ch_a_key_on				( ch_a0_key_on					),
+		.ch_a_key_release			( ch_a0_key_release				),
+		.ch_a_key_off				( ch_a0_key_off					),
+		.ch_b_key_on				( ch_b0_key_on					),
+		.ch_b_key_release			( ch_b0_key_release				),
+		.ch_b_key_off				( ch_b0_key_off					),
+		.ch_c_key_on				( ch_c0_key_on					),
+		.ch_c_key_release			( ch_c0_key_release				),
+		.ch_c_key_off				( ch_c0_key_off					),
+		.ch_d_key_on				( ch_d0_key_on					),
+		.ch_d_key_release			( ch_d0_key_release				),
+		.ch_d_key_off				( ch_d0_key_off					),
+		.ch_e_key_on				( ch_e0_key_on					),
+		.ch_e_key_release			( ch_e0_key_release				),
+		.ch_e_key_off				( ch_e0_key_off					),
+		.reg_ar_a					( reg_ar_a0						),
+		.reg_dr_a					( reg_dr_a0						),
+		.reg_sr_a					( reg_sr_a0						),
+		.reg_rr_a					( reg_rr_a0						),
+		.reg_sl_a					( reg_sl_a0						),
+		.reg_wave_length_a			( reg_wave_length_a0			),
+		.reg_frequency_count_a		( reg_frequency_count_a0		),
+		.reg_ar_b					( reg_ar_b0						),
+		.reg_dr_b					( reg_dr_b0						),
+		.reg_sr_b					( reg_sr_b0						),
+		.reg_rr_b					( reg_rr_b0						),
+		.reg_sl_b					( reg_sl_b0						),
+		.reg_wave_length_b			( reg_wave_length_b0			),
+		.reg_frequency_count_b		( reg_frequency_count_b0		),
+		.reg_ar_c					( reg_ar_c0						),
+		.reg_dr_c					( reg_dr_c0						),
+		.reg_sr_c					( reg_sr_c0						),
+		.reg_rr_c					( reg_rr_c0						),
+		.reg_sl_c					( reg_sl_c0						),
+		.reg_wave_length_c			( reg_wave_length_c0			),
+		.reg_frequency_count_c		( reg_frequency_count_c0		),
+		.reg_ar_d					( reg_ar_d0						),
+		.reg_dr_d					( reg_dr_d0						),
+		.reg_sr_d					( reg_sr_d0						),
+		.reg_rr_d					( reg_rr_d0						),
+		.reg_sl_d					( reg_sl_d0						),
+		.reg_wave_length_d			( reg_wave_length_d0			),
+		.reg_frequency_count_d		( reg_frequency_count_d0		),
+		.reg_ar_e					( reg_ar_e0						),
+		.reg_dr_e					( reg_dr_e0						),
+		.reg_sr_e					( reg_sr_e0						),
+		.reg_rr_e					( reg_rr_e0						),
+		.reg_sl_e					( reg_sl_e0						),
+		.reg_wave_length_e			( reg_wave_length_e0			),
+		.reg_frequency_count_e		( reg_frequency_count_e0		)
 	);
 
-	wts_channel_part u_ch_b0 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[1]				),
-		.address_reset				( ch_b0_key_on				),
-		.key_on						( ch_b0_key_on				),
-		.key_release				( ch_b0_key_release			),
-		.key_off					( ch_b0_key_off				),
-		.envelope					( w_envelope_b0				),
-		.sram_a						( w_sram_a_b0				),
-		.half_timing				( w_half_timing_b0			),
-		.reg_noise_enable			( reg_noise_enable_b0		),
-		.reg_ar						( reg_ar_b0					),
-		.reg_dr						( reg_dr_b0					),
-		.reg_sr						( reg_sr_b0					),
-		.reg_rr						( reg_rr_b0					),
-		.reg_sl						( reg_sl_b0					),
-		.reg_wave_length			( reg_wave_length_b0		),
-		.reg_frequency_count		( reg_frequency_count_b0	),
-		.reg_noise_frequency_count	( reg_noise_frequency_b0	)
+	wts_adsr_envelope_generator_5ch u_adsr_envelope_generator_5ch_1 (
+		.nreset						( nreset						),
+		.clk						( clk							),
+		.active						( ff_active						),
+		.envelope					( w_envelope1					),
+		.ch_a_key_on				( ch_a1_key_on					),
+		.ch_a_key_release			( ch_a1_key_release				),
+		.ch_a_key_off				( ch_a1_key_off					),
+		.ch_b_key_on				( ch_b1_key_on					),
+		.ch_b_key_release			( ch_b1_key_release				),
+		.ch_b_key_off				( ch_b1_key_off					),
+		.ch_c_key_on				( ch_c1_key_on					),
+		.ch_c_key_release			( ch_c1_key_release				),
+		.ch_c_key_off				( ch_c1_key_off					),
+		.ch_d_key_on				( ch_d1_key_on					),
+		.ch_d_key_release			( ch_d1_key_release				),
+		.ch_d_key_off				( ch_d1_key_off					),
+		.ch_e_key_on				( ch_e1_key_on					),
+		.ch_e_key_release			( ch_e1_key_release				),
+		.ch_e_key_off				( ch_e1_key_off					),
+		.reg_ar_a					( reg_ar_a1						),
+		.reg_dr_a					( reg_dr_a1						),
+		.reg_sr_a					( reg_sr_a1						),
+		.reg_rr_a					( reg_rr_a1						),
+		.reg_sl_a					( reg_sl_a1						),
+		.reg_wave_length_a			( reg_wave_length_a1			),
+		.reg_frequency_count_a		( reg_frequency_count_a1		),
+		.reg_ar_b					( reg_ar_b1						),
+		.reg_dr_b					( reg_dr_b1						),
+		.reg_sr_b					( reg_sr_b1						),
+		.reg_rr_b					( reg_rr_b1						),
+		.reg_sl_b					( reg_sl_b1						),
+		.reg_wave_length_b			( reg_wave_length_b1			),
+		.reg_frequency_count_b		( reg_frequency_count_b1		),
+		.reg_ar_c					( reg_ar_c1						),
+		.reg_dr_c					( reg_dr_c1						),
+		.reg_sr_c					( reg_sr_c1						),
+		.reg_rr_c					( reg_rr_c1						),
+		.reg_sl_c					( reg_sl_c1						),
+		.reg_wave_length_c			( reg_wave_length_c1			),
+		.reg_frequency_count_c		( reg_frequency_count_c1		),
+		.reg_ar_d					( reg_ar_d1						),
+		.reg_dr_d					( reg_dr_d1						),
+		.reg_sr_d					( reg_sr_d1						),
+		.reg_rr_d					( reg_rr_d1						),
+		.reg_sl_d					( reg_sl_d1						),
+		.reg_wave_length_d			( reg_wave_length_d1			),
+		.reg_frequency_count_d		( reg_frequency_count_d1		),
+		.reg_ar_e					( reg_ar_e1						),
+		.reg_dr_e					( reg_dr_e1						),
+		.reg_sr_e					( reg_sr_e1						),
+		.reg_rr_e					( reg_rr_e1						),
+		.reg_sl_e					( reg_sl_e1						),
+		.reg_wave_length_e			( reg_wave_length_e1			),
+		.reg_frequency_count_e		( reg_frequency_count_e1		)
 	);
 
-	wts_channel_part u_ch_c0 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[2]				),
-		.address_reset				( ch_c0_key_on				),
-		.key_on						( ch_c0_key_on				),
-		.key_release				( ch_c0_key_release			),
-		.key_off					( ch_c0_key_off				),
-		.envelope					( w_envelope_c0				),
-		.sram_a						( w_sram_a_c0				),
-		.half_timing				( w_half_timing_c0			),
-		.reg_noise_enable			( reg_noise_enable_c0		),
-		.reg_ar						( reg_ar_c0					),
-		.reg_dr						( reg_dr_c0					),
-		.reg_sr						( reg_sr_c0					),
-		.reg_rr						( reg_rr_c0					),
-		.reg_sl						( reg_sl_c0					),
-		.reg_wave_length			( reg_wave_length_c0		),
-		.reg_frequency_count		( reg_frequency_count_c0	),
-		.reg_noise_frequency_count	( reg_noise_frequency_c0	)
+	wts_noise_generator_4ch u_wts_noise_generator_4ch (
+		.nreset						( nreset						),
+		.clk						( clk							),
+		.active						( ff_active						),
+		.noise0						( w_noise0						),
+		.noise1						( w_noise1						),
+		.reg_noise_enable_a0		( reg_noise_enable_a0			),
+		.reg_noise_enable_b0		( reg_noise_enable_b0			),
+		.reg_noise_enable_c0		( reg_noise_enable_c0			),
+		.reg_noise_enable_d0		( reg_noise_enable_d0			),
+		.reg_noise_enable_e0		( reg_noise_enable_e0			),
+		.reg_noise_enable_a1		( reg_noise_enable_a1			),
+		.reg_noise_enable_b1		( reg_noise_enable_b1			),
+		.reg_noise_enable_c1		( reg_noise_enable_c1			),
+		.reg_noise_enable_d1		( reg_noise_enable_d1			),
+		.reg_noise_enable_e1		( reg_noise_enable_e1			),
+		.reg_noise_sel_a0			( reg_noise_sel_a0				),
+		.reg_noise_sel_b0			( reg_noise_sel_b0				),
+		.reg_noise_sel_c0			( reg_noise_sel_c0				),
+		.reg_noise_sel_d0			( reg_noise_sel_d0				),
+		.reg_noise_sel_e0			( reg_noise_sel_e0				),
+		.reg_noise_sel_a1			( reg_noise_sel_a1				),
+		.reg_noise_sel_b1			( reg_noise_sel_b1				),
+		.reg_noise_sel_c1			( reg_noise_sel_c1				),
+		.reg_noise_sel_d1			( reg_noise_sel_d1				),
+		.reg_noise_sel_e1			( reg_noise_sel_e1				),
+		.reg_noise_frequency0		( reg_noise_frequency0			),
+		.reg_noise_frequency1		( reg_noise_frequency1			),
+		.reg_noise_frequency2		( reg_noise_frequency2			),
+		.reg_noise_frequency3		( reg_noise_frequency3			)
 	);
 
-	wts_channel_part u_ch_d0 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[3]				),
-		.address_reset				( ch_d0_key_on				),
-		.key_on						( ch_d0_key_on				),
-		.key_release				( ch_d0_key_release			),
-		.key_off					( ch_d0_key_off				),
-		.envelope					( w_envelope_d0				),
-		.sram_a						( w_sram_a_d0				),
-		.half_timing				( w_half_timing_d0			),
-		.reg_noise_enable			( reg_noise_enable_d0		),
-		.reg_ar						( reg_ar_d0					),
-		.reg_dr						( reg_dr_d0					),
-		.reg_sr						( reg_sr_d0					),
-		.reg_rr						( reg_rr_d0					),
-		.reg_sl						( reg_sl_d0					),
-		.reg_wave_length			( reg_wave_length_d0		),
-		.reg_frequency_count		( reg_frequency_count_d0	),
-		.reg_noise_frequency_count	( reg_noise_frequency_d0	)
+	wts_tone_generator_5ch u_tone_generator_5ch_0 (
+		.nreset						( nreset						),
+		.clk						( clk							),
+		.active						( ff_active						),
+		.address_reset				( address_reset					),
+		.wave_address				( w_wave_address0				),
+		.half_timing				( w_half_timing0				),
+		.reg_wave_length_a			( reg_wave_length_a0			),
+		.reg_wave_length_b			( reg_wave_length_b0			),
+		.reg_wave_length_c			( reg_wave_length_c0			),
+		.reg_wave_length_d			( reg_wave_length_d0			),
+		.reg_wave_length_e			( reg_wave_length_e0			),
+		.reg_frequency_count_a		( reg_frequency_count_a0		),
+		.reg_frequency_count_b		( reg_frequency_count_b0		),
+		.reg_frequency_count_c		( reg_frequency_count_c0		),
+		.reg_frequency_count_d		( reg_frequency_count_d0		),
+		.reg_frequency_count_e		( reg_frequency_count_e0		)
 	);
 
-	wts_channel_part u_ch_e0 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[4]				),
-		.address_reset				( ch_e0_key_on				),
-		.key_on						( ch_e0_key_on				),
-		.key_release				( ch_e0_key_release			),
-		.key_off					( ch_e0_key_off				),
-		.envelope					( w_envelope_e0				),
-		.sram_a						( w_sram_a_e0				),
-		.half_timing				( w_half_timing_e0			),
-		.reg_noise_enable			( reg_noise_enable_e0		),
-		.reg_ar						( reg_ar_e0					),
-		.reg_dr						( reg_dr_e0					),
-		.reg_sr						( reg_sr_e0					),
-		.reg_rr						( reg_rr_e0					),
-		.reg_sl						( reg_sl_e0					),
-		.reg_wave_length			( reg_wave_length_e0		),
-		.reg_frequency_count		( reg_frequency_count_e0	),
-		.reg_noise_frequency_count	( reg_noise_frequency_e0	)
+	wts_tone_generator_5ch u_tone_generator_5ch_1 (
+		.nreset						( nreset						),
+		.clk						( clk							),
+		.active						( ff_active						),
+		.address_reset				( address_reset					),
+		.wave_address				( w_wave_address1				),
+		.half_timing				( w_half_timing1				),
+		.reg_wave_length_a			( reg_wave_length_a1			),
+		.reg_wave_length_b			( reg_wave_length_b1			),
+		.reg_wave_length_c			( reg_wave_length_c1			),
+		.reg_wave_length_d			( reg_wave_length_d1			),
+		.reg_wave_length_e			( reg_wave_length_e1			),
+		.reg_frequency_count_a		( reg_frequency_count_a1		),
+		.reg_frequency_count_b		( reg_frequency_count_b1		),
+		.reg_frequency_count_c		( reg_frequency_count_c1		),
+		.reg_frequency_count_d		( reg_frequency_count_d1		),
+		.reg_frequency_count_e		( reg_frequency_count_e1		)
 	);
 
-	wts_channel_part u_ch_a1 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[0]				),
-		.address_reset				( ch_a1_key_on				),
-		.key_on						( ch_a1_key_on				),
-		.key_release				( ch_a1_key_release			),
-		.key_off					( ch_a1_key_off				),
-		.envelope					( w_envelope_a1				),
-		.sram_a						( w_sram_a_a1				),
-		.half_timing				( w_half_timing_a1			),
-		.reg_noise_enable			( reg_noise_enable_a1		),
-		.reg_ar						( reg_ar_a1					),
-		.reg_dr						( reg_dr_a1					),
-		.reg_sr						( reg_sr_a1					),
-		.reg_rr						( reg_rr_a1					),
-		.reg_sl						( reg_sl_a1					),
-		.reg_wave_length			( reg_wave_length_a1		),
-		.reg_frequency_count		( reg_frequency_count_a1	),
-		.reg_noise_frequency_count	( reg_noise_frequency_a1	)
+	wts_selector #( 4 ) u_volume_selector0 (
+		.active		( ff_active				),
+		.result		( w_volume0				),
+		.reg_a		( reg_volume_a0			),
+		.reg_b		( reg_volume_b0			),
+		.reg_c		( reg_volume_c0			),
+		.reg_d		( reg_volume_d0			),
+		.reg_e		( reg_volume_e0			)
 	);
 
-	wts_channel_part u_ch_b1 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[1]				),
-		.address_reset				( ch_b1_key_on				),
-		.key_on						( ch_b1_key_on				),
-		.key_release				( ch_b1_key_release			),
-		.key_off					( ch_b1_key_off				),
-		.envelope					( w_envelope_b1				),
-		.sram_a						( w_sram_a_b1				),
-		.half_timing				( w_half_timing_b1			),
-		.reg_noise_enable			( reg_noise_enable_b1		),
-		.reg_ar						( reg_ar_b1					),
-		.reg_dr						( reg_dr_b1					),
-		.reg_sr						( reg_sr_b1					),
-		.reg_rr						( reg_rr_b1					),
-		.reg_sl						( reg_sl_b1					),
-		.reg_wave_length			( reg_wave_length_b1		),
-		.reg_frequency_count		( reg_frequency_count_b1	),
-		.reg_noise_frequency_count	( reg_noise_frequency_b1	)
+	wts_selector #( 4 ) u_volume_selector1 (
+		.active		( ff_active				),
+		.result		( w_volume1				),
+		.reg_a		( reg_volume_a1			),
+		.reg_b		( reg_volume_b1			),
+		.reg_c		( reg_volume_c1			),
+		.reg_d		( reg_volume_d1			),
+		.reg_e		( reg_volume_e1			)
 	);
 
-	wts_channel_part u_ch_c1 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[2]				),
-		.address_reset				( ch_c1_key_on				),
-		.key_on						( ch_c1_key_on				),
-		.key_release				( ch_c1_key_release			),
-		.key_off					( ch_c1_key_off				),
-		.envelope					( w_envelope_c1				),
-		.sram_a						( w_sram_a_c1				),
-		.half_timing				( w_half_timing_c1			),
-		.reg_noise_enable			( reg_noise_enable_c1		),
-		.reg_ar						( reg_ar_c1					),
-		.reg_dr						( reg_dr_c1					),
-		.reg_sr						( reg_sr_c1					),
-		.reg_rr						( reg_rr_c1					),
-		.reg_sl						( reg_sl_c1					),
-		.reg_wave_length			( reg_wave_length_c1		),
-		.reg_frequency_count		( reg_frequency_count_c1	),
-		.reg_noise_frequency_count	( reg_noise_frequency_c1	)
+	wts_selector #( 2 ) u_enable_selector0 (
+		.active		( ff_active				),
+		.result		( w_enable0				),
+		.reg_a		( reg_enable_a0			),
+		.reg_b		( reg_enable_b0			),
+		.reg_c		( reg_enable_c0			),
+		.reg_d		( reg_enable_d0			),
+		.reg_e		( reg_enable_e0			)
 	);
 
-	wts_channel_part u_ch_d1 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[3]				),
-		.address_reset				( ch_d1_key_on				),
-		.key_on						( ch_d1_key_on				),
-		.key_release				( ch_d1_key_release			),
-		.key_off					( ch_d1_key_off				),
-		.envelope					( w_envelope_d1				),
-		.sram_a						( w_sram_a_d1				),
-		.half_timing				( w_half_timing_d1			),
-		.reg_noise_enable			( reg_noise_enable_d1		),
-		.reg_ar						( reg_ar_d1					),
-		.reg_dr						( reg_dr_d1					),
-		.reg_sr						( reg_sr_d1					),
-		.reg_rr						( reg_rr_d1					),
-		.reg_sl						( reg_sl_d1					),
-		.reg_wave_length			( reg_wave_length_d1		),
-		.reg_frequency_count		( reg_frequency_count_d1	),
-		.reg_noise_frequency_count	( reg_noise_frequency_d1	)
+	wts_selector #( 2 ) u_enable_selector1 (
+		.active		( ff_active				),
+		.result		( w_enable1				),
+		.reg_a		( reg_enable_a1			),
+		.reg_b		( reg_enable_b1			),
+		.reg_c		( reg_enable_c1			),
+		.reg_d		( reg_enable_d1			),
+		.reg_e		( reg_enable_e1			)
 	);
 
-	wts_channel_part u_ch_e1 (
-		.nreset						( nreset					),
-		.clk						( clk						),
-		.active						( ff_active[4]				),
-		.address_reset				( ch_e1_key_on				),
-		.key_on						( ch_e1_key_on				),
-		.key_release				( ch_e1_key_release			),
-		.key_off					( ch_e1_key_off				),
-		.envelope					( w_envelope_e1				),
-		.sram_a						( w_sram_a_e1				),
-		.half_timing				( w_half_timing_e1			),
-		.reg_noise_enable			( reg_noise_enable_e1		),
-		.reg_ar						( reg_ar_e1					),
-		.reg_dr						( reg_dr_e1					),
-		.reg_sr						( reg_sr_e1					),
-		.reg_rr						( reg_rr_e1					),
-		.reg_sl						( reg_sl_e1					),
-		.reg_wave_length			( reg_wave_length_e1		),
-		.reg_frequency_count		( reg_frequency_count_e1	),
-		.reg_noise_frequency_count	( reg_noise_frequency_e1	)
-	);
+	assign w_sram_a0	= ( ff_active == 3'd5 ) ? { ff_sram_id[2:0], ff_sram_a } : { ff_active, w_wave_address0 };
+	assign w_sram_a1	= ( ff_active == 3'd5 ) ? { ff_sram_id[2:0], ff_sram_a } : { ff_active, w_wave_address1 };
 
-	function [3:0] func_volume_sel(
-		input	[5:0]	phase,
-		input	[3:0]	reg_volume_a,
-		input	[3:0]	reg_volume_b,
-		input	[3:0]	reg_volume_c,
-		input	[3:0]	reg_volume_d,
-		input	[3:0]	reg_volume_e
-	);
-		case( phase )
-			6'b000001:	func_volume_sel = reg_volume_a;
-			6'b000010:	func_volume_sel = reg_volume_b;
-			6'b000100:	func_volume_sel = reg_volume_c;
-			6'b001000:	func_volume_sel = reg_volume_d;
-			6'b010000:	func_volume_sel = reg_volume_e;
-			default:	func_volume_sel = 4'dx;
-		endcase
-	endfunction
-
-	function [1:0] func_enable_sel(
-		input	[5:0]	phase,
-		input	[1:0]	reg_enable_a,
-		input	[1:0]	reg_enable_b,
-		input	[1:0]	reg_enable_c,
-		input	[1:0]	reg_enable_d,
-		input	[1:0]	reg_enable_e
-	);
-		case( phase )
-			6'b000001:	func_enable_sel = reg_enable_a;
-			6'b000010:	func_enable_sel = reg_enable_b;
-			6'b000100:	func_enable_sel = reg_enable_c;
-			6'b001000:	func_enable_sel = reg_enable_d;
-			6'b010000:	func_enable_sel = reg_enable_e;
-			default:	func_enable_sel = 2'dx;
-		endcase
-	endfunction
-
-	function [7:0] func_envelope_sel(
-		input	[5:0]	phase,
-		input	[7:0]	envelope_a,
-		input	[7:0]	envelope_b,
-		input	[7:0]	envelope_c,
-		input	[7:0]	envelope_d,
-		input	[7:0]	envelope_e
-	);
-		case( phase )
-			6'b000001:	func_envelope_sel = envelope_a;
-			6'b000010:	func_envelope_sel = envelope_b;
-			6'b000100:	func_envelope_sel = envelope_c;
-			6'b001000:	func_envelope_sel = envelope_d;
-			6'b010000:	func_envelope_sel = envelope_e;
-			default:	func_envelope_sel = 8'dx;
-		endcase
-	endfunction
-
-	assign w_volume0	= func_volume_sel( ff_active, reg_volume_e0, reg_volume_a0, reg_volume_b0, reg_volume_c0, reg_volume_d0 );
-	assign w_volume1	= func_volume_sel( ff_active, reg_volume_e1, reg_volume_a1, reg_volume_b1, reg_volume_c1, reg_volume_d1 );
-	assign w_enable0	= func_enable_sel( ff_active, reg_enable_d0, reg_enable_e0, reg_enable_a0, reg_enable_b0, reg_enable_c0 );
-	assign w_enable1	= func_enable_sel( ff_active, reg_enable_d1, reg_enable_e1, reg_enable_a1, reg_enable_b1, reg_enable_c1 );
-	assign w_envelope0	= func_envelope_sel( ff_active, w_envelope_a0, w_envelope_b0, w_envelope_c0, w_envelope_d0, w_envelope_e0 );
-	assign w_envelope1	= func_envelope_sel( ff_active, w_envelope_a1, w_envelope_b1, w_envelope_c1, w_envelope_d1, w_envelope_e1 );
-
-	assign w_sram_a0	= ( ff_active[0] ) ? { 3'd0, w_sram_a_a0 } : 
-						  ( ff_active[1] ) ? { 3'd1, w_sram_a_b0 } : 
-						  ( ff_active[2] ) ? { 3'd2, w_sram_a_c0 } : 
-						  ( ff_active[3] ) ? { 3'd3, w_sram_a_d0 } : 
-						  ( ff_active[4] ) ? { 3'd4, w_sram_a_e0 } : { ff_sram_id[2:0], ff_sram_a };
-	assign w_sram_a1	= ( ff_active[0] ) ? { 3'd0, w_sram_a_a1 } : 
-						  ( ff_active[1] ) ? { 3'd1, w_sram_a_b1 } : 
-						  ( ff_active[2] ) ? { 3'd2, w_sram_a_c1 } : 
-						  ( ff_active[3] ) ? { 3'd3, w_sram_a_d1 } : 
-						  ( ff_active[4] ) ? { 3'd4, w_sram_a_e1 } : { ff_sram_id[2:0], ff_sram_a };
-
-	assign w_sram_we0	= (ff_sram_id[3] == 1'b0) ? ff_sram_we : 1'b0;
-	assign w_sram_we1	= (ff_sram_id[3] == 1'b1) ? ff_sram_we : 1'b0;
+	assign w_sram_we0	= ((ff_active == 3'd5) && (ff_sram_id[3] == 1'b0)) ? ff_sram_we : 1'b0;
+	assign w_sram_we1	= ((ff_active == 3'd5) && (ff_sram_id[3] == 1'b1)) ? ff_sram_we : 1'b0;
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
@@ -816,7 +745,7 @@ module wts_channel_mixer (
 			ff_left_integ		<= 12'd0;
 			ff_right_integ		<= 12'd0;
 		end
-		else if( ff_active[5] ) begin
+		else if( ff_active == 3'd5 ) begin
 			ff_left_integ		<= { { 3 { w_left_channel[8]  } }, w_left_channel  };
 			ff_right_integ		<= { { 3 { w_right_channel[8] } }, w_right_channel };
 		end
@@ -831,7 +760,7 @@ module wts_channel_mixer (
 			ff_left_out			<= 12'b1000_0000_0000;
 			ff_right_out		<= 12'b1000_0000_0000;
 		end
-		else if( ff_active[5] ) begin
+		else if( ff_active == 3'd5 ) begin
 			ff_left_out			<= { ~ff_left_integ[11] , ff_left_integ[10:0]  };
 			ff_right_out		<= { ~ff_right_integ[11], ff_right_integ[10:0] };
 		end

@@ -24,7 +24,6 @@ module wts_noise_generator (
 	input			nreset,					//	negative logic
 	input			clk,
 	input			active,					//	3.579MHz timing pulse
-	input			enable,
 	output			noise,
 	input	[4:0]	reg_frequency_count
 );
@@ -68,5 +67,5 @@ module wts_noise_generator (
 	assign w_noise_0	= (ff_noise == 18'd0) ? 1'b1 : (ff_noise[14] ^ ff_noise[17]);
 
 	// output assignment ------------------------------------------------------
-	assign noise		= ~enable | ff_noise[17];
+	assign noise		= ff_noise[17];
 endmodule

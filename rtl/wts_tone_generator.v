@@ -21,66 +21,33 @@
 // ------------------------------------------------------------------------------------------------
 
 module wts_tone_generator (
-	input			nreset,					//	negative logic
-	input			clk,
-	input			active,					//	3.579MHz timing pulse
 	input			address_reset,
 	output	[6:0]	wave_address,
 	output			half_timing,
 	input	[1:0]	reg_wave_length,
-	input	[11:0]	reg_frequency_count
+	input	[11:0]	reg_frequency_count,
+	input	[6:0]	wave_address_in,
+	output	[6:0]	wave_address_out,
+	input	[11:0]	frequency_count_in,
+	output	[11:0]	frequency_count_out
 );
-	reg		[6:0]	ff_wave_address;
-	reg		[11:0]	ff_frequency_count;
 	wire			w_frequency_counter_end;
 	wire	[1:0]	w_address_mask;
 
 	// frequency counter ------------------------------------------------------
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_frequency_count <= 12'd0;
-		end
-		else if( active ) begin
-			if( w_frequency_counter_end || address_reset ) begin
-				ff_frequency_count <= reg_frequency_count;
-			end
-			else begin
-				ff_frequency_count <= ff_frequency_count - 12'd1;
-			end
-		end
-		else begin
-			//	hold
-		end
-	end
-
-	assign w_frequency_counter_end	= (ff_frequency_count == 12'd0) ? 1'b1 : 1'b0;
+	assign w_frequency_counter_end	= (frequency_count_in == 12'd0) ? 1'b1 : 1'b0;
+	assign frequency_count_out		= (w_frequency_counter_end || address_reset) ? reg_frequency_count : (frequency_count_in - 12'd1);
 
 	// wave memory address ----------------------------------------------------
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_wave_address <= 7'd0;
-		end
-		else if( active ) begin
-			if( address_reset ) begin
-				ff_wave_address <= 7'd0;
-			end
-			else if( w_frequency_counter_end ) begin
-				ff_wave_address <= ff_wave_address + 7'd1;
-			end
-			else begin
-				//	hold
-			end
-		end
-		else begin
-			//	hold
-		end
-	end
+	assign wave_address_out			= address_reset ? 7'd0 : 
+									  w_frequency_counter_end ? (wave_address_in + 7'd1) : wave_address_in;
 
-	assign w_address_mask			= reg_wave_length & ff_wave_address[6:5];
+	assign w_address_mask			= ( reg_wave_length == 2'b00 ) ? 2'b00 : 
+									  ( reg_wave_length == 2'b01 ) ? { 1'b0, wave_address_in[5] } : wave_address_in[6:5];
 
 	// output assignment ------------------------------------------------------
-	assign wave_address				= { w_address_mask, ff_wave_address[4:0] };
-	assign half_timing				= ( (reg_wave_length == 2'b00) && ff_wave_address[3:0] == 4'b1111   ) ? w_frequency_counter_end :
-									  ( (reg_wave_length == 2'b01) && ff_wave_address[4:0] == 5'b11111  ) ? w_frequency_counter_end :
-									  (                               ff_wave_address[5:0] == 6'b111111 ) ? w_frequency_counter_end : 1'b0;
+	assign wave_address				= { w_address_mask, wave_address_in[4:0] };
+	assign half_timing				= ( (reg_wave_length == 2'b00) && wave_address_in[3:0] == 4'b1111    ) ? w_frequency_counter_end : 
+									  ( (reg_wave_length == 2'b01) && wave_address_in[4:0] == 5'b11111   ) ? w_frequency_counter_end : 
+									  ( (reg_wave_length == 2'b10) && wave_address_in[5:0] == 6'b111111  ) ? w_frequency_counter_end : 1'b0;
 endmodule

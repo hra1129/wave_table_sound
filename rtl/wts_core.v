@@ -94,7 +94,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_a0;
 	wire	[1:0]	reg_wave_length_a0;
 	wire	[11:0]	reg_frequency_count_a0;
-	wire	[4:0]	reg_noise_frequency_a0;
+	wire	[1:0]	reg_noise_sel_a0;
 
 	wire	[3:0]	reg_volume_b0;
 	wire	[1:0]	reg_enable_b0;
@@ -106,7 +106,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_b0;
 	wire	[1:0]	reg_wave_length_b0;
 	wire	[11:0]	reg_frequency_count_b0;
-	wire	[4:0]	reg_noise_frequency_b0;
+	wire	[1:0]	reg_noise_sel_b0;
 
 	wire	[3:0]	reg_volume_c0;
 	wire	[1:0]	reg_enable_c0;
@@ -118,7 +118,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_c0;
 	wire	[1:0]	reg_wave_length_c0;
 	wire	[11:0]	reg_frequency_count_c0;
-	wire	[4:0]	reg_noise_frequency_c0;
+	wire	[1:0]	reg_noise_sel_c0;
 
 	wire	[3:0]	reg_volume_d0;
 	wire	[1:0]	reg_enable_d0;
@@ -130,7 +130,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_d0;
 	wire	[1:0]	reg_wave_length_d0;
 	wire	[11:0]	reg_frequency_count_d0;
-	wire	[4:0]	reg_noise_frequency_d0;
+	wire	[1:0]	reg_noise_sel_d0;
 
 	wire	[3:0]	reg_volume_e0;
 	wire	[1:0]	reg_enable_e0;
@@ -142,7 +142,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_e0;
 	wire	[1:0]	reg_wave_length_e0;
 	wire	[11:0]	reg_frequency_count_e0;
-	wire	[4:0]	reg_noise_frequency_e0;
+	wire	[1:0]	reg_noise_sel_e0;
 
 	wire	[3:0]	reg_volume_a1;
 	wire	[1:0]	reg_enable_a1;
@@ -154,7 +154,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_a1;
 	wire	[1:0]	reg_wave_length_a1;
 	wire	[11:0]	reg_frequency_count_a1;
-	wire	[4:0]	reg_noise_frequency_a1;
+	wire	[1:0]	reg_noise_sel_a1;
 
 	wire	[3:0]	reg_volume_b1;
 	wire	[1:0]	reg_enable_b1;
@@ -166,7 +166,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_b1;
 	wire	[1:0]	reg_wave_length_b1;
 	wire	[11:0]	reg_frequency_count_b1;
-	wire	[4:0]	reg_noise_frequency_b1;
+	wire	[1:0]	reg_noise_sel_b1;
 
 	wire	[3:0]	reg_volume_c1;
 	wire	[1:0]	reg_enable_c1;
@@ -178,7 +178,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_c1;
 	wire	[1:0]	reg_wave_length_c1;
 	wire	[11:0]	reg_frequency_count_c1;
-	wire	[4:0]	reg_noise_frequency_c1;
+	wire	[1:0]	reg_noise_sel_c1;
 
 	wire	[3:0]	reg_volume_d1;
 	wire	[1:0]	reg_enable_d1;
@@ -190,7 +190,7 @@ module wts_core (
 	wire	[6:0]	reg_sl_d1;
 	wire	[1:0]	reg_wave_length_d1;
 	wire	[11:0]	reg_frequency_count_d1;
-	wire	[4:0]	reg_noise_frequency_d1;
+	wire	[1:0]	reg_noise_sel_d1;
 
 	wire	[3:0]	reg_volume_e1;
 	wire	[1:0]	reg_enable_e1;
@@ -202,10 +202,15 @@ module wts_core (
 	wire	[6:0]	reg_sl_e1;
 	wire	[1:0]	reg_wave_length_e1;
 	wire	[11:0]	reg_frequency_count_e1;
-	wire	[4:0]	reg_noise_frequency_e1;
+	wire	[1:0]	reg_noise_sel_e1;
+
+	wire	[4:0]	reg_noise_frequency0;
+	wire	[4:0]	reg_noise_frequency1;
+	wire	[4:0]	reg_noise_frequency2;
+	wire	[4:0]	reg_noise_frequency3;
 
 	wire			w_timer1_trigger;
-	wire	[6:0]	w_timer1_address;
+	wire	[1:0]	w_timer1_address;
 	wire			reg_timer1_enable;
 	wire			reg_timer1_oneshot;
 	wire	[3:0]	reg_timer1_channel;
@@ -213,7 +218,7 @@ module wts_core (
 	wire	[7:0]	w_timer1_status;
 
 	wire			w_timer2_trigger;
-	wire	[6:0]	w_timer2_address;
+	wire	[1:0]	w_timer2_address;
 	wire			reg_timer2_enable;
 	wire			reg_timer2_oneshot;
 	wire	[3:0]	reg_timer2_channel;
@@ -272,7 +277,7 @@ module wts_core (
 		.reg_sl_a0				( reg_sl_a0					),
 		.reg_wave_length_a0		( reg_wave_length_a0		),
 		.reg_frequency_count_a0	( reg_frequency_count_a0	),
-		.reg_noise_frequency_a0	( reg_noise_frequency_a0	),
+		.reg_noise_sel_a0		( reg_noise_sel_a0			),
 		.reg_volume_b0			( reg_volume_b0				),
 		.reg_enable_b0			( reg_enable_b0				),
 		.reg_noise_enable_b0	( reg_noise_enable_b0		),
@@ -283,7 +288,7 @@ module wts_core (
 		.reg_sl_b0				( reg_sl_b0					),
 		.reg_wave_length_b0		( reg_wave_length_b0		),
 		.reg_frequency_count_b0	( reg_frequency_count_b0	),
-		.reg_noise_frequency_b0	( reg_noise_frequency_b0	),
+		.reg_noise_sel_b0		( reg_noise_sel_b0			),
 		.reg_volume_c0			( reg_volume_c0				),
 		.reg_enable_c0			( reg_enable_c0				),
 		.reg_noise_enable_c0	( reg_noise_enable_c0		),
@@ -294,7 +299,7 @@ module wts_core (
 		.reg_sl_c0				( reg_sl_c0					),
 		.reg_wave_length_c0		( reg_wave_length_c0		),
 		.reg_frequency_count_c0	( reg_frequency_count_c0	),
-		.reg_noise_frequency_c0	( reg_noise_frequency_c0	),
+		.reg_noise_sel_c0		( reg_noise_sel_c0			),
 		.reg_volume_d0			( reg_volume_d0				),
 		.reg_enable_d0			( reg_enable_d0				),
 		.reg_noise_enable_d0	( reg_noise_enable_d0		),
@@ -305,7 +310,7 @@ module wts_core (
 		.reg_sl_d0				( reg_sl_d0					),
 		.reg_wave_length_d0		( reg_wave_length_d0		),
 		.reg_frequency_count_d0	( reg_frequency_count_d0	),
-		.reg_noise_frequency_d0	( reg_noise_frequency_d0	),
+		.reg_noise_sel_d0		( reg_noise_sel_d0			),
 		.reg_volume_e0			( reg_volume_e0				),
 		.reg_enable_e0			( reg_enable_e0				),
 		.reg_noise_enable_e0	( reg_noise_enable_e0		),
@@ -316,7 +321,7 @@ module wts_core (
 		.reg_sl_e0				( reg_sl_e0					),
 		.reg_wave_length_e0		( reg_wave_length_e0		),
 		.reg_frequency_count_e0	( reg_frequency_count_e0	),
-		.reg_noise_frequency_e0	( reg_noise_frequency_e0	),
+		.reg_noise_sel_e0		( reg_noise_sel_e0			),
 		.reg_volume_a1			( reg_volume_a1				),
 		.reg_enable_a1			( reg_enable_a1				),
 		.reg_noise_enable_a1	( reg_noise_enable_a1		),
@@ -327,7 +332,7 @@ module wts_core (
 		.reg_sl_a1				( reg_sl_a1					),
 		.reg_wave_length_a1		( reg_wave_length_a1		),
 		.reg_frequency_count_a1	( reg_frequency_count_a1	),
-		.reg_noise_frequency_a1	( reg_noise_frequency_a1	),
+		.reg_noise_sel_a1		( reg_noise_sel_a1			),
 		.reg_volume_b1			( reg_volume_b1				),
 		.reg_enable_b1			( reg_enable_b1				),
 		.reg_noise_enable_b1	( reg_noise_enable_b1		),
@@ -338,7 +343,7 @@ module wts_core (
 		.reg_sl_b1				( reg_sl_b1					),
 		.reg_wave_length_b1		( reg_wave_length_b1		),
 		.reg_frequency_count_b1	( reg_frequency_count_b1	),
-		.reg_noise_frequency_b1	( reg_noise_frequency_b1	),
+		.reg_noise_sel_b1		( reg_noise_sel_b1			),
 		.reg_volume_c1			( reg_volume_c1				),
 		.reg_enable_c1			( reg_enable_c1				),
 		.reg_noise_enable_c1	( reg_noise_enable_c1		),
@@ -349,7 +354,7 @@ module wts_core (
 		.reg_sl_c1				( reg_sl_c1					),
 		.reg_wave_length_c1		( reg_wave_length_c1		),
 		.reg_frequency_count_c1	( reg_frequency_count_c1	),
-		.reg_noise_frequency_c1	( reg_noise_frequency_c1	),
+		.reg_noise_sel_c1		( reg_noise_sel_c1			),
 		.reg_volume_d1			( reg_volume_d1				),
 		.reg_enable_d1			( reg_enable_d1				),
 		.reg_noise_enable_d1	( reg_noise_enable_d1		),
@@ -360,7 +365,7 @@ module wts_core (
 		.reg_sl_d1				( reg_sl_d1					),
 		.reg_wave_length_d1		( reg_wave_length_d1		),
 		.reg_frequency_count_d1	( reg_frequency_count_d1	),
-		.reg_noise_frequency_d1	( reg_noise_frequency_d1	),
+		.reg_noise_sel_d1		( reg_noise_sel_d1			),
 		.reg_volume_e1			( reg_volume_e1				),
 		.reg_enable_e1			( reg_enable_e1				),
 		.reg_noise_enable_e1	( reg_noise_enable_e1		),
@@ -371,7 +376,11 @@ module wts_core (
 		.reg_sl_e1				( reg_sl_e1					),
 		.reg_wave_length_e1		( reg_wave_length_e1		),
 		.reg_frequency_count_e1	( reg_frequency_count_e1	),
-		.reg_noise_frequency_e1	( reg_noise_frequency_e1	),
+		.reg_noise_sel_e1		( reg_noise_sel_e1			),
+		.reg_noise_frequency0	( reg_noise_frequency0		),
+		.reg_noise_frequency1	( reg_noise_frequency1		),
+		.reg_noise_frequency2	( reg_noise_frequency2		),
+		.reg_noise_frequency3	( reg_noise_frequency3		),
 		.reg_timer1_channel		( reg_timer1_channel		),
 		.timer1_trigger			( w_timer1_trigger			),
 		.timer1_address			( w_timer1_address			),
@@ -455,7 +464,7 @@ module wts_core (
 		.reg_sl_a0				( reg_sl_a0					),
 		.reg_wave_length_a0		( reg_wave_length_a0		),
 		.reg_frequency_count_a0	( reg_frequency_count_a0	),
-		.reg_noise_frequency_a0	( reg_noise_frequency_a0	),
+		.reg_noise_sel_a0		( reg_noise_sel_a0			),
 		.reg_volume_b0			( reg_volume_b0				),
 		.reg_enable_b0			( reg_enable_b0				),
 		.reg_noise_enable_b0	( reg_noise_enable_b0		),
@@ -466,7 +475,7 @@ module wts_core (
 		.reg_sl_b0				( reg_sl_b0					),
 		.reg_wave_length_b0		( reg_wave_length_b0		),
 		.reg_frequency_count_b0	( reg_frequency_count_b0	),
-		.reg_noise_frequency_b0	( reg_noise_frequency_b0	),
+		.reg_noise_sel_b0		( reg_noise_sel_b0			),
 		.reg_volume_c0			( reg_volume_c0				),
 		.reg_enable_c0			( reg_enable_c0				),
 		.reg_noise_enable_c0	( reg_noise_enable_c0		),
@@ -477,7 +486,7 @@ module wts_core (
 		.reg_sl_c0				( reg_sl_c0					),
 		.reg_wave_length_c0		( reg_wave_length_c0		),
 		.reg_frequency_count_c0	( reg_frequency_count_c0	),
-		.reg_noise_frequency_c0	( reg_noise_frequency_c0	),
+		.reg_noise_sel_c0		( reg_noise_sel_c0			),
 		.reg_volume_d0			( reg_volume_d0				),
 		.reg_enable_d0			( reg_enable_d0				),
 		.reg_noise_enable_d0	( reg_noise_enable_d0		),
@@ -488,7 +497,7 @@ module wts_core (
 		.reg_sl_d0				( reg_sl_d0					),
 		.reg_wave_length_d0		( reg_wave_length_d0		),
 		.reg_frequency_count_d0	( reg_frequency_count_d0	),
-		.reg_noise_frequency_d0	( reg_noise_frequency_d0	),
+		.reg_noise_sel_d0		( reg_noise_sel_d0			),
 		.reg_volume_e0			( reg_volume_e0				),
 		.reg_enable_e0			( reg_enable_e0				),
 		.reg_noise_enable_e0	( reg_noise_enable_e0		),
@@ -499,7 +508,7 @@ module wts_core (
 		.reg_sl_e0				( reg_sl_e0					),
 		.reg_wave_length_e0		( reg_wave_length_e0		),
 		.reg_frequency_count_e0	( reg_frequency_count_e0	),
-		.reg_noise_frequency_e0	( reg_noise_frequency_e0	),
+		.reg_noise_sel_e0		( reg_noise_sel_e0			),
 		.reg_volume_a1			( reg_volume_a1				),
 		.reg_enable_a1			( reg_enable_a1				),
 		.reg_noise_enable_a1	( reg_noise_enable_a1		),
@@ -510,7 +519,7 @@ module wts_core (
 		.reg_sl_a1				( reg_sl_a1					),
 		.reg_wave_length_a1		( reg_wave_length_a1		),
 		.reg_frequency_count_a1	( reg_frequency_count_a1	),
-		.reg_noise_frequency_a1	( reg_noise_frequency_a1	),
+		.reg_noise_sel_a1		( reg_noise_sel_a1			),
 		.reg_volume_b1			( reg_volume_b1				),
 		.reg_enable_b1			( reg_enable_b1				),
 		.reg_noise_enable_b1	( reg_noise_enable_b1		),
@@ -521,7 +530,7 @@ module wts_core (
 		.reg_sl_b1				( reg_sl_b1					),
 		.reg_wave_length_b1		( reg_wave_length_b1		),
 		.reg_frequency_count_b1	( reg_frequency_count_b1	),
-		.reg_noise_frequency_b1	( reg_noise_frequency_b1	),
+		.reg_noise_sel_b1		( reg_noise_sel_b1			),
 		.reg_volume_c1			( reg_volume_c1				),
 		.reg_enable_c1			( reg_enable_c1				),
 		.reg_noise_enable_c1	( reg_noise_enable_c1		),
@@ -532,7 +541,7 @@ module wts_core (
 		.reg_sl_c1				( reg_sl_c1					),
 		.reg_wave_length_c1		( reg_wave_length_c1		),
 		.reg_frequency_count_c1	( reg_frequency_count_c1	),
-		.reg_noise_frequency_c1	( reg_noise_frequency_c1	),
+		.reg_noise_sel_c1		( reg_noise_sel_c1			),
 		.reg_volume_d1			( reg_volume_d1				),
 		.reg_enable_d1			( reg_enable_d1				),
 		.reg_noise_enable_d1	( reg_noise_enable_d1		),
@@ -543,7 +552,7 @@ module wts_core (
 		.reg_sl_d1				( reg_sl_d1					),
 		.reg_wave_length_d1		( reg_wave_length_d1		),
 		.reg_frequency_count_d1	( reg_frequency_count_d1	),
-		.reg_noise_frequency_d1	( reg_noise_frequency_d1	),
+		.reg_noise_sel_d1		( reg_noise_sel_d1			),
 		.reg_volume_e1			( reg_volume_e1				),
 		.reg_enable_e1			( reg_enable_e1				),
 		.reg_noise_enable_e1	( reg_noise_enable_e1		),
@@ -554,7 +563,11 @@ module wts_core (
 		.reg_sl_e1				( reg_sl_e1					),
 		.reg_wave_length_e1		( reg_wave_length_e1		),
 		.reg_frequency_count_e1	( reg_frequency_count_e1	),
-		.reg_noise_frequency_e1	( reg_noise_frequency_e1	),
+		.reg_noise_sel_e1		( reg_noise_sel_e1			),
+		.reg_noise_frequency0	( reg_noise_frequency0		),
+		.reg_noise_frequency1	( reg_noise_frequency1		),
+		.reg_noise_frequency2	( reg_noise_frequency2		),
+		.reg_noise_frequency3	( reg_noise_frequency3		),
 		.reg_timer1_enable		( reg_timer1_enable			),
 		.reg_timer1_channel		( reg_timer1_channel		),
 		.reg_timer1_clear		( reg_timer1_clear			),

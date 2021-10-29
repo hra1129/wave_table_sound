@@ -121,6 +121,14 @@ set_location_assignment PIN_127 -to slot_nsltsl
 set_location_assignment PIN_130 -to slot_nwr
 set_location_assignment PIN_131 -to sw_mono
 set_location_assignment PIN_21 -to mem_ncs
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name VERILOG_FILE ../rtl/wts_tone_generator_5ch.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_selector.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_noise_generator_4ch.v
+set_global_assignment -name VERILOG_FILE ../rtl/wts_adsr_envelope_generator_5ch.v
 set_global_assignment -name SDC_FILE wave_table_sound.out.sdc
 set_global_assignment -name VERILOG_FILE ../rtl/wts_virtual_rom_controller.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_tone_generator.v
@@ -134,8 +142,4 @@ set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_part.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_mixer.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_adsr_envelope_generator.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_for_cartridge.v
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
-set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
