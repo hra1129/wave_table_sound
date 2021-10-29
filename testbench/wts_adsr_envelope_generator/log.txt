@@ -1,24 +1,26 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 09:43:02 on Oct 28,2021
+# Start time: 07:56:19 on Oct 30,2021
 # Loading sv_std.std
 # Loading work.tb
+# Loading work.wts_adsr_envelope_generator_5ch
+# Loading work.wts_selector
 # Loading work.wts_adsr_envelope_generator
 # do run.do
 # ------------------------------------------------------------
 # [             4632720]   1: In the steady state, envelope does not change.
 # ------------------------------------------------------------
-# [            18461040]   2: If key_on is entered when reg_ar is 0, it suddenly rises to the maximum.
+# [             6960720]   2: If key_on is entered when reg_ar is 0, it suddenly rises to the maximum.
 # ------------------------------------------------------------
-# [            32987760]   3: When reg_rr is 0, it will not start decaying even if key_release is entered.
+# [             9381840]   3: When reg_rr is 0, it will not start decaying even if key_release is entered.
 # ------------------------------------------------------------
-# [            47514480]   3: When key_off is entered, envelope returns to 0.
+# [            11802960]   3: When key_off is entered, envelope returns to 0.
 # ------------------------------------------------------------
-# [            64369200]   4: If you put values in AR, DR, SR, SL, and RR. (1)
+# [            16552080]   4: If you put values in AR, DR, SR, SL, and RR. (1)
 # ------------------------------------------------------------
-# [          1185161520]   5: If you put values in AR, DR, SR, SL, and RR. (2)
+# [           205352880]   5: If you put values in AR, DR, SR, SL, and RR. (2)
 # ------------------------------------------------------------
-# [          2305953840]   6: If you put values in AR, DR, SR, SL, and RR. (3)
-# ** Note: $finish    : tb.sv(261)
-#    Time: 3426746160 ps  Iteration: 1  Instance: /tb
-# End time: 09:43:03 on Oct 28,2021, Elapsed time: 0:00:01
+# [           394153680]   6: If you put values in AR, DR, SR, SL, and RR. (3)
+# ** Note: $finish    : tb.sv(360)
+#    Time: 582954480 ps  Iteration: 1  Instance: /tb
+# End time: 07:56:20 on Oct 30,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

@@ -3,7 +3,8 @@ module tb;
 
 	reg				nreset;					//	negative logic
 	reg				clk;
-	reg		[7:0]	envelope;
+	reg		[4:0]	envelope;
+	reg				noise;
 	reg		[7:0]	sram_q;					//	signed
 	wire	[7:0]	channel;				//	signed
 	reg		[3:0]	reg_volume;
@@ -25,6 +26,7 @@ module tb;
 		.nreset			( nreset			),
 		.clk			( clk				),
 		.envelope		( envelope			),
+		.noise			( noise				),
 		.sram_q			( sram_q			),
 		.channel		( channel			),
 		.reg_volume		( reg_volume		)
@@ -76,12 +78,15 @@ module tb;
 	initial begin
 
 		//	initialization
+		nreset						= 0;
 		clk							= 0;
 		envelope					= 0;
+		noise						= 1;
 		sram_q						= 0;
 		reg_volume					= 0;
 		repeat( 50 ) @( negedge clk );
 
+		nreset						= 1;
 		repeat( 50 ) @( posedge clk );
 
 		// -------------------------------------------------------------

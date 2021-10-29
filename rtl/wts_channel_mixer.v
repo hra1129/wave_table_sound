@@ -82,7 +82,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_a0,
 	input	[7:0]	reg_sr_a0,
 	input	[7:0]	reg_rr_a0,
-	input	[6:0]	reg_sl_a0,
+	input	[3:0]	reg_sl_a0,
 	input	[1:0]	reg_wave_length_a0,
 	input	[11:0]	reg_frequency_count_a0,
 	input	[1:0]	reg_noise_sel_a0,
@@ -94,7 +94,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_b0,
 	input	[7:0]	reg_sr_b0,
 	input	[7:0]	reg_rr_b0,
-	input	[6:0]	reg_sl_b0,
+	input	[3:0]	reg_sl_b0,
 	input	[1:0]	reg_wave_length_b0,
 	input	[11:0]	reg_frequency_count_b0,
 	input	[1:0]	reg_noise_sel_b0,
@@ -106,7 +106,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_c0,
 	input	[7:0]	reg_sr_c0,
 	input	[7:0]	reg_rr_c0,
-	input	[6:0]	reg_sl_c0,
+	input	[3:0]	reg_sl_c0,
 	input	[1:0]	reg_wave_length_c0,
 	input	[11:0]	reg_frequency_count_c0,
 	input	[1:0]	reg_noise_sel_c0,
@@ -118,7 +118,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_d0,
 	input	[7:0]	reg_sr_d0,
 	input	[7:0]	reg_rr_d0,
-	input	[6:0]	reg_sl_d0,
+	input	[3:0]	reg_sl_d0,
 	input	[1:0]	reg_wave_length_d0,
 	input	[11:0]	reg_frequency_count_d0,
 	input	[1:0]	reg_noise_sel_d0,
@@ -130,7 +130,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_e0,
 	input	[7:0]	reg_sr_e0,
 	input	[7:0]	reg_rr_e0,
-	input	[6:0]	reg_sl_e0,
+	input	[3:0]	reg_sl_e0,
 	input	[1:0]	reg_wave_length_e0,
 	input	[11:0]	reg_frequency_count_e0,
 	input	[1:0]	reg_noise_sel_e0,
@@ -142,7 +142,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_a1,
 	input	[7:0]	reg_sr_a1,
 	input	[7:0]	reg_rr_a1,
-	input	[6:0]	reg_sl_a1,
+	input	[3:0]	reg_sl_a1,
 	input	[1:0]	reg_wave_length_a1,
 	input	[11:0]	reg_frequency_count_a1,
 	input	[1:0]	reg_noise_sel_a1,
@@ -154,7 +154,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_b1,
 	input	[7:0]	reg_sr_b1,
 	input	[7:0]	reg_rr_b1,
-	input	[6:0]	reg_sl_b1,
+	input	[3:0]	reg_sl_b1,
 	input	[1:0]	reg_wave_length_b1,
 	input	[11:0]	reg_frequency_count_b1,
 	input	[1:0]	reg_noise_sel_b1,
@@ -166,7 +166,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_c1,
 	input	[7:0]	reg_sr_c1,
 	input	[7:0]	reg_rr_c1,
-	input	[6:0]	reg_sl_c1,
+	input	[3:0]	reg_sl_c1,
 	input	[1:0]	reg_wave_length_c1,
 	input	[11:0]	reg_frequency_count_c1,
 	input	[1:0]	reg_noise_sel_c1,
@@ -178,7 +178,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_d1,
 	input	[7:0]	reg_sr_d1,
 	input	[7:0]	reg_rr_d1,
-	input	[6:0]	reg_sl_d1,
+	input	[3:0]	reg_sl_d1,
 	input	[1:0]	reg_wave_length_d1,
 	input	[11:0]	reg_frequency_count_d1,
 	input	[1:0]	reg_noise_sel_d1,
@@ -190,7 +190,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_e1,
 	input	[7:0]	reg_sr_e1,
 	input	[7:0]	reg_rr_e1,
-	input	[6:0]	reg_sl_e1,
+	input	[3:0]	reg_sl_e1,
 	input	[1:0]	reg_wave_length_e1,
 	input	[11:0]	reg_frequency_count_e1,
 	input	[1:0]	reg_noise_sel_e1,
@@ -228,8 +228,8 @@ module wts_channel_mixer (
 	wire	[7:0]	w_sram_q0;
 	wire	[7:0]	w_sram_q1;
 	wire	[7:0]	w_channel0;
-	wire	[7:0]	w_envelope0;
-	wire	[7:0]	w_envelope1;
+	wire	[4:0]	w_envelope0;
+	wire	[4:0]	w_envelope1;
 	wire	[7:0]	w_left_channel0;
 	wire	[7:0]	w_right_channel0;
 	wire	[7:0]	w_channel1;
@@ -251,25 +251,14 @@ module wts_channel_mixer (
 	reg				ff_sram_id_d;
 	wire			w_sram_done;
 
-	wire			w_half_timing_a0;
-	wire			w_half_timing_b0;
-	wire			w_half_timing_c0;
-	wire			w_half_timing_d0;
-	wire			w_half_timing_e0;
-	wire			w_half_timing_a1;
-	wire			w_half_timing_b1;
-	wire			w_half_timing_c1;
-	wire			w_half_timing_d1;
-	wire			w_half_timing_e1;
-	wire	[2:0]	w_address_mask1;
-	wire	[2:0]	w_address_mask2;
-	wire	[1:0]	w_wave_length1;
-	wire	[1:0]	w_wave_length2;
-
 	wire	[6:0]	w_wave_address0;
 	wire	[6:0]	w_wave_address1;
 	wire			w_sram_we0;
 	wire			w_sram_we1;
+	wire			w_noise0;
+	wire			w_noise1;
+	wire			w_half_timing0;
+	wire			w_half_timing1;
 
 	function func_trigger_sel (
 		input	[3:0]	reg_timer_sel,
@@ -358,20 +347,14 @@ module wts_channel_mixer (
 	// ------------------------------------------------------------------------
 	//	TIMER1
 	// ------------------------------------------------------------------------
-	assign w_wave_length1	= func_wave_length_sel( reg_timer1_channel, reg_wave_length_a0, reg_wave_length_b0, reg_wave_length_c0, reg_wave_length_d0, reg_wave_length_e0, reg_wave_length_a1, reg_wave_length_b1, reg_wave_length_c1, reg_wave_length_d1, reg_wave_length_e1 );
-	assign timer1_trigger	= func_trigger_sel( reg_timer1_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1 );
-	assign timer1_address	= w_address_mask1 & func_address_sel( reg_timer1_channel, w_sram_a_a0[6:5], w_sram_a_b0[6:5], w_sram_a_c0[6:5], w_sram_a_d0[6:5], w_sram_a_e0[6:5], w_sram_a_a1[6:5], w_sram_a_b1[6:5], w_sram_a_c1[6:5], w_sram_a_d1[6:5], w_sram_a_e1[6:5] );
-	assign w_address_mask1	= ( w_wave_length1 == 2'b00 ) ? 2'b00 :
-							  ( w_wave_length1 == 2'b01 ) ? 2'b01 : 2'b11;
+	assign timer1_trigger	= (ff_active == reg_timer1_channel[2:0]) ? ( (reg_timer1_channel[3] == 1'b0) ? w_half_timing0 : w_half_timing1 ) : 1'b0;
+	assign timer1_address	= (reg_timer1_channel[3] == 1'b0) ? w_wave_address0[6:5] : w_wave_address1[6:5];
 
 	// ------------------------------------------------------------------------
 	//	TIMER2
 	// ------------------------------------------------------------------------
-	assign w_wave_length2	= func_wave_length_sel( reg_timer2_channel, reg_wave_length_a0, reg_wave_length_b0, reg_wave_length_c0, reg_wave_length_d0, reg_wave_length_e0, reg_wave_length_a1, reg_wave_length_b1, reg_wave_length_c1, reg_wave_length_d1, reg_wave_length_e1 );
-	assign timer2_trigger	= func_trigger_sel( reg_timer2_channel, w_half_timing_a0, w_half_timing_b0, w_half_timing_c0, w_half_timing_d0, w_half_timing_e0, w_half_timing_a1, w_half_timing_b1, w_half_timing_c1, w_half_timing_d1, w_half_timing_e1 );
-	assign timer2_address	= w_address_mask2 & func_address_sel( reg_timer2_channel, w_sram_a_a0[6:5], w_sram_a_b0[6:5], w_sram_a_c0[6:5], w_sram_a_d0[6:5], w_sram_a_e0[6:5], w_sram_a_a1[6:5], w_sram_a_b1[6:5], w_sram_a_c1[6:5], w_sram_a_d1[6:5], w_sram_a_e1[6:5] );
-	assign w_address_mask2	= ( w_wave_length2 == 2'b00 ) ? 2'b00 :
-							  ( w_wave_length2 == 2'b01 ) ? 2'b01 : 2'b11;
+	assign timer2_trigger	= (ff_active == reg_timer2_channel[2:0]) ? ( (reg_timer2_channel[3] == 1'b0) ? w_half_timing0 : w_half_timing1 ) : 1'b0;
+	assign timer2_address	= (reg_timer2_channel[3] == 1'b0) ? w_wave_address0[6:5] : w_wave_address1[6:5];
 
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE
@@ -717,6 +700,7 @@ module wts_channel_mixer (
 		.nreset			( nreset			),
 		.clk			( clk				),
 		.envelope		( w_envelope0		),
+		.noise			( w_noise0			),
 		.sram_q			( w_sram_q0			),
 		.channel		( w_channel0		),
 		.reg_volume		( w_volume0			)
@@ -726,6 +710,7 @@ module wts_channel_mixer (
 		.nreset			( nreset			),
 		.clk			( clk				),
 		.envelope		( w_envelope1		),
+		.noise			( w_noise1			),
 		.sram_q			( w_sram_q1			),
 		.channel		( w_channel1		),
 		.reg_volume		( w_volume1			)
