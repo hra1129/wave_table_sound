@@ -196,15 +196,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[8]",
-					"strict" : false
-				},
-				{
-					"name" : "slot_a[9]",
-					"strict" : false
-				},
-				{
-					"name" : "slot_a[10]",
+					"name" : "slot_a[7]",
 					"strict" : false
 				},
 				{
@@ -224,7 +216,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[7]",
+					"name" : "slot_a[8]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[9]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[10]",
 					"strict" : false
 				},
 				{
