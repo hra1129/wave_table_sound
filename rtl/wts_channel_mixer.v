@@ -82,7 +82,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_a0,
 	input	[7:0]	reg_sr_a0,
 	input	[7:0]	reg_rr_a0,
-	input	[3:0]	reg_sl_a0,
+	input	[5:0]	reg_sl_a0,
 	input	[1:0]	reg_wave_length_a0,
 	input	[11:0]	reg_frequency_count_a0,
 	input	[1:0]	reg_noise_sel_a0,
@@ -94,7 +94,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_b0,
 	input	[7:0]	reg_sr_b0,
 	input	[7:0]	reg_rr_b0,
-	input	[3:0]	reg_sl_b0,
+	input	[5:0]	reg_sl_b0,
 	input	[1:0]	reg_wave_length_b0,
 	input	[11:0]	reg_frequency_count_b0,
 	input	[1:0]	reg_noise_sel_b0,
@@ -106,7 +106,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_c0,
 	input	[7:0]	reg_sr_c0,
 	input	[7:0]	reg_rr_c0,
-	input	[3:0]	reg_sl_c0,
+	input	[5:0]	reg_sl_c0,
 	input	[1:0]	reg_wave_length_c0,
 	input	[11:0]	reg_frequency_count_c0,
 	input	[1:0]	reg_noise_sel_c0,
@@ -118,7 +118,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_d0,
 	input	[7:0]	reg_sr_d0,
 	input	[7:0]	reg_rr_d0,
-	input	[3:0]	reg_sl_d0,
+	input	[5:0]	reg_sl_d0,
 	input	[1:0]	reg_wave_length_d0,
 	input	[11:0]	reg_frequency_count_d0,
 	input	[1:0]	reg_noise_sel_d0,
@@ -130,7 +130,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_e0,
 	input	[7:0]	reg_sr_e0,
 	input	[7:0]	reg_rr_e0,
-	input	[3:0]	reg_sl_e0,
+	input	[5:0]	reg_sl_e0,
 	input	[1:0]	reg_wave_length_e0,
 	input	[11:0]	reg_frequency_count_e0,
 	input	[1:0]	reg_noise_sel_e0,
@@ -142,7 +142,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_a1,
 	input	[7:0]	reg_sr_a1,
 	input	[7:0]	reg_rr_a1,
-	input	[3:0]	reg_sl_a1,
+	input	[5:0]	reg_sl_a1,
 	input	[1:0]	reg_wave_length_a1,
 	input	[11:0]	reg_frequency_count_a1,
 	input	[1:0]	reg_noise_sel_a1,
@@ -154,7 +154,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_b1,
 	input	[7:0]	reg_sr_b1,
 	input	[7:0]	reg_rr_b1,
-	input	[3:0]	reg_sl_b1,
+	input	[5:0]	reg_sl_b1,
 	input	[1:0]	reg_wave_length_b1,
 	input	[11:0]	reg_frequency_count_b1,
 	input	[1:0]	reg_noise_sel_b1,
@@ -166,7 +166,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_c1,
 	input	[7:0]	reg_sr_c1,
 	input	[7:0]	reg_rr_c1,
-	input	[3:0]	reg_sl_c1,
+	input	[5:0]	reg_sl_c1,
 	input	[1:0]	reg_wave_length_c1,
 	input	[11:0]	reg_frequency_count_c1,
 	input	[1:0]	reg_noise_sel_c1,
@@ -178,7 +178,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_d1,
 	input	[7:0]	reg_sr_d1,
 	input	[7:0]	reg_rr_d1,
-	input	[3:0]	reg_sl_d1,
+	input	[5:0]	reg_sl_d1,
 	input	[1:0]	reg_wave_length_d1,
 	input	[11:0]	reg_frequency_count_d1,
 	input	[1:0]	reg_noise_sel_d1,
@@ -190,7 +190,7 @@ module wts_channel_mixer (
 	input	[7:0]	reg_dr_e1,
 	input	[7:0]	reg_sr_e1,
 	input	[7:0]	reg_rr_e1,
-	input	[3:0]	reg_sl_e1,
+	input	[5:0]	reg_sl_e1,
 	input	[1:0]	reg_wave_length_e1,
 	input	[11:0]	reg_frequency_count_e1,
 	input	[1:0]	reg_noise_sel_e1,
@@ -228,8 +228,8 @@ module wts_channel_mixer (
 	wire	[7:0]	w_sram_q0;
 	wire	[7:0]	w_sram_q1;
 	wire	[7:0]	w_channel0;
-	wire	[4:0]	w_envelope0;
-	wire	[4:0]	w_envelope1;
+	wire	[6:0]	w_envelope0;
+	wire	[6:0]	w_envelope1;
 	wire	[7:0]	w_left_channel0;
 	wire	[7:0]	w_right_channel0;
 	wire	[7:0]	w_channel1;
@@ -259,90 +259,8 @@ module wts_channel_mixer (
 	wire			w_noise1;
 	wire			w_half_timing0;
 	wire			w_half_timing1;
-
-	function func_trigger_sel (
-		input	[3:0]	reg_timer_sel,
-		input			half_timing_a0,
-		input			half_timing_b0,
-		input			half_timing_c0,
-		input			half_timing_d0,
-		input			half_timing_e0,
-		input			half_timing_a1,
-		input			half_timing_b1,
-		input			half_timing_c1,
-		input			half_timing_d1,
-		input			half_timing_e1
-	);
-		case( reg_timer_sel )
-		4'd0:		func_trigger_sel = half_timing_a0;
-		4'd1:		func_trigger_sel = half_timing_b0;
-		4'd2:		func_trigger_sel = half_timing_c0;
-		4'd3:		func_trigger_sel = half_timing_d0;
-		4'd4:		func_trigger_sel = half_timing_e0;
-		4'd5:		func_trigger_sel = half_timing_a1;
-		4'd6:		func_trigger_sel = half_timing_b1;
-		4'd7:		func_trigger_sel = half_timing_c1;
-		4'd8:		func_trigger_sel = half_timing_d1;
-		4'd9:		func_trigger_sel = half_timing_e1;
-		default:	func_trigger_sel = 1'b0;
-		endcase
-	endfunction
-
-	function [1:0] func_address_sel (
-		input	[3:0]	reg_timer_sel,
-		input	[1:0]	half_address_a0,
-		input	[1:0]	half_address_b0,
-		input	[1:0]	half_address_c0,
-		input	[1:0]	half_address_d0,
-		input	[1:0]	half_address_e0,
-		input	[1:0]	half_address_a1,
-		input	[1:0]	half_address_b1,
-		input	[1:0]	half_address_c1,
-		input	[1:0]	half_address_d1,
-		input	[1:0]	half_address_e1
-	);
-		case( reg_timer_sel )
-		4'd0:		func_address_sel = half_address_a0;
-		4'd1:		func_address_sel = half_address_b0;
-		4'd2:		func_address_sel = half_address_c0;
-		4'd3:		func_address_sel = half_address_d0;
-		4'd4:		func_address_sel = half_address_e0;
-		4'd5:		func_address_sel = half_address_a1;
-		4'd6:		func_address_sel = half_address_b1;
-		4'd7:		func_address_sel = half_address_c1;
-		4'd8:		func_address_sel = half_address_d1;
-		4'd9:		func_address_sel = half_address_e1;
-		default:	func_address_sel = 3'b0;
-		endcase
-	endfunction
-
-	function [1:0] func_wave_length_sel (
-		input	[3:0]	reg_timer_sel,
-		input	[1:0]	wave_length_a0,
-		input	[1:0]	wave_length_b0,
-		input	[1:0]	wave_length_c0,
-		input	[1:0]	wave_length_d0,
-		input	[1:0]	wave_length_e0,
-		input	[1:0]	wave_length_a1,
-		input	[1:0]	wave_length_b1,
-		input	[1:0]	wave_length_c1,
-		input	[1:0]	wave_length_d1,
-		input	[1:0]	wave_length_e1
-	);
-		case( reg_timer_sel )
-		4'd0:		func_wave_length_sel = wave_length_a0;
-		4'd1:		func_wave_length_sel = wave_length_b0;
-		4'd2:		func_wave_length_sel = wave_length_c0;
-		4'd3:		func_wave_length_sel = wave_length_d0;
-		4'd4:		func_wave_length_sel = wave_length_e0;
-		4'd5:		func_wave_length_sel = wave_length_a1;
-		4'd6:		func_wave_length_sel = wave_length_b1;
-		4'd7:		func_wave_length_sel = wave_length_c1;
-		4'd8:		func_wave_length_sel = wave_length_d1;
-		4'd9:		func_wave_length_sel = wave_length_e1;
-		default:	func_wave_length_sel = 2'b0;
-		endcase
-	endfunction
+	wire			w_address_reset0;
+	wire			w_address_reset1;
 
 	// ------------------------------------------------------------------------
 	//	TIMER1
@@ -446,9 +364,23 @@ module wts_channel_mixer (
 			ff_active <= 3'd0;
 		end
 		else begin
-			ff_active <= ff_active + 3'd1;
+			if( ff_active == 3'd5 ) begin
+				ff_active <= 3'd0;
+			end
+			else begin
+				ff_active <= ff_active + 3'd1;
+			end
 		end
 	end
+
+	assign w_address_reset0 = (ff_active == 3'd0) ? ch_a0_key_on :
+							  (ff_active == 3'd1) ? ch_b0_key_on :
+							  (ff_active == 3'd2) ? ch_c0_key_on :
+							  (ff_active == 3'd3) ? ch_d0_key_on : ch_e0_key_on;
+	assign w_address_reset1 = (ff_active == 3'd0) ? ch_a1_key_on :
+							  (ff_active == 3'd1) ? ch_b1_key_on :
+							  (ff_active == 3'd2) ? ch_c1_key_on :
+							  (ff_active == 3'd3) ? ch_d1_key_on : ch_e1_key_on;
 
 	wts_adsr_envelope_generator_5ch u_adsr_envelope_generator_5ch_0 (
 		.nreset						( nreset						),
@@ -600,7 +532,7 @@ module wts_channel_mixer (
 		.nreset						( nreset						),
 		.clk						( clk							),
 		.active						( ff_active						),
-		.address_reset				( address_reset					),
+		.address_reset				( w_address_reset0				),
 		.wave_address				( w_wave_address0				),
 		.half_timing				( w_half_timing0				),
 		.reg_wave_length_a			( reg_wave_length_a0			),
@@ -619,7 +551,7 @@ module wts_channel_mixer (
 		.nreset						( nreset						),
 		.clk						( clk							),
 		.active						( ff_active						),
-		.address_reset				( address_reset					),
+		.address_reset				( w_address_reset1				),
 		.wave_address				( w_wave_address1				),
 		.half_timing				( w_half_timing1				),
 		.reg_wave_length_a			( reg_wave_length_a1			),

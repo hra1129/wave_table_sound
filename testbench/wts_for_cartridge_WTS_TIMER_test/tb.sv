@@ -211,42 +211,42 @@ module tb;
 		write_reg( 'hBFFF, 8'b01000000 );
 
 		// -------------------------------------------------------------
-		for( i = 0; i < 12; i++ ) begin
-			write_reg( 'hAE00 + i * 16, i * 2 );		//	freq. low
-			write_reg( 'hAE01 + i * 16, 0     );		//	freq. high
-			write_reg( 'hAE02 + i * 16, 15    );		//	volume
-			write_reg( 'hAE03 + i * 16, 3     );		//	enable
+		for( i = 0; i < 10; i++ ) begin
+			write_reg( 'hAF00 + i * 16, i * 2 );		//	freq. low
+			write_reg( 'hAF01 + i * 16, 0     );		//	freq. high
+			write_reg( 'hAF02 + i * 16, 15    );		//	volume
+			write_reg( 'hAF03 + i * 16, 3     );		//	enable
 		end
 
 		//	Default status
-		read_reg( 'hAEF1, read_data );
+		read_reg( 'hAFF9, read_data );
 		success_condition_is( read_data === 8'h80, "<1> TIMER1 status is 8'h80." );
 
-		read_reg( 'hAEF3, read_data );
+		read_reg( 'hAFFB, read_data );
 		success_condition_is( read_data === 8'h80, "<2> TIMER2 status is 8'h80." );
 
 		//	Timer
-		write_reg( 'hAEF0, TIMER_ENABLE | TIMER_ONE_SHOT | 0 );
-		write_reg( 'hAEF2, TIMER_ENABLE | TIMER_ONE_SHOT | 0 );
+		write_reg( 'hAFF8, TIMER_ENABLE | TIMER_ONE_SHOT | 0 );
+		write_reg( 'hAFFA, TIMER_ENABLE | TIMER_ONE_SHOT | 0 );
 
 		repeat( 50 ) @( posedge clk );
 
 		success_condition_is( slot_nint === 1'b0, "SLOT_NINT is 0." );
 
 		//	Clear
-		read_reg( 'hAEF1, read_data );
+		read_reg( 'hAFF9, read_data );
 		success_condition_is( read_data === 8'h00, "<3> TIMER1 status is 8'h00." );
 
-		read_reg( 'hAEF3, read_data );
+		read_reg( 'hAFFB, read_data );
 		success_condition_is( read_data === 8'h00, "<4> TIMER2 status is 8'h00." );
 
 		repeat( 50 ) @( posedge clk );
 
 		//	Default status
-		read_reg( 'hAEF1, read_data );
+		read_reg( 'hAFF9, read_data );
 		success_condition_is( read_data === 8'h80, "<5> TIMER1 status is 8'h80." );
 
-		read_reg( 'hAEF3, read_data );
+		read_reg( 'hAFFB, read_data );
 		success_condition_is( read_data === 8'h80, "<6> TIMER2 status is 8'h80." );
 
 		repeat( 50 ) @( posedge clk );

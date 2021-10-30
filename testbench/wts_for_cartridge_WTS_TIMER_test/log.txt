@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 22:54:20 on Oct 29,2021
+# Start time: 06:47:49 on Oct 31,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_for_cartridge
@@ -21,19 +21,12 @@
 # [             4632720]   1: Check /INT signal.
 # ------------------------------------------------------------
 # [             6960720]   2: Activate WTS registers.
-# [            63835131] <1> TIMER1 status is 8'h80.
-# [            64952595] <2> TIMER2 status is 8'h80.
-# [            69490800] SLOT_NINT is 0.
-# [            70539915] <3> TIMER1 status is 8'h00.
-# [            71657379] <4> TIMER2 status is 8'h00.
-# [            75009771] <5> TIMER1 status is 8'h80.
-# [            76127235] <6> TIMER2 status is 8'h80.
-#####################################
-#                                   #
-#    Found           7 error(s)
-#                                   #
-#####################################
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(106)
-#    Time: 78430320 ps  Iteration: 1  Instance: /tb
-# End time: 22:54:21 on Oct 29,2021, Elapsed time: 0:00:01
+#    Time: 69490800 ps  Iteration: 1  Instance: /tb
+# End time: 06:47:50 on Oct 31,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

@@ -24,7 +24,7 @@ module wts_adsr_envelope_generator_5ch (
 	input			nreset,					//	negative logic
 	input			clk,
 	input	[2:0]	active,					//	0...4 : channel index, 5 : no operation
-	output	[4:0]	envelope,
+	output	[6:0]	envelope,
 
 	input			ch_a_key_on,
 	input			ch_a_key_release,
@@ -50,7 +50,7 @@ module wts_adsr_envelope_generator_5ch (
 	input	[7:0]	reg_dr_a,
 	input	[7:0]	reg_sr_a,
 	input	[7:0]	reg_rr_a,
-	input	[3:0]	reg_sl_a,
+	input	[5:0]	reg_sl_a,
 	input	[1:0]	reg_wave_length_a,
 	input	[11:0]	reg_frequency_count_a,
 
@@ -58,7 +58,7 @@ module wts_adsr_envelope_generator_5ch (
 	input	[7:0]	reg_dr_b,
 	input	[7:0]	reg_sr_b,
 	input	[7:0]	reg_rr_b,
-	input	[3:0]	reg_sl_b,
+	input	[5:0]	reg_sl_b,
 	input	[1:0]	reg_wave_length_b,
 	input	[11:0]	reg_frequency_count_b,
 
@@ -66,7 +66,7 @@ module wts_adsr_envelope_generator_5ch (
 	input	[7:0]	reg_dr_c,
 	input	[7:0]	reg_sr_c,
 	input	[7:0]	reg_rr_c,
-	input	[3:0]	reg_sl_c,
+	input	[5:0]	reg_sl_c,
 	input	[1:0]	reg_wave_length_c,
 	input	[11:0]	reg_frequency_count_c,
 
@@ -74,7 +74,7 @@ module wts_adsr_envelope_generator_5ch (
 	input	[7:0]	reg_dr_d,
 	input	[7:0]	reg_sr_d,
 	input	[7:0]	reg_rr_d,
-	input	[3:0]	reg_sl_d,
+	input	[5:0]	reg_sl_d,
 	input	[1:0]	reg_wave_length_d,
 	input	[11:0]	reg_frequency_count_d,
 
@@ -82,7 +82,7 @@ module wts_adsr_envelope_generator_5ch (
 	input	[7:0]	reg_dr_e,
 	input	[7:0]	reg_sr_e,
 	input	[7:0]	reg_rr_e,
-	input	[3:0]	reg_sl_e,
+	input	[5:0]	reg_sl_e,
 	input	[1:0]	reg_wave_length_e,
 	input	[11:0]	reg_frequency_count_e
 );
@@ -90,38 +90,38 @@ module wts_adsr_envelope_generator_5ch (
 	wire	[7:0]	w_dr;
 	wire	[7:0]	w_sr;
 	wire	[7:0]	w_rr;
-	wire	[3:0]	w_sl;
+	wire	[5:0]	w_sl;
 	wire			w_key_on;
 	wire			w_key_release;
 	wire			w_key_off;
 
 	reg		[2:0]	ff_state_a;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[15:0]	ff_counter_a;
-	reg		[4:0]	ff_level_a;
+	reg		[6:0]	ff_level_a;
 
 	reg		[2:0]	ff_state_b;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[15:0]	ff_counter_b;
-	reg		[4:0]	ff_level_b;
+	reg		[6:0]	ff_level_b;
 
 	reg		[2:0]	ff_state_c;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[15:0]	ff_counter_c;
-	reg		[4:0]	ff_level_c;
+	reg		[6:0]	ff_level_c;
 
 	reg		[2:0]	ff_state_d;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[15:0]	ff_counter_d;
-	reg		[4:0]	ff_level_d;
+	reg		[6:0]	ff_level_d;
 
 	reg		[2:0]	ff_state_e;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[15:0]	ff_counter_e;
-	reg		[4:0]	ff_level_e;
+	reg		[6:0]	ff_level_e;
 
 	wire	[2:0]	w_state_in;
 	wire	[15:0]	w_counter_in;
-	wire	[4:0]	w_level_in;
+	wire	[6:0]	w_level_in;
 
 	wire	[2:0]	w_state_out;
 	wire	[15:0]	w_counter_out;
-	wire	[4:0]	w_level_out;
+	wire	[6:0]	w_level_out;
 
 	wts_selector #( 8 ) u_ar_selector (
 		.active		( active			),
@@ -163,7 +163,7 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_e		( reg_rr_e			)
 	);
 
-	wts_selector #( 4 ) u_sl_selector (
+	wts_selector #( 6 ) u_sl_selector (
 		.active		( active			),
 		.result		( w_sl				),
 		.reg_a		( reg_sl_a			),
@@ -223,7 +223,7 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_e		( ff_counter_e		)
 	);
 
-	wts_selector #( 5 ) u_level_selector (
+	wts_selector #( 7 ) u_level_selector (
 		.active		( active			),
 		.result		( w_level_in		),
 		.reg_a		( ff_level_a		),

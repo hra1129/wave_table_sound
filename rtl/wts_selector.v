@@ -45,7 +45,7 @@ module wts_selector #(
 		3'd2:		func_selector = reg_c;
 		3'd3:		func_selector = reg_d;
 		3'd4:		func_selector = reg_e;
-		default:	func_selector = 'dx;
+		default:	func_selector = 'd0;
 		endcase
 	endfunction
 

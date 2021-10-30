@@ -91,7 +91,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_a0;
 	wire	[7:0]	reg_sr_a0;
 	wire	[7:0]	reg_rr_a0;
-	wire	[3:0]	reg_sl_a0;
+	wire	[5:0]	reg_sl_a0;
 	wire	[1:0]	reg_wave_length_a0;
 	wire	[11:0]	reg_frequency_count_a0;
 	wire	[1:0]	reg_noise_sel_a0;
@@ -103,7 +103,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_b0;
 	wire	[7:0]	reg_sr_b0;
 	wire	[7:0]	reg_rr_b0;
-	wire	[3:0]	reg_sl_b0;
+	wire	[5:0]	reg_sl_b0;
 	wire	[1:0]	reg_wave_length_b0;
 	wire	[11:0]	reg_frequency_count_b0;
 	wire	[1:0]	reg_noise_sel_b0;
@@ -115,7 +115,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_c0;
 	wire	[7:0]	reg_sr_c0;
 	wire	[7:0]	reg_rr_c0;
-	wire	[3:0]	reg_sl_c0;
+	wire	[5:0]	reg_sl_c0;
 	wire	[1:0]	reg_wave_length_c0;
 	wire	[11:0]	reg_frequency_count_c0;
 	wire	[1:0]	reg_noise_sel_c0;
@@ -127,7 +127,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_d0;
 	wire	[7:0]	reg_sr_d0;
 	wire	[7:0]	reg_rr_d0;
-	wire	[3:0]	reg_sl_d0;
+	wire	[5:0]	reg_sl_d0;
 	wire	[1:0]	reg_wave_length_d0;
 	wire	[11:0]	reg_frequency_count_d0;
 	wire	[1:0]	reg_noise_sel_d0;
@@ -139,7 +139,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_e0;
 	wire	[7:0]	reg_sr_e0;
 	wire	[7:0]	reg_rr_e0;
-	wire	[3:0]	reg_sl_e0;
+	wire	[5:0]	reg_sl_e0;
 	wire	[1:0]	reg_wave_length_e0;
 	wire	[11:0]	reg_frequency_count_e0;
 	wire	[1:0]	reg_noise_sel_e0;
@@ -151,7 +151,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_a1;
 	wire	[7:0]	reg_sr_a1;
 	wire	[7:0]	reg_rr_a1;
-	wire	[3:0]	reg_sl_a1;
+	wire	[5:0]	reg_sl_a1;
 	wire	[1:0]	reg_wave_length_a1;
 	wire	[11:0]	reg_frequency_count_a1;
 	wire	[1:0]	reg_noise_sel_a1;
@@ -163,7 +163,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_b1;
 	wire	[7:0]	reg_sr_b1;
 	wire	[7:0]	reg_rr_b1;
-	wire	[3:0]	reg_sl_b1;
+	wire	[5:0]	reg_sl_b1;
 	wire	[1:0]	reg_wave_length_b1;
 	wire	[11:0]	reg_frequency_count_b1;
 	wire	[1:0]	reg_noise_sel_b1;
@@ -175,7 +175,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_c1;
 	wire	[7:0]	reg_sr_c1;
 	wire	[7:0]	reg_rr_c1;
-	wire	[3:0]	reg_sl_c1;
+	wire	[5:0]	reg_sl_c1;
 	wire	[1:0]	reg_wave_length_c1;
 	wire	[11:0]	reg_frequency_count_c1;
 	wire	[1:0]	reg_noise_sel_c1;
@@ -187,7 +187,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_d1;
 	wire	[7:0]	reg_sr_d1;
 	wire	[7:0]	reg_rr_d1;
-	wire	[3:0]	reg_sl_d1;
+	wire	[5:0]	reg_sl_d1;
 	wire	[1:0]	reg_wave_length_d1;
 	wire	[11:0]	reg_frequency_count_d1;
 	wire	[1:0]	reg_noise_sel_d1;
@@ -199,7 +199,7 @@ module wts_core (
 	wire	[7:0]	reg_dr_e1;
 	wire	[7:0]	reg_sr_e1;
 	wire	[7:0]	reg_rr_e1;
-	wire	[3:0]	reg_sl_e1;
+	wire	[5:0]	reg_sl_e1;
 	wire	[1:0]	reg_wave_length_e1;
 	wire	[11:0]	reg_frequency_count_e1;
 	wire	[1:0]	reg_noise_sel_e1;

@@ -126,6 +126,7 @@ module tb;
 
 		ff_mem_ncs			<= mem_ncs;
 		ff_mem_a			<= { mem_a, slot_a[12:0] };
+		@( negedge clk4m );
 
 		#120ns
 			slot_nwr		<= 1'b1;
@@ -154,6 +155,7 @@ module tb;
 			slot_nsltsl		<= 1'b0;
 			slot_nrd		<= 1'b0;
 			ff_slot_d_dir	<= 1'b0;
+		@( negedge clk4m );
 		@( negedge clk4m );
 		@( negedge clk4m );
 

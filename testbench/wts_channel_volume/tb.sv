@@ -3,7 +3,7 @@ module tb;
 
 	reg				nreset;					//	negative logic
 	reg				clk;
-	reg		[4:0]	envelope;
+	reg		[6:0]	envelope;
 	reg				noise;
 	reg		[7:0]	sram_q;					//	signed
 	wire	[7:0]	channel;				//	signed

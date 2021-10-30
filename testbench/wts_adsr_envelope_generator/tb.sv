@@ -4,7 +4,7 @@ module tb;
 	reg				nreset;					//	negative logic
 	reg				clk;
 	reg		[2:0]	active;					//	0...4 : channel index; 5 : no operation
-	wire	[4:0]	envelope;
+	wire	[6:0]	envelope;
 
 	reg				ch_a_key_on;
 	reg				ch_a_key_release;
@@ -30,7 +30,7 @@ module tb;
 	reg		[7:0]	reg_dr_a;
 	reg		[7:0]	reg_sr_a;
 	reg		[7:0]	reg_rr_a;
-	reg		[3:0]	reg_sl_a;
+	reg		[5:0]	reg_sl_a;
 	reg		[1:0]	reg_wave_length_a;
 	reg		[11:0]	reg_frequency_count_a;
 
@@ -38,7 +38,7 @@ module tb;
 	reg		[7:0]	reg_dr_b;
 	reg		[7:0]	reg_sr_b;
 	reg		[7:0]	reg_rr_b;
-	reg		[3:0]	reg_sl_b;
+	reg		[5:0]	reg_sl_b;
 	reg		[1:0]	reg_wave_length_b;
 	reg		[11:0]	reg_frequency_count_b;
 
@@ -46,7 +46,7 @@ module tb;
 	reg		[7:0]	reg_dr_c;
 	reg		[7:0]	reg_sr_c;
 	reg		[7:0]	reg_rr_c;
-	reg		[3:0]	reg_sl_c;
+	reg		[5:0]	reg_sl_c;
 	reg		[1:0]	reg_wave_length_c;
 	reg		[11:0]	reg_frequency_count_c;
 
@@ -54,7 +54,7 @@ module tb;
 	reg		[7:0]	reg_dr_d;
 	reg		[7:0]	reg_sr_d;
 	reg		[7:0]	reg_rr_d;
-	reg		[3:0]	reg_sl_d;
+	reg		[5:0]	reg_sl_d;
 	reg		[1:0]	reg_wave_length_d;
 	reg		[11:0]	reg_frequency_count_d;
 
@@ -62,7 +62,7 @@ module tb;
 	reg		[7:0]	reg_dr_e;
 	reg		[7:0]	reg_sr_e;
 	reg		[7:0]	reg_rr_e;
-	reg		[3:0]	reg_sl_e;
+	reg		[5:0]	reg_sl_e;
 	reg		[1:0]	reg_wave_length_e;
 	reg		[11:0]	reg_frequency_count_e;
 
@@ -286,7 +286,7 @@ module tb;
 		set_test_pattern_no( 4, "If you put values in AR, DR, SR, SL, and RR. (1)" );
 		reg_ar_a				= 2;
 		reg_dr_a				= 3;
-		reg_sl_a				= 100;
+		reg_sl_a				= 60;
 		reg_sr_a				= 100;
 		reg_rr_a				= 4;
 		@( posedge clk );

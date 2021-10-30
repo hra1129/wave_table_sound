@@ -23,37 +23,37 @@
 module wts_channel_volume (
 	input			nreset,					//	negative logic
 	input			clk,
-	input	[4:0]	envelope,
+	input	[6:0]	envelope,
 	input			noise,
 	input	[7:0]	sram_q,					//	signed
 	output	[7:0]	channel,				//	signed
 	input	[3:0]	reg_volume
 );
 	reg		[7:0]	ff_wave;				//	signed
-	reg		[4:0]	ff_envelope;
-	wire	[12:0]	w_wave_mul;				//	signed
+	reg		[6:0]	ff_envelope;
+	wire	[14:0]	w_wave_mul;				//	signed
 	wire	[7:0]	w_wave_round;			//	signed
 	reg		[7:0]	ff_channel_wave;		//	signed
 	wire	[12:0]	w_channel_mul;
 	wire	[7:0]	w_channel_round;
 	reg		[7:0]	ff_channel;				//	signed
 
-	assign w_wave_mul		= $signed( ff_wave ) * $signed( { 1'b0, ff_envelope[3:0] } );
-	assign w_wave_round		= (w_wave_mul[11] && (w_wave_mul[3:0] != 4'd0)) ? ( w_wave_mul[11:4] + 8'd1 ) : w_wave_mul[11:4];
+	assign w_wave_mul		= $signed( ff_wave ) * $signed( { 1'b0, ff_envelope[5:0] } );
+	assign w_wave_round		= (w_wave_mul[13] && (w_wave_mul[5:0] != 6'd0)) ? ( w_wave_mul[13:6] + 8'd1 ) : w_wave_mul[13:6];
 	assign w_channel_mul	= $signed( ff_channel_wave ) * $signed( { 1'b0, reg_volume } );
 	assign w_channel_round	= (w_channel_mul[11] && (w_channel_mul[3:0] != 4'd0)) ? ( w_channel_mul[11:4] + 8'd1 ) : w_channel_mul[11:4];
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
 			ff_wave			<= 8'd0;
-			ff_envelope		<= 5'd0;
+			ff_envelope		<= 7'd0;
 			ff_channel_wave	<= 8'd0;
 			ff_channel		<= 8'd0;
 		end
 		else begin
 			ff_wave			<= sram_q;
-			ff_envelope		<= noise ? envelope : 5'd0;
-			ff_channel_wave	<= ff_envelope[4] ? ff_wave : w_wave_round;
+			ff_envelope		<= noise ? envelope : 7'd0;
+			ff_channel_wave	<= ff_envelope[6] ? ff_wave : w_wave_round;
 			ff_channel		<= w_channel_round;
 		end
 	end

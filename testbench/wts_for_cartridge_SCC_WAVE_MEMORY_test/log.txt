@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 07:56:04 on Oct 30,2021
+# Start time: 06:59:01 on Oct 31,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_for_cartridge
@@ -20,15 +20,15 @@
 # ------------------------------------------------------------
 # [             4632720]   1: Write Test by SCC registers.
 # ------------------------------------------------------------
-# [           294096240]   1: Write Test by SCC-I registers.
+# [           365891760]   1: Write Test by SCC-I registers.
 # ------------------------------------------------------------
-# [           656146800]   1: Write Test by WTS registers.
+# [           817896240]   1: Write Test by WTS registers.
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $                                   $
 # $        Success of all!!           $
 # $                                   $
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : tb.sv(103)
-#    Time: 3521356080 ps  Iteration: 1  Instance: /tb
-# End time: 07:56:13 on Oct 30,2021, Elapsed time: 0:00:09
+#    Time: 4398825840 ps  Iteration: 1  Instance: /tb
+# End time: 06:59:10 on Oct 31,2021, Elapsed time: 0:00:09
 # Errors: 0, Warnings: 0
