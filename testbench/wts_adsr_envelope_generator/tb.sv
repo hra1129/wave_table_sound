@@ -254,7 +254,7 @@ module tb;
 		ch_a_key_on				= 0;
 		@( posedge clk );
 		repeat( 50 ) begin
-			success_condition_is( envelope == 16, "Envelope is MAXIMUM." );
+			success_condition_is( envelope == 64, "Envelope is MAXIMUM." );
 			@( posedge clk );
 		end
 
@@ -265,7 +265,7 @@ module tb;
 		ch_a_key_release			= 0;
 		@( posedge clk );
 		repeat( 50 ) begin
-			success_condition_is( envelope == 16, "Envelope is MAXIMUM." );
+			success_condition_is( envelope == 64, "Envelope is MAXIMUM." );
 			@( posedge clk );
 		end
 

@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 07:01:16 on Oct 31,2021
+# Start time: 08:13:05 on Oct 31,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_adsr_envelope_generator_5ch
@@ -10,108 +10,8 @@
 # [             4632720]   1: In the steady state, envelope does not change.
 # ------------------------------------------------------------
 # [             6960720]   2: If key_on is entered when reg_ar is 0, it suddenly rises to the maximum.
-# [             7053840] Envelope is MAXIMUM.
-# [             7100400] Envelope is MAXIMUM.
-# [             7146960] Envelope is MAXIMUM.
-# [             7193520] Envelope is MAXIMUM.
-# [             7240080] Envelope is MAXIMUM.
-# [             7286640] Envelope is MAXIMUM.
-# [             7333200] Envelope is MAXIMUM.
-# [             7379760] Envelope is MAXIMUM.
-# [             7426320] Envelope is MAXIMUM.
-# [             7472880] Envelope is MAXIMUM.
-# [             7519440] Envelope is MAXIMUM.
-# [             7566000] Envelope is MAXIMUM.
-# [             7612560] Envelope is MAXIMUM.
-# [             7659120] Envelope is MAXIMUM.
-# [             7705680] Envelope is MAXIMUM.
-# [             7752240] Envelope is MAXIMUM.
-# [             7798800] Envelope is MAXIMUM.
-# [             7845360] Envelope is MAXIMUM.
-# [             7891920] Envelope is MAXIMUM.
-# [             7938480] Envelope is MAXIMUM.
-# [             7985040] Envelope is MAXIMUM.
-# [             8031600] Envelope is MAXIMUM.
-# [             8078160] Envelope is MAXIMUM.
-# [             8124720] Envelope is MAXIMUM.
-# [             8171280] Envelope is MAXIMUM.
-# [             8217840] Envelope is MAXIMUM.
-# [             8264400] Envelope is MAXIMUM.
-# [             8310960] Envelope is MAXIMUM.
-# [             8357520] Envelope is MAXIMUM.
-# [             8404080] Envelope is MAXIMUM.
-# [             8450640] Envelope is MAXIMUM.
-# [             8497200] Envelope is MAXIMUM.
-# [             8543760] Envelope is MAXIMUM.
-# [             8590320] Envelope is MAXIMUM.
-# [             8636880] Envelope is MAXIMUM.
-# [             8683440] Envelope is MAXIMUM.
-# [             8730000] Envelope is MAXIMUM.
-# [             8776560] Envelope is MAXIMUM.
-# [             8823120] Envelope is MAXIMUM.
-# [             8869680] Envelope is MAXIMUM.
-# [             8916240] Envelope is MAXIMUM.
-# [             8962800] Envelope is MAXIMUM.
-# [             9009360] Envelope is MAXIMUM.
-# [             9055920] Envelope is MAXIMUM.
-# [             9102480] Envelope is MAXIMUM.
-# [             9149040] Envelope is MAXIMUM.
-# [             9195600] Envelope is MAXIMUM.
-# [             9242160] Envelope is MAXIMUM.
-# [             9288720] Envelope is MAXIMUM.
-# [             9335280] Envelope is MAXIMUM.
 # ------------------------------------------------------------
 # [             9381840]   3: When reg_rr is 0, it will not start decaying even if key_release is entered.
-# [             9474960] Envelope is MAXIMUM.
-# [             9521520] Envelope is MAXIMUM.
-# [             9568080] Envelope is MAXIMUM.
-# [             9614640] Envelope is MAXIMUM.
-# [             9661200] Envelope is MAXIMUM.
-# [             9707760] Envelope is MAXIMUM.
-# [             9754320] Envelope is MAXIMUM.
-# [             9800880] Envelope is MAXIMUM.
-# [             9847440] Envelope is MAXIMUM.
-# [             9894000] Envelope is MAXIMUM.
-# [             9940560] Envelope is MAXIMUM.
-# [             9987120] Envelope is MAXIMUM.
-# [            10033680] Envelope is MAXIMUM.
-# [            10080240] Envelope is MAXIMUM.
-# [            10126800] Envelope is MAXIMUM.
-# [            10173360] Envelope is MAXIMUM.
-# [            10219920] Envelope is MAXIMUM.
-# [            10266480] Envelope is MAXIMUM.
-# [            10313040] Envelope is MAXIMUM.
-# [            10359600] Envelope is MAXIMUM.
-# [            10406160] Envelope is MAXIMUM.
-# [            10452720] Envelope is MAXIMUM.
-# [            10499280] Envelope is MAXIMUM.
-# [            10545840] Envelope is MAXIMUM.
-# [            10592400] Envelope is MAXIMUM.
-# [            10638960] Envelope is MAXIMUM.
-# [            10685520] Envelope is MAXIMUM.
-# [            10732080] Envelope is MAXIMUM.
-# [            10778640] Envelope is MAXIMUM.
-# [            10825200] Envelope is MAXIMUM.
-# [            10871760] Envelope is MAXIMUM.
-# [            10918320] Envelope is MAXIMUM.
-# [            10964880] Envelope is MAXIMUM.
-# [            11011440] Envelope is MAXIMUM.
-# [            11058000] Envelope is MAXIMUM.
-# [            11104560] Envelope is MAXIMUM.
-# [            11151120] Envelope is MAXIMUM.
-# [            11197680] Envelope is MAXIMUM.
-# [            11244240] Envelope is MAXIMUM.
-# [            11290800] Envelope is MAXIMUM.
-# [            11337360] Envelope is MAXIMUM.
-# [            11383920] Envelope is MAXIMUM.
-# [            11430480] Envelope is MAXIMUM.
-# [            11477040] Envelope is MAXIMUM.
-# [            11523600] Envelope is MAXIMUM.
-# [            11570160] Envelope is MAXIMUM.
-# [            11616720] Envelope is MAXIMUM.
-# [            11663280] Envelope is MAXIMUM.
-# [            11709840] Envelope is MAXIMUM.
-# [            11756400] Envelope is MAXIMUM.
 # ------------------------------------------------------------
 # [            11802960]   3: When key_off is entered, envelope returns to 0.
 # ------------------------------------------------------------
@@ -122,5 +22,5 @@
 # [           394153680]   6: If you put values in AR, DR, SR, SL, and RR. (3)
 # ** Note: $finish    : tb.sv(360)
 #    Time: 582954480 ps  Iteration: 1  Instance: /tb
-# End time: 07:01:17 on Oct 31,2021, Elapsed time: 0:00:01
+# End time: 08:13:05 on Oct 31,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

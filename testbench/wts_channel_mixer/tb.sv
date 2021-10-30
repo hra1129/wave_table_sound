@@ -62,10 +62,10 @@ module tb;
 	reg		[7:0]	reg_dr_a0;
 	reg		[7:0]	reg_sr_a0;
 	reg		[7:0]	reg_rr_a0;
-	reg		[6:0]	reg_sl_a0;
+	reg		[5:0]	reg_sl_a0;
 	reg		[1:0]	reg_wave_length_a0;
 	reg		[11:0]	reg_frequency_count_a0;
-	reg		[4:0]	reg_noise_frequency_a0;
+	reg		[1:0]	reg_noise_sel_a0;
 
 	reg		[3:0]	reg_volume_b0;
 	reg		[1:0]	reg_enable_b0;
@@ -74,10 +74,10 @@ module tb;
 	reg		[7:0]	reg_dr_b0;
 	reg		[7:0]	reg_sr_b0;
 	reg		[7:0]	reg_rr_b0;
-	reg		[6:0]	reg_sl_b0;
+	reg		[5:0]	reg_sl_b0;
 	reg		[1:0]	reg_wave_length_b0;
 	reg		[11:0]	reg_frequency_count_b0;
-	reg		[4:0]	reg_noise_frequency_b0;
+	reg		[1:0]	reg_noise_sel_b0;
 
 	reg		[3:0]	reg_volume_c0;
 	reg		[1:0]	reg_enable_c0;
@@ -86,10 +86,10 @@ module tb;
 	reg		[7:0]	reg_dr_c0;
 	reg		[7:0]	reg_sr_c0;
 	reg		[7:0]	reg_rr_c0;
-	reg		[6:0]	reg_sl_c0;
+	reg		[5:0]	reg_sl_c0;
 	reg		[1:0]	reg_wave_length_c0;
 	reg		[11:0]	reg_frequency_count_c0;
-	reg		[4:0]	reg_noise_frequency_c0;
+	reg		[1:0]	reg_noise_sel_c0;
 
 	reg		[3:0]	reg_volume_d0;
 	reg		[1:0]	reg_enable_d0;
@@ -98,10 +98,10 @@ module tb;
 	reg		[7:0]	reg_dr_d0;
 	reg		[7:0]	reg_sr_d0;
 	reg		[7:0]	reg_rr_d0;
-	reg		[6:0]	reg_sl_d0;
+	reg		[5:0]	reg_sl_d0;
 	reg		[1:0]	reg_wave_length_d0;
 	reg		[11:0]	reg_frequency_count_d0;
-	reg		[4:0]	reg_noise_frequency_d0;
+	reg		[1:0]	reg_noise_sel_d0;
 
 	reg		[3:0]	reg_volume_e0;
 	reg		[1:0]	reg_enable_e0;
@@ -110,10 +110,10 @@ module tb;
 	reg		[7:0]	reg_dr_e0;
 	reg		[7:0]	reg_sr_e0;
 	reg		[7:0]	reg_rr_e0;
-	reg		[6:0]	reg_sl_e0;
+	reg		[5:0]	reg_sl_e0;
 	reg		[1:0]	reg_wave_length_e0;
 	reg		[11:0]	reg_frequency_count_e0;
-	reg		[4:0]	reg_noise_frequency_e0;
+	reg		[1:0]	reg_noise_sel_e0;
 
 	reg		[3:0]	reg_volume_a1;
 	reg		[1:0]	reg_enable_a1;
@@ -122,10 +122,10 @@ module tb;
 	reg		[7:0]	reg_dr_a1;
 	reg		[7:0]	reg_sr_a1;
 	reg		[7:0]	reg_rr_a1;
-	reg		[6:0]	reg_sl_a1;
+	reg		[5:0]	reg_sl_a1;
 	reg		[1:0]	reg_wave_length_a1;
 	reg		[11:0]	reg_frequency_count_a1;
-	reg		[4:0]	reg_noise_frequency_a1;
+	reg		[1:0]	reg_noise_sel_a1;
 
 	reg		[3:0]	reg_volume_b1;
 	reg		[1:0]	reg_enable_b1;
@@ -134,10 +134,10 @@ module tb;
 	reg		[7:0]	reg_dr_b1;
 	reg		[7:0]	reg_sr_b1;
 	reg		[7:0]	reg_rr_b1;
-	reg		[6:0]	reg_sl_b1;
+	reg		[5:0]	reg_sl_b1;
 	reg		[1:0]	reg_wave_length_b1;
 	reg		[11:0]	reg_frequency_count_b1;
-	reg		[4:0]	reg_noise_frequency_b1;
+	reg		[1:0]	reg_noise_sel_b1;
 
 	reg		[3:0]	reg_volume_c1;
 	reg		[1:0]	reg_enable_c1;
@@ -146,10 +146,10 @@ module tb;
 	reg		[7:0]	reg_dr_c1;
 	reg		[7:0]	reg_sr_c1;
 	reg		[7:0]	reg_rr_c1;
-	reg		[6:0]	reg_sl_c1;
+	reg		[5:0]	reg_sl_c1;
 	reg		[1:0]	reg_wave_length_c1;
 	reg		[11:0]	reg_frequency_count_c1;
-	reg		[4:0]	reg_noise_frequency_c1;
+	reg		[1:0]	reg_noise_sel_c1;
 
 	reg		[3:0]	reg_volume_d1;
 	reg		[1:0]	reg_enable_d1;
@@ -158,10 +158,10 @@ module tb;
 	reg		[7:0]	reg_dr_d1;
 	reg		[7:0]	reg_sr_d1;
 	reg		[7:0]	reg_rr_d1;
-	reg		[6:0]	reg_sl_d1;
+	reg		[5:0]	reg_sl_d1;
 	reg		[1:0]	reg_wave_length_d1;
 	reg		[11:0]	reg_frequency_count_d1;
-	reg		[4:0]	reg_noise_frequency_d1;
+	reg		[1:0]	reg_noise_sel_d1;
 
 	reg		[3:0]	reg_volume_e1;
 	reg		[1:0]	reg_enable_e1;
@@ -170,17 +170,22 @@ module tb;
 	reg		[7:0]	reg_dr_e1;
 	reg		[7:0]	reg_sr_e1;
 	reg		[7:0]	reg_rr_e1;
-	reg		[6:0]	reg_sl_e1;
+	reg		[5:0]	reg_sl_e1;
 	reg		[1:0]	reg_wave_length_e1;
 	reg		[11:0]	reg_frequency_count_e1;
-	reg		[4:0]	reg_noise_frequency_e1;
+	reg		[1:0]	reg_noise_sel_e1;
+
+	reg		[4:0]	reg_noise_frequency0;
+	reg		[4:0]	reg_noise_frequency1;
+	reg		[4:0]	reg_noise_frequency2;
+	reg		[4:0]	reg_noise_frequency3;
 
 	reg		[3:0]	reg_timer1_channel;
 	wire			timer1_trigger;
-	wire	[6:0]	timer1_address;
+	wire	[1:0]	timer1_address;
 	reg		[3:0]	reg_timer2_channel;
 	wire			timer2_trigger;
-	wire	[6:0]	timer2_address;
+	wire	[1:0]	timer2_address;
 
 	int				i, j;
 	int				pattern_no = 0;
@@ -248,7 +253,7 @@ module tb;
 		.reg_sl_a0					( reg_sl_a0					),
 		.reg_wave_length_a0			( reg_wave_length_a0		),
 		.reg_frequency_count_a0		( reg_frequency_count_a0	),
-		.reg_noise_frequency_a0		( reg_noise_frequency_a0	),
+		.reg_noise_sel_a0			( reg_noise_sel_a0			),
 		.reg_volume_b0				( reg_volume_b0				),
 		.reg_enable_b0				( reg_enable_b0				),
 		.reg_noise_enable_b0		( reg_noise_enable_b0		),
@@ -259,7 +264,7 @@ module tb;
 		.reg_sl_b0					( reg_sl_b0					),
 		.reg_wave_length_b0			( reg_wave_length_b0		),
 		.reg_frequency_count_b0		( reg_frequency_count_b0	),
-		.reg_noise_frequency_b0		( reg_noise_frequency_b0	),
+		.reg_noise_sel_b0			( reg_noise_sel_b0			),
 		.reg_volume_c0				( reg_volume_c0				),
 		.reg_enable_c0				( reg_enable_c0				),
 		.reg_noise_enable_c0		( reg_noise_enable_c0		),
@@ -270,7 +275,7 @@ module tb;
 		.reg_sl_c0					( reg_sl_c0					),
 		.reg_wave_length_c0			( reg_wave_length_c0		),
 		.reg_frequency_count_c0		( reg_frequency_count_c0	),
-		.reg_noise_frequency_c0		( reg_noise_frequency_c0	),
+		.reg_noise_sel_c0			( reg_noise_sel_c0			),
 		.reg_volume_d0				( reg_volume_d0				),
 		.reg_enable_d0				( reg_enable_d0				),
 		.reg_noise_enable_d0		( reg_noise_enable_d0		),
@@ -281,7 +286,7 @@ module tb;
 		.reg_sl_d0					( reg_sl_d0					),
 		.reg_wave_length_d0			( reg_wave_length_d0		),
 		.reg_frequency_count_d0		( reg_frequency_count_d0	),
-		.reg_noise_frequency_d0		( reg_noise_frequency_d0	),
+		.reg_noise_sel_d0			( reg_noise_sel_d0	),
 		.reg_volume_e0				( reg_volume_e0				),
 		.reg_enable_e0				( reg_enable_e0				),
 		.reg_noise_enable_e0		( reg_noise_enable_e0		),
@@ -292,7 +297,7 @@ module tb;
 		.reg_sl_e0					( reg_sl_e0					),
 		.reg_wave_length_e0			( reg_wave_length_e0		),
 		.reg_frequency_count_e0		( reg_frequency_count_e0	),
-		.reg_noise_frequency_e0		( reg_noise_frequency_e0	),
+		.reg_noise_sel_e0			( reg_noise_sel_e0			),
 		.reg_volume_a1				( reg_volume_a1				),
 		.reg_enable_a1				( reg_enable_a1				),
 		.reg_noise_enable_a1		( reg_noise_enable_a1		),
@@ -303,7 +308,7 @@ module tb;
 		.reg_sl_a1					( reg_sl_a1					),
 		.reg_wave_length_a1			( reg_wave_length_a1		),
 		.reg_frequency_count_a1		( reg_frequency_count_a1	),
-		.reg_noise_frequency_a1		( reg_noise_frequency_a1	),
+		.reg_noise_sel_a1			( reg_noise_sel_a1			),
 		.reg_volume_b1				( reg_volume_b1				),
 		.reg_enable_b1				( reg_enable_b1				),
 		.reg_noise_enable_b1		( reg_noise_enable_b1		),
@@ -314,7 +319,7 @@ module tb;
 		.reg_sl_b1					( reg_sl_b1					),
 		.reg_wave_length_b1			( reg_wave_length_b1		),
 		.reg_frequency_count_b1		( reg_frequency_count_b1	),
-		.reg_noise_frequency_b1		( reg_noise_frequency_b1	),
+		.reg_noise_sel_b1			( reg_noise_sel_b1			),
 		.reg_volume_c1				( reg_volume_c1				),
 		.reg_enable_c1				( reg_enable_c1				),
 		.reg_noise_enable_c1		( reg_noise_enable_c1		),
@@ -325,7 +330,7 @@ module tb;
 		.reg_sl_c1					( reg_sl_c1					),
 		.reg_wave_length_c1			( reg_wave_length_c1		),
 		.reg_frequency_count_c1		( reg_frequency_count_c1	),
-		.reg_noise_frequency_c1		( reg_noise_frequency_c1	),
+		.reg_noise_sel_c1			( reg_noise_sel_c1			),
 		.reg_volume_d1				( reg_volume_d1				),
 		.reg_enable_d1				( reg_enable_d1				),
 		.reg_noise_enable_d1		( reg_noise_enable_d1		),
@@ -336,7 +341,7 @@ module tb;
 		.reg_sl_d1					( reg_sl_d1					),
 		.reg_wave_length_d1			( reg_wave_length_d1		),
 		.reg_frequency_count_d1		( reg_frequency_count_d1	),
-		.reg_noise_frequency_d1		( reg_noise_frequency_d1	),
+		.reg_noise_sel_d1			( reg_noise_sel_d1			),
 		.reg_volume_e1				( reg_volume_e1				),
 		.reg_enable_e1				( reg_enable_e1				),
 		.reg_noise_enable_e1		( reg_noise_enable_e1		),
@@ -347,7 +352,11 @@ module tb;
 		.reg_sl_e1					( reg_sl_e1					),
 		.reg_wave_length_e1			( reg_wave_length_e1		),
 		.reg_frequency_count_e1		( reg_frequency_count_e1	),
-		.reg_noise_frequency_e1		( reg_noise_frequency_e1	),
+		.reg_noise_sel_e1			( reg_noise_sel_e1			),
+		.reg_noise_frequency0		( reg_noise_frequency0		),
+		.reg_noise_frequency1		( reg_noise_frequency1		),
+		.reg_noise_frequency2		( reg_noise_frequency2		),
+		.reg_noise_frequency3		( reg_noise_frequency3		),
 		.reg_timer1_channel			( reg_timer1_channel		),
 		.timer1_trigger				( timer1_trigger			),
 		.timer1_address				( timer1_address			),
@@ -483,7 +492,7 @@ module tb;
 		reg_sl_a0 = 0;
 		reg_wave_length_a0 = 0;
 		reg_frequency_count_a0 = 0;
-		reg_noise_frequency_a0 = 0;
+		reg_noise_sel_a0 = 0;
 
 		reg_volume_b0 = 0;
 		reg_enable_b0 = 0;
@@ -495,7 +504,7 @@ module tb;
 		reg_sl_b0 = 0;
 		reg_wave_length_b0 = 0;
 		reg_frequency_count_b0 = 0;
-		reg_noise_frequency_b0 = 0;
+		reg_noise_sel_b0 = 0;
 
 		reg_volume_c0 = 0;
 		reg_enable_c0 = 0;
@@ -507,7 +516,7 @@ module tb;
 		reg_sl_c0 = 0;
 		reg_wave_length_c0 = 0;
 		reg_frequency_count_c0 = 0;
-		reg_noise_frequency_c0 = 0;
+		reg_noise_sel_c0 = 0;
 
 		reg_volume_d0 = 0;
 		reg_enable_d0 = 0;
@@ -519,7 +528,7 @@ module tb;
 		reg_sl_d0 = 0;
 		reg_wave_length_d0 = 0;
 		reg_frequency_count_d0 = 0;
-		reg_noise_frequency_d0 = 0;
+		reg_noise_sel_d0 = 0;
 
 		reg_volume_e0 = 0;
 		reg_enable_e0 = 0;
@@ -531,7 +540,7 @@ module tb;
 		reg_sl_e0 = 0;
 		reg_wave_length_e0 = 0;
 		reg_frequency_count_e0 = 0;
-		reg_noise_frequency_e0 = 0;
+		reg_noise_sel_e0 = 0;
 
 		reg_volume_a1 = 0;
 		reg_enable_a1 = 0;
@@ -543,7 +552,7 @@ module tb;
 		reg_sl_a1 = 0;
 		reg_wave_length_a1 = 0;
 		reg_frequency_count_a1 = 0;
-		reg_noise_frequency_a1 = 0;
+		reg_noise_sel_a1 = 0;
 
 		reg_volume_b1 = 0;
 		reg_enable_b1 = 0;
@@ -555,7 +564,7 @@ module tb;
 		reg_sl_b1 = 0;
 		reg_wave_length_b1 = 0;
 		reg_frequency_count_b1 = 0;
-		reg_noise_frequency_b1 = 0;
+		reg_noise_sel_b1 = 0;
 
 		reg_volume_c1 = 0;
 		reg_enable_c1 = 0;
@@ -567,7 +576,7 @@ module tb;
 		reg_sl_c1 = 0;
 		reg_wave_length_c1 = 0;
 		reg_frequency_count_c1 = 0;
-		reg_noise_frequency_c1 = 0;
+		reg_noise_sel_c1 = 0;
 
 		reg_volume_d1 = 0;
 		reg_enable_d1 = 0;
@@ -579,7 +588,7 @@ module tb;
 		reg_sl_d1 = 0;
 		reg_wave_length_d1 = 0;
 		reg_frequency_count_d1 = 0;
-		reg_noise_frequency_d1 = 0;
+		reg_noise_sel_d1 = 0;
 
 		reg_volume_e1 = 0;
 		reg_enable_e1 = 0;
@@ -591,7 +600,12 @@ module tb;
 		reg_sl_e1 = 0;
 		reg_wave_length_e1 = 0;
 		reg_frequency_count_e1 = 0;
-		reg_noise_frequency_e1 = 0;
+		reg_noise_sel_e1 = 0;
+
+		reg_noise_frequency0 = 0;
+		reg_noise_frequency1 = 0;
+		reg_noise_frequency2 = 0;
+		reg_noise_frequency3 = 0;
 
 		reg_timer1_channel = 0;
 		reg_timer2_channel = 0;
@@ -639,7 +653,7 @@ module tb;
 		reg_sl_a0 = 220;
 		reg_wave_length_a0 = 3;
 		reg_frequency_count_a0 = 12;
-		reg_noise_frequency_a0 = 0;
+		reg_noise_sel_a0 = 0;
 
 		ch_a0_key_on = 1;
 		ch_a0_key_release = 0;
@@ -671,7 +685,7 @@ module tb;
 		reg_sl_b0 = 120;
 		reg_wave_length_b0 = 3;
 		reg_frequency_count_b0 = 80;
-		reg_noise_frequency_b0 = 0;
+		reg_noise_sel_b0 = 0;
 
 		ch_b0_key_on = 1;
 		ch_b0_key_release = 0;
