@@ -338,20 +338,20 @@ module tb;
 		reg_dr_a				= 3;
 		reg_sl_a				= 55;
 		reg_sr_a				= 0;
-		reg_rr_a				= 3;
+		reg_rr_a				= 2;
 		@( posedge clk );
 		ch_a_key_on				= 1;
 		@( posedge clk );
 		ch_a_key_on				= 0;
 		@( posedge clk );
-		repeat( 2500 ) begin
+		repeat( 1 * 64 * 64 + 3 * 4096 * (64 - 55 + 20) ) begin
 			@( posedge clk );
 		end
 		ch_a_key_release			= 1;
 		@( posedge clk );
 		ch_a_key_release			= 0;
 		@( posedge clk );
-		repeat( 1500 ) begin
+		repeat( 2 * 4096 * (55 + 20) ) begin
 			@( posedge clk );
 		end
 

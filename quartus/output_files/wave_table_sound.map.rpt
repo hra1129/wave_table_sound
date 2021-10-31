@@ -1,5 +1,5 @@
 Analysis & Synthesis report for wave_table_sound
-Sun Oct 31 16:38:29 2021
+Mon Nov 01 06:20:21 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -98,7 +98,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 31 16:38:29 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 01 06:20:21 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; wave_table_sound                            ;
 ; Top-level Entity Name              ; wts_for_cartridge                           ;
@@ -1366,7 +1366,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1376,7 +1376,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Oct 31 16:38:10 2021
+    Info: Processing started: Mon Nov 01 06:20:04 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off wave_table_sound -c wave_table_sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1550,10 +1550,10 @@ Info (21057): Implemented 3272 device resources after synthesis - the final reso
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 4 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4794 megabytes
-    Info: Processing ended: Sun Oct 31 16:38:29 2021
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:36
+    Info: Peak virtual memory: 4795 megabytes
+    Info: Processing ended: Mon Nov 01 06:20:21 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:34
 
 
 +------------------------------------------+

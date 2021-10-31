@@ -1,5 +1,5 @@
 Power Analyzer report for wave_table_sound
-Sun Oct 31 16:38:52 2021
+Mon Nov 01 06:20:42 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -53,19 +53,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.88        ;
+; Average used               ; 1.90        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  29.4%      ;
+;     Processors 2-4         ;  30.1%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Sun Oct 31 16:38:52 2021            ;
+; Power Analyzer Status                  ; Successful - Mon Nov 01 06:20:42 2021            ;
 ; Quartus Prime Version                  ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition      ;
 ; Revision Name                          ; wave_table_sound                                 ;
 ; Top-level Entity Name                  ; wts_for_cartridge                                ;
@@ -332,7 +332,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Oct 31 16:38:48 2021
+    Info: Processing started: Mon Nov 01 06:20:38 2021
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off wave_table_sound -c wave_table_sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -348,7 +348,7 @@ Info (215049): Average toggle rate for this design is 2.745 millions of transiti
 Info (215031): Total thermal power estimate for the design is 135.36 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 4841 megabytes
-    Info: Processing ended: Sun Oct 31 16:38:52 2021
+    Info: Processing ended: Mon Nov 01 06:20:42 2021
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:07
 

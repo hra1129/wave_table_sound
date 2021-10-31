@@ -10,17 +10,17 @@
   <Timing Constraints File>: C:\Users\hra\Documents\github\wave_table_sound\gowin\wave_table_sound\src\wave_table_sound.sdc
   <GOWIN Version>: V1.9.2.01Beta
   <Part Number>: GW1N-UV4LQ100C6/I5
-  <Created Time>:Sun Oct 31 16:41:53 2021
+  <Created Time>:Mon Nov 01 06:44:51 2021
 
 
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 2.773 secs
-    Placement Phase 1 ...   REAL time: 0.263 secs
-    Placement Phase 2 ...   REAL time: 3.729 secs
-    Placement Phase 3 ...   REAL time: 2.37 secs
-  Total REAL time to Placement completion: 9.135 secs.
+    Placement Phase 0 ...   REAL time: 2.763 secs
+    Placement Phase 1 ...   REAL time: 0.27 secs
+    Placement Phase 2 ...   REAL time: 3.763 secs
+    Placement Phase 3 ...   REAL time: 2.508 secs
+  Total REAL time to Placement completion: 9.304 secs.
 
 
 3. Resource Usage Summary
@@ -74,9 +74,9 @@
 
   Starting Router:
     Route Phase 0: 4168 unrouted; REAL time: 0.001 secs
-    Route Phase 1: 2993 unrouted; REAL time: 0.089 secs
-    Route Phase 2: 0  unrouted; REAL time: 1.209 secs
-  Total REAL time to Router completion: 1.299 secs.
+    Route Phase 1: 2993 unrouted; REAL time: 0.087 secs
+    Route Phase 2: 0  unrouted; REAL time: 1.243 secs
+  Total REAL time to Router completion: 1.331 secs.
 
 
 6. Global Clock Usage Summary
@@ -280,4 +280,4 @@ Loc./Bank| Signal         | Dir.  | Site     | IO Type  | Pull Mode | Hysteresis
   Placement and routing completed.
 
 
-10. Memory usage: 136MB.
+10. Memory usage: 143MB.

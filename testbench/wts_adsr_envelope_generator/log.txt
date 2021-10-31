@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 16:32:32 on Oct 31,2021
+# Start time: 06:10:06 on Nov 01,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_adsr_envelope_generator_5ch
@@ -21,6 +21,6 @@
 # ------------------------------------------------------------
 # [           394153680]   6: If you put values in AR, DR, SR, SL, and RR. (3)
 # ** Note: $finish    : tb.sv(360)
-#    Time: 582954480 ps  Iteration: 1  Instance: /tb
-# End time: 16:32:33 on Oct 31,2021, Elapsed time: 0:00:01
+#    Time: 45785637360 ps  Iteration: 1  Instance: /tb
+# End time: 06:10:14 on Nov 01,2021, Elapsed time: 0:00:08
 # Errors: 0, Warnings: 0
