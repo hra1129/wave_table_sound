@@ -1,5 +1,5 @@
 Flow report for wave_table_sound
-Sun Oct 31 07:03:00 2021
+Sun Oct 31 16:38:58 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Oct 31 07:02:53 2021       ;
+; Flow Status                        ; Successful - Sun Oct 31 16:38:52 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; wave_table_sound                            ;
 ; Top-level Entity Name              ; wts_for_cartridge                           ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M04SAE144C8G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 2,166 / 4,032 ( 54 % )                      ;
-;     Total combinational functions  ; 1,824 / 4,032 ( 45 % )                      ;
-;     Dedicated logic registers      ; 1,432 / 4,032 ( 36 % )                      ;
-; Total registers                    ; 1432                                        ;
+; Total logic elements               ; 2,217 / 4,032 ( 55 % )                      ;
+;     Total combinational functions  ; 1,872 / 4,032 ( 46 % )                      ;
+;     Dedicated logic registers      ; 1,472 / 4,032 ( 37 % )                      ;
+; Total registers                    ; 1472                                        ;
 ; Total pins                         ; 64 / 101 ( 63 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 10,240 / 193,536 ( 5 % )                    ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/31/2021 07:02:04 ;
+; Start date & time ; 10/31/2021 16:38:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; wave_table_sound    ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+------------------+-------------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name       ; Section Id                        ;
 +-------------------------------------+----------------------------------------+------------------+-------------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 79871140848936.163563132411088         ; --               ; --                ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 79871140848936.163566589017860         ; --               ; --                ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --                ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --                ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --               ; --                ; eda_board_design_signal_integrity ;
@@ -102,12 +102,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:24     ; 1.0                     ; 4798 MB             ; 00:00:40                           ;
-; Fitter               ; 00:00:16     ; 1.5                     ; 5594 MB             ; 00:00:23                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4687 MB             ; 00:00:01                           ;
-; Power Analyzer       ; 00:00:04     ; 1.9                     ; 4844 MB             ; 00:00:07                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4794 MB             ; 00:00:36                           ;
+; Fitter               ; 00:00:13     ; 1.5                     ; 5588 MB             ; 00:00:19                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4688 MB             ; 00:00:01                           ;
+; Power Analyzer       ; 00:00:04     ; 1.9                     ; 4841 MB             ; 00:00:07                           ;
 ; Timing Analyzer      ; 00:00:05     ; 1.9                     ; 4812 MB             ; 00:00:08                           ;
-; Total                ; 00:00:50     ; --                      ; --                  ; 00:01:19                           ;
+; Total                ; 00:00:41     ; --                      ; --                  ; 00:01:11                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
