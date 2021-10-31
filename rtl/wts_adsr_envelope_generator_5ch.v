@@ -96,31 +96,31 @@ module wts_adsr_envelope_generator_5ch (
 	wire			w_key_off;
 
 	reg		[2:0]	ff_state_a;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
-	reg		[15:0]	ff_counter_a;
+	reg		[19:0]	ff_counter_a;
 	reg		[6:0]	ff_level_a;
 
 	reg		[2:0]	ff_state_b;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
-	reg		[15:0]	ff_counter_b;
+	reg		[19:0]	ff_counter_b;
 	reg		[6:0]	ff_level_b;
 
 	reg		[2:0]	ff_state_c;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
-	reg		[15:0]	ff_counter_c;
+	reg		[19:0]	ff_counter_c;
 	reg		[6:0]	ff_level_c;
 
 	reg		[2:0]	ff_state_d;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
-	reg		[15:0]	ff_counter_d;
+	reg		[19:0]	ff_counter_d;
 	reg		[6:0]	ff_level_d;
 
 	reg		[2:0]	ff_state_e;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
-	reg		[15:0]	ff_counter_e;
+	reg		[19:0]	ff_counter_e;
 	reg		[6:0]	ff_level_e;
 
 	wire	[2:0]	w_state_in;
-	wire	[15:0]	w_counter_in;
+	wire	[19:0]	w_counter_in;
 	wire	[6:0]	w_level_in;
 
 	wire	[2:0]	w_state_out;
-	wire	[15:0]	w_counter_out;
+	wire	[19:0]	w_counter_out;
 	wire	[6:0]	w_level_out;
 
 	wts_selector #( 8 ) u_ar_selector (
@@ -213,7 +213,7 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_e		( ff_state_e		)
 	);
 
-	wts_selector #( 16 ) u_counter_selector (
+	wts_selector #( 20 ) u_counter_selector (
 		.active		( active			),
 		.result		( w_counter_in		),
 		.reg_a		( ff_counter_a		),
@@ -253,23 +253,23 @@ module wts_adsr_envelope_generator_5ch (
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
 			ff_state_a		<= 3'd0;
-			ff_counter_a	<= 16'd0;
+			ff_counter_a	<= 20'd0;
 			ff_level_a		<= 8'd0;
 
 			ff_state_b		<= 3'd0;
-			ff_counter_b	<= 16'd0;
+			ff_counter_b	<= 20'd0;
 			ff_level_b		<= 8'd0;
 
 			ff_state_c		<= 3'd0;
-			ff_counter_c	<= 16'd0;
+			ff_counter_c	<= 20'd0;
 			ff_level_c		<= 8'd0;
 
 			ff_state_d		<= 3'd0;
-			ff_counter_d	<= 16'd0;
+			ff_counter_d	<= 20'd0;
 			ff_level_d		<= 8'd0;
 
 			ff_state_e		<= 3'd0;
-			ff_counter_e	<= 16'd0;
+			ff_counter_e	<= 20'd0;
 			ff_level_e		<= 8'd0;
 		end
 		else begin

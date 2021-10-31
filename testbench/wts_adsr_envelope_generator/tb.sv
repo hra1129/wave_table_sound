@@ -336,7 +336,7 @@ module tb;
 		set_test_pattern_no( 6, "If you put values in AR, DR, SR, SL, and RR. (3)" );
 		reg_ar_a				= 1;
 		reg_dr_a				= 3;
-		reg_sl_a				= 100;
+		reg_sl_a				= 55;
 		reg_sr_a				= 0;
 		reg_rr_a				= 3;
 		@( posedge clk );

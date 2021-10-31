@@ -29,8 +29,8 @@ module wts_adsr_envelope_generator (
 	input	[7:0]	reg_sr,
 	input	[7:0]	reg_rr,
 	input	[5:0]	reg_sl,
-	input	[15:0]	counter_in,
-	output	[15:0]	counter_out,
+	input	[19:0]	counter_in,
+	output	[19:0]	counter_out,
 	input	[2:0]	state_in,
 	output	[2:0]	state_out,
 	input	[6:0]	level_in,
@@ -66,13 +66,13 @@ module wts_adsr_envelope_generator (
 	assign w_state_out		= func_state( state_in, key_on, key_release, w_note_end, w_attack_end, w_decay_end );
 	assign w_rate			= func_rate_sel( w_state_out, reg_ar, reg_dr, reg_sr, reg_rr );
 	assign w_add_value		= ( w_rate != 8'd0 )? 1'b1 : 1'b0;
-	assign w_add_value_ext	= (state_in == 3'd1) ? { 6'd0, w_add_value } : { 7 { w_add_value } };
+	assign w_add_value_ext	= (w_state_out == 3'd1) ? { 6'd0, w_add_value } : { 7 { w_add_value } };
 	assign w_level_next		= level_in + w_add_value_ext;
-	assign w_attack			= (reg_ar == 8'd0) ? 8'd64 : 8'd0;
+	assign w_attack			= (reg_ar == 8'd0) ? 7'd64 : 7'd0;
 
 	assign w_counter_end	= (counter_in == 16'd0        ) ? 1'b1 : 1'b0;
-	assign w_note_end		=((level_in == 6'd0           ) ? (state_in != 3'd1) : 1'b0) | key_off;
-	assign w_attack_end		= (level_in == 6'd64          ) ? (state_in == 3'd1) : 1'b0;
+	assign w_note_end		=((level_in == 7'd0           ) ? (state_in != 3'd1) : 1'b0) | key_off;
+	assign w_attack_end		= (level_in == 7'd64          ) ? (state_in == 3'd1) : 1'b0;
 	assign w_decay_end		= (level_in == {1'b0, reg_sl} ) ? (state_in == 3'd2) : 1'b0;
 
 	function [2:0] func_state(
@@ -127,5 +127,5 @@ module wts_adsr_envelope_generator (
 
 	assign state_out	= w_state_out;
 	assign level_out	= func_level( level_in, key_on, key_off, w_counter_end, w_attack, w_level_next );
-	assign counter_out	= (key_on || w_counter_end) ? ((w_state_out == 3'd1) ? { 4'd0, w_rate, 4'b1111 } : { w_rate, 8'b11111111 } ) : (counter_in - 16'd1);
+	assign counter_out	= (key_on || w_counter_end) ? ((w_state_out == 3'd1) ? { 6'd0, w_rate, 6'b111111 } : { w_rate, 12'b1111111111 } ) : (counter_in - 20'd1);
 endmodule
