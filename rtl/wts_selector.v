@@ -29,7 +29,8 @@ module wts_selector #(
 	input	[bits-1:0]	reg_b,
 	input	[bits-1:0]	reg_c,
 	input	[bits-1:0]	reg_d,
-	input	[bits-1:0]	reg_e
+	input	[bits-1:0]	reg_e,
+	input	[bits-1:0]	reg_f
 );
 	function [bits-1:0] func_selector(
 		input	[2:0]		active,
@@ -37,7 +38,8 @@ module wts_selector #(
 		input	[bits-1:0]	reg_b,
 		input	[bits-1:0]	reg_c,
 		input	[bits-1:0]	reg_d,
-		input	[bits-1:0]	reg_e
+		input	[bits-1:0]	reg_e,
+		input	[bits-1:0]	reg_f
 	);
 		case( active )
 		3'd0:		func_selector = reg_a;
@@ -45,9 +47,10 @@ module wts_selector #(
 		3'd2:		func_selector = reg_c;
 		3'd3:		func_selector = reg_d;
 		3'd4:		func_selector = reg_e;
+		3'd5:		func_selector = reg_f;
 		default:	func_selector = 'd0;
 		endcase
 	endfunction
 
-	assign result = func_selector( active, reg_a, reg_b, reg_c, reg_d, reg_e );
+	assign result = func_selector( active, reg_a, reg_b, reg_c, reg_d, reg_e, reg_f );
 endmodule

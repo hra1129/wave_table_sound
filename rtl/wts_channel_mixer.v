@@ -568,42 +568,46 @@ module wts_channel_mixer (
 
 	wts_selector #( 4 ) u_volume_selector0 (
 		.active		( ff_active				),
-		.result		( w_volume0				),
-		.reg_a		( reg_volume_a0			),
-		.reg_b		( reg_volume_b0			),
-		.reg_c		( reg_volume_c0			),
-		.reg_d		( reg_volume_d0			),
-		.reg_e		( reg_volume_e0			)
+		.result		( w_volume0				),		//	delay 3 clock
+		.reg_a		( reg_volume_d0			),
+		.reg_b		( reg_volume_e0			),
+		.reg_c		( 4'd0					),
+		.reg_d		( reg_volume_a0			),
+		.reg_e		( reg_volume_b0			),
+		.reg_f		( reg_volume_c0			)
 	);
 
 	wts_selector #( 4 ) u_volume_selector1 (
 		.active		( ff_active				),
-		.result		( w_volume1				),
-		.reg_a		( reg_volume_a1			),
-		.reg_b		( reg_volume_b1			),
-		.reg_c		( reg_volume_c1			),
-		.reg_d		( reg_volume_d1			),
-		.reg_e		( reg_volume_e1			)
+		.result		( w_volume1				),		//	delay 3 clock
+		.reg_a		( reg_volume_d1			),
+		.reg_b		( reg_volume_e1			),
+		.reg_c		( 4'd1					),
+		.reg_d		( reg_volume_a1			),
+		.reg_e		( reg_volume_b1			),
+		.reg_f		( reg_volume_c1			)
 	);
 
 	wts_selector #( 2 ) u_enable_selector0 (
 		.active		( ff_active				),
-		.result		( w_enable0				),
-		.reg_a		( reg_enable_a0			),
-		.reg_b		( reg_enable_b0			),
-		.reg_c		( reg_enable_c0			),
-		.reg_d		( reg_enable_d0			),
-		.reg_e		( reg_enable_e0			)
+		.result		( w_enable0				),		//	delay 1 clock
+		.reg_a		( 2'd0					),
+		.reg_b		( reg_enable_a0			),
+		.reg_c		( reg_enable_b0			),
+		.reg_d		( reg_enable_c0			),
+		.reg_e		( reg_enable_d0			),
+		.reg_f		( reg_enable_e0			)
 	);
 
 	wts_selector #( 2 ) u_enable_selector1 (
 		.active		( ff_active				),
-		.result		( w_enable1				),
-		.reg_a		( reg_enable_a1			),
-		.reg_b		( reg_enable_b1			),
-		.reg_c		( reg_enable_c1			),
-		.reg_d		( reg_enable_d1			),
-		.reg_e		( reg_enable_e1			)
+		.result		( w_enable1				),		//	delay 1 clock
+		.reg_a		( 2'd0					),
+		.reg_b		( reg_enable_a1			),
+		.reg_c		( reg_enable_b1			),
+		.reg_d		( reg_enable_c1			),
+		.reg_e		( reg_enable_d1			),
+		.reg_f		( reg_enable_e1			)
 	);
 
 	assign w_sram_a0	= ( ff_active == 3'd5 ) ? { ff_sram_id[2:0], ff_sram_a } : { ff_active, w_wave_address0 };
@@ -614,40 +618,41 @@ module wts_channel_mixer (
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
-		.sram_we		( w_sram_we0		),
-		.sram_a			( w_sram_a0			),
-		.sram_d			( ff_sram_d			),
-		.sram_q			( w_sram_q0			)
+		.sram_we		( w_sram_we0		),		//	delay 0 clock
+		.sram_a			( w_sram_a0			),		//	delay 0 clock
+		.sram_d			( ff_sram_d			),		//	delay 0 clock
+		.sram_q			( w_sram_q0			)		//	delay 1 clock
 	);
 
 	wts_ram u_ram10 (
 		.clk			( clk				),
-		.sram_we		( w_sram_we1		),
-		.sram_a			( w_sram_a1			),
-		.sram_d			( ff_sram_d			),
-		.sram_q			( w_sram_q1			)
+		.sram_we		( w_sram_we1		),		//	delay 0 clock
+		.sram_a			( w_sram_a1			),		//	delay 0 clock
+		.sram_d			( ff_sram_d			),		//	delay 0 clock
+		.sram_q			( w_sram_q1			)		//	delay 1 clock
 	);
 
 	wts_channel_volume u_channel_volume0 (
 		.nreset			( nreset			),
 		.clk			( clk				),
-		.envelope		( w_envelope0		),
-		.noise			( w_noise0			),
-		.sram_q			( w_sram_q0			),
-		.channel		( w_channel0		),
-		.reg_volume		( w_volume0			)
+		.envelope		( w_envelope0		),		//	delay 1 clock
+		.noise			( w_noise0			),		//	delay 1 clock
+		.sram_q			( w_sram_q0			),		//	delay 1 clock
+		.channel		( w_channel0		),		//	delay 4 clock
+		.reg_volume		( w_volume0			)		//	delay 3 clock
 	);
 
 	wts_channel_volume u_channel_volume1 (
 		.nreset			( nreset			),
 		.clk			( clk				),
-		.envelope		( w_envelope1		),
-		.noise			( w_noise1			),
-		.sram_q			( w_sram_q1			),
-		.channel		( w_channel1		),
-		.reg_volume		( w_volume1			)
+		.envelope		( w_envelope1		),		//	delay 1 clock
+		.noise			( w_noise1			),		//	delay 1 clock
+		.sram_q			( w_sram_q1			),		//	delay 1 clock
+		.channel		( w_channel1		),		//	delay 4 clock
+		.reg_volume		( w_volume1			)		//	delay 3 clock
 	);
 
+	//	delay 4 clock
 	assign w_left_channel0		= w_enable0[1] ? w_channel0 : 8'd0;
 	assign w_right_channel0		= w_enable0[0] ? w_channel0 : 8'd0;
 
@@ -662,9 +667,12 @@ module wts_channel_mixer (
 			ff_left_integ		<= 12'd0;
 			ff_right_integ		<= 12'd0;
 		end
-		else if( ff_active == 3'd5 ) begin
+		else if( ff_active == 3'd4 ) begin
 			ff_left_integ		<= { { 3 { w_left_channel[8]  } }, w_left_channel  };
 			ff_right_integ		<= { { 3 { w_right_channel[8] } }, w_right_channel };
+		end
+		else if( ff_active == 3'd3 ) begin
+			//	hold
 		end
 		else begin
 			ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel[8]  } }, w_left_channel  };
@@ -672,12 +680,13 @@ module wts_channel_mixer (
 		end
 	end
 
+	//	delay 5 clock
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
 			ff_left_out			<= 12'b1000_0000_0000;
 			ff_right_out		<= 12'b1000_0000_0000;
 		end
-		else if( ff_active == 3'd5 ) begin
+		else if( ff_active == 3'd3 ) begin
 			ff_left_out			<= { ~ff_left_integ[11] , ff_left_integ[10:0]  };
 			ff_right_out		<= { ~ff_right_integ[11], ff_right_integ[10:0] };
 		end

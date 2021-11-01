@@ -75,7 +75,8 @@ module wts_noise_generator_4ch (
 		.reg_b		( reg_noise_enable_b0	),
 		.reg_c		( reg_noise_enable_c0	),
 		.reg_d		( reg_noise_enable_d0	),
-		.reg_e		( reg_noise_enable_e0	)
+		.reg_e		( reg_noise_enable_e0	),
+		.reg_f		( 1'd0					)
 	);
 
 	wts_selector #( 1 ) u_noise_enable_selector1 (
@@ -85,7 +86,8 @@ module wts_noise_generator_4ch (
 		.reg_b		( reg_noise_enable_b1	),
 		.reg_c		( reg_noise_enable_c1	),
 		.reg_d		( reg_noise_enable_d1	),
-		.reg_e		( reg_noise_enable_e1	)
+		.reg_e		( reg_noise_enable_e1	),
+		.reg_f		( 1'd0					)
 	);
 
 	wts_selector #( 2 ) u_noise_channel_selector0 (
@@ -95,7 +97,8 @@ module wts_noise_generator_4ch (
 		.reg_b		( reg_noise_sel_b0		),
 		.reg_c		( reg_noise_sel_c0		),
 		.reg_d		( reg_noise_sel_d0		),
-		.reg_e		( reg_noise_sel_e0		)
+		.reg_e		( reg_noise_sel_e0		),
+		.reg_f		( 2'd0					)
 	);
 
 	wts_selector #( 2 ) u_noise_channel_selector1 (
@@ -105,7 +108,8 @@ module wts_noise_generator_4ch (
 		.reg_b		( reg_noise_sel_b1		),
 		.reg_c		( reg_noise_sel_c1		),
 		.reg_d		( reg_noise_sel_d1		),
-		.reg_e		( reg_noise_sel_e1		)
+		.reg_e		( reg_noise_sel_e1		),
+		.reg_f		( 2'd0					)
 	);
 
 	wts_noise_generator u_noise_generator0 (

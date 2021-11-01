@@ -1,4 +1,4 @@
-Fitter Status : Successful - Mon Nov 01 06:20:34 2021
+Fitter Status : Successful - Mon Nov 01 22:05:08 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : wave_table_sound
 Top-level Entity Name : wts_for_cartridge
@@ -6,7 +6,7 @@ Family : MAX 10
 Device : 10M04SAE144C8G
 Timing Models : Final
 Total logic elements : 2,217 / 4,032 ( 55 % )
-    Total combinational functions : 1,872 / 4,032 ( 46 % )
+    Total combinational functions : 1,878 / 4,032 ( 47 % )
     Dedicated logic registers : 1,472 / 4,032 ( 37 % )
 Total registers : 1472
 Total pins : 64 / 101 ( 63 % )

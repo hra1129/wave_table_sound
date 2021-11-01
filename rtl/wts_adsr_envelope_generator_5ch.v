@@ -130,7 +130,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( reg_ar_b			),
 		.reg_c		( reg_ar_c			),
 		.reg_d		( reg_ar_d			),
-		.reg_e		( reg_ar_e			)
+		.reg_e		( reg_ar_e			),
+		.reg_f		( 8'd0				)
 	);
 
 	wts_selector #( 8 ) u_dr_selector (
@@ -140,7 +141,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( reg_dr_b			),
 		.reg_c		( reg_dr_c			),
 		.reg_d		( reg_dr_d			),
-		.reg_e		( reg_dr_e			)
+		.reg_e		( reg_dr_e			),
+		.reg_f		( 8'd0				)
 	);
 
 	wts_selector #( 8 ) u_sr_selector (
@@ -150,7 +152,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( reg_sr_b			),
 		.reg_c		( reg_sr_c			),
 		.reg_d		( reg_sr_d			),
-		.reg_e		( reg_sr_e			)
+		.reg_e		( reg_sr_e			),
+		.reg_f		( 8'd0				)
 	);
 
 	wts_selector #( 8 ) u_rr_selector (
@@ -160,7 +163,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( reg_rr_b			),
 		.reg_c		( reg_rr_c			),
 		.reg_d		( reg_rr_d			),
-		.reg_e		( reg_rr_e			)
+		.reg_e		( reg_rr_e			),
+		.reg_f		( 8'd0				)
 	);
 
 	wts_selector #( 6 ) u_sl_selector (
@@ -170,7 +174,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( reg_sl_b			),
 		.reg_c		( reg_sl_c			),
 		.reg_d		( reg_sl_d			),
-		.reg_e		( reg_sl_e			)
+		.reg_e		( reg_sl_e			),
+		.reg_f		( 6'd0				)
 	);
 
 	wts_selector #( 1 ) u_key_on_selector (
@@ -180,7 +185,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( ch_b_key_on		),
 		.reg_c		( ch_c_key_on		),
 		.reg_d		( ch_d_key_on		),
-		.reg_e		( ch_e_key_on		)
+		.reg_e		( ch_e_key_on		),
+		.reg_f		( 1'd0				)
 	);
 
 	wts_selector #( 1 ) u_key_release_selector (
@@ -190,7 +196,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( ch_b_key_release	),
 		.reg_c		( ch_c_key_release	),
 		.reg_d		( ch_d_key_release	),
-		.reg_e		( ch_e_key_release	)
+		.reg_e		( ch_e_key_release	),
+		.reg_f		( 1'd0				)
 	);
 
 	wts_selector #( 1 ) u_key_off_selector (
@@ -200,7 +207,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( ch_b_key_off		),
 		.reg_c		( ch_c_key_off		),
 		.reg_d		( ch_d_key_off		),
-		.reg_e		( ch_e_key_off		)
+		.reg_e		( ch_e_key_off		),
+		.reg_f		( 1'd0				)
 	);
 
 	wts_selector #( 3 ) u_state_selector (
@@ -210,7 +218,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( ff_state_b		),
 		.reg_c		( ff_state_c		),
 		.reg_d		( ff_state_d		),
-		.reg_e		( ff_state_e		)
+		.reg_e		( ff_state_e		),
+		.reg_f		( 3'd0				)
 	);
 
 	wts_selector #( 20 ) u_counter_selector (
@@ -220,7 +229,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( ff_counter_b		),
 		.reg_c		( ff_counter_c		),
 		.reg_d		( ff_counter_d		),
-		.reg_e		( ff_counter_e		)
+		.reg_e		( ff_counter_e		),
+		.reg_f		( 20'd0				)
 	);
 
 	wts_selector #( 7 ) u_level_selector (
@@ -230,7 +240,8 @@ module wts_adsr_envelope_generator_5ch (
 		.reg_b		( ff_level_b		),
 		.reg_c		( ff_level_c		),
 		.reg_d		( ff_level_d		),
-		.reg_e		( ff_level_e		)
+		.reg_e		( ff_level_e		),
+		.reg_f		( 7'd0				)
 	);
 
 	wts_adsr_envelope_generator u_adsr_envelope_generator (

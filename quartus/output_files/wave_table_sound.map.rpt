@@ -1,5 +1,5 @@
 Analysis & Synthesis report for wave_table_sound
-Mon Nov 01 06:20:21 2021
+Mon Nov 01 22:04:54 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -68,10 +68,33 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  60. Parameter Settings for Inferred Entity Instance: wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0|lpm_mult:Mult0
  61. altsyncram Parameter Settings by Entity Instance
  62. lpm_mult Parameter Settings by Entity Instance
- 63. Post-Synthesis Netlist Statistics for Top Partition
- 64. Elapsed Time Per Partition
- 65. Analysis & Synthesis Messages
- 66. Analysis & Synthesis Suppressed Messages
+ 63. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector1"
+ 64. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector0"
+ 65. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector1"
+ 66. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0"
+ 67. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_counter_selector"
+ 68. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_count_selector"
+ 69. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_address_selector"
+ 70. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_length_selector"
+ 71. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector1"
+ 72. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector0"
+ 73. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_enable_selector1"
+ 74. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_enable_selector0"
+ 75. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_level_selector"
+ 76. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector"
+ 77. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_state_selector"
+ 78. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_off_selector"
+ 79. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_release_selector"
+ 80. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector"
+ 81. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector"
+ 82. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_rr_selector"
+ 83. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sr_selector"
+ 84. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_dr_selector"
+ 85. Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector"
+ 86. Post-Synthesis Netlist Statistics for Top Partition
+ 87. Elapsed Time Per Partition
+ 88. Analysis & Synthesis Messages
+ 89. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -98,13 +121,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 01 06:20:21 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 01 22:04:54 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; wave_table_sound                            ;
 ; Top-level Entity Name              ; wts_for_cartridge                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 3,087                                       ;
-;     Total combinational functions  ; 1,871                                       ;
+; Total logic elements               ; 3,093                                       ;
+;     Total combinational functions  ; 1,877                                       ;
 ;     Dedicated logic registers      ; 1,484                                       ;
 ; Total registers                    ; 1484                                        ;
 ; Total pins                         ; 64                                          ;
@@ -266,16 +289,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,087     ;
+; Estimated Total logic elements              ; 3,093     ;
 ;                                             ;           ;
-; Total combinational functions               ; 1871      ;
+; Total combinational functions               ; 1877      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1352      ;
-;     -- 3 input functions                    ; 242       ;
-;     -- <=2 input functions                  ; 277       ;
+;     -- 4 input functions                    ; 1376      ;
+;     -- 3 input functions                    ; 246       ;
+;     -- <=2 input functions                  ; 255       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1693      ;
+;     -- normal mode                          ; 1699      ;
 ;     -- arithmetic mode                      ; 178       ;
 ;                                             ;           ;
 ; Total registers                             ; 1484      ;
@@ -289,8 +312,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 1500      ;
-; Total fan-out                               ; 12888     ;
-; Average fan-out                             ; 3.67      ;
+; Total fan-out                               ; 13000     ;
+; Average fan-out                             ; 3.69      ;
 +---------------------------------------------+-----------+
 
 
@@ -299,22 +322,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
 ; Compilation Hierarchy Node                                                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                ; Entity Name                     ; Library Name ;
 +----------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
-; |wts_for_cartridge                                                         ; 1871 (43)           ; 1484 (4)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 64   ; 0            ; 0          ; |wts_for_cartridge                                                                                                                                                                                 ; wts_for_cartridge               ; work         ;
-;    |wts_core:u_wts_core|                                                   ; 1828 (0)            ; 1480 (0)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core                                                                                                                                                             ; wts_core                        ; work         ;
-;       |wts_channel_mixer:u_wts_channel_mixer|                              ; 1481 (116)          ; 717 (73)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer                                                                                                                       ; wts_channel_mixer               ; work         ;
+; |wts_for_cartridge                                                         ; 1877 (43)           ; 1484 (4)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 64   ; 0            ; 0          ; |wts_for_cartridge                                                                                                                                                                                 ; wts_for_cartridge               ; work         ;
+;    |wts_core:u_wts_core|                                                   ; 1834 (0)            ; 1480 (0)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core                                                                                                                                                             ; wts_core                        ; work         ;
+;       |wts_channel_mixer:u_wts_channel_mixer|                              ; 1485 (113)          ; 717 (73)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer                                                                                                                       ; wts_channel_mixer               ; work         ;
 ;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0| ; 333 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 194 (194)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 193 (193)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
 ;             |wts_selector:u_ar_selector|                                   ; 24 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector                            ; wts_selector                    ; work         ;
 ;             |wts_selector:u_counter_selector|                              ; 60 (60)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_off_selector|                              ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_off_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_on_selector|                               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector                        ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_release_selector|                          ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_release_selector                   ; wts_selector                    ; work         ;
 ;             |wts_selector:u_level_selector|                                ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_level_selector                         ; wts_selector                    ; work         ;
-;             |wts_selector:u_sl_selector|                                   ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector                            ; wts_selector                    ; work         ;
+;             |wts_selector:u_sl_selector|                                   ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector                            ; wts_selector                    ; work         ;
 ;             |wts_selector:u_state_selector|                                ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_state_selector                         ; wts_selector                    ; work         ;
-;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1| ; 486 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
+;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1| ; 483 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
 ;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 291 (291)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
-;             |wts_selector:u_ar_selector|                                   ; 51 (51)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_ar_selector                            ; wts_selector                    ; work         ;
+;             |wts_selector:u_ar_selector|                                   ; 48 (48)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_ar_selector                            ; wts_selector                    ; work         ;
 ;             |wts_selector:u_counter_selector|                              ; 60 (60)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_counter_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_off_selector|                              ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_key_off_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_on_selector|                               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_key_on_selector                        ; wts_selector                    ; work         ;
@@ -332,7 +355,7 @@ https://fpgasoftware.intel.com/eula.
 ;                |mult_rds:auto_generated|                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume1|lpm_mult:Mult0|mult_rds:auto_generated                                           ; mult_rds                        ; work         ;
 ;             |lpm_mult:Mult1|                                               ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume1|lpm_mult:Mult1                                                                   ; lpm_mult                        ; work         ;
 ;                |mult_nds:auto_generated|                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume1|lpm_mult:Mult1|mult_nds:auto_generated                                           ; mult_nds                        ; work         ;
-;          |wts_noise_generator_4ch:u_wts_noise_generator_4ch|               ; 115 (8)             ; 92 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch                                                                     ; wts_noise_generator_4ch         ; work         ;
+;          |wts_noise_generator_4ch:u_wts_noise_generator_4ch|               ; 116 (9)             ; 92 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch                                                                     ; wts_noise_generator_4ch         ; work         ;
 ;             |wts_noise_generator:u_noise_generator0|                       ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator0                              ; wts_noise_generator             ; work         ;
 ;             |wts_noise_generator:u_noise_generator1|                       ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator1                              ; wts_noise_generator             ; work         ;
 ;             |wts_noise_generator:u_noise_generator2|                       ; 20 (20)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator2                              ; wts_noise_generator             ; work         ;
@@ -348,21 +371,21 @@ https://fpgasoftware.intel.com/eula.
 ;             |altsyncram:ram_array_rtl_0|                                   ; 0 (0)               ; 0 (0)                     ; 5120        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram10|altsyncram:ram_array_rtl_0                                                                            ; altsyncram                      ; work         ;
 ;                |altsyncram_27d1:auto_generated|                            ; 0 (0)               ; 0 (0)                     ; 5120        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram10|altsyncram:ram_array_rtl_0|altsyncram_27d1:auto_generated                                             ; altsyncram_27d1                 ; work         ;
 ;          |wts_selector:u_enable_selector0|                                 ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector0                                                                                       ; wts_selector                    ; work         ;
-;          |wts_selector:u_enable_selector1|                                 ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector1                                                                                       ; wts_selector                    ; work         ;
-;          |wts_selector:u_volume_selector0|                                 ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0                                                                                       ; wts_selector                    ; work         ;
-;          |wts_selector:u_volume_selector1|                                 ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector1                                                                                       ; wts_selector                    ; work         ;
+;          |wts_selector:u_enable_selector1|                                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector1                                                                                       ; wts_selector                    ; work         ;
+;          |wts_selector:u_volume_selector0|                                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0                                                                                       ; wts_selector                    ; work         ;
+;          |wts_selector:u_volume_selector1|                                 ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector1                                                                                       ; wts_selector                    ; work         ;
 ;          |wts_tone_generator_5ch:u_tone_generator_5ch_0|                   ; 145 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0                                                                         ; wts_tone_generator_5ch          ; work         ;
 ;             |wts_selector:u_wave_address_selector|                         ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_address_selector                                    ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_frequency_counter_selector|               ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_counter_selector                          ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_length_selector|                          ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_length_selector                                     ; wts_selector                    ; work         ;
 ;             |wts_tone_generator:u_tone_generator|                          ; 82 (82)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
-;          |wts_tone_generator_5ch:u_tone_generator_5ch_1|                   ; 196 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1                                                                         ; wts_tone_generator_5ch          ; work         ;
+;          |wts_tone_generator_5ch:u_tone_generator_5ch_1|                   ; 194 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1                                                                         ; wts_tone_generator_5ch          ; work         ;
 ;             |wts_selector:u_wave_address_selector|                         ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_address_selector                                    ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_frequency_counter_selector|               ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_frequency_counter_selector                          ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_length_selector|                          ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_length_selector                                     ; wts_selector                    ; work         ;
-;             |wts_tone_generator:u_tone_generator|                          ; 123 (123)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
+;             |wts_tone_generator:u_tone_generator|                          ; 121 (121)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
 ;       |wts_register:u_wts_register|                                        ; 335 (335)           ; 759 (759)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register                                                                                                                                 ; wts_register                    ; work         ;
-;       |wts_timer:u_wts_timer|                                              ; 12 (12)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_timer:u_wts_timer                                                                                                                                       ; wts_timer                       ; work         ;
+;       |wts_timer:u_wts_timer|                                              ; 14 (14)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_timer:u_wts_timer                                                                                                                                       ; wts_timer                       ; work         ;
 +----------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -411,11 +434,11 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 1484  ;
-; Number of registers using Synchronous Clear  ; 24    ;
-; Number of registers using Synchronous Load   ; 18    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 42    ;
 ; Number of registers using Asynchronous Clear ; 1476  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1378  ;
+; Number of registers using Clock Enable       ; 1402  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -443,16 +466,16 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_e1                                                                                            ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_a1                                                                                            ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_b1                                                                                            ; 1       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_c1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_b1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_a1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_d1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_e1                                                                                             ; 2       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_c1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_d1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_e1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_a1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_b1                                                                                       ; 1       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_e1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_c1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_b1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_a1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_d1                                                                                             ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator2|ff_noise[17] ; 4       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_noise_c1                                                                                           ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_noise_d1                                                                                           ; 1       ;
@@ -466,11 +489,11 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator0|ff_noise[16] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator1|ff_noise[16] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator3|ff_noise[16] ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_e1                                                                                            ; 9       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_a1                                                                                            ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_b1                                                                                            ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_d1                                                                                            ; 2       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_c1                                                                                            ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_adsr_e1                                                                                            ; 9       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator2|ff_noise[15] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator0|ff_noise[15] ; 2       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator1|ff_noise[15] ; 2       ;
@@ -545,41 +568,44 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|ff_left_integ[4]                                                                                                                      ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_enable_d1[1]                                                                                                                             ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|reg_enable_c0[1]                                                                                                                                ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|reg_enable_d0[1]                                                                                                                                ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|sram_a[6]                                                                                                                                       ;
-; 20:1               ; 2 bits    ; 26 LEs        ; 14 LEs               ; 12 LEs                 ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|sram_id[1]                                                                                                                                      ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume1|ff_channel_wave[0]                                                                               ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0|ff_channel_wave[3]                                                                               ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 14 LEs               ; 12 LEs                 ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|sram_id[0]                                                                                                                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume1|ff_channel_wave[6]                                                                               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0|ff_channel_wave[7]                                                                               ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|ff_rddata[3]                                                                                                                                    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|ff_rddata[4]                                                                                                                                    ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|reg_frequency_count_d0                                                                                                                          ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator|wave_address_out[3]                                 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|ff_rddata[7]                                                                                                                                    ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|reg_frequency_count_c0                                                                                                                          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator|wave_address_out[4]                                 ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator|wave_address_out[6]                                 ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[11] ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[19] ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[13] ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[11] ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[17] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[19] ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|counter_out[13] ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector|Mux0                                   ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector|Mux0                                       ;
-; 8:1                ; 124 bits  ; 620 LEs       ; 496 LEs              ; 124 LEs                ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector|Mux10                                 ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|level_out[4]    ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|level_out[1]    ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|ext_memory_address[20]                                                                                                                          ;
-; 9:1                ; 12 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator|frequency_count_out[8]                              ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|state_out[1]    ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|state_out[2]    ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector1|Mux1                                                                                                  ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector1|Mux0                                                                                                  ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector|Mux7                                       ;
+; 8:1                ; 112 bits  ; 560 LEs       ; 448 LEs              ; 112 LEs                ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_counter_selector|Mux17                                 ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|level_out[1]    ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|level_out[5]    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|ext_memory_address[16]                                                                                                                          ;
+; 9:1                ; 12 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator|frequency_count_out[9]                              ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|state_out[0]    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|state_out[1]    ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_length_selector|Mux1                                                ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_key_off_selector|Mux0                                  ;
 ; 13:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector1|Mux1                                         ;
-; 13:1               ; 8 bits    ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_ar_selector|Mux4                                       ;
-; 13:1               ; 6 bits    ; 48 LEs        ; 42 LEs               ; 6 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_sl_selector|Mux5                                       ;
-; 14:1               ; 12 bits   ; 108 LEs       ; 96 LEs               ; 12 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator|frequency_count_out[11]                             ;
-; 29:1               ; 8 bits    ; 152 LEs       ; 96 LEs               ; 56 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|Mux5            ;
-; 44:1               ; 8 bits    ; 232 LEs       ; 176 LEs              ; 56 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|Mux5            ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_ar_selector|Mux3                                       ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 42 LEs               ; 6 LEs                  ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_sl_selector|Mux1                                       ;
+; 14:1               ; 12 bits   ; 108 LEs       ; 96 LEs               ; 12 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator|frequency_count_out[5]                              ;
+; 29:1               ; 8 bits    ; 152 LEs       ; 96 LEs               ; 56 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator|Mux3            ;
+; 44:1               ; 8 bits    ; 232 LEs       ; 176 LEs              ; 56 LEs                 ; No         ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator|Mux7            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1327,6 +1353,214 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+---------------------------------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector1" ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                    ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+; reg_a ; Input ; Info     ; Stuck at GND                                                                               ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector0" ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                    ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+; reg_a ; Input ; Info     ; Stuck at GND                                                                               ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector1" ;
++-------------+-------+----------+--------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                              ;
++-------------+-------+----------+--------------------------------------------------------------------------------------+
+; reg_c[3..1] ; Input ; Info     ; Stuck at GND                                                                         ;
+; reg_c[0]    ; Input ; Info     ; Stuck at VCC                                                                         ;
++-------------+-------+----------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0" ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                    ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+; reg_c ; Input ; Info     ; Stuck at GND                                                                               ;
++-------+-------+----------+--------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_counter_selector" ;
++-------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                 ;
++-------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                            ;
++-------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_count_selector" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                               ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                          ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_address_selector" ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                       ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                  ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_length_selector" ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                 ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector1" ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                             ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                        ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector0" ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                             ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                        ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_enable_selector1" ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                            ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                       ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_enable_selector0" ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                            ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                       ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_level_selector" ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                  ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                             ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector" ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                               ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_state_selector" ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                  ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                             ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_off_selector" ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                               ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_release_selector" ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                        ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                                   ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector" ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                   ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                              ;
++-------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                               ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                          ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_rr_selector" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                               ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                          ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sr_selector" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                               ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                          ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_dr_selector" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                               ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                          ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                               ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg_f ; Input ; Info     ; Stuck at GND                                                                                                                                          ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -1335,29 +1569,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 64                          ;
 ; cycloneiii_ff         ; 1484                        ;
 ;     CLR               ; 63                          ;
-;     CLR SCLR          ; 24                          ;
 ;     CLR SLD           ; 16                          ;
 ;     ENA               ; 5                           ;
 ;     ENA CLR           ; 1371                        ;
-;     ENA CLR SLD       ; 2                           ;
+;     ENA CLR SLD       ; 26                          ;
 ;     plain             ; 3                           ;
 ; cycloneiii_io_obuf    ; 9                           ;
-; cycloneiii_lcell_comb ; 1871                        ;
+; cycloneiii_lcell_comb ; 1877                        ;
 ;     arith             ; 178                         ;
 ;         2 data inputs ; 110                         ;
 ;         3 data inputs ; 68                          ;
-;     normal            ; 1693                        ;
+;     normal            ; 1699                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 50                          ;
-;         2 data inputs ; 116                         ;
-;         3 data inputs ; 174                         ;
-;         4 data inputs ; 1352                        ;
+;         2 data inputs ; 94                          ;
+;         3 data inputs ; 178                         ;
+;         4 data inputs ; 1376                        ;
 ; cycloneiii_mac_mult   ; 4                           ;
 ; cycloneiii_mac_out    ; 4                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 17.60                       ;
-; Average LUT depth     ; 7.46                        ;
+; Max LUT depth         ; 16.60                       ;
+; Average LUT depth     ; 7.38                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1376,7 +1609,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 01 06:20:04 2021
+    Info: Processing started: Mon Nov 01 22:04:37 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off wave_table_sound -c wave_table_sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1419,27 +1652,27 @@ Info (12128): Elaborating entity "wts_core" for hierarchy "wts_core:u_wts_core" 
 Info (12128): Elaborating entity "wts_channel_mixer" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_core.v Line: 390
 Warning (10036): Verilog HDL or VHDL warning at wts_channel_mixer.v(251): object "ff_sram_id_d" assigned a value but never read File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 251
 Info (12128): Elaborating entity "wts_adsr_envelope_generator_5ch" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 440
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(257): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 257
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(261): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 261
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(265): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 265
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(269): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 269
-Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(273): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 273
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 134
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 174
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 184
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_state_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 214
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 224
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_level_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 234
-Info (12128): Elaborating entity "wts_adsr_envelope_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 251
+Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(268): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 268
+Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(272): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 272
+Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(276): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 276
+Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(280): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 280
+Warning (10230): Verilog HDL assignment warning at wts_adsr_envelope_generator_5ch.v(284): truncated value with size 8 to match size of target (7) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 284
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 135
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 179
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 190
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_state_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 223
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 234
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_level_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 245
+Info (12128): Elaborating entity "wts_adsr_envelope_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator_5ch.v Line: 262
 Info (12128): Elaborating entity "wts_noise_generator_4ch" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 529
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator_4ch.v Line: 99
-Info (12128): Elaborating entity "wts_noise_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator_4ch.v Line: 117
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_selector:u_noise_channel_selector0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator_4ch.v Line: 102
+Info (12128): Elaborating entity "wts_noise_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator_4ch.v Line: 121
 Info (12128): Elaborating entity "wts_tone_generator_5ch" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 548
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_count_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator_5ch.v Line: 86
-Info (12128): Elaborating entity "wts_tone_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator_5ch.v Line: 108
-Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 577
-Info (12128): Elaborating entity "wts_ram" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram00" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 621
-Info (12128): Elaborating entity "wts_channel_volume" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 639
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_count_selector" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator_5ch.v Line: 89
+Info (12128): Elaborating entity "wts_tone_generator" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator_5ch.v Line: 112
+Info (12128): Elaborating entity "wts_selector" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 578
+Info (12128): Elaborating entity "wts_ram" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_ram:u_ram00" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 625
+Info (12128): Elaborating entity "wts_channel_volume" for hierarchy "wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v Line: 643
 Info (12128): Elaborating entity "wts_timer" for hierarchy "wts_core:u_wts_core|wts_timer:u_wts_timer" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_core.v Line: 406
 Warning (10230): Verilog HDL assignment warning at wts_timer.v(46): truncated value with size 3 to match size of target (2) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_timer.v Line: 46
 Warning (10230): Verilog HDL assignment warning at wts_timer.v(63): truncated value with size 3 to match size of target (2) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_timer.v Line: 63
@@ -1542,18 +1775,18 @@ Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/hra/Documents/github/wave_table_sound/quartus/output_files/wave_table_sound.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3272 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3278 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 22 input pins
     Info (21059): Implemented 34 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 3188 logic cells
+    Info (21061): Implemented 3194 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 4 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Mon Nov 01 06:20:21 2021
+    Info: Peak virtual memory: 4794 megabytes
+    Info: Processing ended: Mon Nov 01 22:04:54 2021
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:30
 
 
 +------------------------------------------+

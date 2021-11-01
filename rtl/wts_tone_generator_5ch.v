@@ -62,7 +62,8 @@ module wts_tone_generator_5ch (
 		.reg_b					( reg_wave_length_b			),
 		.reg_c					( reg_wave_length_c			),
 		.reg_d					( reg_wave_length_d			),
-		.reg_e					( reg_wave_length_e			)
+		.reg_e					( reg_wave_length_e			),
+		.reg_f					( 2'd0						)
 	);
 
 	wts_selector #( 7 ) u_wave_address_selector (
@@ -72,7 +73,8 @@ module wts_tone_generator_5ch (
 		.reg_b					( ff_wave_address_b			),
 		.reg_c					( ff_wave_address_c			),
 		.reg_d					( ff_wave_address_d			),
-		.reg_e					( ff_wave_address_e			)
+		.reg_e					( ff_wave_address_e			),
+		.reg_f					( 7'd0						)
 	);
 
 	wts_selector #( 12 ) u_wave_frequency_count_selector (
@@ -82,7 +84,8 @@ module wts_tone_generator_5ch (
 		.reg_b					( reg_frequency_count_b		),
 		.reg_c					( reg_frequency_count_c		),
 		.reg_d					( reg_frequency_count_d		),
-		.reg_e					( reg_frequency_count_e		)
+		.reg_e					( reg_frequency_count_e		),
+		.reg_f					( 12'd0						)
 	);
 
 	wts_selector #( 12 ) u_wave_frequency_counter_selector (
@@ -92,7 +95,8 @@ module wts_tone_generator_5ch (
 		.reg_b					( ff_frequency_count_b		),
 		.reg_c					( ff_frequency_count_c		),
 		.reg_d					( ff_frequency_count_d		),
-		.reg_e					( ff_frequency_count_e		)
+		.reg_e					( ff_frequency_count_e		),
+		.reg_f					( 12'd0						)
 	);
 
 	wts_tone_generator u_tone_generator (
