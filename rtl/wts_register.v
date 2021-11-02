@@ -34,13 +34,17 @@ module wts_register (
 	output reg			ext_memory_nactive,
 	output		[20:13]	ext_memory_address,
 
-	output reg	[3:0]	sram_id,				//	[2:0]: A...F, [3]: 0 or 1   ex.) A0 = 0000, B1 = 1001, C1 = 1010
+	output reg			sram_ce0,				//	A0...E0
+	output reg			sram_ce1,				//	A1...E1
+	output reg	[2:0]	sram_id,				//	A...E
 	output reg	[6:0]	sram_a,
 	output reg	[7:0]	sram_d,
 	output reg			sram_oe,
 	output reg			sram_we,
 	input		[7:0]	sram_q,
 	input				sram_q_en,
+
+	output				adsr_en,
 
 	output reg			ch_a0_key_on,
 	output reg			ch_a0_key_release,
@@ -462,6 +466,8 @@ module wts_register (
 		end
 	end
 
+	assign adsr_en	= reg_wts_enable;
+
 	// x000-x7FFh Bank Registers ----------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -492,101 +498,147 @@ module wts_register (
 	// Wave memory ------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			sram_id	<= 4'd0;
+			sram_ce0 <= 1'b0;
+			sram_ce1 <= 1'b0;
+			sram_id	<= 3'd0;
 			sram_a	<= 7'd0;
 			sram_d	<= 8'd0;
 			sram_oe	<= 1'b0;
 			sram_we	<= 1'b0;
 		end
+		else if( w_scc_en && (address[12:5] == 8'b1_1000_011) ) begin
+			//	9860-987Fh : {100} 1 1000 011X XXXX
+			sram_ce0	<= 1'b1;					//	Channel D0
+			sram_ce1	<= 1'b1;					//	Channel D1
+			sram_id		<= 3'd3;					//	Channel D0, D1
+			sram_a		<= { 2'b00, address[4:0] };
+			sram_oe		<= rdreq;
+			sram_we		<= wrreq;
+			sram_d		<= wrdata;
+		end
 		else if( w_scc_en && (address[12:7] == 6'b1_1000_0) ) begin
-			//	9800-987Fh : {100} 1 1000 0XXX XXXX
-			sram_id	<= { 2'b00, address[6:5] };
-			sram_a	<= { 2'b00, address[4:0] };
-			sram_oe	<= rdreq;
-			sram_we	<= wrreq;
-			sram_d	<= wrdata;
+			//	9800-985Fh : {100} 1 1000 0XXX XXXX
+			sram_ce0	<= 1'b1;					//	Channel A0, B0 or C0
+			sram_ce1	<= 1'b0;
+			sram_id		<= { 1'b0, address[6:5] };
+			sram_a		<= { 2'b00, address[4:0] };
+			sram_oe		<= rdreq;
+			sram_we		<= wrreq;
+			sram_d		<= wrdata;
 		end
 		else if( w_scc_en && (address[12:5] == 8'b1_1000_101) ) begin
 			//	98A0-98BFh : {100} 1 1000 101X XXXX ReadOnly
-			sram_id	<= 4'd5;						// Ch.E0
-			sram_a	<= { 2'b00, address[4:0] };
-			sram_oe	<= rdreq;
-			sram_we	<= 1'b0;
-			sram_d	<= wrdata;
+			sram_ce0	<= 1'b0;
+			sram_ce1	<= 1'b1;					//	Channel D1
+			sram_a		<= { 2'b00, address[4:0] };
+			sram_oe		<= rdreq;
+			sram_we		<= 1'b0;
+			sram_d		<= wrdata;
 		end
-		else if( w_scci_en && (address[10:8] == 3'b000) && (!address[7] || address[7:5] == 3'b100) ) begin
-			//	B800-B87Fh : {101} 1 1000 0XXX XXXX
+		else if( w_scci_en && (address[10:8] == 3'b000) && address[7:5] == 3'b100 ) begin
 			//	B880-B89Fh : {101} 1 1000 100X XXXX
-			sram_id	<= { 1'b0,  address[7:5] };
-			sram_a	<= { 2'b00, address[4:0] };
-			sram_oe	<= rdreq;
-			sram_we	<= wrreq;
-			sram_d	<= wrdata;
+			sram_ce0	<= 1'b0;
+			sram_ce1	<= 1'b1;					//	Channel D1
+			sram_id		<= 3'd3;
+			sram_a		<= { 2'b00, address[4:0] };
+			sram_oe		<= rdreq;
+			sram_we		<= wrreq;
+			sram_d		<= wrdata;
+		end
+		else if( w_scci_en && (address[10:8] == 3'b000) && !address[7] ) begin
+			//	B800-B87Fh : {101} 1 1000 0XXX XXXX
+			sram_ce0	<= 1'b1;					//	Channel A0, B0, C0 or D0
+			sram_ce1	<= 1'b0;
+			sram_id		<= { 1'b0, address[6:5] };
+			sram_a		<= { 2'b00, address[4:0] };
+			sram_oe		<= rdreq;
+			sram_we		<= wrreq;
+			sram_d		<= wrdata;
 		end
 		else if( w_wts_en ) begin
-			//	A000-A9FFh : {1010} XXXX XXXX XXXX Ch.A0-F0	SRAM_ID: 0...9
+			//	A000-A9FFh : {1010} XXXX XXXX XXXX Ch.A0-E0	SRAM_ID: 0...9
 			sram_a	<= address[6:0];
 			sram_d	<= wrdata;
 			case( address[11:8] )
 			4'h0:
 				begin
-					sram_id	<= 4'd0;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b1;
+					sram_ce1	<= 1'b0;
+					sram_id		<= 4'd0;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h1:
 				begin
-					sram_id	<= 4'd1;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b1;
+					sram_ce1	<= 1'b0;
+					sram_id		<= 4'd1;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h2:
 				begin
-					sram_id	<= 4'd2;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b1;
+					sram_ce1	<= 1'b0;
+					sram_id		<= 4'd2;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h3:
 				begin
-					sram_id	<= 4'd3;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b1;
+					sram_ce1	<= 1'b0;
+					sram_id		<= 4'd3;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h4:
 				begin
-					sram_id	<= 4'd4;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b1;
+					sram_ce1	<= 1'b0;
+					sram_id		<= 4'd4;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h5:
 				begin
-					sram_id	<= 4'd8;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b0;
+					sram_ce1	<= 1'b1;
+					sram_id		<= 4'd8;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h6:
 				begin
-					sram_id	<= 4'd9;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b0;
+					sram_ce1	<= 1'b1;
+					sram_id		<= 4'd9;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h7:
 				begin
-					sram_id	<= 4'd10;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b0;
+					sram_ce1	<= 1'b1;
+					sram_id		<= 4'd10;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h8:
 				begin
-					sram_id	<= 4'd11;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b0;
+					sram_ce1	<= 1'b1;
+					sram_id		<= 4'd11;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			4'h9:
 				begin
-					sram_id	<= 4'd12;
-					sram_oe	<= rdreq;
-					sram_we	<= wrreq;
+					sram_ce0	<= 1'b0;
+					sram_ce1	<= 1'b1;
+					sram_id		<= 4'd12;
+					sram_oe		<= rdreq;
+					sram_we		<= wrreq;
 				end
 			default:
 				begin

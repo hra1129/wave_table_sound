@@ -64,13 +64,17 @@ module wts_channel_mixer (
 	input			ch_e1_key_release,
 	input			ch_e1_key_off,
 
-	input	[3:0]	sram_id,				//	[2:0]: A...F, [3]: 0 or 1   ex.) A0 = 0000, B1 = 1001, C1 = 1010
+	input			sram_ce0,				//	A0...E0
+	input			sram_ce1,				//	A1...E1
+	input	[2:0]	sram_id,				//	A...E
 	input	[6:0]	sram_a,
 	input	[7:0]	sram_d,
 	input			sram_oe,
 	input			sram_we,
 	output	[7:0]	sram_q,
 	output			sram_q_en,
+
+	input			adsr_en,
 
 	output	[11:0]	left_out,
 	output	[11:0]	right_out,
@@ -209,16 +213,6 @@ module wts_channel_mixer (
 );
 
 	reg		[2:0]	ff_active;
-	wire	[6:0]	w_sram_a_a0;
-	wire	[6:0]	w_sram_a_b0;
-	wire	[6:0]	w_sram_a_c0;
-	wire	[6:0]	w_sram_a_d0;
-	wire	[6:0]	w_sram_a_e0;
-	wire	[6:0]	w_sram_a_a1;
-	wire	[6:0]	w_sram_a_b1;
-	wire	[6:0]	w_sram_a_c1;
-	wire	[6:0]	w_sram_a_d1;
-	wire	[6:0]	w_sram_a_e1;
 	wire	[3:0]	w_volume0;
 	wire	[3:0]	w_volume1;
 	wire	[1:0]	w_enable0;
@@ -242,13 +236,14 @@ module wts_channel_mixer (
 	reg		[11:0]	ff_left_out;
 	reg		[11:0]	ff_right_out;
 
-	reg		[3:0]	ff_sram_id;
+	reg				ff_sram_ce0;
+	reg				ff_sram_ce1;
+	reg		[2:0]	ff_sram_id;
 	reg		[6:0]	ff_sram_a;
 	reg		[7:0]	ff_sram_d;
 	reg				ff_sram_oe;
 	reg				ff_sram_we;
 	reg				ff_sram_q_en;
-	reg				ff_sram_id_d;
 	wire			w_sram_done;
 
 	wire	[6:0]	w_wave_address0;
@@ -309,10 +304,14 @@ module wts_channel_mixer (
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_sram_id <= 4'b0;
+			ff_sram_id <= 2'b0;
+			ff_sram_ce0 <= 1'b0;
+			ff_sram_ce1 <= 1'b0;
 		end
 		else if( sram_oe | sram_we ) begin
 			ff_sram_id <= sram_id;
+			ff_sram_ce0 <= sram_ce0;
+			ff_sram_ce1 <= sram_ce1;
 		end
 		else begin
 			//	hold
@@ -331,18 +330,9 @@ module wts_channel_mixer (
 		end
 	end
 
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_sram_id_d <= 1'b0;
-		end
-		else if( w_sram_done && ff_sram_we ) begin
-			ff_sram_id_d <= ff_sram_id[3];
-		end
-	end
-
 	assign w_sram_done	= (ff_active == 3'd5) ? 1'b1 : 1'b0;
 	assign sram_q_en	= ff_sram_q_en;
-	assign sram_q		= ( ff_sram_id[3] ) ? w_sram_q1 : w_sram_q0;
+	assign sram_q		= ( ff_sram_ce1 ) ? w_sram_q1 : w_sram_q0;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -402,41 +392,32 @@ module wts_channel_mixer (
 		.ch_e_key_on				( ch_e0_key_on					),
 		.ch_e_key_release			( ch_e0_key_release				),
 		.ch_e_key_off				( ch_e0_key_off					),
+		.adsr_en					( adsr_en						),
 		.reg_ar_a					( reg_ar_a0						),
 		.reg_dr_a					( reg_dr_a0						),
 		.reg_sr_a					( reg_sr_a0						),
 		.reg_rr_a					( reg_rr_a0						),
 		.reg_sl_a					( reg_sl_a0						),
-		.reg_wave_length_a			( reg_wave_length_a0			),
-		.reg_frequency_count_a		( reg_frequency_count_a0		),
 		.reg_ar_b					( reg_ar_b0						),
 		.reg_dr_b					( reg_dr_b0						),
 		.reg_sr_b					( reg_sr_b0						),
 		.reg_rr_b					( reg_rr_b0						),
 		.reg_sl_b					( reg_sl_b0						),
-		.reg_wave_length_b			( reg_wave_length_b0			),
-		.reg_frequency_count_b		( reg_frequency_count_b0		),
 		.reg_ar_c					( reg_ar_c0						),
 		.reg_dr_c					( reg_dr_c0						),
 		.reg_sr_c					( reg_sr_c0						),
 		.reg_rr_c					( reg_rr_c0						),
 		.reg_sl_c					( reg_sl_c0						),
-		.reg_wave_length_c			( reg_wave_length_c0			),
-		.reg_frequency_count_c		( reg_frequency_count_c0		),
 		.reg_ar_d					( reg_ar_d0						),
 		.reg_dr_d					( reg_dr_d0						),
 		.reg_sr_d					( reg_sr_d0						),
 		.reg_rr_d					( reg_rr_d0						),
 		.reg_sl_d					( reg_sl_d0						),
-		.reg_wave_length_d			( reg_wave_length_d0			),
-		.reg_frequency_count_d		( reg_frequency_count_d0		),
 		.reg_ar_e					( reg_ar_e0						),
 		.reg_dr_e					( reg_dr_e0						),
 		.reg_sr_e					( reg_sr_e0						),
 		.reg_rr_e					( reg_rr_e0						),
-		.reg_sl_e					( reg_sl_e0						),
-		.reg_wave_length_e			( reg_wave_length_e0			),
-		.reg_frequency_count_e		( reg_frequency_count_e0		)
+		.reg_sl_e					( reg_sl_e0						)
 	);
 
 	wts_adsr_envelope_generator_5ch u_adsr_envelope_generator_5ch_1 (
@@ -459,41 +440,32 @@ module wts_channel_mixer (
 		.ch_e_key_on				( ch_e1_key_on					),
 		.ch_e_key_release			( ch_e1_key_release				),
 		.ch_e_key_off				( ch_e1_key_off					),
+		.adsr_en					( adsr_en						),
 		.reg_ar_a					( reg_ar_a1						),
 		.reg_dr_a					( reg_dr_a1						),
 		.reg_sr_a					( reg_sr_a1						),
 		.reg_rr_a					( reg_rr_a1						),
 		.reg_sl_a					( reg_sl_a1						),
-		.reg_wave_length_a			( reg_wave_length_a1			),
-		.reg_frequency_count_a		( reg_frequency_count_a1		),
 		.reg_ar_b					( reg_ar_b1						),
 		.reg_dr_b					( reg_dr_b1						),
 		.reg_sr_b					( reg_sr_b1						),
 		.reg_rr_b					( reg_rr_b1						),
 		.reg_sl_b					( reg_sl_b1						),
-		.reg_wave_length_b			( reg_wave_length_b1			),
-		.reg_frequency_count_b		( reg_frequency_count_b1		),
 		.reg_ar_c					( reg_ar_c1						),
 		.reg_dr_c					( reg_dr_c1						),
 		.reg_sr_c					( reg_sr_c1						),
 		.reg_rr_c					( reg_rr_c1						),
 		.reg_sl_c					( reg_sl_c1						),
-		.reg_wave_length_c			( reg_wave_length_c1			),
-		.reg_frequency_count_c		( reg_frequency_count_c1		),
 		.reg_ar_d					( reg_ar_d1						),
 		.reg_dr_d					( reg_dr_d1						),
 		.reg_sr_d					( reg_sr_d1						),
 		.reg_rr_d					( reg_rr_d1						),
 		.reg_sl_d					( reg_sl_d1						),
-		.reg_wave_length_d			( reg_wave_length_d1			),
-		.reg_frequency_count_d		( reg_frequency_count_d1		),
 		.reg_ar_e					( reg_ar_e1						),
 		.reg_dr_e					( reg_dr_e1						),
 		.reg_sr_e					( reg_sr_e1						),
 		.reg_rr_e					( reg_rr_e1						),
-		.reg_sl_e					( reg_sl_e1						),
-		.reg_wave_length_e			( reg_wave_length_e1			),
-		.reg_frequency_count_e		( reg_frequency_count_e1		)
+		.reg_sl_e					( reg_sl_e1						)
 	);
 
 	wts_noise_generator_4ch u_wts_noise_generator_4ch (
@@ -590,31 +562,31 @@ module wts_channel_mixer (
 
 	wts_selector #( 2 ) u_enable_selector0 (
 		.active		( ff_active				),
-		.result		( w_enable0				),		//	delay 1 clock
-		.reg_a		( 2'd0					),
-		.reg_b		( reg_enable_a0			),
-		.reg_c		( reg_enable_b0			),
-		.reg_d		( reg_enable_c0			),
-		.reg_e		( reg_enable_d0			),
-		.reg_f		( reg_enable_e0			)
+		.result		( w_enable0				),		//	delay 4 clock
+		.reg_a		( reg_enable_c0			),
+		.reg_b		( reg_enable_d0			),
+		.reg_c		( reg_enable_e0			),
+		.reg_d		( 2'd0					),
+		.reg_e		( reg_enable_a0			),
+		.reg_f		( reg_enable_b0			)
 	);
 
 	wts_selector #( 2 ) u_enable_selector1 (
 		.active		( ff_active				),
-		.result		( w_enable1				),		//	delay 1 clock
-		.reg_a		( 2'd0					),
-		.reg_b		( reg_enable_a1			),
-		.reg_c		( reg_enable_b1			),
-		.reg_d		( reg_enable_c1			),
-		.reg_e		( reg_enable_d1			),
-		.reg_f		( reg_enable_e1			)
+		.result		( w_enable1				),		//	delay 4 clock
+		.reg_a		( reg_enable_c1			),
+		.reg_b		( reg_enable_d1			),
+		.reg_c		( reg_enable_e1			),
+		.reg_d		( 2'd0					),
+		.reg_e		( reg_enable_a1			),
+		.reg_f		( reg_enable_b1			)
 	);
 
-	assign w_sram_a0	= ( ff_active == 3'd5 ) ? { ff_sram_id[2:0], ff_sram_a } : { ff_active, w_wave_address0 };
-	assign w_sram_a1	= ( ff_active == 3'd5 ) ? { ff_sram_id[2:0], ff_sram_a } : { ff_active, w_wave_address1 };
+	assign w_sram_a0	= ( ff_active == 3'd5 ) ? { ff_sram_id, ff_sram_a } : { ff_active, w_wave_address0 };
+	assign w_sram_a1	= ( ff_active == 3'd5 ) ? { ff_sram_id, ff_sram_a } : { ff_active, w_wave_address1 };
 
-	assign w_sram_we0	= ((ff_active == 3'd5) && (ff_sram_id[3] == 1'b0)) ? ff_sram_we : 1'b0;
-	assign w_sram_we1	= ((ff_active == 3'd5) && (ff_sram_id[3] == 1'b1)) ? ff_sram_we : 1'b0;
+	assign w_sram_we0	= ((ff_active == 3'd5) && ff_sram_ce0) ? ff_sram_we : 1'b0;
+	assign w_sram_we1	= ((ff_active == 3'd5) && ff_sram_ce1) ? ff_sram_we : 1'b0;
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
@@ -667,12 +639,9 @@ module wts_channel_mixer (
 			ff_left_integ		<= 12'd0;
 			ff_right_integ		<= 12'd0;
 		end
-		else if( ff_active == 3'd4 ) begin
-			ff_left_integ		<= { { 3 { w_left_channel[8]  } }, w_left_channel  };
-			ff_right_integ		<= { { 3 { w_right_channel[8] } }, w_right_channel };
-		end
 		else if( ff_active == 3'd3 ) begin
-			//	hold
+			ff_left_integ		<= 12'd0;
+			ff_right_integ		<= 12'd0;
 		end
 		else begin
 			ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel[8]  } }, w_left_channel  };

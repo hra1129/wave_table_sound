@@ -24,6 +24,7 @@ module wts_adsr_envelope_generator (
 	input			key_on,					//	pulse
 	input			key_release,			//	pulse
 	input			key_off,				//	pulse
+	input			reg_enable,
 	input	[7:0]	reg_ar,
 	input	[7:0]	reg_dr,
 	input	[7:0]	reg_sr,
@@ -105,13 +106,17 @@ module wts_adsr_envelope_generator (
 
 	function [6:0] func_level(
 		input	[6:0]	level_in,
+		input			enable,
 		input			key_on,
 		input			key_off,
 		input			counter_end,
 		input	[6:0]	attack,
 		input	[6:0]	level_next
 	);
-		if( key_off ) begin
+		if( !enable ) begin
+			func_level = 7'd64;
+		end
+		else if( key_off ) begin
 			func_level = 7'd0;
 		end
 		else if( key_on ) begin
@@ -126,6 +131,6 @@ module wts_adsr_envelope_generator (
 	endfunction
 
 	assign state_out	= w_state_out;
-	assign level_out	= func_level( level_in, key_on, key_off, w_counter_end, w_attack, w_level_next );
+	assign level_out	= func_level( level_in, reg_enable, key_on, key_off, w_counter_end, w_attack, w_level_next );
 	assign counter_out	= (key_on || w_counter_end) ? ((w_state_out == 3'd1) ? { 6'd0, w_rate, 6'b111111 } : { w_rate, 12'b1111111111 } ) : (counter_in - 20'd1);
 endmodule

@@ -76,13 +76,17 @@ module wts_core (
 	wire			ch_e1_key_release;
 	wire			ch_e1_key_off;
 
-	wire	[3:0]	sram_id;				//	[2:0]: A...F; [3]: 0 or 1   ex.) A0 = 0000; B1 = 1001; C1 = 1010
+	wire			sram_ce0;				//	A0...E0
+	wire			sram_ce1;				//	A1...E1
+	wire	[2:0]	sram_id;				//	A...E
 	wire	[6:0]	sram_a;
 	wire	[7:0]	sram_d;
 	wire			sram_oe;
 	wire			sram_we;
 	wire	[7:0]	sram_q;
 	wire			sram_q_en;
+
+	wire			adsr_en;
 
 	wire	[3:0]	reg_volume_a0;
 	wire	[1:0]	reg_enable_a0;
@@ -258,6 +262,8 @@ module wts_core (
 		.ch_e1_key_on			( ch_e1_key_on				),
 		.ch_e1_key_release		( ch_e1_key_release			),
 		.ch_e1_key_off			( ch_e1_key_off				),
+		.sram_ce0				( sram_ce0					),
+		.sram_ce1				( sram_ce1					),
 		.sram_id				( sram_id					),
 		.sram_a					( sram_a					),
 		.sram_d					( sram_d					),
@@ -265,6 +271,7 @@ module wts_core (
 		.sram_we				( sram_we					),
 		.sram_q					( sram_q					),
 		.sram_q_en				( sram_q_en					),
+		.adsr_en				( adsr_en					),
 		.left_out				( left_out					),
 		.right_out				( right_out					),
 		.reg_volume_a0			( reg_volume_a0				),
@@ -417,6 +424,8 @@ module wts_core (
 		.rddata					( q							),
 		.ext_memory_nactive		( mem_ncs					),
 		.ext_memory_address		( mem_a						),
+		.sram_ce0				( sram_ce0					),
+		.sram_ce1				( sram_ce1					),
 		.sram_id				( sram_id					),
 		.sram_a					( sram_a					),
 		.sram_d					( sram_d					),
@@ -424,6 +433,7 @@ module wts_core (
 		.sram_we				( sram_we					),
 		.sram_q					( sram_q					),
 		.sram_q_en				( sram_q_en					),
+		.adsr_en				( adsr_en					),
 		.ch_a0_key_on			( ch_a0_key_on				),
 		.ch_a0_key_release		( ch_a0_key_release			),
 		.ch_a0_key_off			( ch_a0_key_off				),

@@ -138,7 +138,6 @@ set_global_assignment -name VERILOG_FILE ../rtl/wts_ram.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_noise_generator.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_core.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_volume.v
-set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_part.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_channel_mixer.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_adsr_envelope_generator.v
 set_global_assignment -name VERILOG_FILE ../rtl/wts_for_cartridge.v

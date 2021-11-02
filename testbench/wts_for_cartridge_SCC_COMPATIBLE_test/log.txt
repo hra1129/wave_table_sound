@@ -1,0 +1,30 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 08:10:09 on Nov 03,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.wts_for_cartridge
+# Loading work.wts_core
+# Loading work.wts_channel_mixer
+# Loading work.wts_adsr_envelope_generator_5ch
+# Loading work.wts_selector
+# Loading work.wts_adsr_envelope_generator
+# Loading work.wts_noise_generator_4ch
+# Loading work.wts_noise_generator
+# Loading work.wts_tone_generator_5ch
+# Loading work.wts_tone_generator
+# Loading work.wts_ram
+# Loading work.wts_channel_volume
+# Loading work.wts_timer
+# Loading work.wts_register
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Write Test by SCC registers.
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(103)
+#    Time: 2518360560 ps  Iteration: 1  Instance: /tb
+# End time: 08:10:15 on Nov 03,2021, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 0

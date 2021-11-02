@@ -7,7 +7,6 @@
     <FileList>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator.v" type="file.verilog" enable="1"/>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v" type="file.verilog" enable="1"/>
-        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_part.v" type="file.verilog" enable="1"/>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_volume.v" type="file.verilog" enable="1"/>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_core.v" type="file.verilog" enable="1"/>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator.v" type="file.verilog" enable="1"/>
