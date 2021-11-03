@@ -1,5 +1,5 @@
 Analysis & Synthesis report for wave_table_sound
-Wed Nov 03 08:18:40 2021
+Wed Nov 03 22:01:05 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -121,13 +121,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 03 08:18:40 2021       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 03 22:01:05 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; wave_table_sound                            ;
 ; Top-level Entity Name              ; wts_for_cartridge                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 3,199                                       ;
-;     Total combinational functions  ; 1,982                                       ;
+; Total logic elements               ; 3,207                                       ;
+;     Total combinational functions  ; 1,990                                       ;
 ;     Dedicated logic registers      ; 1,486                                       ;
 ; Total registers                    ; 1486                                        ;
 ; Total pins                         ; 64                                          ;
@@ -289,16 +289,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,199     ;
+; Estimated Total logic elements              ; 3,207     ;
 ;                                             ;           ;
-; Total combinational functions               ; 1982      ;
+; Total combinational functions               ; 1990      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1214      ;
+;     -- 4 input functions                    ; 1219      ;
 ;     -- 3 input functions                    ; 393       ;
-;     -- <=2 input functions                  ; 375       ;
+;     -- <=2 input functions                  ; 378       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1804      ;
+;     -- normal mode                          ; 1812      ;
 ;     -- arithmetic mode                      ; 178       ;
 ;                                             ;           ;
 ; Total registers                             ; 1486      ;
@@ -312,7 +312,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 1502      ;
-; Total fan-out                               ; 12994     ;
+; Total fan-out                               ; 13018     ;
 ; Average fan-out                             ; 3.58      ;
 +---------------------------------------------+-----------+
 
@@ -322,21 +322,21 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
 ; Compilation Hierarchy Node                                                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                ; Entity Name                     ; Library Name ;
 +----------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
-; |wts_for_cartridge                                                         ; 1982 (43)           ; 1486 (4)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 64   ; 0            ; 0          ; |wts_for_cartridge                                                                                                                                                                                 ; wts_for_cartridge               ; work         ;
-;    |wts_core:u_wts_core|                                                   ; 1939 (0)            ; 1482 (0)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core                                                                                                                                                             ; wts_core                        ; work         ;
-;       |wts_channel_mixer:u_wts_channel_mixer|                              ; 1589 (119)          ; 718 (74)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer                                                                                                                       ; wts_channel_mixer               ; work         ;
-;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0| ; 389 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 214 (214)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
+; |wts_for_cartridge                                                         ; 1990 (43)           ; 1486 (4)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 64   ; 0            ; 0          ; |wts_for_cartridge                                                                                                                                                                                 ; wts_for_cartridge               ; work         ;
+;    |wts_core:u_wts_core|                                                   ; 1947 (0)            ; 1482 (0)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core                                                                                                                                                             ; wts_core                        ; work         ;
+;       |wts_channel_mixer:u_wts_channel_mixer|                              ; 1590 (120)          ; 718 (74)                  ; 10240       ; 0          ; 4            ; 4       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer                                                                                                                       ; wts_channel_mixer               ; work         ;
+;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0| ; 385 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 209 (209)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
 ;             |wts_selector:u_ar_selector|                                   ; 25 (25)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_ar_selector                            ; wts_selector                    ; work         ;
 ;             |wts_selector:u_counter_selector|                              ; 80 (80)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_counter_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_off_selector|                              ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_off_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_on_selector|                               ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_on_selector                        ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_release_selector|                          ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_key_release_selector                   ; wts_selector                    ; work         ;
 ;             |wts_selector:u_level_selector|                                ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_level_selector                         ; wts_selector                    ; work         ;
-;             |wts_selector:u_sl_selector|                                   ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector                            ; wts_selector                    ; work         ;
+;             |wts_selector:u_sl_selector|                                   ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_sl_selector                            ; wts_selector                    ; work         ;
 ;             |wts_selector:u_state_selector|                                ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_0|wts_selector:u_state_selector                         ; wts_selector                    ; work         ;
-;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1| ; 522 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
-;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 295 (295)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
+;          |wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1| ; 524 (0)             ; 150 (150)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1                                                       ; wts_adsr_envelope_generator_5ch ; work         ;
+;             |wts_adsr_envelope_generator:u_adsr_envelope_generator|        ; 297 (297)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_adsr_envelope_generator:u_adsr_envelope_generator ; wts_adsr_envelope_generator     ; work         ;
 ;             |wts_selector:u_ar_selector|                                   ; 50 (50)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_ar_selector                            ; wts_selector                    ; work         ;
 ;             |wts_selector:u_counter_selector|                              ; 80 (80)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_counter_selector                       ; wts_selector                    ; work         ;
 ;             |wts_selector:u_key_off_selector|                              ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_adsr_envelope_generator_5ch:u_adsr_envelope_generator_5ch_1|wts_selector:u_key_off_selector                       ; wts_selector                    ; work         ;
@@ -374,18 +374,18 @@ https://fpgasoftware.intel.com/eula.
 ;          |wts_selector:u_enable_selector1|                                 ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_enable_selector1                                                                                       ; wts_selector                    ; work         ;
 ;          |wts_selector:u_volume_selector0|                                 ; 18 (18)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector0                                                                                       ; wts_selector                    ; work         ;
 ;          |wts_selector:u_volume_selector1|                                 ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_selector:u_volume_selector1                                                                                       ; wts_selector                    ; work         ;
-;          |wts_tone_generator_5ch:u_tone_generator_5ch_0|                   ; 145 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0                                                                         ; wts_tone_generator_5ch          ; work         ;
+;          |wts_tone_generator_5ch:u_tone_generator_5ch_0|                   ; 146 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0                                                                         ; wts_tone_generator_5ch          ; work         ;
 ;             |wts_selector:u_wave_address_selector|                         ; 22 (22)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_address_selector                                    ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_frequency_counter_selector|               ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_frequency_counter_selector                          ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_length_selector|                          ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_selector:u_wave_length_selector                                     ; wts_selector                    ; work         ;
-;             |wts_tone_generator:u_tone_generator|                          ; 81 (81)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
-;          |wts_tone_generator_5ch:u_tone_generator_5ch_1|                   ; 195 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1                                                                         ; wts_tone_generator_5ch          ; work         ;
+;             |wts_tone_generator:u_tone_generator|                          ; 82 (82)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_0|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
+;          |wts_tone_generator_5ch:u_tone_generator_5ch_1|                   ; 196 (0)             ; 95 (95)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1                                                                         ; wts_tone_generator_5ch          ; work         ;
 ;             |wts_selector:u_wave_address_selector|                         ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_address_selector                                    ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_frequency_counter_selector|               ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_frequency_counter_selector                          ; wts_selector                    ; work         ;
 ;             |wts_selector:u_wave_length_selector|                          ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_selector:u_wave_length_selector                                     ; wts_selector                    ; work         ;
-;             |wts_tone_generator:u_tone_generator|                          ; 122 (122)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
-;       |wts_register:u_wts_register|                                        ; 335 (335)           ; 760 (760)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register                                                                                                                                 ; wts_register                    ; work         ;
-;       |wts_timer:u_wts_timer|                                              ; 15 (15)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_timer:u_wts_timer                                                                                                                                       ; wts_timer                       ; work         ;
+;             |wts_tone_generator:u_tone_generator|                          ; 123 (123)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_tone_generator_5ch:u_tone_generator_5ch_1|wts_tone_generator:u_tone_generator                                     ; wts_tone_generator              ; work         ;
+;       |wts_register:u_wts_register|                                        ; 346 (346)           ; 760 (760)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register                                                                                                                                 ; wts_register                    ; work         ;
+;       |wts_timer:u_wts_timer|                                              ; 11 (11)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |wts_for_cartridge|wts_core:u_wts_core|wts_timer:u_wts_timer                                                                                                                                       ; wts_timer                       ; work         ;
 +----------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -438,7 +438,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; Number of registers using Synchronous Load   ; 18    ;
 ; Number of registers using Asynchronous Clear ; 1478  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1381  ;
+; Number of registers using Clock Enable       ; 1379  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -461,21 +461,21 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; ff_nrd2                                                                                                                                                         ; 2       ;
 ; ff_nrd1                                                                                                                                                         ; 2       ;
 ; ff_nwr1                                                                                                                                                         ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_c1                                                                                            ; 1       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_d1                                                                                            ; 1       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_e1                                                                                            ; 1       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_a1                                                                                            ; 1       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_b1                                                                                            ; 1       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_b1                                                                                             ; 3       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_e1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_a1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_c1                                                                                             ; 2       ;
-; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_d1                                                                                             ; 3       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_c1                                                                                            ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_d1                                                                                            ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_e1                                                                                            ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_a1                                                                                            ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_wave_b1                                                                                            ; 2       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_c1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_d1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_e1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_a1                                                                                       ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_frequency_b1                                                                                       ; 1       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_b1                                                                                             ; 3       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_e1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_a1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_c1                                                                                             ; 2       ;
+; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_key_d1                                                                                             ; 3       ;
 ; wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_noise_generator_4ch:u_wts_noise_generator_4ch|wts_noise_generator:u_noise_generator2|ff_noise[17] ; 4       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_noise_d1                                                                                           ; 1       ;
 ; wts_core:u_wts_core|wts_register:u_wts_register|ff_reg_clone_noise_e1                                                                                           ; 1       ;
@@ -572,7 +572,6 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|reg_enable_c0[1]                                                                                                                                ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|reg_enable_d0[1]                                                                                                                                ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|sram_a[5]                                                                                                                                       ;
-; 22:1               ; 2 bits    ; 28 LEs        ; 12 LEs               ; 16 LEs                 ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|sram_ce0                                                                                                                                        ;
 ; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_register:u_wts_register|sram_id[0]                                                                                                                                      ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume1|ff_channel_wave[1]                                                                               ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |wts_for_cartridge|wts_core:u_wts_core|wts_channel_mixer:u_wts_channel_mixer|wts_channel_volume:u_channel_volume0|ff_channel_wave[6]                                                                               ;
@@ -1570,30 +1569,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; boundary_port         ; 64                          ;
 ; cycloneiii_ff         ; 1486                        ;
-;     CLR               ; 62                          ;
+;     CLR               ; 64                          ;
 ;     CLR SCLR          ; 24                          ;
 ;     CLR SLD           ; 16                          ;
 ;     ENA               ; 5                           ;
-;     ENA CLR           ; 1374                        ;
+;     ENA CLR           ; 1372                        ;
 ;     ENA CLR SLD       ; 2                           ;
 ;     plain             ; 3                           ;
 ; cycloneiii_io_obuf    ; 9                           ;
-; cycloneiii_lcell_comb ; 1982                        ;
+; cycloneiii_lcell_comb ; 1990                        ;
 ;     arith             ; 178                         ;
 ;         2 data inputs ; 110                         ;
 ;         3 data inputs ; 68                          ;
-;     normal            ; 1804                        ;
+;     normal            ; 1812                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 50                          ;
-;         2 data inputs ; 214                         ;
+;         2 data inputs ; 217                         ;
 ;         3 data inputs ; 325                         ;
-;         4 data inputs ; 1214                        ;
+;         4 data inputs ; 1219                        ;
 ; cycloneiii_mac_mult   ; 4                           ;
 ; cycloneiii_mac_out    ; 4                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 17.60                       ;
-; Average LUT depth     ; 7.87                        ;
+; Average LUT depth     ; 7.75                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1612,7 +1611,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Nov 03 08:18:22 2021
+    Info: Processing started: Wed Nov 03 22:00:48 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off wave_table_sound -c wave_table_sound
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1677,16 +1676,6 @@ Info (12128): Elaborating entity "wts_timer" for hierarchy "wts_core:u_wts_core|
 Warning (10230): Verilog HDL assignment warning at wts_timer.v(46): truncated value with size 3 to match size of target (2) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_timer.v Line: 46
 Warning (10230): Verilog HDL assignment warning at wts_timer.v(63): truncated value with size 3 to match size of target (2) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_timer.v Line: 63
 Info (12128): Elaborating entity "wts_register" for hierarchy "wts_core:u_wts_core|wts_register:u_wts_register" File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_core.v Line: 589
-Warning (10230): Verilog HDL assignment warning at wts_register.v(567): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 567
-Warning (10230): Verilog HDL assignment warning at wts_register.v(575): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 575
-Warning (10230): Verilog HDL assignment warning at wts_register.v(583): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 583
-Warning (10230): Verilog HDL assignment warning at wts_register.v(591): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 591
-Warning (10230): Verilog HDL assignment warning at wts_register.v(599): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 599
-Warning (10230): Verilog HDL assignment warning at wts_register.v(607): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 607
-Warning (10230): Verilog HDL assignment warning at wts_register.v(615): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 615
-Warning (10230): Verilog HDL assignment warning at wts_register.v(623): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 623
-Warning (10230): Verilog HDL assignment warning at wts_register.v(631): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 631
-Warning (10230): Verilog HDL assignment warning at wts_register.v(639): truncated value with size 4 to match size of target (3) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 639
 Warning (10240): Verilog HDL Always Construct warning at wts_register.v(652): inferring latch(es) for variable "reg_ar_d0", which holds its previous value in one or more paths through the always construct File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 652
 Info (10041): Inferred latch for "reg_ar_d0[0]" at wts_register.v(652) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 652
 Info (10041): Inferred latch for "reg_ar_d0[1]" at wts_register.v(652) File: C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v Line: 652
@@ -1785,18 +1774,18 @@ Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/hra/Documents/github/wave_table_sound/quartus/output_files/wave_table_sound.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3385 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3392 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 22 input pins
     Info (21059): Implemented 34 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 3301 logic cells
+    Info (21061): Implemented 3308 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 4 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 4799 megabytes
-    Info: Processing ended: Wed Nov 03 08:18:40 2021
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:32
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Wed Nov 03 22:01:05 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:31
 
 
 +------------------------------------------+

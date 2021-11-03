@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Nov 03 08:18:40 2021
+Analysis & Synthesis Status : Successful - Wed Nov 03 22:01:05 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : wave_table_sound
 Top-level Entity Name : wts_for_cartridge
 Family : MAX 10
-Total logic elements : 3,199
-    Total combinational functions : 1,982
+Total logic elements : 3,207
+    Total combinational functions : 1,990
     Dedicated logic registers : 1,486
 Total registers : 1486
 Total pins : 64

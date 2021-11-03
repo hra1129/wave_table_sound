@@ -563,40 +563,40 @@ module wts_register (
 			4'h0:
 				begin
 					sram_ce0	<= 1'b1;
-					sram_ce1	<= 1'b0;
-					sram_id		<= 4'd0;
+					sram_ce1	<= ff_reg_clone_wave_a1;
+					sram_id		<= 3'd0;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
 			4'h1:
 				begin
 					sram_ce0	<= 1'b1;
-					sram_ce1	<= 1'b0;
-					sram_id		<= 4'd1;
+					sram_ce1	<= ff_reg_clone_wave_b1;
+					sram_id		<= 3'd1;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
 			4'h2:
 				begin
 					sram_ce0	<= 1'b1;
-					sram_ce1	<= 1'b0;
-					sram_id		<= 4'd2;
+					sram_ce1	<= ff_reg_clone_wave_c1;
+					sram_id		<= 3'd2;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
 			4'h3:
 				begin
 					sram_ce0	<= 1'b1;
-					sram_ce1	<= 1'b0;
-					sram_id		<= 4'd3;
+					sram_ce1	<= ff_reg_clone_wave_d1;
+					sram_id		<= 3'd3;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
 			4'h4:
 				begin
 					sram_ce0	<= 1'b1;
-					sram_ce1	<= 1'b0;
-					sram_id		<= 4'd4;
+					sram_ce1	<= ff_reg_clone_wave_e1;
+					sram_id		<= 3'd4;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
@@ -604,7 +604,7 @@ module wts_register (
 				begin
 					sram_ce0	<= 1'b0;
 					sram_ce1	<= 1'b1;
-					sram_id		<= 4'd8;
+					sram_id		<= 3'd0;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
@@ -612,7 +612,7 @@ module wts_register (
 				begin
 					sram_ce0	<= 1'b0;
 					sram_ce1	<= 1'b1;
-					sram_id		<= 4'd9;
+					sram_id		<= 3'd1;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
@@ -620,7 +620,7 @@ module wts_register (
 				begin
 					sram_ce0	<= 1'b0;
 					sram_ce1	<= 1'b1;
-					sram_id		<= 4'd10;
+					sram_id		<= 3'd2;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
@@ -628,7 +628,7 @@ module wts_register (
 				begin
 					sram_ce0	<= 1'b0;
 					sram_ce1	<= 1'b1;
-					sram_id		<= 4'd11;
+					sram_id		<= 3'd3;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
@@ -636,7 +636,7 @@ module wts_register (
 				begin
 					sram_ce0	<= 1'b0;
 					sram_ce1	<= 1'b1;
-					sram_id		<= 4'd12;
+					sram_id		<= 3'd4;
 					sram_oe		<= rdreq;
 					sram_we		<= wrreq;
 				end
