@@ -188,10 +188,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[12]",
-					"strict" : false
-				},
-				{
 					"name" : "slot_a[7]",
 					"strict" : false
 				},
@@ -201,10 +197,6 @@
 				},
 				{
 					"name" : "slot_a[6]",
-					"strict" : false
-				},
-				{
-					"name" : "slot_a[3]",
 					"strict" : false
 				},
 				{
@@ -228,11 +220,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "slot_a[12]",
+					"strict" : false
+				},
+				{
 					"name" : "slot_a[1]",
 					"strict" : false
 				},
 				{
 					"name" : "slot_a[2]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[3]",
 					"strict" : false
 				},
 				{

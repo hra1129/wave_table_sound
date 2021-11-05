@@ -3,7 +3,7 @@
 <Project>
     <Template>FPGA</Template>
     <Version>5</Version>
-    <Device>gw1n4-028</Device>
+    <Device>gw1n2-026</Device>
     <FileList>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator.v" type="file.verilog" enable="1"/>
         <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v" type="file.verilog" enable="1"/>

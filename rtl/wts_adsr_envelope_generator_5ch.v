@@ -26,67 +26,17 @@ module wts_adsr_envelope_generator_5ch (
 	input	[2:0]	active,					//	0...4 : channel index, 5 : no operation
 	output	[6:0]	envelope,
 
-	input			ch_a_key_on,
-	input			ch_a_key_release,
-	input			ch_a_key_off,
-
-	input			ch_b_key_on,
-	input			ch_b_key_release,
-	input			ch_b_key_off,
-
-	input			ch_c_key_on,
-	input			ch_c_key_release,
-	input			ch_c_key_off,
-
-	input			ch_d_key_on,
-	input			ch_d_key_release,
-	input			ch_d_key_off,
-
-	input			ch_e_key_on,
-	input			ch_e_key_release,
-	input			ch_e_key_off,
-
+	input			ch_key_on,
+	input			ch_key_release,
+	input			ch_key_off,
 	input			adsr_en,
 
-	input	[7:0]	reg_ar_a,
-	input	[7:0]	reg_dr_a,
-	input	[7:0]	reg_sr_a,
-	input	[7:0]	reg_rr_a,
-	input	[5:0]	reg_sl_a,
-
-	input	[7:0]	reg_ar_b,
-	input	[7:0]	reg_dr_b,
-	input	[7:0]	reg_sr_b,
-	input	[7:0]	reg_rr_b,
-	input	[5:0]	reg_sl_b,
-
-	input	[7:0]	reg_ar_c,
-	input	[7:0]	reg_dr_c,
-	input	[7:0]	reg_sr_c,
-	input	[7:0]	reg_rr_c,
-	input	[5:0]	reg_sl_c,
-
-	input	[7:0]	reg_ar_d,
-	input	[7:0]	reg_dr_d,
-	input	[7:0]	reg_sr_d,
-	input	[7:0]	reg_rr_d,
-	input	[5:0]	reg_sl_d,
-
-	input	[7:0]	reg_ar_e,
-	input	[7:0]	reg_dr_e,
-	input	[7:0]	reg_sr_e,
-	input	[7:0]	reg_rr_e,
-	input	[5:0]	reg_sl_e
+	input	[7:0]	reg_ar,
+	input	[7:0]	reg_dr,
+	input	[7:0]	reg_sr,
+	input	[7:0]	reg_rr,
+	input	[5:0]	reg_sl
 );
-	wire	[7:0]	w_ar;
-	wire	[7:0]	w_dr;
-	wire	[7:0]	w_sr;
-	wire	[7:0]	w_rr;
-	wire	[5:0]	w_sl;
-	wire			w_key_on;
-	wire			w_key_release;
-	wire			w_key_off;
-
 	reg		[2:0]	ff_state_a;				//	0:idle, 1:attack, 2:decay, 3:sustain, 4:release
 	reg		[19:0]	ff_counter_a;
 	reg		[6:0]	ff_level_a;
@@ -114,94 +64,6 @@ module wts_adsr_envelope_generator_5ch (
 	wire	[2:0]	w_state_out;
 	wire	[19:0]	w_counter_out;
 	wire	[6:0]	w_level_out;
-
-	wts_selector #( 8 ) u_ar_selector (
-		.active		( active			),
-		.result		( w_ar				),
-		.reg_a		( 8'd0				),
-		.reg_b		( reg_ar_a			),
-		.reg_c		( reg_ar_b			),
-		.reg_d		( reg_ar_c			),
-		.reg_e		( reg_ar_d			),
-		.reg_f		( reg_ar_e			)
-	);
-
-	wts_selector #( 8 ) u_dr_selector (
-		.active		( active			),
-		.result		( w_dr				),
-		.reg_a		( 8'd0				),
-		.reg_b		( reg_dr_a			),
-		.reg_c		( reg_dr_b			),
-		.reg_d		( reg_dr_c			),
-		.reg_e		( reg_dr_d			),
-		.reg_f		( reg_dr_e			)
-	);
-
-	wts_selector #( 8 ) u_sr_selector (
-		.active		( active			),
-		.result		( w_sr				),
-		.reg_a		( 8'd0				),
-		.reg_b		( reg_sr_a			),
-		.reg_c		( reg_sr_b			),
-		.reg_d		( reg_sr_c			),
-		.reg_e		( reg_sr_d			),
-		.reg_f		( reg_sr_e			)
-	);
-
-	wts_selector #( 8 ) u_rr_selector (
-		.active		( active			),
-		.result		( w_rr				),
-		.reg_a		( 8'd0				),
-		.reg_b		( reg_rr_a			),
-		.reg_c		( reg_rr_b			),
-		.reg_d		( reg_rr_c			),
-		.reg_e		( reg_rr_d			),
-		.reg_f		( reg_rr_e			)
-	);
-
-	wts_selector #( 6 ) u_sl_selector (
-		.active		( active			),
-		.result		( w_sl				),
-		.reg_a		( 6'd0				),
-		.reg_b		( reg_sl_a			),
-		.reg_c		( reg_sl_b			),
-		.reg_d		( reg_sl_c			),
-		.reg_e		( reg_sl_d			),
-		.reg_f		( reg_sl_e			)
-	);
-
-	wts_selector #( 1 ) u_key_on_selector (
-		.active		( active			),
-		.result		( w_key_on			),
-		.reg_a		( 1'd0				),
-		.reg_b		( ch_a_key_on		),
-		.reg_c		( ch_b_key_on		),
-		.reg_d		( ch_c_key_on		),
-		.reg_e		( ch_d_key_on		),
-		.reg_f		( ch_e_key_on		)
-	);
-
-	wts_selector #( 1 ) u_key_release_selector (
-		.active		( active			),
-		.result		( w_key_release		),
-		.reg_a		( 1'd0				),
-		.reg_b		( ch_a_key_release	),
-		.reg_c		( ch_b_key_release	),
-		.reg_d		( ch_c_key_release	),
-		.reg_e		( ch_d_key_release	),
-		.reg_f		( ch_e_key_release	)
-	);
-
-	wts_selector #( 1 ) u_key_off_selector (
-		.active		( active			),
-		.result		( w_key_off			),
-		.reg_a		( 1'd0				),
-		.reg_b		( ch_a_key_off		),
-		.reg_c		( ch_b_key_off		),
-		.reg_d		( ch_c_key_off		),
-		.reg_e		( ch_d_key_off		),
-		.reg_f		( ch_e_key_off		)
-	);
 
 	wts_selector #( 3 ) u_state_selector (
 		.active		( active			),
@@ -237,15 +99,15 @@ module wts_adsr_envelope_generator_5ch (
 	);
 
 	wts_adsr_envelope_generator u_adsr_envelope_generator (
-		.key_on					( w_key_on					),
-		.key_release			( w_key_release				),
-		.key_off				( w_key_off					),
+		.key_on					( ch_key_on					),
+		.key_release			( ch_key_release			),
+		.key_off				( ch_key_off				),
 		.reg_enable				( adsr_en					),
-		.reg_ar					( w_ar						),
-		.reg_dr					( w_dr						),
-		.reg_sr					( w_sr						),
-		.reg_rr					( w_rr						),
-		.reg_sl					( w_sl						),
+		.reg_ar					( reg_ar					),
+		.reg_dr					( reg_dr					),
+		.reg_sr					( reg_sr					),
+		.reg_rr					( reg_rr					),
+		.reg_sl					( reg_sl					),
 		.counter_in				( w_counter_in				),
 		.counter_out			( w_counter_out				),
 		.state_in				( w_state_in				),

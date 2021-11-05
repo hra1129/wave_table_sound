@@ -1,7 +1,7 @@
 <!DOCTYPE gowin-synthesis-project>
 <Project>
     <Version>Beta</Version>
-    <Device id="GW1N-4" package="LQFP100" speed="6"/>
+    <Device id="GW1N-2" package="LQFP100" speed="6"/>
     <FileList>
         <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_adsr_envelope_generator.v"/>
         <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl\wts_channel_mixer.v"/>

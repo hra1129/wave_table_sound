@@ -27,19 +27,9 @@ module wts_tone_generator_5ch (
 	input			address_reset,
 	output	[6:0]	wave_address,
 	output			half_timing,
-	input	[1:0]	reg_wave_length_a,
-	input	[1:0]	reg_wave_length_b,
-	input	[1:0]	reg_wave_length_c,
-	input	[1:0]	reg_wave_length_d,
-	input	[1:0]	reg_wave_length_e,
-	input	[11:0]	reg_frequency_count_a,
-	input	[11:0]	reg_frequency_count_b,
-	input	[11:0]	reg_frequency_count_c,
-	input	[11:0]	reg_frequency_count_d,
-	input	[11:0]	reg_frequency_count_e
+	input	[1:0]	reg_wave_length,
+	input	[11:0]	reg_frequency_count
 );
-	wire	[1:0]	w_wave_length;
-	wire	[11:0]	w_frequency_count;
 	wire	[6:0]	w_wave_address_in;
 	wire	[6:0]	w_wave_address_out;
 	reg		[6:0]	ff_wave_address_a;
@@ -55,17 +45,6 @@ module wts_tone_generator_5ch (
 	reg		[11:0]	ff_frequency_count_d;
 	reg		[11:0]	ff_frequency_count_e;
 
-	wts_selector #( 2 ) u_wave_length_selector (
-		.active					( active					),
-		.result					( w_wave_length				),
-		.reg_a					( reg_wave_length_a			),
-		.reg_b					( reg_wave_length_b			),
-		.reg_c					( reg_wave_length_c			),
-		.reg_d					( reg_wave_length_d			),
-		.reg_e					( reg_wave_length_e			),
-		.reg_f					( 2'd0						)
-	);
-
 	wts_selector #( 7 ) u_wave_address_selector (
 		.active					( active					),
 		.result					( w_wave_address_in			),
@@ -75,17 +54,6 @@ module wts_tone_generator_5ch (
 		.reg_d					( ff_wave_address_d			),
 		.reg_e					( ff_wave_address_e			),
 		.reg_f					( 7'd0						)
-	);
-
-	wts_selector #( 12 ) u_wave_frequency_count_selector (
-		.active					( active					),
-		.result					( w_frequency_count			),
-		.reg_a					( reg_frequency_count_a		),
-		.reg_b					( reg_frequency_count_b		),
-		.reg_c					( reg_frequency_count_c		),
-		.reg_d					( reg_frequency_count_d		),
-		.reg_e					( reg_frequency_count_e		),
-		.reg_f					( 12'd0						)
 	);
 
 	wts_selector #( 12 ) u_wave_frequency_counter_selector (
@@ -103,8 +71,8 @@ module wts_tone_generator_5ch (
 		.address_reset			( address_reset				),
 		.half_timing			( half_timing				),
 		.wave_address			( wave_address				),
-		.reg_wave_length		( w_wave_length				),
-		.reg_frequency_count	( w_frequency_count			),
+		.reg_wave_length		( reg_wave_length			),
+		.reg_frequency_count	( reg_frequency_count		),
 		.wave_address_in		( w_wave_address_in			),
 		.wave_address_out		( w_wave_address_out		),
 		.frequency_count_in		( w_frequency_count_in		),

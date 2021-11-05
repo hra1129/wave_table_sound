@@ -50,7 +50,7 @@ module wts_for_ocm (
 	reg				ff_wr;
 	reg				ff_rd;
 	reg				ff_req1;
-	reg				ff_req2;
+	reg		[3:0]	ff_req2;
 
 	assign w_mono_out		= { 1'b0, w_left_out } + { 1'b0, w_right_out };
 	assign wavl				= sw_mono ? { w_mono_out, 2'b0 } : { w_left_out , 3'b0 };
@@ -63,21 +63,42 @@ module wts_for_ocm (
 	assign ramadr			= { w_mem_a, adr[12:0] };
 	assign ramreq			= ( w_mem_ncs == 1'b0 ) ? ff_req1 : 1'b0;
 	assign dbi				= ( w_mem_ncs == 1'b0 ) ? ramdbi  : w_q;
-	assign ack				= ( w_mem_ncs == 1'b0 ) ? ff_req2 : ff_req1;
+	assign w_ack			= ( w_mem_ncs == 1'b0 ) ? ff_req1 : 
+							  ( ff_req2 == 4'd1   ) ? 1'b1 : 1'b0;
+	assign ack				= w_ack;
 	assign ramdbo			= dbo;
+
+	always @( posedge reset or posedge clk21m ) begin
+		if( reset ) begin
+			ff_req2	<= 4'b0;
+		end
+		else if( ff_req2 != 4'd0 ) begin
+			ff_req2 <= ff_req2 - 4'd1;
+		end
+		else if( w_rdreq ) begin
+			ff_req2 <= 4'd10;
+		end
+		else begin
+			//	hold
+		end
+	end
 
 	always @( posedge reset or posedge clk21m ) begin
 		if( reset ) begin
 			ff_wr	<= 1'b0;
 			ff_rd	<= 1'b0;
 			ff_req1	<= 1'b0;
-			ff_req2	<= 1'b0;
 		end
 		else begin
-			ff_wr	<= w_wrreq;
-			ff_rd	<= w_rdreq;
+			if( w_ack ) begin
+				ff_wr	<= 1'b0;
+				ff_rd	<= 1'b0;
+			end
+			else begin
+				ff_wr	<= ff_wr | w_wrreq;
+				ff_rd	<= ff_rd | w_rdreq;
+			end
 			ff_req1	<= req;
-			ff_req2	<= ff_req1;
 		end
 	end
 
