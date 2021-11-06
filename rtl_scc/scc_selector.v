@@ -20,24 +20,37 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_ram (
-	input			clk,
-	input			sram_we,
-	input	[9:0]	sram_a,
-	input	[7:0]	sram_d,
-	output	[7:0]	sram_q
+module scc_selector #(
+	parameter		bits
+) (
+	input	[2:0]		active,
+	output	[bits-1:0]	result,
+	input	[bits-1:0]	reg_a,
+	input	[bits-1:0]	reg_b,
+	input	[bits-1:0]	reg_c,
+	input	[bits-1:0]	reg_d,
+	input	[bits-1:0]	reg_e,
+	input	[bits-1:0]	reg_f
 );
-	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [639:0];		//	10bit 640word ( 128word * 5ch )
+	function [bits-1:0] func_selector(
+		input	[2:0]		active,
+		input	[bits-1:0]	reg_a,
+		input	[bits-1:0]	reg_b,
+		input	[bits-1:0]	reg_c,
+		input	[bits-1:0]	reg_d,
+		input	[bits-1:0]	reg_e,
+		input	[bits-1:0]	reg_f
+	);
+		case( active )
+		3'd0:		func_selector = reg_a;
+		3'd1:		func_selector = reg_b;
+		3'd2:		func_selector = reg_c;
+		3'd3:		func_selector = reg_d;
+		3'd4:		func_selector = reg_e;
+		3'd5:		func_selector = reg_f;
+		default:	func_selector = 'd0;
+		endcase
+	endfunction
 
-	always @( posedge clk ) begin
-		if( sram_we ) begin
-			ram_array[ sram_a ] <= sram_d;
-		end
-		else begin
-			ff_sram_q	<= ram_array[ sram_a ];
-		end
-	end
-
-	assign sram_q	= ff_sram_q;
+	assign result = func_selector( active, reg_a, reg_b, reg_c, reg_d, reg_e, reg_f );
 endmodule

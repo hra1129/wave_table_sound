@@ -20,24 +20,25 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_ram (
-	input			clk,
-	input			sram_we,
-	input	[9:0]	sram_a,
-	input	[7:0]	sram_d,
-	output	[7:0]	sram_q
+module scc_tone_generator (
+	input			address_reset,
+	output	[4:0]	wave_address,
+	input	[11:0]	reg_frequency_count,
+	input	[4:0]	wave_address_in,
+	output	[4:0]	wave_address_out,
+	input	[11:0]	frequency_count_in,
+	output	[11:0]	frequency_count_out
 );
-	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [639:0];		//	10bit 640word ( 128word * 5ch )
+	wire			w_frequency_counter_end;
 
-	always @( posedge clk ) begin
-		if( sram_we ) begin
-			ram_array[ sram_a ] <= sram_d;
-		end
-		else begin
-			ff_sram_q	<= ram_array[ sram_a ];
-		end
-	end
+	// frequency counter ------------------------------------------------------
+	assign w_frequency_counter_end	= (frequency_count_in == 12'd0) ? 1'b1 : 1'b0;
+	assign frequency_count_out		= (w_frequency_counter_end || address_reset) ? reg_frequency_count : (frequency_count_in - 12'd1);
 
-	assign sram_q	= ff_sram_q;
+	// wave memory address ----------------------------------------------------
+	assign wave_address_out			= address_reset ? 5'd0 : 
+									  w_frequency_counter_end ? (wave_address_in + 5'd1) : wave_address_in;
+
+	// output assignment ------------------------------------------------------
+	assign wave_address				= wave_address_in;
 endmodule

@@ -20,15 +20,15 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_ram (
+module scc_ram (
 	input			clk,
 	input			sram_we,
-	input	[9:0]	sram_a,
+	input	[7:0]	sram_a,
 	input	[7:0]	sram_d,
 	output	[7:0]	sram_q
 );
 	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [639:0];		//	10bit 640word ( 128word * 5ch )
+	reg		[7:0]	ram_array [159:0];		//	8bit 160word ( 32word * 5ch )
 
 	always @( posedge clk ) begin
 		if( sram_we ) begin

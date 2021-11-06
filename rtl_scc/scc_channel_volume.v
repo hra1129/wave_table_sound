@@ -20,24 +20,34 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_ram (
+module scc_channel_volume (
+	input			nreset,					//	negative logic
 	input			clk,
-	input			sram_we,
-	input	[9:0]	sram_a,
-	input	[7:0]	sram_d,
-	output	[7:0]	sram_q
+	input	[7:0]	sram_q,					//	signed
+	output	[7:0]	channel,				//	signed
+	input	[3:0]	reg_volume
 );
-	reg		[7:0]	ff_sram_q;
-	reg		[7:0]	ram_array [639:0];		//	10bit 640word ( 128word * 5ch )
+	reg		[7:0]	ff_wave;				//	signed
+	reg		[7:0]	ff_channel_wave;		//	signed
+	wire	[12:0]	w_channel_mul;
+	wire	[7:0]	w_channel_round;
+	reg		[7:0]	ff_channel;				//	signed
 
-	always @( posedge clk ) begin
-		if( sram_we ) begin
-			ram_array[ sram_a ] <= sram_d;
+	assign w_channel_mul	= $signed( ff_channel_wave ) * $signed( { 1'b0, reg_volume } );
+	assign w_channel_round	= (w_channel_mul[11] && (w_channel_mul[3:0] != 4'd0)) ? ( w_channel_mul[11:4] + 8'd1 ) : w_channel_mul[11:4];
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave			<= 8'd0;
+			ff_channel_wave	<= 8'd0;
+			ff_channel		<= 8'd0;
 		end
 		else begin
-			ff_sram_q	<= ram_array[ sram_a ];
+			ff_wave			<= sram_q;
+			ff_channel_wave	<= ff_wave;
+			ff_channel		<= w_channel_round;
 		end
 	end
 
-	assign sram_q	= ff_sram_q;
+	assign channel			= ff_channel;
 endmodule
