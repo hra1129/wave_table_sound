@@ -1,4 +1,6 @@
 # OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_for_cartridge_SCC_COMPATIBLE_test/vsim.wlf
 do C:/Users/hra/Documents/github/wave_table_sound/testbench/wts_for_cartridge_SCC_COMPATIBLE_test/wave.do
-add wave -position end  vsim:/tb/u_wts_for_cartridge/left_out
-add wave -position end  vsim:/tb/u_wts_for_cartridge/right_out
+# ** Error: (vish-4014) No objects found matching '/tb/u_wts_for_cartridge/u_wts_core/u_wts_channel_mixer/w_enable0'.
+# Executing ONERROR command at macro C:\Users\hra\Documents\github\wave_table_sound\testbench\wts_for_cartridge_SCC_COMPATIBLE_test\wave.do line 19
+# ** Error: (vish-4014) No objects found matching '/tb/u_wts_for_cartridge/u_wts_core/u_wts_channel_mixer/w_enable1'.
+# Executing ONERROR command at macro C:\Users\hra\Documents\github\wave_table_sound\testbench\wts_for_cartridge_SCC_COMPATIBLE_test\wave.do line 20

@@ -188,11 +188,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[7]",
+					"name" : "slot_a[12]",
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[5]",
+					"name" : "slot_a[7]",
 					"strict" : false
 				},
 				{
@@ -200,7 +200,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "slot_a[5]",
+					"strict" : false
+				},
+				{
 					"name" : "slot_a[4]",
+					"strict" : false
+				},
+				{
+					"name" : "slot_a[3]",
 					"strict" : false
 				},
 				{
@@ -220,19 +228,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "slot_a[12]",
-					"strict" : false
-				},
-				{
 					"name" : "slot_a[1]",
 					"strict" : false
 				},
 				{
 					"name" : "slot_a[2]",
-					"strict" : false
-				},
-				{
-					"name" : "slot_a[3]",
 					"strict" : false
 				},
 				{
