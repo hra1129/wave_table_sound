@@ -24,7 +24,6 @@ module scc_channel_mixer (
 	input			nreset,
 	input			clk,
 
-	input			sram_ce,				//	A0...E0
 	input	[2:0]	sram_id,				//	A...E
 	input	[4:0]	sram_a,
 	input	[7:0]	sram_d,
@@ -51,14 +50,8 @@ module scc_channel_mixer (
 	reg		[10:0]	ff_left_integ;
 	reg		[10:0]	ff_left_out;
 
-	reg				ff_sram_ce0;
-	reg		[2:0]	ff_sram_id;
-	reg		[4:0]	ff_sram_a;
-	reg		[7:0]	ff_sram_d;
-	reg				ff_sram_oe;
-	reg				ff_sram_we;
+	reg				ff_active_delay;
 	reg				ff_sram_q_en;
-	wire			w_sram_done;
 
 	wire	[4:0]	w_wave_address0;
 	wire			w_sram_we0;
@@ -69,89 +62,39 @@ module scc_channel_mixer (
 	// ------------------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_sram_oe <= 1'b0;
-		end
-		else if( sram_oe ) begin
-			ff_sram_oe <= 1'b1;
-		end
-		else if( w_sram_done ) begin
-			ff_sram_oe <= 1'b0;
-		end
-		else begin
-			//	hold
-		end
-	end
-
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_sram_we <= 1'b0;
-		end
-		else if( sram_we ) begin
-			ff_sram_we <= 1'b1;
-		end
-		else if( w_sram_done ) begin
-			ff_sram_we <= 1'b0;
-		end
-		else begin
-			//	hold
-		end
-	end
-
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_sram_id <= 2'b0;
-			ff_sram_ce0 <= 1'b0;
-		end
-		else if( sram_oe | sram_we ) begin
-			ff_sram_id <= sram_id;
-			ff_sram_ce0 <= sram_ce;
-		end
-		else begin
-			//	hold
-		end
-	end
-
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
 			ff_sram_q_en <= 1'b0;
-		end
-		else if( w_sram_done ) begin
-			ff_sram_q_en <= ff_sram_oe;
-		end
-		else begin
-			ff_sram_q_en <= 1'b0;
-		end
-	end
-
-	assign w_sram_done	= (ff_active == 3'd5) ? 1'b1 : 1'b0;
-	assign sram_q_en	= ff_sram_q_en;
-	assign sram_q		= w_sram_q0;
-
-	always @( negedge nreset or posedge clk ) begin
-		if( !nreset ) begin
-			ff_sram_a <= 5'd0;
-			ff_sram_d <= 8'd0;
 		end
 		else if( sram_oe || sram_we ) begin
-			ff_sram_a <= sram_a;
-			ff_sram_d <= sram_d;
+			ff_sram_q_en <= sram_oe;
 		end
 		else begin
-			//	hold
+			ff_sram_q_en <= 1'b0;
 		end
 	end
+
+	assign sram_q_en	= ff_sram_q_en;
+	assign sram_q		= w_sram_q0;
 
 	// ------------------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_active <= 3'd0;
+			ff_active		<= 3'd0;
+			ff_active_delay	<= 1'b0;
 		end
 		else begin
 			if( ff_active == 3'd5 ) begin
-				ff_active <= 3'd0;
+				ff_active		<= 3'd0;
+				ff_active_delay	<= 1'b0;
+			end
+			else if( (sram_oe | sram_we) == 1'b1 ) begin
+				ff_active_delay	<= 1'b1;
+			end
+			else if( ff_active_delay && ff_active == 3'd4 ) begin
+					ff_active		<= 3'd0;
+					ff_active_delay	<= 1'b0;
 			end
 			else begin
-				ff_active <= ff_active + 3'd1;
+				ff_active		<= ff_active + 3'd1;
 			end
 		end
 	end
@@ -167,15 +110,15 @@ module scc_channel_mixer (
 		.reg_frequency_count		( reg_frequency_count0			)
 	);
 
-	assign w_sram_a0	= ( ff_active == 3'd5 ) ? { ff_sram_id, ff_sram_a } : 
+	assign w_sram_a0	= ( sram_oe || sram_we ) ? { sram_id, sram_a } : 
 						  (( ff_active[2] && (reg_scci_enable == 1'b0)) ? { 3'b011, w_wave_address0 } : { ff_active, w_wave_address0 });
-	assign w_sram_we0	= ((ff_active == 3'd5) && ff_sram_ce0) ? ff_sram_we : 1'b0;
+	assign w_sram_we0	= ( sram_oe || sram_we ) ? sram_we : 1'b0;
 
 	scc_ram u_ram00 (
 		.clk			( clk				),
 		.sram_we		( w_sram_we0		),		//	delay 0 clock
 		.sram_a			( w_sram_a0			),		//	delay 0 clock
-		.sram_d			( ff_sram_d			),		//	delay 0 clock
+		.sram_d			( sram_d			),		//	delay 0 clock
 		.sram_q			( w_sram_q0			)		//	delay 1 clock
 	);
 

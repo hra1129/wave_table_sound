@@ -805,24 +805,24 @@ module wts_register (
 			reg_timer2_clear			<= 1'b0;
 		end
 		else if( wrreq ) begin
-			if( w_scc_en ) begin
-				case( address[7:0] )
-				8'h80:		ff_reg_frequency_count_a0[ 7:0]	<= wrdata;
-				8'h81:		ff_reg_frequency_count_a0[11:8]	<= wrdata[3:0];
-				8'h82:		ff_reg_frequency_count_b0[ 7:0]	<= wrdata;
-				8'h83:		ff_reg_frequency_count_b0[11:8]	<= wrdata[3:0];
-				8'h84:		ff_reg_frequency_count_c0[ 7:0]	<= wrdata;
-				8'h85:		ff_reg_frequency_count_c0[11:8]	<= wrdata[3:0];
-				8'h86:		ff_reg_frequency_count_d0[ 7:0]	<= wrdata;
-				8'h87:		ff_reg_frequency_count_d0[11:8]	<= wrdata[3:0];
-				8'h88:		ff_reg_frequency_count_d1[ 7:0]	<= wrdata;
-				8'h89:		ff_reg_frequency_count_d1[11:8]	<= wrdata[3:0];
-				8'h8A:		ff_reg_volume_a0				<= wrdata[3:0];
-				8'h8B:		ff_reg_volume_b0				<= wrdata[3:0];
-				8'h8C:		ff_reg_volume_c0				<= wrdata[3:0];
-				8'h8D:		ff_reg_volume_d0				<= wrdata[3:0];
-				8'h8E:		ff_reg_volume_d1				<= wrdata[3:0];
-				8'h8F:
+			if( w_scc_en && (address[7:4] == 4'h8) ) begin
+				case( address[3:0] )
+				4'h0:		ff_reg_frequency_count_a0[ 7:0]	<= wrdata;
+				4'h1:		ff_reg_frequency_count_a0[11:8]	<= wrdata[3:0];
+				4'h2:		ff_reg_frequency_count_b0[ 7:0]	<= wrdata;
+				4'h3:		ff_reg_frequency_count_b0[11:8]	<= wrdata[3:0];
+				4'h4:		ff_reg_frequency_count_c0[ 7:0]	<= wrdata;
+				4'h5:		ff_reg_frequency_count_c0[11:8]	<= wrdata[3:0];
+				4'h6:		ff_reg_frequency_count_d0[ 7:0]	<= wrdata;
+				4'h7:		ff_reg_frequency_count_d0[11:8]	<= wrdata[3:0];
+				4'h8:		ff_reg_frequency_count_d1[ 7:0]	<= wrdata;
+				4'h9:		ff_reg_frequency_count_d1[11:8]	<= wrdata[3:0];
+				4'hA:		ff_reg_volume_a0				<= wrdata[3:0];
+				4'hB:		ff_reg_volume_b0				<= wrdata[3:0];
+				4'hC:		ff_reg_volume_c0				<= wrdata[3:0];
+				4'hD:		ff_reg_volume_d0				<= wrdata[3:0];
+				4'hE:		ff_reg_volume_d1				<= wrdata[3:0];
+				4'hF:
 					begin
 						ff_reg_enable_a0	<= { wrdata[0], wrdata[0] };
 						ff_reg_enable_b0	<= { wrdata[1], wrdata[1] };
@@ -832,24 +832,24 @@ module wts_register (
 					end
 				endcase
 			end
-			else if( w_scci_en ) begin
-				case( address[7:0] )
-				8'hA0:		ff_reg_frequency_count_a0[ 7:0]	<= wrdata;
-				8'hA1:		ff_reg_frequency_count_a0[11:8]	<= wrdata[3:0];
-				8'hA2:		ff_reg_frequency_count_b0[ 7:0]	<= wrdata;
-				8'hA3:		ff_reg_frequency_count_b0[11:8]	<= wrdata[3:0];
-				8'hA4:		ff_reg_frequency_count_c0[ 7:0]	<= wrdata;
-				8'hA5:		ff_reg_frequency_count_c0[11:8]	<= wrdata[3:0];
-				8'hA6:		ff_reg_frequency_count_d0[ 7:0]	<= wrdata;
-				8'hA7:		ff_reg_frequency_count_d0[11:8]	<= wrdata[3:0];
-				8'hA8:		ff_reg_frequency_count_d1[ 7:0]	<= wrdata;
-				8'hA9:		ff_reg_frequency_count_d1[11:8]	<= wrdata[3:0];
-				8'hAA:		ff_reg_volume_a0				<= wrdata[3:0];
-				8'hAB:		ff_reg_volume_b0				<= wrdata[3:0];
-				8'hAC:		ff_reg_volume_c0				<= wrdata[3:0];
-				8'hAD:		ff_reg_volume_d0				<= wrdata[3:0];
-				8'hAE:		ff_reg_volume_d1				<= wrdata[3:0];
-				8'hAF:
+			else if( w_scci_en && (address[7:4] == 4'hA) ) begin
+				case( address[3:0] )
+				4'h0:		ff_reg_frequency_count_a0[ 7:0]	<= wrdata;
+				4'h1:		ff_reg_frequency_count_a0[11:8]	<= wrdata[3:0];
+				4'h2:		ff_reg_frequency_count_b0[ 7:0]	<= wrdata;
+				4'h3:		ff_reg_frequency_count_b0[11:8]	<= wrdata[3:0];
+				4'h4:		ff_reg_frequency_count_c0[ 7:0]	<= wrdata;
+				4'h5:		ff_reg_frequency_count_c0[11:8]	<= wrdata[3:0];
+				4'h6:		ff_reg_frequency_count_d0[ 7:0]	<= wrdata;
+				4'h7:		ff_reg_frequency_count_d0[11:8]	<= wrdata[3:0];
+				4'h8:		ff_reg_frequency_count_d1[ 7:0]	<= wrdata;
+				4'h9:		ff_reg_frequency_count_d1[11:8]	<= wrdata[3:0];
+				4'hA:		ff_reg_volume_a0				<= wrdata[3:0];
+				4'hB:		ff_reg_volume_b0				<= wrdata[3:0];
+				4'hC:		ff_reg_volume_c0				<= wrdata[3:0];
+				4'hD:		ff_reg_volume_d0				<= wrdata[3:0];
+				4'hE:		ff_reg_volume_d1				<= wrdata[3:0];
+				4'hF:
 					begin
 						ff_reg_enable_a0	<= { wrdata[0], wrdata[0] };
 						ff_reg_enable_b0	<= { wrdata[1], wrdata[1] };

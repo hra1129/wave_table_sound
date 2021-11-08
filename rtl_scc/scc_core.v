@@ -36,7 +36,6 @@ module scc_core (
 );
 	wire	[2:0]	active;
 
-	wire			sram_ce;				//	A0...E0
 	wire	[2:0]	sram_id;				//	A...E
 	wire	[4:0]	sram_a;
 	wire	[7:0]	sram_d;
@@ -53,7 +52,6 @@ module scc_core (
 	scc_channel_mixer u_scc_channel_mixer (
 		.nreset					( nreset					),
 		.clk					( clk						),
-		.sram_ce				( sram_ce					),
 		.sram_id				( sram_id					),
 		.sram_a					( sram_a					),
 		.sram_d					( sram_d					),
@@ -82,7 +80,6 @@ module scc_core (
 		.active					( active					),
 		.ext_memory_nactive		( mem_ncs					),
 		.ext_memory_address		( mem_a						),
-		.sram_ce				( sram_ce					),
 		.sram_id				( sram_id					),
 		.sram_a					( sram_a					),
 		.sram_d					( sram_d					),

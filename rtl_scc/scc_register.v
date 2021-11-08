@@ -35,7 +35,6 @@ module scc_register (
 	output reg			ext_memory_nactive,
 	output		[20:13]	ext_memory_address,
 
-	output reg			sram_ce,				//	A...E
 	output reg	[2:0]	sram_id,				//	A...E
 	output reg	[4:0]	sram_a,
 	output reg	[7:0]	sram_d,
@@ -127,9 +126,6 @@ module scc_register (
 			else begin
 				ext_memory_nactive <= 1'b1;
 			end
-		end
-		else if( w_scc_en ) begin
-			ext_memory_nactive <= 1'b1;
 		end
 		else if( address[11] == 1'b0 ) begin
 			//	bank register
@@ -231,7 +227,6 @@ module scc_register (
 	// Wave memory ------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			sram_ce	<= 1'b0;
 			sram_id	<= 3'd0;
 			sram_a	<= 5'd0;
 			sram_d	<= 8'd0;
@@ -240,7 +235,6 @@ module scc_register (
 		end
 		else if( w_scc_en && (address[12:7] == 6'b1_1000_0) ) begin
 			//	9800-987Fh : {100} 1 1000 0XXX XXXX
-			sram_ce		<= 1'b1;					//	Channel A, B, C or D
 			sram_id		<= { 1'b0, address[6:5] };	//	Channel A, B, C or D
 			sram_a		<= address[4:0];
 			sram_oe		<= rdreq;
@@ -255,7 +249,6 @@ module scc_register (
 			else begin
 				sram_id		<= 3'd3;					//	Channel D
 			end
-			sram_ce		<= 1'b1;					//	Channel D or E
 			sram_a		<= address[4:0];
 			sram_oe		<= rdreq;
 			sram_we		<= 1'b0;
@@ -264,12 +257,15 @@ module scc_register (
 		else if( w_scci_en && (address[10:8] == 3'b000) && ((address[7:5] == 3'b100) || !address[7]) ) begin
 			//	B800-B87Fh : {101} 1 1000 0XXX XXXX
 			//	B880-B89Fh : {101} 1 1000 100X XXXX
-			sram_ce		<= 1'b1;					//	Channel A, B, C, D or E
 			sram_id		<= address[7:5];
 			sram_a		<= address[4:0];
 			sram_oe		<= rdreq;
 			sram_we		<= wrreq;
 			sram_d		<= wrdata;
+		end
+		else begin
+			sram_oe		<= 1'b0;
+			sram_we		<= 1'b0;
 		end
 	end
 
@@ -295,6 +291,8 @@ module scc_register (
 			ff_reg_volume_e0			<= 'd0;
 			ff_reg_enable_e0			<= 'd0;
 			ff_reg_frequency_count_e0	<= 'd0;
+
+			ff_frequency_reset			<= 1'b0;
 		end
 		else if( wrreq ) begin
 			if( w_scc_en && (address[7:4] == 4'h8) ) begin
@@ -324,6 +322,9 @@ module scc_register (
 					end
 				endcase
 			end
+			else if( w_scc_en && (address[7:5] == 3'b111) ) begin
+				ff_frequency_reset	<= wrdata[5];
+			end
 			else if( w_scci_en && (address[7:4] == 4'hA) ) begin
 				case( address[3:0] )
 				4'h0:		ff_reg_frequency_count_a0[ 7:0]	<= wrdata;
@@ -350,6 +351,9 @@ module scc_register (
 						ff_reg_enable_e0	<= wrdata[4];
 					end
 				endcase
+			end
+			else if( w_scc_en && (address[7:5] == 3'b110) ) begin
+				ff_frequency_reset	<= wrdata[5];
 			end
 		end
 		else begin

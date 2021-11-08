@@ -63,7 +63,7 @@ module wts_for_ocm (
 	assign ramadr			= { w_mem_a, adr[12:0] };
 	assign ramreq			= ( w_mem_ncs == 1'b0 ) ? ff_req1 : 1'b0;
 	assign dbi				= ( w_mem_ncs == 1'b0 ) ? ramdbi  : w_q;
-	assign w_ack			= ( w_mem_ncs == 1'b0 ) ? ff_req1 : 
+	assign w_ack			= ( w_mem_ncs == 1'b0 || ff_wr ) ? ff_req1 : 
 							  ( ff_req2 == 4'd1   ) ? 1'b1 : 1'b0;
 	assign ack				= w_ack;
 	assign ramdbo			= dbo;

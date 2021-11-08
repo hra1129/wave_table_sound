@@ -1,0 +1,25 @@
+# vsim -c -t 1ps -do "run.do" tb 
+# Start time: 22:01:21 on Nov 08,2021
+# Loading sv_std.std
+# Loading work.tb
+# Loading work.scc_for_ocm
+# Loading work.scc_core
+# Loading work.scc_channel_mixer
+# Loading work.scc_tone_generator_5ch
+# Loading work.scc_selector
+# Loading work.scc_tone_generator
+# Loading work.scc_ram
+# Loading work.scc_channel_volume
+# Loading work.scc_register
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: Write Test by SCC registers.
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(93)
+#    Time: 2395861200 ps  Iteration: 1  Instance: /tb
+# End time: 22:01:23 on Nov 08,2021, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
