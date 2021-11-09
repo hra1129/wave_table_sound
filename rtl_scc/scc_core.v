@@ -20,7 +20,9 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module scc_core (
+module scc_core #(
+	parameter		add_offset = 1			//	0: +0 (for OCM), 1: +128 (for cartridge)
+) (
 	input			nreset,
 	input			clk,
 	input			wrreq,
@@ -49,7 +51,9 @@ module scc_core (
 	wire	[3:0]	reg_volume0;
 	wire			reg_enable0;
 
-	scc_channel_mixer u_scc_channel_mixer (
+	scc_channel_mixer #(
+		.add_offset				( add_offset				)
+	) u_scc_channel_mixer (
 		.nreset					( nreset					),
 		.clk					( clk						),
 		.sram_id				( sram_id					),

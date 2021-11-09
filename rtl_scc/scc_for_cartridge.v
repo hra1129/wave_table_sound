@@ -63,7 +63,9 @@ module scc_for_cartridge (
 	assign w_rdreq			= ~ff_nrd1 & ff_nrd2 & ~slot_nsltsl & ~slot_nmerq;
 	assign mem_ncs			= w_mem_ncs | slot_nsltsl;
 
-	scc_core u_scc_core (
+	scc_core #(
+		.add_offset			( 1					)
+	) u_scc_core (
 		.nreset				( slot_nreset		),
 		.clk				( clk				),
 		.wrreq				( w_wrreq			),

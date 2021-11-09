@@ -20,7 +20,9 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_core (
+module wts_core #(
+	parameter		add_offset = 1			//	0: +0 (for OCM), 1: +128 (for cartridge)
+) (
 	input			nreset,
 	input			clk,
 	input			wrreq,
@@ -120,7 +122,9 @@ module wts_core (
 	wire			reg_timer2_clear;
 	wire	[7:0]	w_timer2_status;
 
-	wts_channel_mixer u_wts_channel_mixer (
+	wts_channel_mixer #(
+		.add_offset				( add_offset				)
+	) u_wts_channel_mixer (
 		.nreset					( nreset					),
 		.clk					( clk						),
 		.ch0_key_on				( ch0_key_on				),

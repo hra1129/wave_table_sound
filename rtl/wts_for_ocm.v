@@ -52,7 +52,7 @@ module wts_for_ocm (
 	reg				ff_req1;
 	reg		[3:0]	ff_req2;
 
-	assign w_mono_out		= { 1'b0, w_left_out } + { 1'b0, w_right_out };
+	assign w_mono_out		= { w_left_out[11], w_left_out } + { w_right_out[11], w_right_out };
 	assign wavl				= sw_mono ? { w_mono_out, 2'b0 } : { w_left_out , 3'b0 };
 	assign wavr				= sw_mono ? { w_mono_out, 2'b0 } : { w_right_out, 3'b0 };
 
@@ -102,7 +102,9 @@ module wts_for_ocm (
 		end
 	end
 
-	wts_core u_wts_core (
+	wts_core u_wts_core #(
+		.add_offset			( 0					)
+	) (
 		.nreset				( ~reset			),
 		.clk				( clk21m			),
 		.wrreq				( w_wrreq			),

@@ -20,7 +20,9 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module scc_channel_mixer (
+module scc_channel_mixer #(
+	parameter		add_offset = 1			//	0: +0 (for OCM), 1: +128 (for cartridge)
+) (
 	input			nreset,
 	input			clk,
 
@@ -141,7 +143,12 @@ module scc_channel_mixer (
 			ff_left_integ		<= 11'd0;
 		end
 		else begin
-			ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel0[7]  } }, w_left_channel0  };
+			if( add_offset ) begin
+				ff_left_integ		<= ff_left_integ  + { 3'd0, ~w_left_channel0[7], w_left_channel0[6:0]  };
+			end
+			else begin
+				ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel0[7]  } }, w_left_channel0  };
+			end
 		end
 	end
 
@@ -151,7 +158,7 @@ module scc_channel_mixer (
 			ff_left_out			<= 11'b100_0000_0000;
 		end
 		else if( ff_active == 3'd3 ) begin
-			ff_left_out			<= { ~ff_left_integ[10] , ff_left_integ[10:0]  };
+			ff_left_out			<= ff_left_integ;
 		end
 		else begin
 			//	hold

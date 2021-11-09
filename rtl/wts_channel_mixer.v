@@ -20,7 +20,9 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ------------------------------------------------------------------------------------------------
 
-module wts_channel_mixer (
+module wts_channel_mixer #(
+	parameter		add_offset = 1			//	0: +0 (for OCM), 1: +128 (for cartridge)
+) (
 	input			nreset,
 	input			clk,
 
@@ -401,8 +403,14 @@ module wts_channel_mixer (
 			ff_right_integ		<= 12'd0;
 		end
 		else begin
-			ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel[8]  } }, w_left_channel  };
-			ff_right_integ		<= ff_right_integ + { { 3 { w_right_channel[8] } }, w_right_channel };
+			if( add_offset ) begin
+				ff_left_integ		<= ff_left_integ  + { 2'd0, ~w_left_channel[8] , w_left_channel  };
+				ff_right_integ		<= ff_right_integ + { 2'd0, ~w_right_channel[8], w_right_channel };
+			end
+			else begin
+				ff_left_integ		<= ff_left_integ  + { { 3 { w_left_channel[8]  } }, w_left_channel  };
+				ff_right_integ		<= ff_right_integ + { { 3 { w_right_channel[8] } }, w_right_channel };
+			end
 		end
 	end
 
@@ -413,8 +421,8 @@ module wts_channel_mixer (
 			ff_right_out		<= 12'b1000_0000_0000;
 		end
 		else if( ff_active == 3'd3 ) begin
-			ff_left_out			<= { ~ff_left_integ[11] , ff_left_integ[10:0]  };
-			ff_right_out		<= { ~ff_right_integ[11], ff_right_integ[10:0] };
+			ff_left_out			<= ff_left_integ;
+			ff_right_out		<= ff_right_integ;
 		end
 		else begin
 			//	hold

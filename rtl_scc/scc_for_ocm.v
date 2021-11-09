@@ -81,7 +81,9 @@ module scc_for_ocm (
 		end
 	end
 
-	scc_core u_scc_core (
+	scc_core #(
+		.add_offset			( 0					)
+	) u_scc_core (
 		.nreset				( ~reset			),
 		.clk				( clk21m			),
 		.wrreq				( w_wrreq			),

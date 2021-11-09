@@ -87,6 +87,7 @@ module scc_register (
 	reg				ff_reg_enable_e0;
 
 	reg		[7:0]	ff_rddata;
+	reg				ff_frequency_reset;
 
 	// Bank decoder -----------------------------------------------------------
 	assign w_dec_bank0		= (address[14:13] == 2'b10) ? 1'b1 : 1'b0;

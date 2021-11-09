@@ -1,3 +1,0 @@
-# OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/scc_for_cartridge_SCC_COMPATIBLE_test/vsim.wlf
-add wave -position end vsim:/tb/u_scc_for_cartridge/u_scc_core/u_scc_channel_mixer/*
-add wave -position end vsim:/tb/u_scc_for_cartridge/*
