@@ -393,23 +393,23 @@ module scc_register (
 
 	scc_selector #( 4 ) u_volume_selector0 (
 		.active		( active				),
-		.result		( reg_volume0			),		//	delay 3 clock
-		.reg_a		( ff_reg_volume_d0		),
-		.reg_b		( ff_reg_volume_e0		),
-		.reg_c		( 4'd0					),
-		.reg_d		( ff_reg_volume_a0		),
-		.reg_e		( ff_reg_volume_b0		),
-		.reg_f		( ff_reg_volume_c0		)
+		.result		( reg_volume0			),		//	delay 1 clock
+		.reg_a		( 4'd0					),
+		.reg_b		( ff_reg_volume_a0		),
+		.reg_c		( ff_reg_volume_b0		),
+		.reg_d		( ff_reg_volume_c0		),
+		.reg_e		( ff_reg_volume_d0		),
+		.reg_f		( ff_reg_volume_e0		)
 	);
 
 	scc_selector #( 1 ) u_enable_selector0 (
 		.active		( active				),
-		.result		( reg_enable0			),		//	delay 4 clock
-		.reg_a		( ff_reg_enable_c0		),
-		.reg_b		( ff_reg_enable_d0		),
-		.reg_c		( ff_reg_enable_e0		),
-		.reg_d		( 1'd0					),
-		.reg_e		( ff_reg_enable_a0		),
-		.reg_f		( ff_reg_enable_b0		)
+		.result		( reg_enable0			),		//	delay 2 clock
+		.reg_a		( ff_reg_enable_e0		),
+		.reg_b		( 1'd0					),
+		.reg_c		( ff_reg_enable_a0		),
+		.reg_d		( ff_reg_enable_b0		),
+		.reg_e		( ff_reg_enable_c0		),
+		.reg_f		( ff_reg_enable_d0		)
 	);
 endmodule

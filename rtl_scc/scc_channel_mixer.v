@@ -125,11 +125,10 @@ module scc_channel_mixer #(
 	);
 
 	scc_channel_volume u_channel_volume0 (
-		.nreset			( nreset			),
 		.clk			( clk				),
 		.sram_q			( w_sram_q0			),		//	delay 1 clock
-		.channel		( w_channel0		),		//	delay 4 clock
-		.reg_volume		( reg_volume0		)		//	delay 3 clock
+		.channel		( w_channel0		),		//	delay 2 clock
+		.reg_volume		( reg_volume0		)		//	delay 1 clock
 	);
 
 	//	delay 4 clock

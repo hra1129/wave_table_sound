@@ -1,0 +1,2 @@
+# OpenFile C:/Users/hra/Documents/github/wave_table_sound/testbench/scc_for_ocm_SCC_COMPATIBLE_test/vsim.wlf
+add wave -position end vsim:/tb/u_scc_for_ocm/*
