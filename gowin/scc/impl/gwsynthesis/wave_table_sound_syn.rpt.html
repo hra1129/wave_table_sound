@@ -1,0 +1,2858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>synthesis Report</title>
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+div#main_wrapper{ width: 100%; }
+div#content { margin-left: 350px; margin-right: 30px; }
+div#catalog_wrapper {position: fixed; top: 30px; width: 350px; float: left; }
+div#catalog ul { list-style-type: none; }
+div#catalog li { text-align: left; list-style-type:circle; color: #0084ff; margin-top: 3px; margin-bottom: 3px; }
+div#catalog a { display:inline-block; text-decoration: none; color: #0084ff; font-weight: bold; padding: 3px; }
+div#catalog a:visited { color: #0084ff; }
+div#catalog a:hover { color: #fff; background: #0084ff; }
+hr { margin-top: 30px; margin-bottom: 30px; }
+h1, h3 { text-align: center; }
+h1 {margin-top: 50px; }
+table, th, td { border: 1px solid #aaa; }
+table { border-collapse:collapse; margin-top: 10px; margin-bottom: 20px; width: 100%; }
+th, td { padding: 5px 5px 5px 5px; }
+th { color: #fff; font-weight: bold; background-color: #0084ff; }
+table.summary_table td.label { width: 24%; min-width: 200px; background-color: #dee8f4; }
+table.detail_table td.label { min-width: 100px; width: 8%;}
+</style>
+</head>
+<body>
+<div id="main_wrapper">
+<div id="catalog_wrapper">
+<div id="catalog">
+<ul>
+<li><a href="#about" style=" font-size: 16px;">Synthesis Messages</a></li>
+<li><a href="#setting" style=" font-size: 16px;">Design Settings</a></li>
+<li><a href="#resource" style=" font-size: 16px;">Resource</a>
+<ul>
+<li><a href="#usage" style=" font-size: 14px;">Resource Usage Summary</a></li>
+<li><a href="#utilization" style=" font-size: 14px;">Resource Utilization Summary</a></li>
+</ul>
+</li>
+<li><a href="#timing" style=" font-size: 16px;">Timing</a>
+<ul>
+<li><a href="#clock" style=" font-size: 14px;">Clock Summary</a></li>
+<li><a href="#timing report" style=" font-size: 14px;">Timing Report</a></li>
+<li><a href="#performance" style=" font-size: 14px;">Performance Summary</a></li>
+<li><a href="#detail timing" style=" font-size: 14px;">Detail Timing Paths Informations</a></li>
+</ul>
+</li>
+<li><a href="#message" style=" font-size: 16px;">Message</a></li>
+<li><a href="#summary" style=" font-size: 16px;">Summary</a></li>
+</ul>
+</div><!-- catalog -->
+</div><!-- catalog_wrapper -->
+<div id="content">
+<h1><a name="about">Synthesis Messages</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Report Title</td>
+<td>GowinSynthesis Report</td>
+</tr>
+<tr>
+<td class="label">Design File</td>
+<td>C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_channel_mixer.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_channel_volume.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_core.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_ram.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_register.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_for_cartridge.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_selector.v<br>
+C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator_5ch.v<br>
+</td>
+</tr>
+<tr>
+<td class="label">GowinSynthesis Constraints File</td>
+<td>---</td>
+</tr>
+<tr>
+<td class="label">GowinSynthesis Verision</td>
+<td>GowinSynthesis V1.9.2.01Beta</td>
+</tr>
+<tr>
+<td class="label">Created Time</td>
+<td>Sun Nov 14 21:14:22 2021
+</td>
+</tr>
+<tr>
+<td class="label">Legal Announcement</td>
+<td>Copyright (C)2014-2019 Gowin Semiconductor Corporation. ALL rights reserved.</td>
+</tr>
+</table>
+<h1><a name="setting">Design Settings</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label">Top Level Module:</td>
+<td>scc_for_cartridge</td>
+</tr>
+<tr>
+<td class="label">Design Language:</td>
+<td>verilog</td>
+</tr>
+<tr>
+<td class="label">Series:</td>
+<td>GW1N</td>
+</tr>
+<tr>
+<td class="label">Device:</td>
+<td>GW1N-1</td>
+</tr>
+<tr>
+<td class="label">Package:</td>
+<td>LQFP100</td>
+</tr>
+<tr>
+<td class="label">Speed Grade:</td>
+<td>6</td>
+</tr>
+</table><br/>
+<h1><a name="resource">Resource</a></h1>
+<h2><a name="usage">Resource Usage Summary</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label"><b>IOPORT Usage:</b></td>
+<td>49</td>
+</tr>
+<tr>
+<td class="label"><b>IOBUF Usage:</b></td>
+<td>49</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspIBUF</td>
+<td>21</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspOBUF</td>
+<td>20</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspIOBUF</td>
+<td>8</td>
+</tr>
+<tr>
+<td class="label"><b>REG Usage:</b></td>
+<td>273</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFF</td>
+<td>8</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFE</td>
+<td>8</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFP</td>
+<td>4</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFPE</td>
+<td>6</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFC</td>
+<td>14</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspDFFCE</td>
+<td>233</td>
+</tr>
+<tr>
+<td class="label"><b>LUT Usage:</b></td>
+<td>382</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT2</td>
+<td>50</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT3</td>
+<td>129</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspLUT4</td>
+<td>203</td>
+</tr>
+<tr>
+<td class="label"><b>ALU Usage:</b></td>
+<td>41</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspALU</td>
+<td>41</td>
+</tr>
+<tr>
+<td class="label"><b>INV Usage:</b></td>
+<td>1</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspINV</td>
+<td>1</td>
+</tr>
+<tr>
+<td class="label"><b>BSRAM Usage:</b></td>
+<td>1</td>
+</tr>
+<tr>
+<td class="label">&nbsp&nbsp&nbsp&nbspSP</td>
+<td>1</td>
+</tr>
+</table><br/>
+<h2><a name="utilization">Resource Utilization Summary</a></h2>
+Target Device: GW1N-1-LQFP100
+<table class="summary_table">
+<tr>
+<td class="label">CFU Logics</td>
+<td>424(383 LUTs, 41 ALUs) / 1152</td>
+<td>37%</td>
+</tr>
+<tr>
+<td class="label">Registers</td>
+<td>273 / 1050</td>
+<td>26%</td>
+</tr>
+<tr>
+<td class="label">BSRAMs</td>
+<td>1 / 4</td>
+<td>25%</td>
+</tr>
+<tr>
+<td class="label">DSP Macros</td>
+<td>0 / (0*2)</td>
+<td> - </td>
+</tr>
+</table><br/><br/>
+<h1><a name="timing">Timing</a></h1>
+<h2><a name="clock">Clock Summary:</a></h2>
+<table class="summary_table">
+<tr>
+<th>Clock</th>
+<th>Type</th>
+<th>Frequency</th>
+<th>Period</th>
+<th>Rise</th>
+<th>Fall</th>
+<th>Source</th>
+<th>Master</th>
+<th>Object</th>
+</tr>
+<tr>
+<td>DEFAULT_CLK</td>
+<td>Base</td>
+<td>100.0 MHz</td>
+<td>10.000</td>
+<td>0.000</td>
+<td>5.000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><br/>
+<h2><a name="timing report">Timing Report:</a></h2>
+<table class="summary_table">
+<tr>
+<td class="label">Top View:</td>
+<td>scc_for_cartridge</td>
+</tr>
+<tr>
+<td class="label">Requested Frequency:</td>
+<td>100.0 MHz</td>
+</tr>
+<tr>
+<td class="label">Paths Requested:</td>
+<td>5</td>
+</tr>
+<tr>
+<td class="label">Constraint File(ignored):</td>
+<td></td>
+</tr>
+</table>
+<b>All time values displayed in nanoseconds(ns).</b><br/><br/>
+<h2><a name="performance">Performance Summary:</a></h2>
+Worst Slack in Design:&nbsp-7.497<br/>
+<table class="summary_table">
+<tr>
+<th>Start Clock</th>
+<th>Slack</th>
+<th>Requested Frequency</th>
+<th>Estimated Frequency</th>
+<th>Requested Period</th>
+<th>Estimated Period</th>
+<th>Clock Type</th>
+</tr>
+<tr>
+<td>DEFAULT_CLK</td>
+<td>-7.497</td>
+<td>100.0 MHz</td>
+<td>57.2 MHz</td>
+<td>10.000</td>
+<td>17.497</td>
+<td>Base</td>
+</tr>
+</table><br/>
+<h2><a name="detail timing">Detail Timing Paths Information</a></h2>
+<b>Path information for path number&nbsp</b>1&nbsp:&nbsp<br/>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">    Slack(critical):</td>
+<td>-7.497</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time:</td>
+<td>18.242</td>
+</tr>
+<tr>
+<td class="label">Data Required Time:</td>
+<td>10.745</td>
+</tr>
+<tr>
+<td class="label">Number of Logic Level:</td>
+<td>16</td>
+</tr>
+<tr>
+<td class="label">Starting Point:</td>
+<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+</tr>
+<tr>
+<td class="label">Ending Point:</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[7]_ins3277</td>
+</tr>
+<tr>
+<td class="label">The Start Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+<tr>
+<td class="label">The End Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+</table><br/><br/>
+<table class="summary_table">
+<tr>
+<th>Instance/Net Name</th>
+<th>Type</th>
+<th>Pin Name</th>
+<th>Pin Dir</th>
+<th>Delay</th>
+<th>Arrival Time</th>
+<th>Fanout</th>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>I</td>
+<td>In</td>
+<td>-</td>
+<td>0.000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>O</td>
+<td>Out</td>
+<td>0.982</td>
+<td>0.982</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_3</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.363</td>
+<td>-</td>
+<td>274</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>CLK</td>
+<td>In</td>
+<td>-</td>
+<td>1.345</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>Q</td>
+<td>Out</td>
+<td>0.458</td>
+<td>1.803</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1] </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>2.283</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>3.382</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_189 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>4.961</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_175 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>5.441</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>6.473</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_125 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>6.953</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>1.045</td>
+<td>7.998</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>8.478</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>8.535</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.015</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.072</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.552</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.609</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.089</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.146</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.626</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.683</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>11.163</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>11.220</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O7_ins3724 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>11.700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O7_ins3724 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>11.757</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O7_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O8_ins3725 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>12.237</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O8_ins3725 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>12.800</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O8 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>13.280</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>14.238</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O8_ins3737 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>14.718</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O8_ins3737 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>15.281</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O8 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>15.761</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>16.719</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O7_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O8_ins3748 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>17.199</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O8_ins3748 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>17.762</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O8 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\ff_channel[7]_ins3277 </td>
+<td>DFF</td>
+<td>D</td>
+<td>In</td>
+<td>-</td>
+<td>18.242</td>
+<td>-</td>
+</tr>
+</table><br/>
+<b>Total Path Delay: </b>18.242<br/>
+<b>Logic Delay: </b>9.719(53.3%)<br/>
+<b>Route Delay: </b>8.523(46.7%)<br/>
+<br/><br/>
+<b>Path information for path number&nbsp</b>2&nbsp:&nbsp<br/>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">    Slack(non-critical):</td>
+<td>-6.960</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time:</td>
+<td>17.705</td>
+</tr>
+<tr>
+<td class="label">Data Required Time:</td>
+<td>10.745</td>
+</tr>
+<tr>
+<td class="label">Number of Logic Level:</td>
+<td>15</td>
+</tr>
+<tr>
+<td class="label">Starting Point:</td>
+<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+</tr>
+<tr>
+<td class="label">Ending Point:</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[6]_ins3270</td>
+</tr>
+<tr>
+<td class="label">The Start Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+<tr>
+<td class="label">The End Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+</table><br/><br/>
+<table class="summary_table">
+<tr>
+<th>Instance/Net Name</th>
+<th>Type</th>
+<th>Pin Name</th>
+<th>Pin Dir</th>
+<th>Delay</th>
+<th>Arrival Time</th>
+<th>Fanout</th>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>I</td>
+<td>In</td>
+<td>-</td>
+<td>0.000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>O</td>
+<td>Out</td>
+<td>0.982</td>
+<td>0.982</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_3</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.363</td>
+<td>-</td>
+<td>274</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>CLK</td>
+<td>In</td>
+<td>-</td>
+<td>1.345</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>Q</td>
+<td>Out</td>
+<td>0.458</td>
+<td>1.803</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1] </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>2.283</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>3.382</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_189 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>4.961</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_175 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>5.441</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>6.473</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_125 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>6.953</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>1.045</td>
+<td>7.998</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>8.478</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>8.535</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.015</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.072</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.552</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.609</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.089</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.146</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.626</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.683</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>11.163</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>11.220</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O7_ins3724 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>11.700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O7_ins3724 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>12.263</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O7 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>12.743</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>13.701</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>14.181</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>14.744</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>15.224</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>16.182</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O6_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>16.662</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>17.225</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O7 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\ff_channel[6]_ins3270 </td>
+<td>DFF</td>
+<td>D</td>
+<td>In</td>
+<td>-</td>
+<td>17.705</td>
+<td>-</td>
+</tr>
+</table><br/>
+<b>Total Path Delay: </b>17.705<br/>
+<b>Logic Delay: </b>9.662(54.6%)<br/>
+<b>Route Delay: </b>8.043(45.4%)<br/>
+<br/><br/>
+<b>Path information for path number&nbsp</b>3&nbsp:&nbsp<br/>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">    Slack(non-critical):</td>
+<td>-6.423</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time:</td>
+<td>17.168</td>
+</tr>
+<tr>
+<td class="label">Data Required Time:</td>
+<td>10.745</td>
+</tr>
+<tr>
+<td class="label">Number of Logic Level:</td>
+<td>14</td>
+</tr>
+<tr>
+<td class="label">Starting Point:</td>
+<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+</tr>
+<tr>
+<td class="label">Ending Point:</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[5]_ins3271</td>
+</tr>
+<tr>
+<td class="label">The Start Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+<tr>
+<td class="label">The End Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+</table><br/><br/>
+<table class="summary_table">
+<tr>
+<th>Instance/Net Name</th>
+<th>Type</th>
+<th>Pin Name</th>
+<th>Pin Dir</th>
+<th>Delay</th>
+<th>Arrival Time</th>
+<th>Fanout</th>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>I</td>
+<td>In</td>
+<td>-</td>
+<td>0.000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>O</td>
+<td>Out</td>
+<td>0.982</td>
+<td>0.982</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_3</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.363</td>
+<td>-</td>
+<td>274</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>CLK</td>
+<td>In</td>
+<td>-</td>
+<td>1.345</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>Q</td>
+<td>Out</td>
+<td>0.458</td>
+<td>1.803</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1] </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>2.283</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>3.382</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_189 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>4.961</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_175 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>5.441</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>6.473</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_125 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>6.953</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>1.045</td>
+<td>7.998</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>8.478</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>8.535</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.015</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.072</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.552</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.609</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.089</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.146</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.626</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.683</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>11.163</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>11.726</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O6 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>12.206</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>13.164</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>13.644</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>14.207</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>14.687</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>15.645</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>16.125</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>16.688</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O6 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\ff_channel[5]_ins3271 </td>
+<td>DFF</td>
+<td>D</td>
+<td>In</td>
+<td>-</td>
+<td>17.168</td>
+<td>-</td>
+</tr>
+</table><br/>
+<b>Total Path Delay: </b>17.168<br/>
+<b>Logic Delay: </b>9.605(55.9%)<br/>
+<b>Route Delay: </b>7.563(44.1%)<br/>
+<br/><br/>
+<b>Path information for path number&nbsp</b>4&nbsp:&nbsp<br/>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">    Slack(non-critical):</td>
+<td>-5.886</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time:</td>
+<td>16.631</td>
+</tr>
+<tr>
+<td class="label">Data Required Time:</td>
+<td>10.745</td>
+</tr>
+<tr>
+<td class="label">Number of Logic Level:</td>
+<td>13</td>
+</tr>
+<tr>
+<td class="label">Starting Point:</td>
+<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+</tr>
+<tr>
+<td class="label">Ending Point:</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[4]_ins3272</td>
+</tr>
+<tr>
+<td class="label">The Start Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+<tr>
+<td class="label">The End Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+</table><br/><br/>
+<table class="summary_table">
+<tr>
+<th>Instance/Net Name</th>
+<th>Type</th>
+<th>Pin Name</th>
+<th>Pin Dir</th>
+<th>Delay</th>
+<th>Arrival Time</th>
+<th>Fanout</th>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>I</td>
+<td>In</td>
+<td>-</td>
+<td>0.000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>O</td>
+<td>Out</td>
+<td>0.982</td>
+<td>0.982</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_3</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.363</td>
+<td>-</td>
+<td>274</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>CLK</td>
+<td>In</td>
+<td>-</td>
+<td>1.345</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>Q</td>
+<td>Out</td>
+<td>0.458</td>
+<td>1.803</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1] </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>2.283</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>3.382</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_189 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>4.961</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_175 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>5.441</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>6.473</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_125 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>6.953</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>1.045</td>
+<td>7.998</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>8.478</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>8.535</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.015</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.072</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.552</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.609</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.089</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>10.146</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.626</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>11.189</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O5 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>11.669</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>12.627</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>13.107</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>13.670</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>14.150</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>15.108</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>15.588</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>16.151</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O5 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\ff_channel[4]_ins3272 </td>
+<td>DFF</td>
+<td>D</td>
+<td>In</td>
+<td>-</td>
+<td>16.631</td>
+<td>-</td>
+</tr>
+</table><br/>
+<b>Total Path Delay: </b>16.631<br/>
+<b>Logic Delay: </b>9.548(57.4%)<br/>
+<b>Route Delay: </b>7.083(42.6%)<br/>
+<br/><br/>
+<b>Path information for path number&nbsp</b>5&nbsp:&nbsp<br/>
+<table class="summary_table">
+<tr>
+<td class="label">Clock Skew:</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td class="label">Setup Relationship:</td>
+<td>10.000</td>
+</tr>
+<tr>
+<td class="label">    Slack(non-critical):</td>
+<td>-5.349</td>
+</tr>
+<tr>
+<td class="label">Data Arrival Time:</td>
+<td>16.094</td>
+</tr>
+<tr>
+<td class="label">Data Required Time:</td>
+<td>10.745</td>
+</tr>
+<tr>
+<td class="label">Number of Logic Level:</td>
+<td>12</td>
+</tr>
+<tr>
+<td class="label">Starting Point:</td>
+<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+</tr>
+<tr>
+<td class="label">Ending Point:</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[3]_ins3273</td>
+</tr>
+<tr>
+<td class="label">The Start Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+<tr>
+<td class="label">The End Point Is Clocked By:</td>
+<td>DEFAULT_CLK[rising]</td>
+</tr>
+</table><br/><br/>
+<table class="summary_table">
+<tr>
+<th>Instance/Net Name</th>
+<th>Type</th>
+<th>Pin Name</th>
+<th>Pin Dir</th>
+<th>Delay</th>
+<th>Arrival Time</th>
+<th>Fanout</th>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>I</td>
+<td>In</td>
+<td>-</td>
+<td>0.000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_ins2560</td>
+<td>IBUF</td>
+<td>O</td>
+<td>Out</td>
+<td>0.982</td>
+<td>0.982</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clk_3</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.363</td>
+<td>-</td>
+<td>274</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>CLK</td>
+<td>In</td>
+<td>-</td>
+<td>1.345</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>DFFCE</td>
+<td>Q</td>
+<td>Out</td>
+<td>0.458</td>
+<td>1.803</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\ff_reg_volume_c0[1] </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>2.283</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4416 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>3.382</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_189 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4369 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.099</td>
+<td>4.961</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_175 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>5.441</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins4211 </td>
+<td>LUT2</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>6.473</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_125 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>I1</td>
+<td>In</td>
+<td>-</td>
+<td>6.953</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>1.045</td>
+<td>7.998</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O0_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>8.478</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>8.535</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O1_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.015</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.072</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O2_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>9.552</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>9.609</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>10.089</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>10.652</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_86_O4 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O3_ins3732 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>11.132</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O3_ins3732 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>12.090</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>12.570</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>13.133</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O3_ins3743 </td>
+<td>ALU</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>13.613</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O3_ins3743 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.958</td>
+<td>14.571</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O3_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>15.051</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>ALU</td>
+<td>SUM</td>
+<td>Out</td>
+<td>0.563</td>
+<td>15.614</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_90_O4 </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\ff_channel[3]_ins3273 </td>
+<td>DFF</td>
+<td>D</td>
+<td>In</td>
+<td>-</td>
+<td>16.094</td>
+<td>-</td>
+</tr>
+</table><br/>
+<b>Total Path Delay: </b>16.094<br/>
+<b>Logic Delay: </b>9.491(59.0%)<br/>
+<b>Route Delay: </b>6.603(41.0%)<br/>
+<br/><br/>
+<h1><a name="message">Message</a></h1>
+<big>Info    (EXT0100) : Run analyzation & elaboration</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_mixer.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_volume.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_core.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_ram.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_register.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_for_cartridge.v'</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v'</big><br/>
+<big>Warning (EXT1818) : Initial value of parameter 'bits' is omitted(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:24)</big><br/>
+<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator_5ch.v'</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_for_cartridge'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_for_cartridge.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_core'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_core.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_channel_mixer'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_mixer.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_tone_generator_5ch'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator_5ch.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_selector(bits=5)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_selector(bits=12)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_tone_generator'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_ram'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_ram.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_channel_volume'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_volume.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_register'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_register.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_selector(bits=4)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
+<big>Info    (EXT1018) : Compiling module 'scc_selector(bits=1)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
+<big>Info    (EXT0101) : Current top module is "scc_for_cartridge"</big><br/>
+<big>Info    (CVT0001) : Run conversion</big><br/>
+<big>Info    (DIO0001) : Run device independent optimization</big><br/>
+<big>Info    (DIO0006) : Register and gate optimizing before inferencing</big><br/>
+<big>Info    (DSP0001) : DSP inferencing</big><br/>
+<big>Info    (RAM0001) : RAM inferencing</big><br/>
+<big>Info    (ATO0001) : Adder tree reduction</big><br/>
+<big>Info    (ATO0002) : Rebuild ALU instances from adder tree nodes</big><br/>
+<big>Info    (DIO0001) : Run device independent optimization</big><br/>
+<big>Info    (DIO0007) : Register and gate optimizing before mapping</big><br/>
+<big>Info    (MAP0001) : Run tech-mapping</big><br/>
+<big>Info    (MAP0003) : Run logic optimization</big><br/>
+<big>Info    (DIO0001) : Run device independent optimization</big><br/>
+<big>Info    (SYN0009) : Write post-map netlist to file: C:\Users\hra\Documents\github\wave_table_sound\gowin\scc\impl\gwsynthesis\wave_table_sound.vg</big><br/>
+<br/>
+<h1><a name="summary">Summary</a></h1>
+<table class="summary_table">
+<tr>
+<td class="label"><b>Total Errors:</b></td> 
+<td>0</td>
+</tr>
+<tr>
+<td class="label"><b>Total Warnings:</b></td> 
+<td>1</td>
+</tr>
+<tr>
+<td class="label"><b>Total Informations:</b></td> 
+<td>36</td>
+</tr>
+</table><br/>
+<b>Synthesis completed successfully!</b><br/>
+Process took 0h:0m:3s realtime, 0h:0m:2s cputime
+<br/>
+Memory peak: 138.4MB
+</div><!-- content -->
+</div><!-- main_wrapper -->
+</body>
+</html>

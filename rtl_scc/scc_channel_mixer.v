@@ -41,7 +41,13 @@ module scc_channel_mixer #(
 	input			reg_scci_enable,
 	input	[11:0]	reg_frequency_count0,
 	input	[3:0]	reg_volume0,
-	input			reg_enable0
+	input			reg_enable0,
+	input			reg_wave_reset,
+	input			clear_counter_a,
+	input			clear_counter_b,
+	input			clear_counter_c,
+	input			clear_counter_d,
+	input			clear_counter_e
 );
 
 	reg		[2:0]	ff_active;
@@ -109,11 +115,17 @@ module scc_channel_mixer #(
 		.active						( ff_active						),
 		.address_reset				( 1'b0							),
 		.wave_address				( w_wave_address0				),
-		.reg_frequency_count		( reg_frequency_count0			)
+		.reg_frequency_count		( reg_frequency_count0			),
+		.reg_wave_reset				( reg_wave_reset				),
+		.clear_counter_a			( clear_counter_a				),
+		.clear_counter_b			( clear_counter_b				),
+		.clear_counter_c			( clear_counter_c				),
+		.clear_counter_d			( clear_counter_d				),
+		.clear_counter_e			( clear_counter_e				)
 	);
 
 	assign w_sram_a0	= ( sram_oe || sram_we ) ? { sram_id, sram_a } : 
-						  (( ff_active[2] && (reg_scci_enable == 1'b0)) ? { 3'b011, w_wave_address0 } : { ff_active, w_wave_address0 });
+		(( ff_active[2] && (reg_scci_enable == 1'b0)) ? { 3'b011, w_wave_address0 } : { ff_active, w_wave_address0 });
 	assign w_sram_we0	= ( sram_oe || sram_we ) ? sram_we : 1'b0;
 
 	scc_ram u_ram00 (
@@ -131,14 +143,17 @@ module scc_channel_mixer #(
 		.reg_volume		( reg_volume0		)		//	delay 1 clock
 	);
 
-	//	delay 4 clock
+	//	delay 2 clock
 	assign w_left_channel0		= reg_enable0 ? w_channel0 : 8'd0;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
 			ff_left_integ		<= 11'd0;
 		end
-		else if( ff_active == 3'd3 ) begin
+		else if( (sram_oe | sram_we) == 1'b1 ) begin
+			//	hold
+		end
+		else if( ff_active == 3'd1 ) begin
 			ff_left_integ		<= 11'd0;
 		end
 		else begin
@@ -154,9 +169,9 @@ module scc_channel_mixer #(
 	//	delay 5 clock
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_left_out			<= 11'b100_0000_0000;
+			ff_left_out			<= 11'd0;
 		end
-		else if( ff_active == 3'd3 ) begin
+		else if( ff_active == 3'd1 ) begin
 			ff_left_out			<= ff_left_integ;
 		end
 		else begin

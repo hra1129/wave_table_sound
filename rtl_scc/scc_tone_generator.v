@@ -21,7 +21,6 @@
 // ------------------------------------------------------------------------------------------------
 
 module scc_tone_generator (
-	input			address_reset,
 	output	[4:0]	wave_address,
 	input	[11:0]	reg_frequency_count,
 	input	[4:0]	wave_address_in,
@@ -32,12 +31,11 @@ module scc_tone_generator (
 	wire			w_frequency_counter_end;
 
 	// frequency counter ------------------------------------------------------
-	assign w_frequency_counter_end	= (frequency_count_in == 12'd0) ? 1'b1 : 1'b0;
-	assign frequency_count_out		= (w_frequency_counter_end || address_reset) ? reg_frequency_count : (frequency_count_in - 12'd1);
+	assign w_frequency_counter_end	= (frequency_count_in == reg_frequency_count) ? 1'b1 : 1'b0;
+	assign frequency_count_out		= w_frequency_counter_end ? 12'd0 : (frequency_count_in + 12'd1);
 
 	// wave memory address ----------------------------------------------------
-	assign wave_address_out			= address_reset ? 5'd0 : 
-									  w_frequency_counter_end ? (wave_address_in + 5'd1) : wave_address_in;
+	assign wave_address_out			= w_frequency_counter_end ? (wave_address_in + 5'd1) : wave_address_in;
 
 	// output assignment ------------------------------------------------------
 	assign wave_address				= wave_address_in;

@@ -21,7 +21,6 @@
 // ------------------------------------------------------------------------------------------------
 
 module wts_tone_generator (
-	input			address_reset,
 	output	[6:0]	wave_address,
 	output			half_timing,
 	input	[1:0]	reg_wave_length,
@@ -35,12 +34,11 @@ module wts_tone_generator (
 	wire	[1:0]	w_address_mask;
 
 	// frequency counter ------------------------------------------------------
-	assign w_frequency_counter_end	= (frequency_count_in == 12'd0) ? 1'b1 : 1'b0;
-	assign frequency_count_out		= (w_frequency_counter_end || address_reset) ? reg_frequency_count : (frequency_count_in - 12'd1);
+	assign w_frequency_counter_end	= (frequency_count_in == reg_frequency_count) ? 1'b1 : 1'b0;
+	assign frequency_count_out		= w_frequency_counter_end ? 12'd0 : (frequency_count_in + 12'd1);
 
 	// wave memory address ----------------------------------------------------
-	assign wave_address_out			= address_reset ? 7'd0 : 
-									  w_frequency_counter_end ? (wave_address_in + 7'd1) : wave_address_in;
+	assign wave_address_out			= w_frequency_counter_end ? (wave_address_in + 7'd1) : wave_address_in;
 
 	assign w_address_mask			= ( reg_wave_length == 2'b00 ) ? 2'b00 : 
 									  ( reg_wave_length == 2'b01 ) ? { 1'b0, wave_address_in[5] } : wave_address_in[6:5];

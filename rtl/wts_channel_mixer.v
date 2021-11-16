@@ -46,6 +46,7 @@ module wts_channel_mixer #(
 
 	output	[2:0]	active,
 	input			adsr_en,
+	input			reg_scci_enable,
 
 	output	[11:0]	left_out,
 	output	[11:0]	right_out,
@@ -101,7 +102,19 @@ module wts_channel_mixer #(
 	output	[1:0]	timer1_address,
 	input	[3:0]	reg_timer2_channel,
 	output			timer2_trigger,
-	output	[1:0]	timer2_address
+	output	[1:0]	timer2_address,
+
+	input			reg_wave_reset,
+	input			clear_counter_a0,
+	input			clear_counter_b0,
+	input			clear_counter_c0,
+	input			clear_counter_d0,
+	input			clear_counter_e0,
+	input			clear_counter_a1,
+	input			clear_counter_b1,
+	input			clear_counter_c1,
+	input			clear_counter_d1,
+	input			clear_counter_e1
 );
 
 	reg		[2:0]	ff_active;
@@ -175,12 +188,12 @@ module wts_channel_mixer #(
 	// ------------------------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_active <= 3'd0;
+			ff_active		<= 3'd0;
 			ff_active_delay	<= 1'b0;
 		end
 		else begin
 			if( ff_active == 3'd5 ) begin
-				ff_active <= 3'd0;
+				ff_active		<= 3'd0;
 				ff_active_delay	<= 1'b0;
 			end
 			else if( (sram_oe | sram_we) == 1'b1 ) begin
@@ -191,7 +204,7 @@ module wts_channel_mixer #(
 					ff_active_delay	<= 1'b0;
 			end
 			else begin
-				ff_active <= ff_active + 3'd1;
+				ff_active		<= ff_active + 3'd1;
 			end
 		end
 	end
@@ -272,7 +285,13 @@ module wts_channel_mixer #(
 		.wave_address				( w_wave_address0				),
 		.half_timing				( w_half_timing0				),
 		.reg_wave_length			( reg_wave_length0				),
-		.reg_frequency_count		( reg_frequency_count0			)
+		.reg_frequency_count		( reg_frequency_count0			),
+		.reg_wave_reset				( reg_wave_reset				),
+		.clear_counter_a			( clear_counter_a0				),
+		.clear_counter_b			( clear_counter_b0				),
+		.clear_counter_c			( clear_counter_c0				),
+		.clear_counter_d			( clear_counter_d0				),
+		.clear_counter_e			( clear_counter_e0				)
 	);
 
 	wts_tone_generator_5ch u_tone_generator_5ch_1 (
@@ -283,7 +302,13 @@ module wts_channel_mixer #(
 		.wave_address				( w_wave_address1				),
 		.half_timing				( w_half_timing1				),
 		.reg_wave_length			( reg_wave_length1				),
-		.reg_frequency_count		( reg_frequency_count1			)
+		.reg_frequency_count		( reg_frequency_count1			),
+		.reg_wave_reset				( reg_wave_reset				),
+		.clear_counter_a			( clear_counter_a1				),
+		.clear_counter_b			( clear_counter_b1				),
+		.clear_counter_c			( clear_counter_c1				),
+		.clear_counter_d			( clear_counter_d1				),
+		.clear_counter_e			( clear_counter_e1				)
 	);
 
 	assign w_sram_a0	= ( sram_oe || sram_we ) ? { sram_id, sram_a } :
@@ -291,14 +316,14 @@ module wts_channel_mixer #(
 	assign w_sram_a1	= ( sram_oe || sram_we ) ? { sram_id, sram_a } :
 		(( ff_active[2] && (reg_scci_enable == 1'b0)) ? { 3'b011, w_wave_address1 } : { ff_active, w_wave_address1 });
 
-	assign w_sram_we0	= ( sram_oe || sram_we ) ? (sram_ce0 & ff_sram_we) : 1'b0;
-	assign w_sram_we1	= ( sram_oe || sram_we ) ? (sram_ce1 & ff_sram_we) : 1'b0;
+	assign w_sram_we0	= ( sram_oe || sram_we ) ? (sram_ce0 & sram_we) : 1'b0;
+	assign w_sram_we1	= ( sram_oe || sram_we ) ? (sram_ce1 & sram_we) : 1'b0;
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
 		.sram_we		( w_sram_we0		),		//	delay 0 clock
 		.sram_a			( w_sram_a0			),		//	delay 0 clock
-		.sram_d			( ff_sram_d			),		//	delay 0 clock
+		.sram_d			( sram_d			),		//	delay 0 clock
 		.sram_q			( w_sram_q0			)		//	delay 1 clock
 	);
 
@@ -306,7 +331,7 @@ module wts_channel_mixer #(
 		.clk			( clk				),
 		.sram_we		( w_sram_we1		),		//	delay 0 clock
 		.sram_a			( w_sram_a1			),		//	delay 0 clock
-		.sram_d			( ff_sram_d			),		//	delay 0 clock
+		.sram_d			( sram_d			),		//	delay 0 clock
 		.sram_q			( w_sram_q1			)		//	delay 1 clock
 	);
 
@@ -345,6 +370,9 @@ module wts_channel_mixer #(
 			ff_left_integ		<= 12'd0;
 			ff_right_integ		<= 12'd0;
 		end
+		else if( (sram_oe | sram_we) == 1'b1 ) begin
+			//	hold
+		end
 		else if( ff_active == 3'd3 ) begin
 			ff_left_integ		<= 12'd0;
 			ff_right_integ		<= 12'd0;
@@ -364,8 +392,8 @@ module wts_channel_mixer #(
 	//	delay 5 clock
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
-			ff_left_out			<= 12'b1000_0000_0000;
-			ff_right_out		<= 12'b1000_0000_0000;
+			ff_left_out			<= 12'd0;
+			ff_right_out		<= 12'd0;
 		end
 		else if( ff_active == 3'd3 ) begin
 			ff_left_out			<= ff_left_integ;

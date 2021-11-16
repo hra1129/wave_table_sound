@@ -59,6 +59,7 @@ module wts_core #(
 	wire			sram_q_en;
 
 	wire			adsr_en;
+	wire			reg_scci_enable;
 
 	wire	[7:0]	reg_ar0;
 	wire	[7:0]	reg_dr0;
@@ -122,6 +123,18 @@ module wts_core #(
 	wire			reg_timer2_clear;
 	wire	[7:0]	w_timer2_status;
 
+	wire			reg_wave_reset;
+	wire			clear_counter_a0;
+	wire			clear_counter_b0;
+	wire			clear_counter_c0;
+	wire			clear_counter_d0;
+	wire			clear_counter_e0;
+	wire			clear_counter_a1;
+	wire			clear_counter_b1;
+	wire			clear_counter_c1;
+	wire			clear_counter_d1;
+	wire			clear_counter_e1;
+
 	wts_channel_mixer #(
 		.add_offset				( add_offset				)
 	) u_wts_channel_mixer (
@@ -144,6 +157,7 @@ module wts_core #(
 		.sram_q_en				( sram_q_en					),
 		.active					( active					),
 		.adsr_en				( adsr_en					),
+		.reg_scci_enable		( reg_scci_enable			),
 		.left_out				( left_out					),
 		.right_out				( right_out					),
 		.reg_ar0				( reg_ar0					),
@@ -193,7 +207,18 @@ module wts_core #(
 		.timer1_address			( w_timer1_address			),
 		.reg_timer2_channel		( reg_timer2_channel		),
 		.timer2_trigger			( w_timer2_trigger			),
-		.timer2_address			( w_timer2_address			)
+		.timer2_address			( w_timer2_address			),
+		.reg_wave_reset			( reg_wave_reset			),
+		.clear_counter_a0		( clear_counter_a0			),
+		.clear_counter_b0		( clear_counter_b0			),
+		.clear_counter_c0		( clear_counter_c0			),
+		.clear_counter_d0		( clear_counter_d0			),
+		.clear_counter_e0		( clear_counter_e0			),
+		.clear_counter_a1		( clear_counter_a1			),
+		.clear_counter_b1		( clear_counter_b1			),
+		.clear_counter_c1		( clear_counter_c1			),
+		.clear_counter_d1		( clear_counter_d1			),
+		.clear_counter_e1		( clear_counter_e1			)
 	);
 
 	wts_timer u_wts_timer (
@@ -235,6 +260,7 @@ module wts_core #(
 		.sram_q					( sram_q					),
 		.sram_q_en				( sram_q_en					),
 		.adsr_en				( adsr_en					),
+		.reg_scci_enable		( reg_scci_enable			),
 		.ch0_key_on				( ch0_key_on				),
 		.ch0_key_release		( ch0_key_release			),
 		.ch0_key_off			( ch0_key_off				),
@@ -290,6 +316,17 @@ module wts_core #(
 		.reg_timer2_enable		( reg_timer2_enable			),
 		.reg_timer2_channel		( reg_timer2_channel		),
 		.reg_timer2_clear		( reg_timer2_clear			),
-		.timer2_status			( w_timer2_status			)
+		.timer2_status			( w_timer2_status			),
+		.reg_wave_reset			( reg_wave_reset			),
+		.clear_counter_a0		( clear_counter_a0			),
+		.clear_counter_b0		( clear_counter_b0			),
+		.clear_counter_c0		( clear_counter_c0			),
+		.clear_counter_d0		( clear_counter_d0			),
+		.clear_counter_e0		( clear_counter_e0			),
+		.clear_counter_a1		( clear_counter_a1			),
+		.clear_counter_b1		( clear_counter_b1			),
+		.clear_counter_c1		( clear_counter_c1			),
+		.clear_counter_d1		( clear_counter_d1			),
+		.clear_counter_e1		( clear_counter_e1			)
 	);
 endmodule

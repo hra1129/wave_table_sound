@@ -102,9 +102,9 @@ module wts_for_ocm (
 		end
 	end
 
-	wts_core u_wts_core #(
+	wts_core #(
 		.add_offset			( 0					)
-	) (
+	) u_wts_core (
 		.nreset				( ~reset			),
 		.clk				( clk21m			),
 		.wrreq				( w_wrreq			),

@@ -26,7 +26,13 @@ module scc_tone_generator_5ch (
 	input	[2:0]	active,
 	input			address_reset,
 	output	[4:0]	wave_address,
-	input	[11:0]	reg_frequency_count
+	input	[11:0]	reg_frequency_count,
+	input			reg_wave_reset,
+	input			clear_counter_a,
+	input			clear_counter_b,
+	input			clear_counter_c,
+	input			clear_counter_d,
+	input			clear_counter_e
 );
 	wire	[4:0]	w_wave_address_in;
 	wire	[4:0]	w_wave_address_out;
@@ -66,7 +72,6 @@ module scc_tone_generator_5ch (
 	);
 
 	scc_tone_generator u_tone_generator (
-		.address_reset			( address_reset				),
 		.wave_address			( wave_address				),
 		.reg_frequency_count	( reg_frequency_count		),
 		.wave_address_in		( w_wave_address_in			),
@@ -78,48 +83,85 @@ module scc_tone_generator_5ch (
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
 			ff_wave_address_a		<= 'd0;
-			ff_wave_address_b		<= 'd0;
-			ff_wave_address_c		<= 'd0;
-			ff_wave_address_d		<= 'd0;
-			ff_wave_address_e		<= 'd0;
 			ff_frequency_count_a	<= 'd0;
+		end
+		else if( clear_counter_a ) begin
+			if( reg_wave_reset ) begin
+				ff_wave_address_a		<= 'd0;
+			end
+			ff_frequency_count_a	<= 'd0;
+		end
+		else if( active == 3'd0 ) begin
+			ff_wave_address_a		<= w_wave_address_out;
+			ff_frequency_count_a	<= w_frequency_count_out;
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_address_b		<= 'd0;
 			ff_frequency_count_b	<= 'd0;
+		end
+		else if( clear_counter_b ) begin
+			if( reg_wave_reset ) begin
+				ff_wave_address_b		<= 'd0;
+			end
+			ff_frequency_count_b	<= 'd0;
+		end
+		else if( active == 3'd1 ) begin
+			ff_wave_address_b		<= w_wave_address_out;
+			ff_frequency_count_b	<= w_frequency_count_out;
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_address_c		<= 'd0;
 			ff_frequency_count_c	<= 'd0;
+		end
+		else if( clear_counter_c ) begin
+			if( reg_wave_reset ) begin
+				ff_wave_address_c		<= 'd0;
+			end
+			ff_frequency_count_c	<= 'd0;
+		end
+		else if( active == 3'd2 ) begin
+			ff_wave_address_c		<= w_wave_address_out;
+			ff_frequency_count_c	<= w_frequency_count_out;
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_address_d		<= 'd0;
 			ff_frequency_count_d	<= 'd0;
+		end
+		else if( clear_counter_d ) begin
+			if( reg_wave_reset ) begin
+				ff_wave_address_d		<= 'd0;
+			end
+			ff_frequency_count_d	<= 'd0;
+		end
+		else if( active == 3'd3 ) begin
+			ff_wave_address_d		<= w_wave_address_out;
+			ff_frequency_count_d	<= w_frequency_count_out;
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_address_e		<= 'd0;
 			ff_frequency_count_e	<= 'd0;
 		end
-		else begin
-			case( active )
-			3'd0:
-				begin
-					ff_wave_address_a		<= w_wave_address_out;
-					ff_frequency_count_a	<= w_frequency_count_out;
-				end
-			3'd1:
-				begin
-					ff_wave_address_b		<= w_wave_address_out;
-					ff_frequency_count_b	<= w_frequency_count_out;
-				end
-			3'd2:
-				begin
-					ff_wave_address_c		<= w_wave_address_out;
-					ff_frequency_count_c	<= w_frequency_count_out;
-				end
-			3'd3:
-				begin
-					ff_wave_address_d		<= w_wave_address_out;
-					ff_frequency_count_d	<= w_frequency_count_out;
-				end
-			3'd4:
-				begin
-					ff_wave_address_e		<= w_wave_address_out;
-					ff_frequency_count_e	<= w_frequency_count_out;
-				end
-			default:
-				begin
-					//	hold
-				end
-			endcase
+		else if( clear_counter_e ) begin
+			if( reg_wave_reset ) begin
+				ff_wave_address_e		<= 'd0;
+			end
+			ff_frequency_count_e	<= 'd0;
+		end
+		else if( active == 3'd4 ) begin
+			ff_wave_address_e		<= w_wave_address_out;
+			ff_frequency_count_e	<= w_frequency_count_out;
 		end
 	end
 endmodule

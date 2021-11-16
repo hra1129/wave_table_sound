@@ -1,0 +1,10 @@
+-d C:\Users\hra\Documents\github\wave_table_sound\gowin\scc\impl\gwsynthesis\wave_table_sound.vg
+-p GW1N-1-LQFP100-6
+-pn GW1N-LV1LQ100C6/I5
+-cst C:\Users\hra\Documents\github\wave_table_sound\gowin\scc\src\wave_table_sound.cst
+-cfg C:\Users\hra\Documents\github\wave_table_sound\gowin\scc\impl\pnr\device.cfg
+-sdc C:\Users\hra\Documents\github\wave_table_sound\gowin\scc\src\wave_table_sound.sdc
+-bit
+-tr
+-ph
+-timing

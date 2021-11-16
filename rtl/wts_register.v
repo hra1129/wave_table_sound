@@ -46,6 +46,7 @@ module wts_register (
 	input				sram_q_en,
 
 	output				adsr_en,
+	output reg			reg_scci_enable,
 
 	output				ch0_key_on,
 	output				ch0_key_release,
@@ -109,7 +110,19 @@ module wts_register (
 	output reg			reg_timer2_enable,
 	output reg	[3:0]	reg_timer2_channel,
 	output reg			reg_timer2_clear,
-	input		[7:0]	timer2_status
+	input		[7:0]	timer2_status,
+
+	output				reg_wave_reset,
+	output				clear_counter_a0,
+	output				clear_counter_b0,
+	output				clear_counter_c0,
+	output				clear_counter_d0,
+	output				clear_counter_e0,
+	output				clear_counter_a1,
+	output				clear_counter_b1,
+	output				clear_counter_c1,
+	output				clear_counter_d1,
+	output				clear_counter_e1
 );
 	reg		[7:0]	reg_bank0;
 	reg		[7:0]	reg_bank1;
@@ -120,7 +133,6 @@ module wts_register (
 	reg				reg_timer2_oneshot;
 
 	reg				reg_wts_enable;
-	reg				reg_scci_enable;
 	reg				reg_ram_mode0;
 	reg				reg_ram_mode1;
 	reg				reg_ram_mode2;
@@ -620,6 +632,32 @@ module wts_register (
 			endcase
 		end
 	end
+
+	// Frequency reset --------------------------------------------------------
+	assign clear_counter_a0 = (wrreq && w_scc_en  && (address[7:1]  == 7'b1000_000      )) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1]  == 7'b1010_000      )) ? 1'b1 :
+	                          (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0000_000)) ? 1'b1 : 1'b0;
+	assign clear_counter_b0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_001       )) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_001       )) ? 1'b1 :
+	                          (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0001_000)) ? 1'b1 : 1'b0;
+	assign clear_counter_c0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_010       )) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_010       )) ? 1'b1 :
+	                          (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0010_000)) ? 1'b1 : 1'b0;
+	assign clear_counter_d0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_011       )) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_011       )) ? 1'b1 :
+	                          (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0011_000)) ? 1'b1 : 1'b0;
+
+	assign clear_counter_e0 = (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0100_000)) ? 1'b1 : 1'b0;
+
+	assign clear_counter_a1 = (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0101_000)) ? 1'b1 : 1'b0;
+	assign clear_counter_b1 = (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0110_000)) ? 1'b1 : 1'b0;
+	assign clear_counter_c1 = (wrreq && w_wts_en  && (address[11:1] == 11'b1111_0111_000)) ? 1'b1 : 1'b0;
+
+	assign clear_counter_d1 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_100       )) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_100       )) ? 1'b1 :
+	                          (wrreq && w_wts_en  && (address[11:1] == 11'b1111_1000_000)) ? 1'b1 : 1'b0;
+
+	assign clear_counter_e1 = (wrreq && w_wts_en  && (address[11:1] == 11'b1111_1001_000)) ? 1'b1 : 1'b0;
 
 	// Control registers ------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin

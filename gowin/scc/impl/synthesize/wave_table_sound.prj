@@ -1,0 +1,46 @@
+# project files
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_adsr_envelope_generator.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_mixer.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_part.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_channel_volume.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_core.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_noise_generator.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_ram.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_register.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_timer.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_tone_generator.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_virtual_rom_controller.v"
+add_file -verilog "C:/Users/hra/Documents/github/wave_table_sound/rtl/wts_for_cartridge.v"
+
+# implementation: "rev_1"
+impl -add rev_1 -type fpga
+
+# device options
+set_option -technology GOWIN-GW1N
+set_option -part GW1N_4
+set_option -package LQFP100
+set_option -speed_grade -6
+
+set_option -frequency auto
+set_option -maxfan 10000
+set_option -disable_io_insertion 0
+set_option -update_models_cp 0
+set_option -rw_check_on_ram 1
+set_option -run_prop_extract 1
+set_option -symbolic_fsm_compiler 1
+set_option -resource_sharing 1
+set_option -pipe 1
+set_option -retiming 0
+set_option -write_apr_constraint 1
+set_option -vlog_std sysv
+set_option -compiler_compatible 0
+set_option -multi_file_compilation_unit 1
+set_option -looplimit 2000
+set_option -fix_gated_and_generated_clocks 1
+set_option -top_module wts_for_cartridge
+
+# set result format/file
+project -result_file "wave_table_sound.vm"
+impl -active "rev_1"
+project -run -clean
+

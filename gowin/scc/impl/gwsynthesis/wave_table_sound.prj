@@ -1,0 +1,20 @@
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>Beta</Version>
+    <Device id="GW1N-1" package="LQFP100" speed="6"/>
+    <FileList>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_mixer.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_volume.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_core.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_ram.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_register.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_for_cartridge.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v"/>
+        <File type="verilog"  path="C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator_5ch.v"/>
+    </FileList>
+    <OptionList>
+        <Option type="top_module"  value="scc_for_cartridge"/>
+        <Option type="output_file"  value="C:\Users\hra\Documents\github\wave_table_sound\gowin\scc\impl\gwsynthesis\wave_table_sound.vg"/>
+    </OptionList>
+</Project>

@@ -50,6 +50,12 @@ module scc_core #(
 	wire	[11:0]	reg_frequency_count0;
 	wire	[3:0]	reg_volume0;
 	wire			reg_enable0;
+	wire			reg_wave_reset;
+	wire			clear_counter_a;
+	wire			clear_counter_b;
+	wire			clear_counter_c;
+	wire			clear_counter_d;
+	wire			clear_counter_e;
 
 	scc_channel_mixer #(
 		.add_offset				( add_offset				)
@@ -68,7 +74,13 @@ module scc_core #(
 		.reg_scci_enable		( reg_scci_enable			),
 		.reg_frequency_count0	( reg_frequency_count0		),
 		.reg_volume0			( reg_volume0				),
-		.reg_enable0			( reg_enable0				)
+		.reg_enable0			( reg_enable0				),
+		.reg_wave_reset			( reg_wave_reset			),
+		.clear_counter_a		( clear_counter_a			),
+		.clear_counter_b		( clear_counter_b			),
+		.clear_counter_c		( clear_counter_c			),
+		.clear_counter_d		( clear_counter_d			),
+		.clear_counter_e		( clear_counter_e			)
 	);
 
 	scc_register u_scc_register (
@@ -94,6 +106,12 @@ module scc_core #(
 		.reg_scci_enable		( reg_scci_enable			),
 		.reg_frequency_count0	( reg_frequency_count0		),
 		.reg_volume0			( reg_volume0				),
-		.reg_enable0			( reg_enable0				)
+		.reg_enable0			( reg_enable0				),
+		.reg_wave_reset			( reg_wave_reset			),
+		.clear_counter_a		( clear_counter_a			),
+		.clear_counter_b		( clear_counter_b			),
+		.clear_counter_c		( clear_counter_c			),
+		.clear_counter_d		( clear_counter_d			),
+		.clear_counter_e		( clear_counter_e			)
 	);
 endmodule
