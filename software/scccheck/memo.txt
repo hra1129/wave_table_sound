@@ -1,0 +1,101 @@
+波長設定 15, 波長クロック 16
+	波形が一定になる。変化無し。
+	→ おそらく、これは特別な条件にあたっている。何度計測しても一定。
+
+波長設定 16, 波長クロック 17
+	上に凸  80.1 usec : 289clk : 17sample
+	下に凸  71.25usec : 255clk : 15sample
+
+波長設定 17, 波長クロック 18
+	上に凸  45.25usec : 162clk : 9sample
+	下に凸  35.2 usec : 126clk : 7sample
+
+波長設定 18, 波長クロック 19
+	上に凸  26.55usec :  95clk : 5sample (1)
+	下に凸  37.15usec : 133clk : 7sample (2)
+	下に凸  26.55usec :  95clk : 5sample (3)
+
+	(1)(2)(1)(2)(1)(3) を繰り返してる感じ。
+
+波長設定 19, 波長クロック 20
+	上に凸  27.95usec : 100clk : 5sample
+	下に凸  16.75usec :  60clk : 3sample
+
+波長設定 20, 波長クロック 21
+	上に凸  29.35usec : 105clk : 5sample (1)
+	上に凸  17.6 usec :  63clk : 3sample (2)
+	下に凸  17.6 usec :  63clk : 3sample (3)
+
+	(1)(3)(2)(3)(2)(3)(2)(3)(2)(3) を繰り返してる感じ。
+
+波長設定 21, 波長クロック 22
+	上に凸   6.15usec :  22clk : 1sample (1)
+	上に凸  18.45usec :  66clk : 3sample (2)
+	下に凸  18.45usec :  66clk : 3sample (3)
+
+	(1)(3)(2)(3)(2)(3) を繰り返してる感じ。
+
+波長設定 22, 波長クロック 23
+	上に凸   6.45usec :  23clk : 1sample (1)
+	上に凸  19.3 usec :  69clk : 3sample (2)
+	下に凸   6.45usec :  23clk : 1sample (3)
+	下に凸  19.3 usec :  69clk : 3sample (4)
+
+	(1)(4)(2)(3)(2)(4) を繰り返してる感じ。
+
+波長設定 23, 波長クロック 24
+	上に凸   6.7 usec :  24clk : 1sample
+	下に凸  20.15usec :  72clk : 3sample
+
+波長設定 24, 波長クロック 25
+	上に凸   7   usec :  25clk : 1sample (1)
+	上に凸  20.95usec :  75clk : 3sample (2)
+	下に凸   7   usec :  25clk : 1sample (3)
+	下に凸  20.95usec :  75clk : 3sample (4)
+
+	(1)(3)(2)(3)(2)(3)(1)(4)(1)(4) を繰り返してる感じ。
+
+波長設定 25, 波長クロック 26
+	上に凸   7.25usec :  26clk : 1sample (1)
+	上に凸  21.75usec :  78clk : 3sample (2)
+	下に凸   7.25usec :  26clk : 1sample (3)
+	下に凸  21.75usec :  78clk : 3sample (4)
+
+	(1)(3)(2)(3)(1)(3)(2)(3)(1)(4) を繰り返してる感じ。
+
+波長設定 26, 波長クロック 27
+	上に凸   7.55usec :  27clk : 1sample (1)
+	上に凸  22.6 usec :  81clk : 3sample (2)
+	下に凸   7.55usec :  27clk : 1sample (3)
+	下に凸  22.6 usec :  81clk : 3sample (4)
+
+	(1)(3)(1)(3)(2)(3)(1)(3)(2)(3)(1)(3)(2)(3)(1)(3)(1)(4)(1)(3)(1)(4)(1)(3)(1)(4) ...
+
+波長設定 27, 波長クロック 28
+	上に凸   7.8 usec :  28clk : 1sample (1)
+	上に凸  23.45usec :  84clk : 3sample (2)
+	下に凸   7.8 usec :  28clk : 1sample (3)
+	下に凸  23.45usec :  84clk : 3sample (4)
+
+波長設定 28, 波長クロック 29
+	上に凸   8.1 usec :  29clk : 1sample (1)
+	上に凸  24.3 usec :  87clk : 3sample (2)
+	下に凸   8.1 usec :  29clk : 1sample (3)
+	下に凸  24.3 usec :  87clk : 3sample (4)
+
+	このあたりから、ビット毎の破損が出始める。
+	※ビット毎の破損と思われる波長は除いている。
+
+波長設定 29, 波長クロック 30
+	上に凸   8.35usec :  30clk : 1sample (1)
+	上に凸  25.15usec :  90clk : 3sample (2)
+	下に凸   8.35usec :  30clk : 1sample (3)
+	下に凸  25.15usec :  90clk : 3sample (4)
+
+波長設定 30, 波長クロック 31
+	長い方   8.7 usec :  31clk : 1sample
+	短い方  17.3 usec :  62clk : 2sample
+
+波長設定 31, 波長クロック 32
+	一定     8.9 usec :  32clk : 1sample
+	→ 波形に乱れなし。
