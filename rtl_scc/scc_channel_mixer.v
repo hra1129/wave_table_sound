@@ -130,7 +130,8 @@ module scc_channel_mixer #(
 		.clear_counter_b			( clear_counter_b				),
 		.clear_counter_c			( clear_counter_c				),
 		.clear_counter_d			( clear_counter_d				),
-		.clear_counter_e			( clear_counter_e				)
+		.clear_counter_e			( clear_counter_e				),
+		.reg_wave_error_en			( ~reg_scci_enable				)
 	);
 
 	assign w_sram_a0	= ( sram_oe || sram_we ) ? { sram_id, sram_a } : 

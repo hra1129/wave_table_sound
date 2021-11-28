@@ -431,5 +431,5 @@ module scc_register (
 		.reg_f		( ff_reg_enable_d0		)
 	);
 	
-	assign reg_wave_reset	= ff_wave_reset;
+	assign reg_wave_reset		= ff_wave_reset;
 endmodule
