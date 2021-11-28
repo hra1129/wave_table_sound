@@ -26,13 +26,15 @@ module scc_tone_generator_5ch (
 	input	[2:0]	active,
 	input			address_reset,
 	output	[4:0]	wave_address,
+	output			wave_update,
 	input	[11:0]	reg_frequency_count,
 	input			reg_wave_reset,
 	input			clear_counter_a,
 	input			clear_counter_b,
 	input			clear_counter_c,
 	input			clear_counter_d,
-	input			clear_counter_e
+	input			clear_counter_e,
+	input			reg_wave_error_en
 );
 	wire	[4:0]	w_wave_address_in;
 	wire	[4:0]	w_wave_address_out;
@@ -48,6 +50,11 @@ module scc_tone_generator_5ch (
 	reg		[11:0]	ff_frequency_count_c;
 	reg		[11:0]	ff_frequency_count_d;
 	reg		[11:0]	ff_frequency_count_e;
+	reg		[4:0]	ff_error_count_d;
+	reg		[4:0]	ff_error_count_e;
+	wire	[4:0]	w_error_count;
+	wire			w_frequency_counter_end;
+	wire	[5:0]	w_next_error_count;
 
 	scc_selector #( 5 ) u_wave_address_selector (
 		.active					( active					),
@@ -71,14 +78,20 @@ module scc_tone_generator_5ch (
 		.reg_f					( 12'd0						)
 	);
 
-	scc_tone_generator u_tone_generator (
-		.wave_address			( wave_address				),
-		.reg_frequency_count	( reg_frequency_count		),
-		.wave_address_in		( w_wave_address_in			),
-		.wave_address_out		( w_wave_address_out		),
-		.frequency_count_in		( w_frequency_count_in		),
-		.frequency_count_out	( w_frequency_count_out		)
-	);
+	// frequency counter ------------------------------------------------------
+	assign w_frequency_counter_end	= (w_frequency_count_in == reg_frequency_count) ? 1'b1 : 1'b0;
+	assign w_frequency_count_out	= w_frequency_counter_end ? 12'd0 : (w_frequency_count_in + 12'd1);
+
+	// wave memory address ----------------------------------------------------
+	assign w_wave_address_out		= w_frequency_counter_end ? (w_wave_address_in + 5'd1) : w_wave_address_in;
+
+	// output assignment ------------------------------------------------------
+	assign wave_address				= w_wave_address_in;
+
+	// error timming generator for Ch.D and Ch.E ------------------------------
+	assign w_error_count			= (active[0] == 1'b1) ? ff_error_count_d : ff_error_count_e;
+	assign w_next_error_count		= { 1'b0, w_error_count } + { 1'b0, ~reg_frequency_count[4:0] };
+	assign wave_update				= ((active == 3'd3) || (active == 3'd4)) ? w_frequency_counter_end & (~reg_wave_error_en | ~w_next_error_count[5]) : w_frequency_counter_end;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -135,6 +148,7 @@ module scc_tone_generator_5ch (
 		if( !nreset ) begin
 			ff_wave_address_d		<= 'd0;
 			ff_frequency_count_d	<= 'd0;
+			ff_error_count_d		<= 'd0;
 		end
 		else if( clear_counter_d ) begin
 			if( reg_wave_reset ) begin
@@ -145,6 +159,7 @@ module scc_tone_generator_5ch (
 		else if( active == 3'd3 ) begin
 			ff_wave_address_d		<= w_wave_address_out;
 			ff_frequency_count_d	<= w_frequency_count_out;
+			ff_error_count_d		<= w_next_error_count[4:0];
 		end
 	end
 
@@ -152,6 +167,7 @@ module scc_tone_generator_5ch (
 		if( !nreset ) begin
 			ff_wave_address_e		<= 'd0;
 			ff_frequency_count_e	<= 'd0;
+			ff_error_count_e		<= 'd0;
 		end
 		else if( clear_counter_e ) begin
 			if( reg_wave_reset ) begin
@@ -162,6 +178,7 @@ module scc_tone_generator_5ch (
 		else if( active == 3'd4 ) begin
 			ff_wave_address_e		<= w_wave_address_out;
 			ff_frequency_count_e	<= w_frequency_count_out;
+			ff_error_count_e		<= w_next_error_count[4:0];
 		end
 	end
 endmodule

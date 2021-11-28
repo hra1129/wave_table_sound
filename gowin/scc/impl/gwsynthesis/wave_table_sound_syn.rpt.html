@@ -63,7 +63,6 @@ C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_channel_volume.v<br>
 C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_core.v<br>
 C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_ram.v<br>
 C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_register.v<br>
-C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator.v<br>
 C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_for_cartridge.v<br>
 C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_selector.v<br>
 C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator_5ch.v<br>
@@ -79,7 +78,7 @@ C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator_5ch.v<
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sun Nov 14 21:14:22 2021
+<td>Mon Nov 29 06:42:50 2021
 </td>
 </tr>
 <tr>
@@ -139,11 +138,11 @@ C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator_5ch.v<
 </tr>
 <tr>
 <td class="label"><b>REG Usage:</b></td>
-<td>273</td>
+<td>325</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFF</td>
-<td>8</td>
+<td>9</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFE</td>
@@ -155,39 +154,39 @@ C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator_5ch.v<
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFPE</td>
-<td>6</td>
+<td>5</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFC</td>
-<td>14</td>
+<td>3</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspDFFCE</td>
-<td>233</td>
+<td>296</td>
 </tr>
 <tr>
 <td class="label"><b>LUT Usage:</b></td>
-<td>382</td>
+<td>444</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspLUT2</td>
-<td>50</td>
+<td>102</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspLUT3</td>
-<td>129</td>
+<td>133</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspLUT4</td>
-<td>203</td>
+<td>209</td>
 </tr>
 <tr>
 <td class="label"><b>ALU Usage:</b></td>
-<td>41</td>
+<td>46</td>
 </tr>
 <tr>
 <td class="label">&nbsp&nbsp&nbsp&nbspALU</td>
-<td>41</td>
+<td>46</td>
 </tr>
 <tr>
 <td class="label"><b>INV Usage:</b></td>
@@ -211,13 +210,13 @@ Target Device: GW1N-1-LQFP100
 <table class="summary_table">
 <tr>
 <td class="label">CFU Logics</td>
-<td>424(383 LUTs, 41 ALUs) / 1152</td>
-<td>37%</td>
+<td>491(445 LUTs, 46 ALUs) / 1152</td>
+<td>43%</td>
 </tr>
 <tr>
 <td class="label">Registers</td>
-<td>273 / 1050</td>
-<td>26%</td>
+<td>325 / 1050</td>
+<td>31%</td>
 </tr>
 <tr>
 <td class="label">BSRAMs</td>
@@ -277,7 +276,7 @@ Target Device: GW1N-1-LQFP100
 </table>
 <b>All time values displayed in nanoseconds(ns).</b><br/><br/>
 <h2><a name="performance">Performance Summary:</a></h2>
-Worst Slack in Design:&nbsp-7.497<br/>
+Worst Slack in Design:&nbsp-8.603<br/>
 <table class="summary_table">
 <tr>
 <th>Start Clock</th>
@@ -290,11 +289,11 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td>DEFAULT_CLK</td>
-<td>-7.497</td>
+<td>-8.603</td>
 <td>100.0 MHz</td>
-<td>57.2 MHz</td>
+<td>53.8 MHz</td>
 <td>10.000</td>
-<td>17.497</td>
+<td>18.603</td>
 <td>Base</td>
 </tr>
 </table><br/>
@@ -311,11 +310,11 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">    Slack(critical):</td>
-<td>-7.497</td>
+<td>-8.603</td>
 </tr>
 <tr>
 <td class="label">Data Arrival Time:</td>
-<td>18.242</td>
+<td>19.348</td>
 </tr>
 <tr>
 <td class="label">Data Required Time:</td>
@@ -323,15 +322,15 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">Number of Logic Level:</td>
-<td>16</td>
+<td>17</td>
 </tr>
 <tr>
 <td class="label">Starting Point:</td>
-<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+<td>u_scc_core/u_scc_channel_mixer/ff_active[2]_ins4090</td>
 </tr>
 <tr>
 <td class="label">Ending Point:</td>
-<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[7]_ins3277</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[7]_ins3938</td>
 </tr>
 <tr>
 <td class="label">The Start Point Is Clocked By:</td>
@@ -353,7 +352,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <th>Fanout</th>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>I</td>
 <td>In</td>
@@ -362,7 +361,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>O</td>
 <td>Out</td>
@@ -377,10 +376,10 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 <td>0.363</td>
 <td>-</td>
-<td>274</td>
+<td>326</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>CLK</td>
 <td>In</td>
@@ -389,7 +388,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>Q</td>
 <td>Out</td>
@@ -398,17 +397,17 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1] </td>
+<td>\ff_active[2] </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>1</td>
+<td>64</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
@@ -416,8 +415,8 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>F</td>
 <td>Out</td>
 <td>1.099</td>
@@ -425,7 +424,34 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_189 </td>
+<td>n282</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>24</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>4.894</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_235 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -434,48 +460,48 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
-<td>I1</td>
+<td>I3</td>
 <td>In</td>
 <td>-</td>
-<td>3.862</td>
+<td>5.374</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
 <td>F</td>
 <td>Out</td>
-<td>1.099</td>
-<td>4.961</td>
+<td>0.626</td>
+<td>6.000</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_175 </td>
+<td>\w_channel_mul[0]_191 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>8</td>
+<td>3</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
-<td>I0</td>
+<td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>5.441</td>
+<td>6.480</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
 <td>F</td>
 <td>Out</td>
-<td>1.032</td>
-<td>6.473</td>
+<td>1.099</td>
+<td>7.579</td>
 <td>-</td>
 </tr>
 <tr>
@@ -488,21 +514,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>6.953</td>
+<td>8.059</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>1.045</td>
-<td>7.998</td>
+<td>9.104</td>
 <td>-</td>
 </tr>
 <tr>
@@ -515,21 +541,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>8.478</td>
+<td>9.584</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>8.535</td>
+<td>9.641</td>
 <td>-</td>
 </tr>
 <tr>
@@ -542,21 +568,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.015</td>
+<td>10.121</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.072</td>
+<td>10.178</td>
 <td>-</td>
 </tr>
 <tr>
@@ -569,21 +595,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.552</td>
+<td>10.658</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.609</td>
+<td>10.715</td>
 <td>-</td>
 </tr>
 <tr>
@@ -596,21 +622,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.089</td>
+<td>11.195</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>10.146</td>
+<td>11.252</td>
 <td>-</td>
 </tr>
 <tr>
@@ -623,106 +649,25 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.626</td>
+<td>11.732</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
-<td>ALU</td>
-<td>COUT</td>
-<td>Out</td>
-<td>0.057</td>
-<td>10.683</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O5_0_COUT </td>
-<td>Net</td>
-<td>-</td>
-<td>-</td>
-<td>0.480</td>
-<td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O6_ins3723 </td>
-<td>ALU</td>
-<td>CIN</td>
-<td>In</td>
-<td>-</td>
-<td>11.163</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O6_ins3723 </td>
-<td>ALU</td>
-<td>COUT</td>
-<td>Out</td>
-<td>0.057</td>
-<td>11.220</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O6_0_COUT </td>
-<td>Net</td>
-<td>-</td>
-<td>-</td>
-<td>0.480</td>
-<td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O7_ins3724 </td>
-<td>ALU</td>
-<td>CIN</td>
-<td>In</td>
-<td>-</td>
-<td>11.700</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O7_ins3724 </td>
-<td>ALU</td>
-<td>COUT</td>
-<td>Out</td>
-<td>0.057</td>
-<td>11.757</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O7_0_COUT </td>
-<td>Net</td>
-<td>-</td>
-<td>-</td>
-<td>0.480</td>
-<td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O8_ins3725 </td>
-<td>ALU</td>
-<td>CIN</td>
-<td>In</td>
-<td>-</td>
-<td>12.237</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O8_ins3725 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>12.800</td>
+<td>12.295</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O8 </td>
+<td>\w_channel_mul[0]_86_O5 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -731,21 +676,102 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>13.280</td>
+<td>12.775</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>14.238</td>
+<td>13.733</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>14.213</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>14.270</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins4524 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>14.750</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins4524 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>14.807</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_ins4525 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>15.287</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O7_ins4525 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>15.344</td>
 <td>-</td>
 </tr>
 <tr>
@@ -758,21 +784,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O8_ins3737 </td>
+<td>\w_channel_mul[0]_88_O8_ins4526 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>14.718</td>
+<td>15.824</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O8_ins3737 </td>
+<td>\w_channel_mul[0]_88_O8_ins4526 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>15.281</td>
+<td>16.387</td>
 <td>-</td>
 </tr>
 <tr>
@@ -785,21 +811,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>\w_channel_mul[0]_90_O7_ins4536 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>15.761</td>
+<td>16.867</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>\w_channel_mul[0]_90_O7_ins4536 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>16.719</td>
+<td>17.825</td>
 <td>-</td>
 </tr>
 <tr>
@@ -812,21 +838,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O8_ins3748 </td>
+<td>\w_channel_mul[0]_90_O8_ins4537 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>17.199</td>
+<td>18.305</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O8_ins3748 </td>
+<td>\w_channel_mul[0]_90_O8_ins4537 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>17.762</td>
+<td>18.868</td>
 <td>-</td>
 </tr>
 <tr>
@@ -839,18 +865,18 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\ff_channel[7]_ins3277 </td>
+<td>\ff_channel[7]_ins3938 </td>
 <td>DFF</td>
 <td>D</td>
 <td>In</td>
 <td>-</td>
-<td>18.242</td>
+<td>19.348</td>
 <td>-</td>
 </tr>
 </table><br/>
-<b>Total Path Delay: </b>18.242<br/>
-<b>Logic Delay: </b>9.719(53.3%)<br/>
-<b>Route Delay: </b>8.523(46.7%)<br/>
+<b>Total Path Delay: </b>19.348<br/>
+<b>Logic Delay: </b>10.345(53.5%)<br/>
+<b>Route Delay: </b>9.003(46.5%)<br/>
 <br/><br/>
 <b>Path information for path number&nbsp</b>2&nbsp:&nbsp<br/>
 <table class="summary_table">
@@ -864,11 +890,11 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">    Slack(non-critical):</td>
-<td>-6.960</td>
+<td>-8.066</td>
 </tr>
 <tr>
 <td class="label">Data Arrival Time:</td>
-<td>17.705</td>
+<td>18.811</td>
 </tr>
 <tr>
 <td class="label">Data Required Time:</td>
@@ -876,15 +902,15 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">Number of Logic Level:</td>
-<td>15</td>
+<td>16</td>
 </tr>
 <tr>
 <td class="label">Starting Point:</td>
-<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+<td>u_scc_core/u_scc_channel_mixer/ff_active[2]_ins4090</td>
 </tr>
 <tr>
 <td class="label">Ending Point:</td>
-<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[6]_ins3270</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[6]_ins3931</td>
 </tr>
 <tr>
 <td class="label">The Start Point Is Clocked By:</td>
@@ -906,7 +932,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <th>Fanout</th>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>I</td>
 <td>In</td>
@@ -915,7 +941,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>O</td>
 <td>Out</td>
@@ -930,10 +956,10 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 <td>0.363</td>
 <td>-</td>
-<td>274</td>
+<td>326</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>CLK</td>
 <td>In</td>
@@ -942,7 +968,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>Q</td>
 <td>Out</td>
@@ -951,17 +977,17 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1] </td>
+<td>\ff_active[2] </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>1</td>
+<td>64</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
@@ -969,8 +995,8 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>F</td>
 <td>Out</td>
 <td>1.099</td>
@@ -978,7 +1004,34 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_189 </td>
+<td>n282</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>24</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>4.894</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_235 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -987,48 +1040,48 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
-<td>I1</td>
+<td>I3</td>
 <td>In</td>
 <td>-</td>
-<td>3.862</td>
+<td>5.374</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
 <td>F</td>
 <td>Out</td>
-<td>1.099</td>
-<td>4.961</td>
+<td>0.626</td>
+<td>6.000</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_175 </td>
+<td>\w_channel_mul[0]_191 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>8</td>
+<td>3</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
-<td>I0</td>
+<td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>5.441</td>
+<td>6.480</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
 <td>F</td>
 <td>Out</td>
-<td>1.032</td>
-<td>6.473</td>
+<td>1.099</td>
+<td>7.579</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1041,21 +1094,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>6.953</td>
+<td>8.059</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>1.045</td>
-<td>7.998</td>
+<td>9.104</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1068,21 +1121,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>8.478</td>
+<td>9.584</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>8.535</td>
+<td>9.641</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1095,21 +1148,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.015</td>
+<td>10.121</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.072</td>
+<td>10.178</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1122,21 +1175,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.552</td>
+<td>10.658</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.609</td>
+<td>10.715</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1149,21 +1202,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.089</td>
+<td>11.195</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>10.146</td>
+<td>11.252</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1176,79 +1229,25 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.626</td>
+<td>11.732</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
-<td>ALU</td>
-<td>COUT</td>
-<td>Out</td>
-<td>0.057</td>
-<td>10.683</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O5_0_COUT </td>
-<td>Net</td>
-<td>-</td>
-<td>-</td>
-<td>0.480</td>
-<td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O6_ins3723 </td>
-<td>ALU</td>
-<td>CIN</td>
-<td>In</td>
-<td>-</td>
-<td>11.163</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O6_ins3723 </td>
-<td>ALU</td>
-<td>COUT</td>
-<td>Out</td>
-<td>0.057</td>
-<td>11.220</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O6_0_COUT </td>
-<td>Net</td>
-<td>-</td>
-<td>-</td>
-<td>0.480</td>
-<td>-</td>
-<td>1</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O7_ins3724 </td>
-<td>ALU</td>
-<td>CIN</td>
-<td>In</td>
-<td>-</td>
-<td>11.700</td>
-<td>-</td>
-</tr>
-<tr>
-<td>\w_channel_mul[0]_86_O7_ins3724 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>12.263</td>
+<td>12.295</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O7 </td>
+<td>\w_channel_mul[0]_86_O5 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -1257,21 +1256,75 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>12.743</td>
+<td>12.775</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>13.701</td>
+<td>13.733</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O4_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>14.213</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>14.270</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O5_0_COUT </td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>1</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins4524 </td>
+<td>ALU</td>
+<td>CIN</td>
+<td>In</td>
+<td>-</td>
+<td>14.750</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_88_O6_ins4524 </td>
+<td>ALU</td>
+<td>COUT</td>
+<td>Out</td>
+<td>0.057</td>
+<td>14.807</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1284,21 +1337,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>\w_channel_mul[0]_88_O7_ins4525 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>14.181</td>
+<td>15.287</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O7_ins3736 </td>
+<td>\w_channel_mul[0]_88_O7_ins4525 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>14.744</td>
+<td>15.850</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1311,21 +1364,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>\w_channel_mul[0]_90_O6_ins4535 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>15.224</td>
+<td>16.330</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>\w_channel_mul[0]_90_O6_ins4535 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>16.182</td>
+<td>17.288</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1338,21 +1391,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>\w_channel_mul[0]_90_O7_ins4536 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>16.662</td>
+<td>17.768</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O7_ins3747 </td>
+<td>\w_channel_mul[0]_90_O7_ins4536 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>17.225</td>
+<td>18.331</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1365,18 +1418,18 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\ff_channel[6]_ins3270 </td>
+<td>\ff_channel[6]_ins3931 </td>
 <td>DFF</td>
 <td>D</td>
 <td>In</td>
 <td>-</td>
-<td>17.705</td>
+<td>18.811</td>
 <td>-</td>
 </tr>
 </table><br/>
-<b>Total Path Delay: </b>17.705<br/>
-<b>Logic Delay: </b>9.662(54.6%)<br/>
-<b>Route Delay: </b>8.043(45.4%)<br/>
+<b>Total Path Delay: </b>18.811<br/>
+<b>Logic Delay: </b>10.288(54.7%)<br/>
+<b>Route Delay: </b>8.523(45.3%)<br/>
 <br/><br/>
 <b>Path information for path number&nbsp</b>3&nbsp:&nbsp<br/>
 <table class="summary_table">
@@ -1390,11 +1443,11 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">    Slack(non-critical):</td>
-<td>-6.423</td>
+<td>-7.529</td>
 </tr>
 <tr>
 <td class="label">Data Arrival Time:</td>
-<td>17.168</td>
+<td>18.274</td>
 </tr>
 <tr>
 <td class="label">Data Required Time:</td>
@@ -1402,15 +1455,15 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">Number of Logic Level:</td>
-<td>14</td>
+<td>15</td>
 </tr>
 <tr>
 <td class="label">Starting Point:</td>
-<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+<td>u_scc_core/u_scc_channel_mixer/ff_active[2]_ins4090</td>
 </tr>
 <tr>
 <td class="label">Ending Point:</td>
-<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[5]_ins3271</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[5]_ins3932</td>
 </tr>
 <tr>
 <td class="label">The Start Point Is Clocked By:</td>
@@ -1432,7 +1485,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <th>Fanout</th>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>I</td>
 <td>In</td>
@@ -1441,7 +1494,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>O</td>
 <td>Out</td>
@@ -1456,10 +1509,10 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 <td>0.363</td>
 <td>-</td>
-<td>274</td>
+<td>326</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>CLK</td>
 <td>In</td>
@@ -1468,7 +1521,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>Q</td>
 <td>Out</td>
@@ -1477,17 +1530,17 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1] </td>
+<td>\ff_active[2] </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>1</td>
+<td>64</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
@@ -1495,8 +1548,8 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>F</td>
 <td>Out</td>
 <td>1.099</td>
@@ -1504,7 +1557,34 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_189 </td>
+<td>n282</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>24</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>4.894</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_235 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -1513,48 +1593,48 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
-<td>I1</td>
+<td>I3</td>
 <td>In</td>
 <td>-</td>
-<td>3.862</td>
+<td>5.374</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
 <td>F</td>
 <td>Out</td>
-<td>1.099</td>
-<td>4.961</td>
+<td>0.626</td>
+<td>6.000</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_175 </td>
+<td>\w_channel_mul[0]_191 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>8</td>
+<td>3</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
-<td>I0</td>
+<td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>5.441</td>
+<td>6.480</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
 <td>F</td>
 <td>Out</td>
-<td>1.032</td>
-<td>6.473</td>
+<td>1.099</td>
+<td>7.579</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1567,21 +1647,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>6.953</td>
+<td>8.059</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>1.045</td>
-<td>7.998</td>
+<td>9.104</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1594,21 +1674,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>8.478</td>
+<td>9.584</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>8.535</td>
+<td>9.641</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1621,21 +1701,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.015</td>
+<td>10.121</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.072</td>
+<td>10.178</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1648,21 +1728,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.552</td>
+<td>10.658</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.609</td>
+<td>10.715</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1675,21 +1755,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.089</td>
+<td>11.195</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>10.146</td>
+<td>11.252</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1702,21 +1782,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.626</td>
+<td>11.732</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>10.683</td>
+<td>11.789</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1729,21 +1809,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>\w_channel_mul[0]_86_O6_ins4512 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>11.163</td>
+<td>12.269</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O6_ins3723 </td>
+<td>\w_channel_mul[0]_86_O6_ins4512 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>11.726</td>
+<td>12.832</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1756,21 +1836,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>12.206</td>
+<td>13.312</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>13.164</td>
+<td>14.270</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1783,21 +1863,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>\w_channel_mul[0]_88_O6_ins4524 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>13.644</td>
+<td>14.750</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O6_ins3735 </td>
+<td>\w_channel_mul[0]_88_O6_ins4524 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>14.207</td>
+<td>15.313</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1810,21 +1890,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>\w_channel_mul[0]_90_O5_ins4534 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>14.687</td>
+<td>15.793</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>\w_channel_mul[0]_90_O5_ins4534 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>15.645</td>
+<td>16.751</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1837,21 +1917,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>\w_channel_mul[0]_90_O6_ins4535 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>16.125</td>
+<td>17.231</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O6_ins3746 </td>
+<td>\w_channel_mul[0]_90_O6_ins4535 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>16.688</td>
+<td>17.794</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1864,18 +1944,18 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\ff_channel[5]_ins3271 </td>
+<td>\ff_channel[5]_ins3932 </td>
 <td>DFF</td>
 <td>D</td>
 <td>In</td>
 <td>-</td>
-<td>17.168</td>
+<td>18.274</td>
 <td>-</td>
 </tr>
 </table><br/>
-<b>Total Path Delay: </b>17.168<br/>
-<b>Logic Delay: </b>9.605(55.9%)<br/>
-<b>Route Delay: </b>7.563(44.1%)<br/>
+<b>Total Path Delay: </b>18.274<br/>
+<b>Logic Delay: </b>10.231(56.0%)<br/>
+<b>Route Delay: </b>8.043(44.0%)<br/>
 <br/><br/>
 <b>Path information for path number&nbsp</b>4&nbsp:&nbsp<br/>
 <table class="summary_table">
@@ -1889,11 +1969,11 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">    Slack(non-critical):</td>
-<td>-5.886</td>
+<td>-6.992</td>
 </tr>
 <tr>
 <td class="label">Data Arrival Time:</td>
-<td>16.631</td>
+<td>17.737</td>
 </tr>
 <tr>
 <td class="label">Data Required Time:</td>
@@ -1901,15 +1981,15 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">Number of Logic Level:</td>
-<td>13</td>
+<td>14</td>
 </tr>
 <tr>
 <td class="label">Starting Point:</td>
-<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+<td>u_scc_core/u_scc_channel_mixer/ff_active[2]_ins4090</td>
 </tr>
 <tr>
 <td class="label">Ending Point:</td>
-<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[4]_ins3272</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[4]_ins3933</td>
 </tr>
 <tr>
 <td class="label">The Start Point Is Clocked By:</td>
@@ -1931,7 +2011,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <th>Fanout</th>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>I</td>
 <td>In</td>
@@ -1940,7 +2020,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>O</td>
 <td>Out</td>
@@ -1955,10 +2035,10 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 <td>0.363</td>
 <td>-</td>
-<td>274</td>
+<td>326</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>CLK</td>
 <td>In</td>
@@ -1967,7 +2047,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>Q</td>
 <td>Out</td>
@@ -1976,17 +2056,17 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1] </td>
+<td>\ff_active[2] </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>1</td>
+<td>64</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
@@ -1994,8 +2074,8 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>F</td>
 <td>Out</td>
 <td>1.099</td>
@@ -2003,7 +2083,34 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_189 </td>
+<td>n282</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>24</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>4.894</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_235 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -2012,48 +2119,48 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
-<td>I1</td>
+<td>I3</td>
 <td>In</td>
 <td>-</td>
-<td>3.862</td>
+<td>5.374</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
 <td>F</td>
 <td>Out</td>
-<td>1.099</td>
-<td>4.961</td>
+<td>0.626</td>
+<td>6.000</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_175 </td>
+<td>\w_channel_mul[0]_191 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>8</td>
+<td>3</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
-<td>I0</td>
+<td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>5.441</td>
+<td>6.480</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
 <td>F</td>
 <td>Out</td>
-<td>1.032</td>
-<td>6.473</td>
+<td>1.099</td>
+<td>7.579</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2066,21 +2173,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>6.953</td>
+<td>8.059</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>1.045</td>
-<td>7.998</td>
+<td>9.104</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2093,21 +2200,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>8.478</td>
+<td>9.584</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>8.535</td>
+<td>9.641</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2120,21 +2227,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.015</td>
+<td>10.121</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.072</td>
+<td>10.178</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2147,21 +2254,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.552</td>
+<td>10.658</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.609</td>
+<td>10.715</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2174,21 +2281,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.089</td>
+<td>11.195</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>10.146</td>
+<td>11.252</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2201,21 +2308,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.626</td>
+<td>11.732</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O5_ins3722 </td>
+<td>\w_channel_mul[0]_86_O5_ins4511 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>11.189</td>
+<td>12.295</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2228,21 +2335,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>11.669</td>
+<td>12.775</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>12.627</td>
+<td>13.733</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2255,21 +2362,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>13.107</td>
+<td>14.213</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O5_ins3734 </td>
+<td>\w_channel_mul[0]_88_O5_ins4523 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>13.670</td>
+<td>14.776</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2282,21 +2389,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>\w_channel_mul[0]_90_O4_ins4533 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>14.150</td>
+<td>15.256</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>\w_channel_mul[0]_90_O4_ins4533 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>15.108</td>
+<td>16.214</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2309,21 +2416,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>\w_channel_mul[0]_90_O5_ins4534 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>15.588</td>
+<td>16.694</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O5_ins3745 </td>
+<td>\w_channel_mul[0]_90_O5_ins4534 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>16.151</td>
+<td>17.257</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2336,18 +2443,18 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\ff_channel[4]_ins3272 </td>
+<td>\ff_channel[4]_ins3933 </td>
 <td>DFF</td>
 <td>D</td>
 <td>In</td>
 <td>-</td>
-<td>16.631</td>
+<td>17.737</td>
 <td>-</td>
 </tr>
 </table><br/>
-<b>Total Path Delay: </b>16.631<br/>
-<b>Logic Delay: </b>9.548(57.4%)<br/>
-<b>Route Delay: </b>7.083(42.6%)<br/>
+<b>Total Path Delay: </b>17.737<br/>
+<b>Logic Delay: </b>10.174(57.4%)<br/>
+<b>Route Delay: </b>7.563(42.6%)<br/>
 <br/><br/>
 <b>Path information for path number&nbsp</b>5&nbsp:&nbsp<br/>
 <table class="summary_table">
@@ -2361,11 +2468,11 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">    Slack(non-critical):</td>
-<td>-5.349</td>
+<td>-6.455</td>
 </tr>
 <tr>
 <td class="label">Data Arrival Time:</td>
-<td>16.094</td>
+<td>17.200</td>
 </tr>
 <tr>
 <td class="label">Data Required Time:</td>
@@ -2373,15 +2480,15 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label">Number of Logic Level:</td>
-<td>12</td>
+<td>13</td>
 </tr>
 <tr>
 <td class="label">Starting Point:</td>
-<td>u_scc_core/u_scc_register/ff_reg_volume_c0[1]_ins3369</td>
+<td>u_scc_core/u_scc_channel_mixer/ff_active[2]_ins4090</td>
 </tr>
 <tr>
 <td class="label">Ending Point:</td>
-<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[3]_ins3273</td>
+<td>u_scc_core/u_scc_channel_mixer/u_channel_volume0/ff_channel[3]_ins3934</td>
 </tr>
 <tr>
 <td class="label">The Start Point Is Clocked By:</td>
@@ -2403,7 +2510,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <th>Fanout</th>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>I</td>
 <td>In</td>
@@ -2412,7 +2519,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>clk_ins2560</td>
+<td>clk_ins3015</td>
 <td>IBUF</td>
 <td>O</td>
 <td>Out</td>
@@ -2427,10 +2534,10 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 <td>0.363</td>
 <td>-</td>
-<td>274</td>
+<td>326</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>CLK</td>
 <td>In</td>
@@ -2439,7 +2546,7 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1]_ins3369 </td>
+<td>\ff_active[2]_ins4090 </td>
 <td>DFFCE</td>
 <td>Q</td>
 <td>Out</td>
@@ -2448,17 +2555,17 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\ff_reg_volume_c0[1] </td>
+<td>\ff_active[2] </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>1</td>
+<td>64</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
@@ -2466,8 +2573,8 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4416 </td>
-<td>LUT4</td>
+<td>n282_ins4924</td>
+<td>LUT3</td>
 <td>F</td>
 <td>Out</td>
 <td>1.099</td>
@@ -2475,7 +2582,34 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_189 </td>
+<td>n282</td>
+<td>Net</td>
+<td>-</td>
+<td>-</td>
+<td>0.480</td>
+<td>-</td>
+<td>24</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>I0</td>
+<td>In</td>
+<td>-</td>
+<td>3.862</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_ins5310 </td>
+<td>LUT4</td>
+<td>F</td>
+<td>Out</td>
+<td>1.032</td>
+<td>4.894</td>
+<td>-</td>
+</tr>
+<tr>
+<td>\w_channel_mul[0]_235 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
@@ -2484,48 +2618,48 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
-<td>I1</td>
+<td>I3</td>
 <td>In</td>
 <td>-</td>
-<td>3.862</td>
+<td>5.374</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4369 </td>
+<td>\w_channel_mul[0]_ins5251 </td>
 <td>LUT4</td>
 <td>F</td>
 <td>Out</td>
-<td>1.099</td>
-<td>4.961</td>
+<td>0.626</td>
+<td>6.000</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_175 </td>
+<td>\w_channel_mul[0]_191 </td>
 <td>Net</td>
 <td>-</td>
 <td>-</td>
 <td>0.480</td>
 <td>-</td>
-<td>8</td>
+<td>3</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
-<td>I0</td>
+<td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>5.441</td>
+<td>6.480</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_ins4211 </td>
+<td>\w_channel_mul[0]_ins5055 </td>
 <td>LUT2</td>
 <td>F</td>
 <td>Out</td>
-<td>1.032</td>
-<td>6.473</td>
+<td>1.099</td>
+<td>7.579</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2538,21 +2672,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>I1</td>
 <td>In</td>
 <td>-</td>
-<td>6.953</td>
+<td>8.059</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O0_ins3717 </td>
+<td>\w_channel_mul[0]_86_O0_ins4506 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>1.045</td>
-<td>7.998</td>
+<td>9.104</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2565,21 +2699,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>8.478</td>
+<td>9.584</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O1_ins3718 </td>
+<td>\w_channel_mul[0]_86_O1_ins4507 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>8.535</td>
+<td>9.641</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2592,21 +2726,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.015</td>
+<td>10.121</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O2_ins3719 </td>
+<td>\w_channel_mul[0]_86_O2_ins4508 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.072</td>
+<td>10.178</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2619,21 +2753,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>9.552</td>
+<td>10.658</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O3_ins3720 </td>
+<td>\w_channel_mul[0]_86_O3_ins4509 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.057</td>
-<td>9.609</td>
+<td>10.715</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2646,21 +2780,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>10.089</td>
+<td>11.195</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_86_O4_ins3721 </td>
+<td>\w_channel_mul[0]_86_O4_ins4510 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>10.652</td>
+<td>11.758</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2673,21 +2807,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O3_ins3732 </td>
+<td>\w_channel_mul[0]_88_O3_ins4521 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>11.132</td>
+<td>12.238</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O3_ins3732 </td>
+<td>\w_channel_mul[0]_88_O3_ins4521 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>12.090</td>
+<td>13.196</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2700,21 +2834,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>12.570</td>
+<td>13.676</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_88_O4_ins3733 </td>
+<td>\w_channel_mul[0]_88_O4_ins4522 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>13.133</td>
+<td>14.239</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2727,21 +2861,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O3_ins3743 </td>
+<td>\w_channel_mul[0]_90_O3_ins4532 </td>
 <td>ALU</td>
 <td>I0</td>
 <td>In</td>
 <td>-</td>
-<td>13.613</td>
+<td>14.719</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O3_ins3743 </td>
+<td>\w_channel_mul[0]_90_O3_ins4532 </td>
 <td>ALU</td>
 <td>COUT</td>
 <td>Out</td>
 <td>0.958</td>
-<td>14.571</td>
+<td>15.677</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2754,21 +2888,21 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>\w_channel_mul[0]_90_O4_ins4533 </td>
 <td>ALU</td>
 <td>CIN</td>
 <td>In</td>
 <td>-</td>
-<td>15.051</td>
+<td>16.157</td>
 <td>-</td>
 </tr>
 <tr>
-<td>\w_channel_mul[0]_90_O4_ins3744 </td>
+<td>\w_channel_mul[0]_90_O4_ins4533 </td>
 <td>ALU</td>
 <td>SUM</td>
 <td>Out</td>
 <td>0.563</td>
-<td>15.614</td>
+<td>16.720</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2781,18 +2915,18 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <td>1</td>
 </tr>
 <tr>
-<td>\ff_channel[3]_ins3273 </td>
+<td>\ff_channel[3]_ins3934 </td>
 <td>DFF</td>
 <td>D</td>
 <td>In</td>
 <td>-</td>
-<td>16.094</td>
+<td>17.200</td>
 <td>-</td>
 </tr>
 </table><br/>
-<b>Total Path Delay: </b>16.094<br/>
-<b>Logic Delay: </b>9.491(59.0%)<br/>
-<b>Route Delay: </b>6.603(41.0%)<br/>
+<b>Total Path Delay: </b>17.200<br/>
+<b>Logic Delay: </b>10.117(58.8%)<br/>
+<b>Route Delay: </b>7.083(41.2%)<br/>
 <br/><br/>
 <h1><a name="message">Message</a></h1>
 <big>Info    (EXT0100) : Run analyzation & elaboration</big><br/>
@@ -2801,20 +2935,20 @@ Worst Slack in Design:&nbsp-7.497<br/>
 <big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_core.v'</big><br/>
 <big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_ram.v'</big><br/>
 <big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_register.v'</big><br/>
-<big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator.v'</big><br/>
 <big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_for_cartridge.v'</big><br/>
 <big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v'</big><br/>
 <big>Warning (EXT1818) : Initial value of parameter 'bits' is omitted(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:24)</big><br/>
 <big>Info    (EXT1482) : Analyzing Verilog file 'C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator_5ch.v'</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_for_cartridge'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_for_cartridge.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_core'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_core.v:23)</big><br/>
+<big>Warning (EXT1927) : Port 'reg_wave_error_en' remains unconnected for this instance(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_mixer.v:134)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_channel_mixer'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_mixer.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_tone_generator_5ch'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator_5ch.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_selector(bits=5)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_selector(bits=12)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
-<big>Info    (EXT1018) : Compiling module 'scc_tone_generator'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_tone_generator.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_ram'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_ram.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_channel_volume'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_volume.v:23)</big><br/>
+<big>Warning (EXT3053) : Input port 'reg_wave_error_en' remains unconnected for this instance(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_channel_mixer.v:134)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_register'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_register.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_selector(bits=4)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
 <big>Info    (EXT1018) : Compiling module 'scc_selector(bits=1)'(C:\Users\hra\Documents\github\wave_table_sound\rtl_scc\scc_selector.v:23)</big><br/>
@@ -2841,17 +2975,17 @@ Worst Slack in Design:&nbsp-7.497<br/>
 </tr>
 <tr>
 <td class="label"><b>Total Warnings:</b></td> 
-<td>1</td>
+<td>3</td>
 </tr>
 <tr>
 <td class="label"><b>Total Informations:</b></td> 
-<td>36</td>
+<td>34</td>
 </tr>
 </table><br/>
 <b>Synthesis completed successfully!</b><br/>
-Process took 0h:0m:3s realtime, 0h:0m:2s cputime
+Process took 0h:0m:3s realtime, 0h:0m:3s cputime
 <br/>
-Memory peak: 138.4MB
+Memory peak: 88.5MB
 </div><!-- content -->
 </div><!-- main_wrapper -->
 </body>

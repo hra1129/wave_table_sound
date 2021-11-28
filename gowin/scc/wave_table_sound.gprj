@@ -5,16 +5,15 @@
     <Version>5</Version>
     <Device>gw1n1-010</Device>
     <FileList>
-        <File path="../../rtl_scc/scc_channel_mixer.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_channel_volume.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_core.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_ram.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_register.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_tone_generator.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_for_cartridge.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_channel_mixer.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_channel_volume.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_core.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_ram.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_register.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_for_cartridge.v" type="file.verilog" enable="1"/>
         <File path="src/wave_table_sound.sdc" type="file.sdc" enable="1"/>
         <File path="src/wave_table_sound.cst" type="file.cst" enable="1"/>
-        <File path="../../rtl_scc/scc_selector.v" type="file.verilog" enable="1"/>
-        <File path="../../rtl_scc/scc_tone_generator_5ch.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_selector.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/hra/Documents/github/wave_table_sound/rtl_scc/scc_tone_generator_5ch.v" type="file.verilog" enable="1"/>
     </FileList>
 </Project>

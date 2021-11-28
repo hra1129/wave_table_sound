@@ -64,6 +64,14 @@ module scc_channel_mixer #(
 	wire	[4:0]	w_wave_address0;
 	wire			w_sram_we0;
 	wire			w_address_reset0;
+	wire			w_wave_update0;
+	reg				ff_wave_update0;
+	reg		[7:0]	ff_wave_a0;
+	reg		[7:0]	ff_wave_b0;
+	reg		[7:0]	ff_wave_c0;
+	reg		[7:0]	ff_wave_d0;
+	reg		[7:0]	ff_wave_e0;
+	wire	[7:0]	w_wave_q0;
 
 	// ------------------------------------------------------------------------
 	//	CPU SRAM ACCESS INTERFACE
@@ -115,6 +123,7 @@ module scc_channel_mixer #(
 		.active						( ff_active						),
 		.address_reset				( 1'b0							),
 		.wave_address				( w_wave_address0				),
+		.wave_update				( w_wave_update0				),
 		.reg_frequency_count		( reg_frequency_count0			),
 		.reg_wave_reset				( reg_wave_reset				),
 		.clear_counter_a			( clear_counter_a				),
@@ -128,6 +137,32 @@ module scc_channel_mixer #(
 		(( ff_active[2] && (reg_scci_enable == 1'b0)) ? { 3'b011, w_wave_address0 } : { ff_active, w_wave_address0 });
 	assign w_sram_we0	= ( sram_oe || sram_we ) ? sram_we : 1'b0;
 
+	always @( posedge clk ) begin
+		ff_wave_update0 <= w_wave_update0;
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_a0	<= 8'd0;
+			ff_wave_b0	<= 8'd0;
+			ff_wave_c0	<= 8'd0;
+			ff_wave_d0	<= 8'd0;
+			ff_wave_e0	<= 8'd0;
+		end
+		else if( ff_wave_update0 ) begin
+			case( ff_active )
+			3'd1:	ff_wave_a0	<= w_sram_q0;
+			3'd2:	ff_wave_b0	<= w_sram_q0;
+			3'd3:	ff_wave_c0	<= w_sram_q0;
+			3'd4:	ff_wave_d0	<= w_sram_q0;
+			3'd5:	ff_wave_e0	<= w_sram_q0;
+			endcase
+		end
+		else begin
+			//	hold
+		end
+	end
+
 	scc_ram u_ram00 (
 		.clk			( clk				),
 		.sram_we		( w_sram_we0		),		//	delay 0 clock
@@ -136,9 +171,15 @@ module scc_channel_mixer #(
 		.sram_q			( w_sram_q0			)		//	delay 1 clock
 	);
 
+	assign w_wave_q0	= (ff_active == 3'd1) ? ff_wave_a0 :
+						  (ff_active == 3'd2) ? ff_wave_b0 :
+						  (ff_active == 3'd3) ? ff_wave_c0 :
+						  (ff_active == 3'd4) ? ff_wave_d0 :
+						  (ff_active == 3'd5) ? ff_wave_e0 : 8'd0;
+
 	scc_channel_volume u_channel_volume0 (
 		.clk			( clk				),
-		.sram_q			( w_sram_q0			),		//	delay 1 clock
+		.sram_q			( w_wave_q0			),		//	delay 1 clock
 		.channel		( w_channel0		),		//	delay 2 clock
 		.reg_volume		( reg_volume0		)		//	delay 1 clock
 	);

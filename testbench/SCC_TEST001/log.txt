@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 22:25:48 on Nov 16,2021
+# Start time: 06:41:33 on Nov 29,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.scc_for_cartridge
@@ -7,10 +7,12 @@
 # Loading work.scc_channel_mixer
 # Loading work.scc_tone_generator_5ch
 # Loading work.scc_selector
-# Loading work.scc_tone_generator
 # Loading work.scc_ram
 # Loading work.scc_channel_volume
 # Loading work.scc_register
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'u_tone_generator_5ch_0'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_scc_for_cartridge/u_scc_core/u_scc_channel_mixer/u_tone_generator_5ch_0 File: ../../rtl_scc/scc_channel_mixer.v Line: 120
+# ** Warning: (vsim-3722) ../../rtl_scc/scc_channel_mixer.v(120): [TFMPC] - Missing connection for port 'reg_wave_error_en'.
 # do run.do
 # ------------------------------------------------------------
 # [             4632720]   1: TEST001
@@ -21,5 +23,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : ../testbench.sv(41)
 #    Time: 56292249 ps  Iteration: 1  Instance: /tb
-# End time: 22:25:49 on Nov 16,2021, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
+# End time: 06:41:33 on Nov 29,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
