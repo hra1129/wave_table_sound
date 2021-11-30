@@ -79,7 +79,7 @@ module scc_tone_generator_5ch (
 	);
 
 	// frequency counter ------------------------------------------------------
-	assign w_frequency_counter_end	= (w_frequency_count_in == reg_frequency_count) ? 1'b1 : 1'b0;
+	assign w_frequency_counter_end	= ((w_frequency_count_in == reg_frequency_count) && (reg_frequency_count > 12'd8))? 1'b1 : 1'b0;
 	assign w_frequency_count_out	= w_frequency_counter_end ? 12'd0 : (w_frequency_count_in + 12'd1);
 
 	// wave memory address ----------------------------------------------------
@@ -90,7 +90,8 @@ module scc_tone_generator_5ch (
 
 	// error timming generator for Ch.D and Ch.E ------------------------------
 	assign w_error_count			= (active[0] == 1'b1) ? ff_error_count_d : ff_error_count_e;
-	assign w_next_error_count		= { 1'b0, w_error_count } + { 1'b0, ~reg_frequency_count[4:0] };
+	assign w_next_error_count		= (reg_frequency_count[11:5] == 7'd0) ? ({ 1'b0, w_error_count } + { 1'b0, ~reg_frequency_count[4:0] }) :
+									  (reg_frequency_count[0] == 1'b0)    ? ({ 1'b0, w_error_count } + { 1'b0, 5'd16 }) : 6'd0;
 	assign wave_update				= ((active == 3'd3) || (active == 3'd4)) ? w_frequency_counter_end & (~reg_wave_error_en | ~w_next_error_count[5]) : w_frequency_counter_end;
 
 	always @( negedge nreset or posedge clk ) begin
