@@ -1,10 +1,10 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 10:52:58 on Oct 29,2021
+# Start time: 06:58:32 on Dec 02,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_noise_generator
 # ** Error (suppressible): (vsim-3389) Port 'enable' not found in the connected module (4th connection).
 #    Time: 0 ps  Iteration: 0  Instance: /tb/u_wts_noise_generator File: tb.sv Line: 34
 # Error loading design
-# End time: 10:52:59 on Oct 29,2021, Elapsed time: 0:00:01
+# End time: 06:58:33 on Dec 02,2021, Elapsed time: 0:00:01
 # Errors: 1, Warnings: 0

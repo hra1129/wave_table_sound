@@ -140,31 +140,31 @@ module wts_adsr_envelope_generator_5ch (
 		end
 		else begin
 			case( active )
-			3'd0:
+			3'd1:
 				begin
 					ff_state_a		<= w_state_out;
 					ff_counter_a	<= w_counter_out;
 					ff_level_a		<= w_level_out;
 				end
-			3'd1:
+			3'd2:
 				begin
 					ff_state_b		<= w_state_out;
 					ff_counter_b	<= w_counter_out;
 					ff_level_b		<= w_level_out;
 				end
-			3'd2:
+			3'd3:
 				begin
 					ff_state_c		<= w_state_out;
 					ff_counter_c	<= w_counter_out;
 					ff_level_c		<= w_level_out;
 				end
-			3'd3:
+			3'd4:
 				begin
 					ff_state_d		<= w_state_out;
 					ff_counter_d	<= w_counter_out;
 					ff_level_d		<= w_level_out;
 				end
-			3'd4:
+			3'd5:
 				begin
 					ff_state_e		<= w_state_out;
 					ff_counter_e	<= w_counter_out;
