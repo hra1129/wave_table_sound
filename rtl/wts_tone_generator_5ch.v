@@ -96,8 +96,14 @@ module wts_tone_generator_5ch (
 			ff_frequency_count_a	<= 'd0;
 		end
 		else if( active == 3'd0 ) begin
-			ff_wave_address_a		<= w_wave_address_out;
-			ff_frequency_count_a	<= w_frequency_count_out;
+			if( address_reset ) begin
+				ff_wave_address_a		<= 'd0;
+				ff_frequency_count_a	<= 'd0;
+			end
+			else begin
+				ff_wave_address_a		<= w_wave_address_out;
+				ff_frequency_count_a	<= w_frequency_count_out;
+			end
 		end
 	end
 
@@ -113,8 +119,14 @@ module wts_tone_generator_5ch (
 			ff_frequency_count_b	<= 'd0;
 		end
 		else if( active == 3'd1 ) begin
-			ff_wave_address_b		<= w_wave_address_out;
-			ff_frequency_count_b	<= w_frequency_count_out;
+			if( address_reset ) begin
+				ff_wave_address_b		<= 'd0;
+				ff_frequency_count_b	<= 'd0;
+			end
+			else begin
+				ff_wave_address_b		<= w_wave_address_out;
+				ff_frequency_count_b	<= w_frequency_count_out;
+			end
 		end
 	end
 
@@ -130,8 +142,14 @@ module wts_tone_generator_5ch (
 			ff_frequency_count_c	<= 'd0;
 		end
 		else if( active == 3'd2 ) begin
-			ff_wave_address_c		<= w_wave_address_out;
-			ff_frequency_count_c	<= w_frequency_count_out;
+			if( address_reset ) begin
+				ff_wave_address_c		<= 'd0;
+				ff_frequency_count_c	<= 'd0;
+			end
+			else begin
+				ff_wave_address_c		<= w_wave_address_out;
+				ff_frequency_count_c	<= w_frequency_count_out;
+			end
 		end
 	end
 
@@ -147,8 +165,14 @@ module wts_tone_generator_5ch (
 			ff_frequency_count_d	<= 'd0;
 		end
 		else if( active == 3'd3 ) begin
-			ff_wave_address_d		<= w_wave_address_out;
-			ff_frequency_count_d	<= w_frequency_count_out;
+			if( address_reset ) begin
+				ff_wave_address_d		<= 'd0;
+				ff_frequency_count_d	<= 'd0;
+			end
+			else begin
+				ff_wave_address_d		<= w_wave_address_out;
+				ff_frequency_count_d	<= w_frequency_count_out;
+			end
 		end
 	end
 
@@ -164,8 +188,14 @@ module wts_tone_generator_5ch (
 			ff_frequency_count_e	<= 'd0;
 		end
 		else if( active == 3'd4 ) begin
-			ff_wave_address_e		<= w_wave_address_out;
-			ff_frequency_count_e	<= w_frequency_count_out;
+			if( address_reset ) begin
+				ff_wave_address_e		<= 'd0;
+				ff_frequency_count_e	<= 'd0;
+			end
+			else begin
+				ff_wave_address_e		<= w_wave_address_out;
+				ff_frequency_count_e	<= w_frequency_count_out;
+			end
 		end
 	end
 endmodule

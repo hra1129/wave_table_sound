@@ -7,16 +7,14 @@ module tb;
 	reg				address_reset;
 	wire	[6:0]	wave_address;
 	wire			half_timing;
-	reg		[1:0]	reg_wave_length_a;
-	reg		[1:0]	reg_wave_length_b;
-	reg		[1:0]	reg_wave_length_c;
-	reg		[1:0]	reg_wave_length_d;
-	reg		[1:0]	reg_wave_length_e;
-	reg		[11:0]	reg_frequency_count_a;
-	reg		[11:0]	reg_frequency_count_b;
-	reg		[11:0]	reg_frequency_count_c;
-	reg		[11:0]	reg_frequency_count_d;
-	reg		[11:0]	reg_frequency_count_e;
+	reg		[1:0]	reg_wave_length;
+	reg		[11:0]	reg_frequency_count;
+	reg				reg_wave_reset;
+	reg				clear_counter_a;
+	reg				clear_counter_b;
+	reg				clear_counter_c;
+	reg				clear_counter_d;
+	reg				clear_counter_e;
 
 	int				pattern_no = 0;
 	int				error_count = 0;
@@ -39,16 +37,14 @@ module tb;
 		.address_reset				( address_reset				),
 		.wave_address				( wave_address				),
 		.half_timing				( half_timing				),
-		.reg_wave_length_a			( reg_wave_length_a			),
-		.reg_wave_length_b			( reg_wave_length_b			),
-		.reg_wave_length_c			( reg_wave_length_c			),
-		.reg_wave_length_d			( reg_wave_length_d			),
-		.reg_wave_length_e			( reg_wave_length_e			),
-		.reg_frequency_count_a		( reg_frequency_count_a		),
-		.reg_frequency_count_b		( reg_frequency_count_b		),
-		.reg_frequency_count_c		( reg_frequency_count_c		),
-		.reg_frequency_count_d		( reg_frequency_count_d		),
-		.reg_frequency_count_e		( reg_frequency_count_e		)
+		.reg_wave_length			( reg_wave_length			),
+		.reg_frequency_count		( reg_frequency_count		),
+		.reg_wave_reset				( reg_wave_reset			),
+		.clear_counter_a			( clear_counter_a			),
+		.clear_counter_b			( clear_counter_b			),
+		.clear_counter_c			( clear_counter_c			),
+		.clear_counter_d			( clear_counter_d			),
+		.clear_counter_e			( clear_counter_e			)
 	);
 
 	// -------------------------------------------------------------
@@ -101,16 +97,14 @@ module tb;
 		nreset						= 0;
 		active						= 0;
 		address_reset				= 0;
-		reg_wave_length_a			= 0;
-		reg_wave_length_b			= 0;
-		reg_wave_length_c			= 0;
-		reg_wave_length_d			= 0;
-		reg_wave_length_e			= 0;
-		reg_frequency_count_a		= 0;
-		reg_frequency_count_b		= 0;
-		reg_frequency_count_c		= 0;
-		reg_frequency_count_d		= 0;
-		reg_frequency_count_e		= 0;
+		reg_wave_length				= 0;
+		reg_frequency_count			= 0;
+		reg_wave_reset				= 0;
+		clear_counter_a				= 0;
+		clear_counter_b				= 0;
+		clear_counter_c				= 0;
+		clear_counter_d				= 0;
+		clear_counter_e				= 0;
 		repeat( 50 ) @( negedge clk );
 
 		nreset				= 1;
@@ -118,7 +112,7 @@ module tb;
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 1, "The address increments every cycle." );
-		reg_frequency_count_a = 0;
+		reg_frequency_count = 0;
 		last_wave_address = 0;
 		@( posedge clk );
 		address_reset <= 1;
@@ -133,7 +127,7 @@ module tb;
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 2, "The address is incremented once every two cycles." );
-		reg_frequency_count_a = 1;
+		reg_frequency_count = 1;
 		last_wave_address = 0;
 		@( posedge clk );
 		address_reset <= 1;
@@ -152,7 +146,7 @@ module tb;
 
 		// -------------------------------------------------------------
 		set_test_pattern_no( 3, "The address is incremented once every three cycles." );
-		reg_frequency_count_a = 2;
+		reg_frequency_count = 2;
 		last_wave_address = 0;
 		@( posedge clk );
 		address_reset <= 1;

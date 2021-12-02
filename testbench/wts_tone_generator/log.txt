@@ -1,30 +1,23 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 06:58:46 on Dec 02,2021
+# Start time: 21:25:42 on Dec 02,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.wts_tone_generator_5ch
 # Loading work.wts_selector
 # Loading work.wts_tone_generator
-# ** Error (suppressible): (vsim-3389) Port 'reg_wave_length_a' not found in the connected module (7th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_wave_length_b' not found in the connected module (8th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_wave_length_c' not found in the connected module (9th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_wave_length_d' not found in the connected module (10th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_wave_length_e' not found in the connected module (11th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_frequency_count_a' not found in the connected module (12th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_frequency_count_b' not found in the connected module (13th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_frequency_count_c' not found in the connected module (14th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_frequency_count_d' not found in the connected module (15th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# ** Error (suppressible): (vsim-3389) Port 'reg_frequency_count_e' not found in the connected module (16th connection).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/u_tone_generator_5ch File: tb.sv Line: 35
-# Error loading design
-# End time: 06:58:46 on Dec 02,2021, Elapsed time: 0:00:00
-# Errors: 10, Warnings: 0
+# do run.do
+# ------------------------------------------------------------
+# [             4632720]   1: The address increments every cycle.
+# ------------------------------------------------------------
+# [             5657040]   2: The address is incremented once every two cycles.
+# ------------------------------------------------------------
+# [             7612560]   3: The address is incremented once every three cycles.
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# $                                   $
+# $        Success of all!!           $
+# $                                   $
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# ** Note: $finish    : tb.sv(87)
+#    Time: 12827280 ps  Iteration: 1  Instance: /tb
+# End time: 21:25:43 on Dec 02,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
