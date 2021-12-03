@@ -24,7 +24,6 @@ module scc_tone_generator_5ch (
 	input			nreset,					//	negative logic
 	input			clk,
 	input	[2:0]	active,
-	input			address_reset,
 	output	[4:0]	wave_address,
 	output			wave_update,
 	input	[11:0]	reg_frequency_count,

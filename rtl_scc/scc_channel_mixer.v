@@ -43,11 +43,11 @@ module scc_channel_mixer #(
 	input	[3:0]	reg_volume0,
 	input			reg_enable0,
 	input			reg_wave_reset,
-	input			clear_counter_a,
-	input			clear_counter_b,
-	input			clear_counter_c,
-	input			clear_counter_d,
-	input			clear_counter_e
+	input			clear_counter_a0,
+	input			clear_counter_b0,
+	input			clear_counter_c0,
+	input			clear_counter_d0,
+	input			clear_counter_e0
 );
 
 	reg		[2:0]	ff_active;
@@ -121,16 +121,15 @@ module scc_channel_mixer #(
 		.nreset						( nreset						),
 		.clk						( clk							),
 		.active						( ff_active						),
-		.address_reset				( 1'b0							),
 		.wave_address				( w_wave_address0				),
 		.wave_update				( w_wave_update0				),
 		.reg_frequency_count		( reg_frequency_count0			),
 		.reg_wave_reset				( reg_wave_reset				),
-		.clear_counter_a			( clear_counter_a				),
-		.clear_counter_b			( clear_counter_b				),
-		.clear_counter_c			( clear_counter_c				),
-		.clear_counter_d			( clear_counter_d				),
-		.clear_counter_e			( clear_counter_e				),
+		.clear_counter_a			( clear_counter_a0				),
+		.clear_counter_b			( clear_counter_b0				),
+		.clear_counter_c			( clear_counter_c0				),
+		.clear_counter_d			( clear_counter_d0				),
+		.clear_counter_e			( clear_counter_e0				),
 		.reg_wave_error_en			( ~reg_scci_enable				)
 	);
 

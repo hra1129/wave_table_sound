@@ -48,11 +48,11 @@ module scc_register (
 	output		[3:0]	reg_volume0,
 	output				reg_enable0,
 	output				reg_wave_reset,
-	output				clear_counter_a,
-	output				clear_counter_b,
-	output				clear_counter_c,
-	output				clear_counter_d,
-	output				clear_counter_e
+	output				clear_counter_a0,
+	output				clear_counter_b0,
+	output				clear_counter_c0,
+	output				clear_counter_d0,
+	output				clear_counter_e0
 );
 	reg		[7:0]	reg_bank0;
 	reg		[7:0]	reg_bank1;
@@ -277,16 +277,16 @@ module scc_register (
 	end
 
 	// Frequency reset --------------------------------------------------------
-	assign clear_counter_a = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_000)) ? 1'b1 :
-	                         (wrreq && w_scci_en && (address[7:1] == 7'b1010_000)) ? 1'b1 : 1'b0;
-	assign clear_counter_b = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_001)) ? 1'b1 :
-	                         (wrreq && w_scci_en && (address[7:1] == 7'b1010_001)) ? 1'b1 : 1'b0;
-	assign clear_counter_c = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_010)) ? 1'b1 :
-	                         (wrreq && w_scci_en && (address[7:1] == 7'b1010_010)) ? 1'b1 : 1'b0;
-	assign clear_counter_d = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_011)) ? 1'b1 :
-	                         (wrreq && w_scci_en && (address[7:1] == 7'b1010_011)) ? 1'b1 : 1'b0;
-	assign clear_counter_e = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_100)) ? 1'b1 :
-	                         (wrreq && w_scci_en && (address[7:1] == 7'b1010_100)) ? 1'b1 : 1'b0;
+	assign clear_counter_a0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_000)) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_000)) ? 1'b1 : 1'b0;
+	assign clear_counter_b0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_001)) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_001)) ? 1'b1 : 1'b0;
+	assign clear_counter_c0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_010)) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_010)) ? 1'b1 : 1'b0;
+	assign clear_counter_d0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_011)) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_011)) ? 1'b1 : 1'b0;
+	assign clear_counter_e0 = (wrreq && w_scc_en  && (address[7:1] == 7'b1000_100)) ? 1'b1 :
+	                          (wrreq && w_scci_en && (address[7:1] == 7'b1010_100)) ? 1'b1 : 1'b0;
 
 	// Control registers ------------------------------------------------------
 	always @( negedge nreset or posedge clk ) begin

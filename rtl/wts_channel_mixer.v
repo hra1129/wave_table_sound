@@ -151,6 +151,22 @@ module wts_channel_mixer #(
 	wire			w_half_timing1;
 	wire			w_address_reset0;
 	wire			w_address_reset1;
+	wire			w_wave_update0;
+	wire			w_wave_update1;
+	reg				ff_wave_update0;
+	reg				ff_wave_update1;
+	reg		[7:0]	ff_wave_a0;
+	reg		[7:0]	ff_wave_b0;
+	reg		[7:0]	ff_wave_c0;
+	reg		[7:0]	ff_wave_d0;
+	reg		[7:0]	ff_wave_e0;
+	reg		[7:0]	ff_wave_a1;
+	reg		[7:0]	ff_wave_b1;
+	reg		[7:0]	ff_wave_c1;
+	reg		[7:0]	ff_wave_d1;
+	reg		[7:0]	ff_wave_e1;
+	wire	[7:0]	w_wave_q0;
+	wire	[7:0]	w_wave_q1;
 
 	// ------------------------------------------------------------------------
 	//	TIMER1
@@ -283,6 +299,7 @@ module wts_channel_mixer #(
 		.active						( ff_active						),
 		.address_reset				( w_address_reset0				),
 		.wave_address				( w_wave_address0				),
+		.wave_update				( w_wave_update0				),
 		.half_timing				( w_half_timing0				),
 		.reg_wave_length			( reg_wave_length0				),
 		.reg_frequency_count		( reg_frequency_count0			),
@@ -291,7 +308,8 @@ module wts_channel_mixer #(
 		.clear_counter_b			( clear_counter_b0				),
 		.clear_counter_c			( clear_counter_c0				),
 		.clear_counter_d			( clear_counter_d0				),
-		.clear_counter_e			( clear_counter_e0				)
+		.clear_counter_e			( clear_counter_e0				),
+		.reg_wave_error_en			( ~reg_scci_enable				)
 	);
 
 	wts_tone_generator_5ch u_tone_generator_5ch_1 (
@@ -299,6 +317,7 @@ module wts_channel_mixer #(
 		.clk						( clk							),
 		.active						( ff_active						),
 		.address_reset				( w_address_reset1				),
+		.wave_update				( w_wave_update1				),
 		.wave_address				( w_wave_address1				),
 		.half_timing				( w_half_timing1				),
 		.reg_wave_length			( reg_wave_length1				),
@@ -308,7 +327,8 @@ module wts_channel_mixer #(
 		.clear_counter_b			( clear_counter_b1				),
 		.clear_counter_c			( clear_counter_c1				),
 		.clear_counter_d			( clear_counter_d1				),
-		.clear_counter_e			( clear_counter_e1				)
+		.clear_counter_e			( clear_counter_e1				),
+		.reg_wave_error_en			( ~reg_scci_enable				)
 	);
 
 	assign w_sram_a0	= ( sram_oe || sram_we ) ? { sram_id, sram_a } :
@@ -318,6 +338,55 @@ module wts_channel_mixer #(
 
 	assign w_sram_we0	= ( sram_oe || sram_we ) ? (sram_ce0 & sram_we) : 1'b0;
 	assign w_sram_we1	= ( sram_oe || sram_we ) ? (sram_ce1 & sram_we) : 1'b0;
+
+	always @( posedge clk ) begin
+		ff_wave_update0 <= w_wave_update0;
+		ff_wave_update1 <= w_wave_update1;
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_a0	<= 8'd0;
+			ff_wave_b0	<= 8'd0;
+			ff_wave_c0	<= 8'd0;
+			ff_wave_d0	<= 8'd0;
+			ff_wave_e0	<= 8'd0;
+		end
+		else if( ff_wave_update0 ) begin
+			case( ff_active )
+			3'd1:	ff_wave_a0	<= w_sram_q0;
+			3'd2:	ff_wave_b0	<= w_sram_q0;
+			3'd3:	ff_wave_c0	<= w_sram_q0;
+			3'd4:	ff_wave_d0	<= w_sram_q0;
+			3'd5:	ff_wave_e0	<= w_sram_q0;
+			endcase
+		end
+		else begin
+			//	hold
+		end
+	end
+
+	always @( negedge nreset or posedge clk ) begin
+		if( !nreset ) begin
+			ff_wave_a1	<= 8'd0;
+			ff_wave_b1	<= 8'd0;
+			ff_wave_c1	<= 8'd0;
+			ff_wave_d1	<= 8'd0;
+			ff_wave_e1	<= 8'd0;
+		end
+		else if( ff_wave_update1 ) begin
+			case( ff_active )
+			3'd1:	ff_wave_a1	<= w_sram_q1;
+			3'd2:	ff_wave_b1	<= w_sram_q1;
+			3'd3:	ff_wave_c1	<= w_sram_q1;
+			3'd4:	ff_wave_d1	<= w_sram_q1;
+			3'd5:	ff_wave_e1	<= w_sram_q1;
+			endcase
+		end
+		else begin
+			//	hold
+		end
+	end
 
 	wts_ram u_ram00 (
 		.clk			( clk				),
@@ -335,12 +404,24 @@ module wts_channel_mixer #(
 		.sram_q			( w_sram_q1			)		//	delay 1 clock
 	);
 
+	assign w_wave_q0	= (ff_active == 3'd1) ? ff_wave_a0 :
+						  (ff_active == 3'd2) ? ff_wave_b0 :
+						  (ff_active == 3'd3) ? ff_wave_c0 :
+						  (ff_active == 3'd4) ? ff_wave_d0 :
+						  (ff_active == 3'd5) ? ff_wave_e0 : 8'd0;
+
+	assign w_wave_q1	= (ff_active == 3'd1) ? ff_wave_a1 :
+						  (ff_active == 3'd2) ? ff_wave_b1 :
+						  (ff_active == 3'd3) ? ff_wave_c1 :
+						  (ff_active == 3'd4) ? ff_wave_d1 :
+						  (ff_active == 3'd5) ? ff_wave_e1 : 8'd0;
+
 	wts_channel_volume u_channel_volume0 (
 		.nreset			( nreset			),
 		.clk			( clk				),
 		.envelope		( w_envelope0		),		//	delay 1 clock
 		.noise			( w_noise0			),		//	delay 1 clock
-		.sram_q			( w_sram_q0			),		//	delay 1 clock
+		.sram_q			( w_wave_q0			),		//	delay 1 clock
 		.channel		( w_channel0		),		//	delay 4 clock
 		.reg_volume		( reg_volume0		)		//	delay 3 clock
 	);
@@ -350,7 +431,7 @@ module wts_channel_mixer #(
 		.clk			( clk				),
 		.envelope		( w_envelope1		),		//	delay 1 clock
 		.noise			( w_noise1			),		//	delay 1 clock
-		.sram_q			( w_sram_q1			),		//	delay 1 clock
+		.sram_q			( w_wave_q1			),		//	delay 1 clock
 		.channel		( w_channel1		),		//	delay 4 clock
 		.reg_volume		( reg_volume1		)		//	delay 3 clock
 	);

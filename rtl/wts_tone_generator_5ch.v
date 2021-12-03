@@ -26,6 +26,7 @@ module wts_tone_generator_5ch (
 	input	[2:0]	active,
 	input			address_reset,
 	output	[6:0]	wave_address,
+	output			wave_update,
 	output			half_timing,
 	input	[1:0]	reg_wave_length,
 	input	[11:0]	reg_frequency_count,
@@ -34,7 +35,8 @@ module wts_tone_generator_5ch (
 	input			clear_counter_b,
 	input			clear_counter_c,
 	input			clear_counter_d,
-	input			clear_counter_e
+	input			clear_counter_e,
+	input			reg_wave_error_en
 );
 	wire	[6:0]	w_wave_address_in;
 	wire	[6:0]	w_wave_address_out;
@@ -50,6 +52,12 @@ module wts_tone_generator_5ch (
 	reg		[11:0]	ff_frequency_count_c;
 	reg		[11:0]	ff_frequency_count_d;
 	reg		[11:0]	ff_frequency_count_e;
+	reg		[4:0]	ff_error_count_d;
+	reg		[4:0]	ff_error_count_e;
+	wire	[4:0]	w_error_count;
+	wire			w_frequency_counter_end;
+	wire	[5:0]	w_next_error_count;
+	wire	[1:0]	w_address_mask;
 
 	wts_selector #( 7 ) u_wave_address_selector (
 		.active					( active					),
@@ -73,16 +81,27 @@ module wts_tone_generator_5ch (
 		.reg_f					( 12'd0						)
 	);
 
-	wts_tone_generator u_tone_generator (
-		.half_timing			( half_timing				),
-		.wave_address			( wave_address				),
-		.reg_wave_length		( reg_wave_length			),
-		.reg_frequency_count	( reg_frequency_count		),
-		.wave_address_in		( w_wave_address_in			),
-		.wave_address_out		( w_wave_address_out		),
-		.frequency_count_in		( w_frequency_count_in		),
-		.frequency_count_out	( w_frequency_count_out		)
-	);
+	// frequency counter ------------------------------------------------------
+	assign w_frequency_counter_end	= ((w_frequency_count_in == reg_frequency_count) && (reg_frequency_count > 12'd8))? 1'b1 : 1'b0;
+	assign w_frequency_count_out	= w_frequency_counter_end ? 12'd0 : (w_frequency_count_in + 12'd1);
+
+	// wave memory address ----------------------------------------------------
+	assign w_wave_address_out		= w_frequency_counter_end ? (w_wave_address_in + 7'd1) : w_wave_address_in;
+
+	assign w_address_mask			= ( reg_wave_length == 2'b00 ) ? 2'b00 : 
+									  ( reg_wave_length == 2'b01 ) ? { 1'b0, w_wave_address_in[5] } : w_wave_address_in[6:5];
+
+	// output assignment ------------------------------------------------------
+	assign wave_address				= { w_address_mask, w_wave_address_in[4:0] };
+	assign half_timing				= ( (reg_wave_length == 2'b00) && w_wave_address_in[3:0] == 4'b1111    ) ? w_frequency_counter_end : 
+									  ( (reg_wave_length == 2'b01) && w_wave_address_in[4:0] == 5'b11111   ) ? w_frequency_counter_end : 
+									  ( (reg_wave_length == 2'b10) && w_wave_address_in[5:0] == 6'b111111  ) ? w_frequency_counter_end : 1'b0;
+
+	// error timming generator for Ch.D and Ch.E ------------------------------
+	assign w_error_count			= (active[0] == 1'b1) ? ff_error_count_d : ff_error_count_e;
+	assign w_next_error_count		= (reg_frequency_count[11:5] == 7'd0) ? ({ 1'b0, w_error_count } + { 1'b0, ~reg_frequency_count[4:0] }) :
+									  (reg_frequency_count[0] == 1'b0)    ? ({ 1'b0, w_error_count } + { 1'b0, 5'd16 }) : 6'd0;
+	assign wave_update				= ((active == 3'd3) || (active == 3'd4)) ? w_frequency_counter_end & (~reg_wave_error_en | ~w_next_error_count[5]) : w_frequency_counter_end;
 
 	always @( negedge nreset or posedge clk ) begin
 		if( !nreset ) begin
@@ -157,6 +176,7 @@ module wts_tone_generator_5ch (
 		if( !nreset ) begin
 			ff_wave_address_d		<= 'd0;
 			ff_frequency_count_d	<= 'd0;
+			ff_error_count_d		<= 'd0;
 		end
 		else if( clear_counter_d ) begin
 			if( reg_wave_reset ) begin
@@ -168,10 +188,12 @@ module wts_tone_generator_5ch (
 			if( address_reset ) begin
 				ff_wave_address_d		<= 'd0;
 				ff_frequency_count_d	<= 'd0;
+				ff_error_count_d		<= 'd0;
 			end
 			else begin
 				ff_wave_address_d		<= w_wave_address_out;
 				ff_frequency_count_d	<= w_frequency_count_out;
+				ff_error_count_d		<= w_next_error_count[4:0];
 			end
 		end
 	end
@@ -180,6 +202,7 @@ module wts_tone_generator_5ch (
 		if( !nreset ) begin
 			ff_wave_address_e		<= 'd0;
 			ff_frequency_count_e	<= 'd0;
+			ff_error_count_e		<= 'd0;
 		end
 		else if( clear_counter_e ) begin
 			if( reg_wave_reset ) begin
@@ -191,10 +214,12 @@ module wts_tone_generator_5ch (
 			if( address_reset ) begin
 				ff_wave_address_e		<= 'd0;
 				ff_frequency_count_e	<= 'd0;
+				ff_error_count_e		<= 'd0;
 			end
 			else begin
 				ff_wave_address_e		<= w_wave_address_out;
 				ff_frequency_count_e	<= w_frequency_count_out;
+				ff_error_count_e		<= w_next_error_count[4:0];
 			end
 		end
 	end

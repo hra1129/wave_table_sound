@@ -1,5 +1,5 @@
 # vsim -c -t 1ps -do "run.do" tb 
-# Start time: 06:48:56 on Nov 29,2021
+# Start time: 06:29:46 on Dec 04,2021
 # Loading sv_std.std
 # Loading work.tb
 # Loading work.scc_for_cartridge
@@ -20,5 +20,5 @@
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # ** Note: $finish    : ../testbench.sv(41)
 #    Time: 56292249 ps  Iteration: 1  Instance: /tb
-# End time: 06:48:56 on Nov 29,2021, Elapsed time: 0:00:00
+# End time: 06:29:47 on Dec 04,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
